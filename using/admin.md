@@ -10,6 +10,24 @@ title: Admin stuffs
     </div>
 	</div>
   <div class="container">
-    <h1 class="arvo">Coming soon...</h1>
+		<section id="Exporting a repository" class="article">
+			<h2 class="arvo">Exporting a repository</h2>
+
+			<p>
+			As stated by the name, this feature allows you to simply export to a JSON file a part or a whole Microcks repository. By repository we mean, all your mrico-services definitions, their operations and request / response samples. Import jobs or tests are not exportable. Exporting and then re-importing repository allows you for example, to quickly set-up a new environment with potentially different response times settings (see below) for dedicated usage such as performance validation or user-acceptance tests.
+			</p>
+		</section>
+
+		<section id="Importing a repository" class="article">
+			<h2 class="arvo">Importing a repository</h2>
+		</section>
+
+		<section id="Configuring delays" class="article">
+			<h2 class="arvo">Configuring response times</h2>
+		</section>
+
+		<section id="Monitoring mocks activity" class="article">
+			<h2 class="arvo">Monitoring mocks activity</h2>
+		</section>
   </div>
 </div>
