@@ -14,7 +14,7 @@ title: Admin stuffs
 			<h2 class="arvo">Exporting a repository</h2>
 
 			<p>
-			As stated by the name, this feature allows you to simply export to a JSON file a part or a whole Microcks repository. By repository we mean, all your mrico-services definitions, their operations and request / response samples. Import jobs or tests are not exportable. Exporting and then re-importing repository allows you for example, to quickly set-up a new environment with potentially different response times settings (see below) for dedicated usage such as performance validation or user-acceptance tests.
+			As stated by the name, this feature allows you to simply export to a JSON file a part or a whole Microcks repository. By repository we mean, all your micro-services definitions, their operations and request / response samples. Import jobs or tests are not exportable. Exporting and then re-importing repository allows you for example, to quickly set-up a new environment with potentially different response times settings (see below) for dedicated usage such as performance validation or user-acceptance tests.
 			</p>
 		</section>
 
