@@ -6,7 +6,7 @@ title: Admin stuffs
 <div class="content">
 	<div class="jumbotron clearfix">
 		<div class="container">
-       <h2 class="page-title arvo">Admin stuffs</h2>
+       <h1 class="page-title arvo">Admin stuffs</h1>
     </div>
 	</div>
   <div class="container">
@@ -14,12 +14,28 @@ title: Admin stuffs
 			<h2 class="arvo">Exporting a repository</h2>
 
 			<p>
-			As stated by the name, this feature allows you to simply export to a JSON file a part or a whole Microcks repository. By repository we mean, all your micro-services definitions, their operations and request / response samples. Import jobs or tests are not exportable. Exporting and then re-importing repository allows you for example, to quickly set-up a new environment with potentially different response times settings (see below) for dedicated usage such as performance validation or user-acceptance tests.
+			As stated by the name, this feature allows you to simply export to a JSON file a part or a whole Microcks repository. By repository we mean, all your Micro-services definitions, their operations and request / response samples. Import jobs or tests are not exportable. Exporting and then re-importing repository allows you for example, to quickly set-up a new environment with potentially different response times settings (see below) for dedicated usage such as performance validation or user-acceptance tests.
+			</p>
+
+			<p>
+			The export feature is reachable using the `Administration > Export repository` entry into the top menu bar has shown below. It needs no specific privileges.
+			</p>
+
+			<p>
+			The list of your Micro-services / version pairs is then displayed and you just need to select the target services before hitting the `Export`button.
+			</p>
+
+			<p>
+			Export is then created and made available as a `microcks-repository.json` file being downloaded. This file is ready to be imported into another Microcks instance.
 			</p>
 		</section>
 
 		<section id="Importing a repository" class="article">
 			<h2 class="arvo">Importing a repository</h2>
+
+			<p>
+
+			</p>
 		</section>
 
 		<section id="Configuring delays" class="article">
