@@ -11,14 +11,14 @@ title: SoapUI usage for Microcks
 	</div>
   <div class="container">
     <section id="" class="article">
-			<h2 class="arvo">Overview</class>
+			<h2 class="arvo">Overview</h2>
 
 			<p>
 			<h3 class="arvo">Pre-requisites</h3>
 			</p>
 
 			<p>
-			<h3 class="arvo">Steps for creating a repository for a Microservice</h3>
+			<h3 class="arvo">Steps for creating a repository</h3>
 			</p>
 
 			<p>
@@ -46,11 +46,11 @@ title: SoapUI usage for Microcks
 			<h2 class="arvo">Defining dispatch rules</h2>
 
 			<p>
-			<h3 class="arvo">Using XPath expression</p>
+			<h3 class="arvo">Using XPath expression</h3>
 			</p>
 
 			<p>
-			<h3 class="arvo">Using a Groovy script</p>
+			<h3 class="arvo">Using a Groovy script</h3>
 			</p>
 		</section>
 
