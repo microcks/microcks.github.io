@@ -97,7 +97,7 @@ title: Integrating Microcks using API
 			<h3 class="arvo">Model</h3>
 
 			<p>
-<pre></code>{
+<pre><code>{
   "id":"5919d9014cedfd0001a5b61c",
   "testNumber":1,
   "testDate":1494866177868,
@@ -131,6 +131,35 @@ title: Integrating Microcks using API
 }
 </code></pre>
 			</p>
+
+			<h3 class="arvo">Endpoint</h3>
+
+	    Base : <code>http://host:port/api/tests</code>
+
+	    <table class="table table-striped table-hover">
+	      <thead>
+					<tr>
+		        <th>Verb</th>
+		        <th>URL</th>
+		        <th>Params</th>
+		        <th>Description</th>
+		      </tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>POST</code></td>
+						<td><code>/tests</code></td>
+						<td><code>serviceId</code>: the unique id of Service to test, <code>testEndpoint<code>: the endpoint where Service to test has been deployed, <code>runnerType<code>: the type of test to run againts endpoint</td>
+						<td>Create and launch a new test just with these 3 parameters. Uncomplete Test entity is returned with created <code>id</code>. Test is actually run asynchronously so you should call the <code>GET</code> method later to get test results</td>
+					</tr>
+		      <tr>
+		        <td><code>GET</code></td>
+		        <td><code>/tests/{id}</code></td>
+		        <td><code>id</code>: Unique identifier of this test</td>
+		        <td>Get the details of the test: the full model shown above</td>
+		      </tr>
+				</tbody>
+	    </table>
 	  </section>
   </div>
 </div>
