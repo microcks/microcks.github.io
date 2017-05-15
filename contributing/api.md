@@ -10,11 +10,11 @@ title: Integrating Microcks using API
     </div>
 	</div>
   <div class="container">
-  <section id="" class="article">
-    <h2 class="arvo">Services API</h2>
+	  <section id="" class="article">
+	    <h2 class="arvo">Services API</h2>
 
-    <p>
-    <h3 class="arvo">Model</h3>
+	    <p>
+	    <h3 class="arvo">Model</h3>
 
 <pre><code>{
   "service": {
@@ -65,34 +65,72 @@ title: Integrating Microcks using API
   }
 }
 </code></pre>
-    </p>
+	    </p>
 
-    <h3 class="arvo">Endpoint</h3>
+	    <h3 class="arvo">Endpoint</h3>
 
-    Base : <code>http://host:port/api/services</code>
+	    Base : <code>http://host:port/api/services</code>
 
-    <table class="table table-striped table-hover">
-      <thead>
-				<tr>
-	        <th>Verb</th>
-	        <th>URL</th>
-	        <th>Params</th>
-	        <th>Description</th>
-	      </tr>
-			</thead>
-			<tbody>
-	      <tr>
-	        <td><code>GET</code></td>
-	        <td><code>/services/{id}</code></td>
-	        <td><code>id</code>: Unique identifier of this service</td>
-	        <td>Get the details of the service: the full model shown above</td>
-	      </tr>
-			</tbody>
-    </table>
-  </section>
+	    <table class="table table-striped table-hover">
+	      <thead>
+					<tr>
+		        <th>Verb</th>
+		        <th>URL</th>
+		        <th>Params</th>
+		        <th>Description</th>
+		      </tr>
+				</thead>
+				<tbody>
+		      <tr>
+		        <td><code>GET</code></td>
+		        <td><code>/services/{id}</code></td>
+		        <td><code>id</code>: Unique identifier of this service</td>
+		        <td>Get the details of the service: the full model shown above</td>
+		      </tr>
+				</tbody>
+	    </table>
+	  </section>
 
-    <section id="" class="article">
-      <h2 class="arvo">Tests API</h2>
-    </section>
+	  <section id="" class="article">
+	    <h2 class="arvo">Tests API</h2>
+
+			<h3 class="arvo">Model</h3>
+
+			<p>
+<pre></code>{
+  "id":"5919d9014cedfd0001a5b61c",
+  "testNumber":1,
+  "testDate":1494866177868,
+  "testedEndpoint":"http://10.130.6.226:8088/mockHelloService",
+  "serviceId":"591463bed6018000012d1272",
+  "elapsedTime":19,
+  "success":true,
+  "inProgress":false,
+  "runnerType":"HTTP",
+  "testCaseResults":[
+    {
+      "success":true,
+      "elapsedTime":19,
+      "operationName":"sayHello",
+      "testStepResults":[
+        {
+          "success":true,
+          "elapsedTime":16,
+          "requestName":"Karla Request",
+          "message":"200"
+        },
+        {
+          "success":true,
+          "elapsedTime":3,
+          "requestName":"Andrew Request",
+          "message":"200"
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+			</p>
+	  </section>
   </div>
 </div>
