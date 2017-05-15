@@ -149,7 +149,7 @@ title: Integrating Microcks using API
 					<tr>
 						<td><code>POST</code></td>
 						<td><code>/tests</code></td>
-						<td><code>serviceId</code>: the unique id of Service to test, <code>testEndpoint<code>: the endpoint where Service to test has been deployed, <code>runnerType<code>: the type of test to run againts endpoint</td>
+						<td><code>serviceId</code>: the unique id of Service to test, <code>testEndpoint</code>: the endpoint where Service to test has been deployed, <code>runnerType</code>: the type of test to run againts endpoint</td>
 						<td>Create and launch a new test just with these 3 parameters. Uncomplete Test entity is returned with created <code>id</code>. Test is actually run asynchronously so you should call the <code>GET</code> method later to get test results</td>
 					</tr>
 		      <tr>
