@@ -67,7 +67,6 @@ title: Integrating Microcks using API
 </code></pre>
     </p>
 
-    <p>
     <h3 class="arvo">Endpoint</h3>
 
     Base : <code>http://host:port/api/services</code>
@@ -84,13 +83,12 @@ title: Integrating Microcks using API
 			<tbody>
 	      <tr>
 	        <td><code>GET</code></td>
-	        <td><code>/services/{id}</td>
+	        <td><code>/services/{id}</code></td>
 	        <td><code>id</code>: Unique identifier of this service</td>
 	        <td>Get the details of the service: the full model shown above</td>
 	      </tr>
 			</tbody>
     </table>
-    </p>
   </section>
 
     <section id="" class="article">
