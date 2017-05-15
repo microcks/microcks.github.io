@@ -47,7 +47,7 @@ title: SoapUI usage for Microcks
 		<section id="project-intialisation" class="article">
 			<h2 class="arvo">Project initialisation</h2>
 			<p>
-				Project initialisation is as simple as creating a new <i>Empty Project</i> in SoapUI. The Tests Request you will need to define later will be defined through a <i>SoapUI TestSuite</i> ; the Mock Responses you will need to define later will be defined through a <i>SoapUI ServiceMock</i. So when using a "contract first" approach for Services - approach that is required for SOAP WebServices in SoapUI - it is a better choice to directly create those items through the wizard when choosing the <i>Add WSDL</i> or <i>Add WADL</i> actions once project has been created.
+				Project initialization is as simple as creating a new <i>Empty Project</i> in SoapUI. The Tests Request you will need to define later will be defined through a <i>SoapUI TestSuite</i> ; the Mock Responses you will need to define later will be defined through a <i>SoapUI ServiceMock</i>. So when using a "contract first" approach for Services - approach that is required for SOAP WebServices in SoapUI - it is a better choice to directly create those items through the wizard when choosing the <i>Add WSDL</i> or <i>Add WADL</i> actions once project has been created.
 			</p>
 			<p>
 				The screenshot below shows how to add a WSDL to an existing empty project :
