@@ -52,16 +52,24 @@ title: SoapUI usage for Microcks
 			<p>
 				The screenshot below shows how to add a WSDL to an existing empty project :
 			</p>
-			<img src="../assets/images/soapui-add-wsdl.png" class="img-responsive"/>
+			<img src="../../assets/images/soapui-add-wsdl.png" class="img-responsive"/>
 
 		</section>
 
 		<section id="defining-tests" class="article">
 			<h2 class="arvo">Defining Test Requests</h2>
+			<p>
+
+			</p>
+			<img src="../../assets/images/soapui-create-testsuite.png" class="img-responsive"/>
 		</section>
 
 		<section id="defining-mocks" class="article">
 			<h2 class="arvo">Defining Mock Responses</h2>
+			<p>
+
+			</p>
+			<img src="../../assets/images/soapui-create-servicemock.png" class="img-responsive"/>
 		</section>
 
 		<section id="defining-dispatch-rules" class="article">
