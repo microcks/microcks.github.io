@@ -76,7 +76,7 @@ title: Getting started
 
 			<h3 class="arvo">Loading samples</h3>
 			<p>
-				We provide for new different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI. The third one is a definition file built using Postman. Using the <b>Jobs</b> entry point from home screen or top navigation bar, use the Job management page to add 3 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:
+				We provide different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. Using the <b>Jobs</b> entry point from home screen or top navigation bar, use the Job management page to add 3 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:
 				<ul>
 					<li>Hello SOAP Service : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml</code></li>
 					<li>Hello REST API : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml</code></li>
