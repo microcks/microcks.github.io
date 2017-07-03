@@ -38,7 +38,7 @@ title: Getting started
 				<br/>
 				Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line.<br/><br/>
 				<code>oc new-project microcks --display-name="Microcks"</code><br/>
-				<code>oc new-app --template=microcks-persistent-template</code><br/>
+				<code>oc new-app --template=microcks-persistent</code><br/>
 
 				<br/>
 				After some minutes and components have been deployed, you should end up with a Spring-boot Pod and a MongoDB Pod like in the screenshot below.<br/>
