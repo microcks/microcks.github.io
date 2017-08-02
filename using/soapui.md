@@ -34,7 +34,7 @@ title: SoapUI usage for Microcks
 			<p>
 				In order to be correctly imported and understood by Microcks, your SoapUI project should follow a little set of reasonable conventions and best practices.
 				<ul>
-					<li>Your SoapUI project may contain one or more Service definitions. However, because it's a best practive to consider each Service or API as an autonomous and isolated software asset, we'd recommend managing only one Service definition per SoapUI project,</li>
+					<li>Your SoapUI project may contain one or more Service definitions. However, because it's a best practice to consider each Service or API as an autonomous and isolated software asset, we'd recommend managing only one Service definition per SoapUI project,</li>
 					<li>Your SoapUI project should define a custom property named <code>version</code> that allows tracking of Service(s) version. It is a good practice to change this version identifier for each Service or API interface versionned changes,</li>
 					<li>The name of Tests Requests should be something like <code>"&lt;sample_id&gt; Request"</code>. For example: <code>"Karla Request"</code>,</li>
 					<li>The name of Mock Responses should be something like <code>"&lt;sample_id&gt; Response"</code>. For example: <code>"Karla Response"</code>,</li>
