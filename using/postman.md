@@ -82,13 +82,14 @@ title: Postman usage for Microcks
 			</p>
 			<p>
 				As an illustration to how Microcks use Postman and offers, let's imagine we are still using the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> we mentionned aboved. There's an <code>Operation</code> allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned <code>order</code> has the <code>id</code> we specified into URI. We will write a test script that way:
-			<p>
+			</p>
 			<img src="../../assets/images/postman-script.png" class="img-responsive, center-block" style="max-width: 70%"/>
 			<p>
 				You will notice the usage of following JavaScript code: <code>var expectedId = globals["id"];</code>. What does that mean? Indeed, <code>globals</code> is an array of variables managed by Postman runtime. Usually, you have to pre-populate this array using <i>Pre-request script</i>. When running this tests in Microcks, such pre-request initialization are automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the <code>globals</code> context so that you can directly used them within your script.
 			</p>
 			<p>
-				The execution of Postman tests using Microcks follows this flow : <ul>
+				The execution of Postman tests using Microcks follows this flow :
+				<ul>
 					<li>for each example defined for a request, collect URI and query string parameters as key/value pairs,</li>
 					<li>inject each pair within <code>globals</code> JavaScript array,</li>
 					<li>invoke request attached script with the <code>globals</code> injected into runtime context,</li>
