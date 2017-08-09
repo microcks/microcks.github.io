@@ -49,19 +49,34 @@ title: Postman usage for Microcks
 			<p>
 				The screenshot below shows how to create a new collection from a Swagger file. We are using here the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> Swagger file.
 			</p>
-			<img src="../../assets/images/postman-import.png" class="img-responsive"/>
+			<img src="../../assets/images/postman-import.png" class="img-responsive, center-block" style="max-width: 60%"/>
 			<p>
 				After successful import and collection creation, you should get the following result into Postman: a valid Collection with a list of default requests created for your API paths and verbs. Elements of this list will be called <code>Operations</code> within Microcks. Here's the result for our <code>Test API</code>:
 			</p>
-			<img src="../../assets/images/postman-operations.png" class="img-responsive"/>
+			<img src="../../assets/images/postman-operations.png" class="img-responsive, center-block" style="max-width: 60%"/>
 		</section>
 
 		<section id="defining-examples" class="article">
 			<h2 class="arvo">Defining Examples</h2>
 			<p>
+				As stated by Postman documentation :
+			</p>
+			<p>
+				<quote><i>Developers can mock a request and response in Postman before sending the actual request or setting up a single endpoint to return the response. Establishing an example during the earliest phase of API development requires clear communication between team members, aligns their expectations, and means developers and testers can get started more quickly.</i></quote>
+			</p>
+			<p>
+				The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
+			</p>
+			<p>
+				In contrary to [SoapUI usage](./soapui), you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
+			</p>
+		</section>
+
+		<section id="defining-tests" class="article">
+			<h2 class="arvo">Defining Test Scripts</h2>
+			<p>
 
 			</p>
-			<img src="../../assets/images/soapui-create-testsuite.png" class="img-responsive"/>
 		</section>
 
 		<section id="Save project" class="article">
