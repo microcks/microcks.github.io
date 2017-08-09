@@ -41,7 +41,7 @@ title: Getting started
 				<code>oc new-app --template=microcks-persistent</code><br/>
 
 				<br/>
-				After some minutes and components have been deployed, you should end up with a Spring-boot Pod and a MongoDB Pod like in the screenshot below.<br/>
+				After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod and a Postman-runtime Pod like in the screenshot below.<br/>
 			</p>
 			<img src="../assets/images/running-pods.png" class="img-responsive"/>
 			<p>
@@ -55,7 +55,14 @@ title: Getting started
 				<code>docker-compose -f microcks-mongodb.yml up -d</code><br/>
 
 				<br/>
-				After some minutes and components have been deployed, you should end up with a Spring-boot container and a MongoDB container. The Microcks application is now available on <code>http://localhost:8080</code> URL.
+				After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container and a Postman-runtime container like in the trace below. The Microcks application is now available on <code>http://localhost:8080</code> URL.
+				<pre><code>
+				» docker ps
+				CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
+				65a8e05866fa        lbroudoux/microcks:latest                   "java '-Dspring.pr..."   8 seconds ago       Up 5 seconds        0.0.0.0:8080->8080/tcp   microcks
+				2fed928539f1        mongo:3.3.12                                "/entrypoint.sh mo..."   9 minutes ago       Up 7 seconds        27017/tcp                microcks-mongo
+				8e7a71d0fc8d        lbroudoux/microcks-postman-runtime:latest   "node app.js"            9 minutes ago       Up 7 seconds        3000/tcp                 microcks-postman-runtime
+				</code></pre>
 			</p>
 
 			<h3 class="arvo">Building from binary/sources</h3>
