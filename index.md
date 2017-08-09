@@ -35,19 +35,19 @@ title: A communication and runtime tool for API mocks
 
       <p>Microcks helps providers of API and micro-services to rapidly deliver :
         <ul>
-          <li>A <strong>comprehensible vision of their API</strong>, exposing sample requests and responses as well as base functionnal rules (cases when API responds <code>A</code> or <code>B</code> or raises exceptions)</li>
+          <li>A <strong>comprehensible vision of their API</strong>, exposing sample requests and responses as well as base functional rules (cases when API responds <code>A</code> or <code>B</code> or raises exceptions)</li>
           <li>A set of <strong>testing environments</strong> to allow API consumers or System Under Tests to use API even if implementation is not finished!</li>
-          <li><strong>Contract testing plans</strong> of their API, allowing them to run, record and compare contract tests runned againts different environments.</li>
+          <li><strong>Contract testing plans</strong> of their API, allowing them to run, record and compare contract tests run against different environments.</li>
         </ul>
       </p>
 
       <p>When deploying API, micro-services or SOA practices at large scale, Microcks solves the problems of <strong>providing and sharing
-      consistent documentation and mocks</strong> to the involved teams. It acts as a central repository and server that can be used for 
+      consistent documentation and mocks</strong> to the involved teams. It acts as a central repository and server that can be used for
       browsing but also by your Continuous Integration builds or pipelines.</p>
 
       <p>Finally, Microcks does not impose a new configuration or Domain Specific Language to describe your mocks. It uses the contracts
-      and provides <strong>binding with SoapUI</strong> (with some naming conventions). Your business expert describe requests and responses
-      with the tool he knows, Microcks translates it and can do it repeatdely every time new mocks appears into your SCM.</p>
+      and provides <strong>binding with SoapUI or Postman</strong> (with some naming conventions). Your business expert describe requests and responses
+      with the tool he knows, Microcks translates it and can do it repeatedly every time new mocks appears into your SCM.</p>
     </section>
 	</div>
 </div>

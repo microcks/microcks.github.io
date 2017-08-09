@@ -10,15 +10,15 @@ title: Using exposed mocks
     </div>
 	</div>
   <div class="container">
-    <section id="Infos on microservices" class="article">
+    <section id="mocks-info" class="article">
 			<h2 class="arvo">Getting infos on microservices mocks</h2>
 			<p>
-				Well, now that you have <a href="./index.html">install</a> Microcks, created your own API/Service repository using <a href="./soapui/">SoapUI</a> or <a href="./postman/">Postman</a> and discover how to <a href="./index.html">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.
+				Well, now that you have <a href="./index.html">install</a> Microcks, created your own API/Service repository using <a href="../soapui/">SoapUI</a> or <a href="../postman/">Postman</a> and discover how to <a href="./index.html">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.
 			</p>
 			<p>
 				First, let's have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :
 				<ul>
-					<li><code>Properties</code> section show basic information on API/Service : its name, its version, its style (REST or SOAP) and you'll also got access to statistics regarding the utilisation of the mocks of this API. SOAP style Service also contains extra information like the global <code>XML Namespace</code> used by the Service and the embedded <code>WSDL contract</code> if any was provided,</li>
+					<li><code>Properties</code> section show basic information on API/Service : its name, its version, its style (REST or SOAP) and you'll also got access to statistics regarding the utilization of the mocks of this API. SOAP style Service also contains extra information like the global <code>XML Namespace</code> used by the Service and the embedded <code>WSDL contract</code> if any was provided,</li>
 					<li><code>Tests trend</code> section shows a little histogram representing the latest tests trend on this API/Service. It provides an access to test history and for launching a new test on an API/Service implementation. More on this topic in the <a href="./tests/">Tests documentation</a>,</li>
 					<li><code>Operations</code> section concentrates informations on the different operations managed by this API or Service. More on that topic below.</li>
 				</ul>
@@ -42,7 +42,7 @@ title: Using exposed mocks
 			<img src="../../assets/images/mock-soap-details.png" class="img-responsive"/>
 		</section>
 
-		<section id="" class="article">
+		<section id="mocks-invokation" class="article">
 			<h2 class="arvo">Invoking microservices mocks</h2>
 			<p>
 				Invoking Mocks is now pretty easy if you have read the upper section! Just use Microcks for searching the API/Service you want to use and explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instanciated URI fragement for different request/response pairs, append the fragment to the Microcks server url and that's it!
@@ -57,7 +57,7 @@ title: Using exposed mocks
 				</ul>
 			</p>
 			<p>
-				Some examples in the table below for a Microcks server reachable at http://microcks.example.com :
+				Some examples in the table below for a Microcks server reachable at <code>http://microcks.example.com</code> :
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
@@ -74,21 +74,21 @@ title: Using exposed mocks
 							<td>HelloService</td>
 							<td>0.9</td>
 							<td>"sayHello operation", NA</td>
-							<td>http://microcks.example.com/soap/HelloService/0.9/</td>
+							<td><code>http://microcks.example.com/soap/HelloService/0.9/</code></td>
 						</tr>
 						<tr>
 							<td>REST</td>
 							<td>Test API</td>
 							<td>0.0.1</td>
 							<td>"Find by id" operation, order resource, example with id=123456</td>
-							<td>http://microcks.example.com/rest/Test%20API/0.0.1/order/123456</td>
+							<td><code>http://microcks.example.com/rest/Test%20API/0.0.1/order/123456</code></td>
 						</tr>
 						<tr>
 							<td>REST</td>
 							<td>Test API</td>
 							<td>0.0.1</td>
 							<td>"List by status" operation, order resource, example with status=approved</td>
-							<td>http://microcks.example.com/rest/Test%20API/0.0.1/order?status=approved</td>
+							<td><code>http://microcks.example.com/rest/Test%20API/0.0.1/order?status=approved</code></td>
 						</tr>
 					</tbody>
 				</table>
@@ -96,7 +96,7 @@ title: Using exposed mocks
 			</p>
 		</section>
 
-		<section id="" class="article">
+		<section id="mocks-common-params" class="article">
 			<h2 class="arvo">Common invocation params</h2>
 
 			<table class="table table-striped table-hover">
