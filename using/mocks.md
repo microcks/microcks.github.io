@@ -44,6 +44,56 @@ title: Using exposed mocks
 
 		<section id="" class="article">
 			<h2 class="arvo">Invoking microservices mocks</h2>
+			<p>
+				Invoking Mocks is now pretty easy if you have read the upper section! Just use Microcks for searching the API/Service you want to use and explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instanciated URI fragement for different request/response pairs, append the fragment to the Microcks server url and that's it!
+			</p>
+			<p>
+				As a rule of thumb, here is how the URL fragment for mocks are built and exposed within Microcks :
+				<ul>
+					<li>Mocks for REST API mocks are exposed on <code>/rest</code> sub-context. Mock for SOAP API mocks are exposed on <code>/soap</code> sub-context,</li>
+					<li>Name of API/Service is then added as path element of URL. Special characters of name are encoded within URL part,</li>
+					<li>Version of API/Service is then added as path element of URL,</li>
+					<li>For REST API, name of resource managed by operation and URL parts may be added.</li>
+				</ul>
+			</p>
+			<p>
+				Some examples in the table below for a Microcks server reachable at http://microcks.example.com :
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Type</th>
+							<th>Name</th>
+							<th>Version</th>
+							<th>Operation / Parts / Params</th>
+							<th>Full Mock URL</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>SOAP</td>
+							<td>HelloService</td>
+							<td>0.9</td>
+							<td>"sayHello operation", NA</td>
+							<td>http://microcks.example.com/soap/HelloService/0.9/</td>
+						</tr>
+						<tr>
+							<td>REST</td>
+							<td>Test API</td>
+							<td>0.0.1</td>
+							<td>"Find by id" operation, order resource, example with id=123456</td>
+							<td>http://microcks.example.com/rest/Test%20API/0.0.1/order/123456</td>
+						</tr>
+						<tr>
+							<td>REST</td>
+							<td>Test API</td>
+							<td>0.0.1</td>
+							<td>"List by status" operation, order resource, example with status=approved</td>
+							<td>http://microcks.example.com/rest/Test%20API/0.0.1/order?status=approved</td>
+						</tr>
+					</tbody>
+				</table>
+				Easy !?
+			</p>
 		</section>
 
 		<section id="" class="article">
@@ -73,7 +123,6 @@ title: Using exposed mocks
 					</tr>
 				</tbody>
 			</table>
-
 			<p>
 			This parameters may be used in addition of the Mock URL displayed on microservice informations page and should be append to the query URL. You may end up with URLs such as : <code>http://microcks.example.com/soap/HelloService/1.0/sayHello/?delay=250&validate=true</code>
 			</p>

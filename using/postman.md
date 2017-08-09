@@ -68,7 +68,7 @@ title: Postman usage for Microcks
 				The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
 			</p>
 			<p>
-				In contrary to <a href="./soapui#defining-dispatch-rules">SoapUI usage</a>, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
+				In contrary to <a href="../soapui/#defining-dispatch-rules">SoapUI usage</a>, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
 			</p>
 		</section>
 
@@ -78,7 +78,7 @@ title: Postman usage for Microcks
 				[This is an optional step that is only required if you also want to use Microcks for testing your Service or API implement as the development process goes.]
 			</p>
 			<p>
-			 	Postman allows to attach some test scripts defined in JavaScript to a request or <code>Operation</code>. Contrary to <a href="./soapui#defining-tests">SoapUI usage</a> where different tests assertions can be put on each test requests, Postman only allows you to attach script to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global views of tests in Postman and their capabilities, we recommend reading the <a href="https://www.getpostman.com/docs/postman/scripts/intro_to_scripts">Introducting to Scripts</a>.
+			 	Postman allows to attach some test scripts defined in JavaScript to a request or <code>Operation</code>. Contrary to <a href="../soapui/#defining-tests">SoapUI usage</a> where different tests assertions can be put on each test requests, Postman only allows you to attach script to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global views of tests in Postman and their capabilities, we recommend reading the <a href="https://www.getpostman.com/docs/postman/scripts/intro_to_scripts">Introducting to Scripts</a>.
 			</p>
 			<p>
 				As an illustration to how Microcks use Postman and offers, let's imagine we are still using the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> we mentionned aboved. There's an <code>Operation</code> allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned <code>order</code> has the <code>id</code> we specified into URI. We will write a test script that way:
