@@ -57,11 +57,11 @@ title: Getting started
 				<br/>
 				After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container and a Postman-runtime container like in the trace below. The Microcks application is now available on <code>http://localhost:8080</code> URL.
 				<pre><code>
-				» docker ps
-				CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
-				65a8e05866fa        lbroudoux/microcks:latest                   "java '-Dspring.pr..."   8 seconds ago       Up 5 seconds        0.0.0.0:8080->8080/tcp   microcks
-				2fed928539f1        mongo:3.3.12                                "/entrypoint.sh mo..."   9 minutes ago       Up 7 seconds        27017/tcp                microcks-mongo
-				8e7a71d0fc8d        lbroudoux/microcks-postman-runtime:latest   "node app.js"            9 minutes ago       Up 7 seconds        3000/tcp                 microcks-postman-runtime
+» docker ps
+CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
+65a8e05866fa        lbroudoux/microcks:latest                   "java '-Dspring.pr..."   8 seconds ago       Up 5 seconds        0.0.0.0:8080->8080/tcp   microcks
+2fed928539f1        mongo:3.3.12                                "/entrypoint.sh mo..."   9 minutes ago       Up 7 seconds        27017/tcp                microcks-mongo
+8e7a71d0fc8d        lbroudoux/microcks-postman-runtime:latest   "node app.js"            9 minutes ago       Up 7 seconds        3000/tcp                 microcks-postman-runtime
 				</code></pre>
 			</p>
 
