@@ -12,6 +12,16 @@ title: Using exposed mocks
   <div class="container">
     <section id="Infos on microservices" class="article">
 			<h2 class="arvo">Getting infos on microservices mocks</h2>
+			<p>
+				Well, now that you have <a href="./index.html">install</a> Microcks, created your own API/Service repository using <a href="./soapui">SoapUI</a> or <a href="./postman">Postman</a> and discover how to <a href="./index.html">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.
+			</p>
+			<p>
+				First, let's have a look at the summary page presenting an API or Service managed by Microcks.
+				<div class="row">
+					<div class="col-md-6"><img src="../../assets/images/mock-rest-summary.png" class="img-responsive/></div>
+					<div class="col-md-6"><img src="../../assets/images/mock-soap-summary.png" class="img-responsive/></div>
+				</div>
+			</p>
 		</section>
 
 		<section id="" class="article">
