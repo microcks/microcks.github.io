@@ -16,12 +16,18 @@ title: Using exposed mocks
 				Well, now that you have <a href="./index.html">install</a> Microcks, created your own API/Service repository using <a href="./soapui">SoapUI</a> or <a href="./postman">Postman</a> and discover how to <a href="./index.html">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.
 			</p>
 			<p>
-				First, let's have a look at the summary page presenting an API or Service managed by Microcks.
-				<div class="row">
-					<div class="col-md-6"><img src="../../assets/images/mock-rest-summary.png" class="img-responsive/></div>
-					<div class="col-md-6"><img src="../../assets/images/mock-soap-summary.png" class="img-responsive/></div>
-				</div>
+				First, let's have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :
+				<ul>
+					<li><code>Properties</code> section show basic information on API/Service : its name, its version, its style (REST or SOAP) and you'll also got access to statistics regarding the utilisation of the mocks of this API. SOAP style Service also contains extra information like the global <code>XML Namespace</code> used by the Service and the embedded <code>WSDL contract</code> if any was provided,</li>
+					<li><code>Tests trend</code> section shows a little histogram representing the latest tests trend on this API/Service. It provides an access to test history and for launching a new test on an API/Service implementation. More on this topic in the <a href="./tests">Tests documentation</li>,
+					<li><code>Operations</code> section concentrates informations on the different operations managed by this API or Service. More on that topic below.</li>
+				</ul>
 			</p>
+			<img src="../../assets/images/mock-rest-summary.png" class="img-responsive"/>
+			<p>
+				Here's an example of summary page for a SOAP Service mock :
+			</p>
+			<img src="../../assets/images/mock-soap-summary.png" class="img-responsive"/>
 		</section>
 
 		<section id="" class="article">
