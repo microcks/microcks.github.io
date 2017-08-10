@@ -74,7 +74,7 @@ title: SoapUI usage for Microcks
 		<section id="defining-mocks" class="article">
 			<h2 class="arvo">Defining Mock Responses</h2>
 			<p>
-				Mock Responses you will need to define later will be defined through a <i>SoapUI ServiceMock</i>. You have to select the newly imported Service, right-click and choose <i>Generate MockService</a>. You can let the default options as shown below and give your MockService a name like "<Service> Mock":
+				Mock Responses you will need to define later will be defined through a <i>SoapUI ServiceMock</i>. You have to select the newly imported Service, right-click and choose <i>Generate MockService</i>. You can let the default options as shown below and give your MockService a name like <code>"&lt;Service&gt; Mock"</code>:
 			</p>
 			<img src="../../assets/images/soapui-create-servicemock.png" class="img-responsive"/>
 			<p>
@@ -117,7 +117,7 @@ title: SoapUI usage for Microcks
 		<section id="Save project" class="article">
 			<h2 class="arvo">Save SoapUI project</h2>
 			<p>
-				Finally, you just have to save the whole project as a SoapUI XML project file.
+				Finally, you just have to save the whole project as a SoapUI XML project file. Just put the result JSON file into your favourite Source Configuration Management tool for an easy integration with Microcks.
 				<blockquote class="bg-warning">
 					<small>Do not forget to add the <code>version</code> custom property on your <i>MockService</i> object, otherwise Microcks will not be able to successfully import your SoapUI project.</small>
 				</blockquote>
