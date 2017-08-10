@@ -59,11 +59,11 @@ title: SoapUI usage for Microcks
 		<section id="defining-tests" class="article">
 			<h2 class="arvo">Defining Test Requests</h2>
 			<p>
-				The sample requests that are used by Microcks are indeed <i>SoapUI TestSuite</i> requests. So select the newly imported Service, right-click and choose <i>Generate TestSuite</a>. You should get this following screenshot where you select these options, validate and then give your TestSuite a name like "<Service> TestSuite" or something:
+				The sample requests that are used by Microcks are indeed <i>SoapUI TestSuite</i> requests. So select the newly imported Service, right-click and choose <i>Generate TestSuite</i>. You should get this following screenshot where you select these options, validate and then give your TestSuite a name like <code>"&lt;Service&gt; TestSuite"</code> or something:
 			</p>
 			<img src="../../assets/images/soapui-create-testsuite.png" class="img-responsive"/>
 			<p>
-				You are now free to create as many <i>TestSteps</i> as you want within the <i>TestCases</i>. TestCases represents the <b>Operation</b> level and TestSteps represents the request sample level. The screenshot belows show how we have created 2 sample requests (<i>Andrew</i> and <i>Karla</i>) for the <code>sayHello</code> operation of our WebService:
+				You are now free to create as many <i>TestSteps</i> as you want within the <i>TestCases</i>. TestCases represents the <b>Operation</b> level and TestSteps represents the request sample level. The screenshot below shows how we have created 2 sample requests (<code>Andrew</code> and <code>Karla</code>) for the <code>sayHello</code> operation of our WebService:
 			</p>
 			<img src="../../assets/images/soapui-testrequest.png" class="img-responsive"/>
 			<p>
@@ -119,7 +119,7 @@ title: SoapUI usage for Microcks
 			<p>
 				Finally, you just have to save the whole project as a SoapUI XML project file.
 				<blockquote class="bg-warning">
-				Do not forget to add the <code>version</code> custom property on your <i>MockService</i> object, otherwise Microcks will not be able to successfully import your SoapUI project.
+					<small>Do not forget to add the <code>version</code> custom property on your <i>MockService</i> object, otherwise Microcks will not be able to successfully import your SoapUI project.</small>
 				</blockquote>
 			</p>
 		</section>
