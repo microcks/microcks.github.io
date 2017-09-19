@@ -10,7 +10,13 @@ title: Comparison to alternatives
     </div>
 	</div>
 	<div class="container">
-		Many over tools support mocking and/or testing of services or API. However because of some limitations or different design goals, we find valuable starting this new Microcks project! Find below our vision on how Microcks is different or complementary of some of these solutions.
+		Many over tools support mocking and/or testing of services or API. However because of some limitations or different design goals, we find valuable starting this new Microcks project! Find below our vision on how Microcks is different or complementary of some of these solutions. Check comparisons with :
+		<ul>
+			<li><a href="#soapui">Microcks vs. SoapUI</a>,</li>
+			<li><a href="#postman">Microcks vs. Postman</a>,</li>
+			<li><a href="#wiremock">Microcks vs. WireMock</a>,</li>
+		</ul>
+		<br/>
 
 		<section id="soapui" class="article">
 			<h2 class="arvo">Microcks vs. SoapUI</h2>
