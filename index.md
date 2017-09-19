@@ -16,7 +16,7 @@ title: A communication and runtime tool for API mocks
         <div class="col-md-4">
           <i class="fa fa-users fa-4x feature-icon"></i>
           <span class="feature arvo">Business Friendly</span>
-          <blockquote class="feature-text">Use the tool your business expert knows: SoapUI or whatever! No need to learn a new DSL or configuration syntax.</blockquote>
+          <blockquote class="feature-text">Use the tool your business expert knows: SoapUI, Postman or whatever! No need to learn a new DSL or configuration syntax.</blockquote>
         </div>
         <div class="col-md-4">
           <i class="fa fa-refresh fa-4x feature-icon"></i>
@@ -54,11 +54,8 @@ title: A communication and runtime tool for API mocks
 		<div class="container">
 		  <section id="intro" class="article">
 				<h2>Introduction in 13 minutes</h2>
-
-				<p>
-					See what is Microcks, its basic usage and how it articulates with some other tools of your delivery process in this 13 minutes video.
-				</p>
-				<iframe width="1280" height="720" src="https://www.youtube.com/embed/2eEmmG7hu48" frameborder="0" allowfullscreen></iframe>
+				<br/>
+				<iframe width="853" height="480" src="https://www.youtube.com/embed/2eEmmG7hu48" frameborder="0" allowfullscreen></iframe>
 			</section>
     </div>
 	</div>

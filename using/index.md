@@ -121,6 +121,7 @@ CONTAINER ID        IMAGE                                       COMMAND         
 			<p>
 				Now that you have basic information on how to setup and use Microcks, you can go further with :
 				<ul>
+					<li>Understand how Microcks <a href="../using/alternatives">compare to alternatives</a>,</li>
 					<li>Creating your definition files using <a href="../using/soapui">SoapUI</a> or <a href="../using/postman">Postman</a>,</li>
 					<li>Using <a href="../using/mocks">exposed mocks</a> and using variables,</li>
 					<li>Executing your <a href="../using/tests">tests on endpoints</a> where your services and API are deployed,</li>
