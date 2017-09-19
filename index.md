@@ -50,12 +50,12 @@ title: A communication and runtime tool for API mocks
       with the tool he knows, Microcks translates it and can do it repeatedly every time new mocks appears into your SCM.</p>
     </section>
 	</div>
-	<div class="jumbotron clearfix">
+	<div class="jumbotron" style="margin-bottom: 0px">
 		<div class="container">
 		  <section id="intro" class="article">
-				<h2>Introduction in 13 minutes</h2>
-				<br/>
-				<iframe width="853" height="480" src="https://www.youtube.com/embed/2eEmmG7hu48" frameborder="0" allowfullscreen></iframe>
+				<h2 style="width: 80%">Introduction in 13 minutes</h2>
+				<br/><br/>
+				<iframe class="center-block" width="853" height="480" src="https://www.youtube.com/embed/2eEmmG7hu48" frameborder="0" allowfullscreen></iframe>
 			</section>
     </div>
 	</div>
