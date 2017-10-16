@@ -23,7 +23,7 @@ title: Comparison to alternatives
 
 			<h3 class="arvo">Scope &amp; Audience</h3>
 			<p>
-				[SoapUI](http://www.soapui.org) is one of the oldest tool in the area but also one of the most popular. We like SoapUI for being simple to use and of great value because it lets functional experts to easily edit requests and responses samples. Specially when it relates to SOAP WebServices, SoapUI offers wizards, templates and validation that make correct editing of such samples a breeze. That's why we currently rely on SoapUI for providing the contract artifacts as an input to Microcks. The main difference between SoapUI and Microcks is that Microcks has been thought as a platform allowing you to easily centralize and share information about your services. Where SoapUI persists information to file that you have to share and re-load, Microcks just expose all its information through Web UI and API to ease access.
+				<a href="http://www.soapui.org">SoapUI</a> is one of the oldest tool in the area but also one of the most popular. We like SoapUI for being simple to use and of great value because it lets functional experts to easily edit requests and responses samples. Specially when it relates to SOAP WebServices, SoapUI offers wizards, templates and validation that make correct editing of such samples a breeze. That's why we currently rely on SoapUI for providing the contract artifacts as an input to Microcks. The main difference between SoapUI and Microcks is that Microcks has been thought as a platform allowing you to easily centralize and share information about your services. Where SoapUI persists information to file that you have to share and re-load, Microcks just expose all its information through Web UI and API to ease access.
 			</p>
 
 			<h3 class="arvo">Mocking</h3>
@@ -33,7 +33,7 @@ title: Comparison to alternatives
 
 			<h3 class="arvo">Testing</h3>
 			<p>
-				SoapUI offers first class support for testing. Microcks is also able to reuse the tests assertions you may have defined with SoapUI for your services. Where SoapUI tests may be launched manually, through the `soapui-runner` CLI or a Jenkins plugin, Microcks also offers this means for launching tests on different endpoints. The main difference here is that tests results and all the data exchanged with tested endpoints are recorded and persisted by Microcks. This allow you to get history on results for easily compare tests results on different environments or time frames.
+				SoapUI offers first class support for testing. Microcks is also able to reuse the tests assertions you may have defined with SoapUI for your services. Where SoapUI tests may be launched manually, through the <code>soapui-runner</code> CLI or a Jenkins plugin, Microcks also offers this means for launching tests on different endpoints. The main difference here is that tests results and all the data exchanged with tested endpoints are recorded and persisted by Microcks. This allow you to get history on results for easily compare tests results on different environments or time frames.
 			</p>
 		</section>
 
@@ -42,7 +42,7 @@ title: Comparison to alternatives
 
 			<h3 class="arvo">Scope &amp; Audience</h3>
 			<p>
-				[Postman](http://www.getpostman.com) is the populest tool regarding new API and REST WebServices. We particularly likes its support of Swagger for easily importing an API contract file and then editing samples for different operations. As SoapUI, Postman is easy to use by functional experts because of its form-based UI that offers guidance when editing mocks and tests. As it should be possible to manage SOAP WebServices through Postman, it does not offer any guidance for that protocol and is really dedicated to REST styled services. Microcks currently supports Postman as an input source for information about your REST services.
+				<a href="http://www.getpostman.com">Postman</a> is the populest tool regarding new API and REST WebServices. We particularly likes its support of Swagger for easily importing an API contract file and then editing samples for different operations. As SoapUI, Postman is easy to use by functional experts because of its form-based UI that offers guidance when editing mocks and tests. As it should be possible to manage SOAP WebServices through Postman, it does not offer any guidance for that protocol and is really dedicated to REST styled services. Microcks currently supports Postman as an input source for information about your REST services.
 			</p>
 
 			<h3 class="arvo">Mocking</h3>
@@ -61,7 +61,7 @@ title: Comparison to alternatives
 
 			<h3 class="arvo">Scope &amp; Audience</h3>
 			<p>
-				[WireMock](http://wiremock.org/) is much more a framework for writing mocks than a frontend tooling. WireMock is indeed targeted to developers that want to rapidly generate mocks for the dependency they should be isolated from. As a consequence, WireMock is not really usable by a functional expert that goal is to deliver samples to be used across projects. Most of the time, it is used to locally redefined - in every project - the set of mocks developers may need from their CI process.
+				<a href="http://wiremock.org/">WireMock</a> is much more a framework for writing mocks than a frontend tooling. WireMock is indeed targeted to developers that want to rapidly generate mocks for the dependency they should be isolated from. As a consequence, WireMock is not really usable by a functional expert that goal is to deliver samples to be used across projects. Most of the time, it is used to locally redefined - in every project - the set of mocks developers may need from their CI process.
 			</p>
 
 			<h3 class="arvo">Mocking</h3>
