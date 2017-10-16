@@ -28,7 +28,7 @@ title: Comparison to alternatives
 
 			<h3 class="arvo">Mocking</h3>
 			<p>
-				SoapUI supports mocking and we rely also on its mock editor. However when it comes to deploying such mocks to the rest of the world, SoapUI uses a static approach where you have to generate and collect a Java Web Archive for later deploying on an application server. Scaling with this model may quickly become an issue has you may use a big amount of resources to "simply" handle mocks. Microcks provides a more scalable, dynamic approach where mocks are created and updated on-the-fly without any deployment.
+				SoapUI supports mocking and we rely also on its mock editor. However when it comes to deploying such mocks to the rest of the world, SoapUI uses a static approach where you have to generate and collect a Java Web Archive for later deploying on an application server. Scaling with this model may quickly become an issue as you may use a big amount of resources to "simply" handle mocks. Microcks provides a more scalable, dynamic approach where mocks are created and updated on-the-fly without any deployment.
 			</p>
 
 			<h3 class="arvo">Testing</h3>
