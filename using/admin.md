@@ -18,15 +18,15 @@ title: Admin stuffs
 			</p>
 
 			<p>
-			The export feature is reachable using the `Administration > Export repository` entry into the top menu bar has shown below. It needs no specific privileges.
+			The export feature is reachable using the <code>Administration > Export repository</code> entry into the top menu bar has shown below. It needs no specific privileges.
 			</p>
 
 			<p>
-			The list of your Micro-services / version pairs is then displayed and you just need to select the target services before hitting the `Export`button.
+			The list of your Micro-services / version pairs is then displayed and you just need to select the target services before hitting the <code>Export</code> button.
 			</p>
 
 			<p>
-			Export is then created and made available as a `microcks-repository.json` file being downloaded. This file is ready to be imported into another Microcks instance.
+			Export is then created and made available as a <code>microcks-repository.json</code> file being downloaded. This file is ready to be imported into another Microcks instance.
 			</p>
 		</section>
 
