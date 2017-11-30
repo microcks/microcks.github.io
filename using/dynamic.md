@@ -77,7 +77,7 @@ title: Getting dynamic mocks
         <code>[{ "name" : "marina", "bar" : 225, "id" : "5a1eb608710ffa9f0b7c6deb" }, { "name" : "marina", "bar" : 226, "id" : "5a1eb613710ffa9f0b7c6dec" }]</code><br/><br/>
       </p>
       <p>
-        Microcks is also able to understand the operators you'll find into MongoDB Query DSL syntax. Thus you're able for example to filter results using a range for an integer value like this:
+        Microcks is also able to understand the operators you'll find into <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">MongoDB Query DSL</a> syntax. Thus you're able for example to filter results using a range for an integer value like this:
         <code>curl -X GET http://localhost:8080/dynarest/Foo%20API/0.1/foo -H 'Content-type: application/json' -d '{"bar": {$gt: 223, $lt: 226} }}'</code><br/><br/>
 
         With results:<br/><br/>
