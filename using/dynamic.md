@@ -25,7 +25,7 @@ title: Getting dynamic mocks
           <li><code>Resource</code></li> will the kind of resource (as REST protocol understands <i>resource</i>) that will be manage by dynamic service.
         </ul>
       </p>
-      <img src="../../assets/images/dynamic-form.png"/>
+      <img src="../../assets/images/dynamic-form.png" class="center-block img-responsive" style="max-width: 70%"/>
       <p>
         Just hit the <code>Add</code> button and you are few seconds away of having a ready-to-use REST Service/API that proposes different operations as shown in capture below. This Service/API is immediately exposing mocks endpoints for the different operations. It Swagger contract is also directly available for download.
       </p>
@@ -43,7 +43,7 @@ title: Getting dynamic mocks
     </section>
 
     <section id="dynamic-resources" class="article">
-      <h2 class="arvo">Checking created resources</h2
+      <h2 class="arvo">Checking created resources</h2>
       <p>
         Creating resource is useful but how to check what are the already existing resources ? Let create another bunch of <code>foo</code> resources like this: <br/><br/>
 
@@ -54,7 +54,7 @@ title: Getting dynamic mocks
         <br/>
         Now, just hitting the <code>Resources</code> button just next to <code>Operations</code> section, you should be able to check all the resources Microcks has recorded as being viable representations of the <code>foo</code> resource. Each of them has received a unique identifier:
       </p>
-      <img src="../../assets/images/dynamic-resources.png" class="img-responsive"/>
+      <img src="../../assets/images/dynamic-resources.png" class="center-block img-responsive"  style="max-width: 70%"/>
       <p>
         Using dynamic Service/API in Microcks is thus a simple and super-fast mean of recording sample resources to illustrate what should be the future contract design!
       </p>
