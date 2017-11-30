@@ -37,7 +37,7 @@ title: Getting started
 
 				<br/>
 				Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:<ul>
-				 	<li>the hostname for routes serving Microcks and embedded Keycloak (typically <code>component_name-project-app_domain</code>),</li>,
+				 	<li>the hostname for routes serving Microcks and embedded Keycloak (typically <code>component_name-project-app_domain</code>),</li>
 					<li>the URL for joining OpenShift Master,</li>
 					<li>a name for an OAuth Client that will be created apart the app creation.</li>
 				</ul>
