@@ -13,7 +13,7 @@ title: Getting dynamic mocks
     <section id="dynamic-mocks" class="article">
       <h2 class="arvo">Creating dynamic mocks</h2>
       <p>
-        Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations when design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.
+        Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.
       </p>
       <p>
         In a few clicks, Microcks will easily generate for you a basic API with CRUD operations (CRUD for <i>Create-Retrieve-Update-Delete</i>) and associated mocks that you'll be able to use for recording, retrieving and deleting any type of JSON document. In order to use this "Backend As A Service" like feature, just go to the <b>Services</b> repository and hit the <code>Add Dynamic Service...</code> button:
