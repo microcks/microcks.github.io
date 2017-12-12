@@ -32,8 +32,8 @@ title: Getting started
 				</ul>
 
 				Then you have to ensure that Microcks templates for OpenShift are added and available into your Cluster. Templates come in 2 flavors: ephemeral or persistent. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster. Add the templates, by using these commands :<br/>
-				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-ephemeral-template.json -n openshift</code><br/>
-				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-persistent-template.json -n openshift</code><br/>
+				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-ephemeral-full-template.yml -n openshift</code><br/>
+				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-persistent-full-template.yml -n openshift</code><br/>
 
 				<br/>
 				Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:<ul>
