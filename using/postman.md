@@ -37,7 +37,7 @@ title: Postman usage for Microcks
 				<li>Your Postman collection may contain one or more API definitions. However, because it's a best practice to consider each API as an autonomous and isolated software asset, we'd recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,</li>
 				<li>Your Postman collection description should hold a custom property named <code>version</code> that allows tracking of API version. It is a good practice to change this version identifier for each API interface versionned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: <code>version=1.0 - Here is now the full description of my collection...</code>.</li>
 			</ul>
-			We recommend having a look at our sample Postman collection for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml">Test API</a> to fully understand and see in action those conventions.
+			We recommend having a look at our sample Postman collection for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json">Test API</a> to fully understand and see in action those conventions.
 			</p>
 		</section>
 
