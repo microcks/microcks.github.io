@@ -33,7 +33,7 @@ title: Using Microcks from Jenkins
 				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks-jenkins-plugin/master/openshift-jenkins-master-bc.yml</code><br/>
 
 				<br/>
-				This should start a `Build` and then create an `ImageStream` called `microcks-jenkins-master` in your current project. After few minutes, a `microcks-jenkins-master:latest` container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.
+				This should start a <code>Build</code> and then create an <code>ImageStream</code> called <code>microcks-jenkins-master</code> in your current project. After few minutes, a <code>microcks-jenkins-master:latest</code> container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.
 			</p>
     </section>
 
@@ -41,54 +41,67 @@ title: Using Microcks from Jenkins
 			<h2 class="arvo">Using Microcks Jenkins plugin</h2>
 			<p>
 				Jenkins plugins may be used in 2 ways:<ul>
-					<li>As a simple `Build Step` using a form to define what service to test,</li>
-					<li>As an action defined using Domain Specific Language within a `Pipeline stage`.</li>
+					<li>As a simple <code>Build Step</code> using a form to define what service to test,</li>
+					<li>As an action defined using Domain Specific Language within a <code>Pipeline stage</code>.</li>
 				</ul>
 			</p>
 
 			<h3 class="arvo">Simple build step usage</h3>
 			<p>
-				When defining a new project into Jenkins GUI, you may want to add a new `Launch Microcks Test Runner` step as shown in the capture below.<br/>
+				When defining a new project into Jenkins GUI, you may want to add a new <code>Launch Microcks Test Runner</code> step as shown in the capture below.<br/>
 			</p>
-			<img src="../assets/images/jenkins-build-step.png" class="img-responsive"/>
+			<img src="../../assets/images/jenkins-build-step.png" class="img-responsive"/>
 			<p>
 				The parameters that can be set here are:<ul>
-					<li>The `API URL` of Microcks server: this is your running instance of Microcks where services or API are defined,</li>
-					<li>The `Service Identifier` to launch tests for: this is simply a `service_name:service_version` expression,</li>
-					<li>The `Test Endpoint` to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
-					<li>The `Runner Type` to use: this is the test strategy you may want to have regarding endpoint,</li>
-					<li>The `Verbose` flag: allows to collect detailed logs on Microcks plugin execution,</li>
-					<li>The `Timeout` configuration: allows you to override default timeout for this tests.</li>
+					<li>The <code>API URL</code> of Microcks server: this is your running instance of Microcks where services or API are defined,</li>
+					<li>The <code>Service Identifier</code> to launch tests for: this is simply a <code>service_name:service_version</code> expression,</li>
+					<li>The <code>Test Endpoint</code> to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
+					<li>The <code>Runner Type</code> to use: this is the test strategy you may want to have regarding endpoint,</li>
+					<li>The <code>Verbose</code> flag: allows to collect detailed logs on Microcks plugin execution,</li>
+					<li>The <code>Timeout</code> configuration: allows you to override default timeout for this tests.</li>
 				</ul>
 			</p>
 
 			<h3 class="arvo">DSL plugin usage</h3>
 			<p>
+				When defining a new CI/CD pipeline - even through the Jenkins or OpenShift GUI or through a <code>Jenkinsfile</code> within your source repository - you may want to add a specific <code>microcksTest</code> within your pipeline script as the example below:
+			</p>
+			<p>
 				<pre><code>
-				node('maven') {
-				  stage ('build') {
-				    // ...
-				  }
-				  stage ('deployInDev') {
-				    // ...
-				  }
-				  stage ('testInDev') {
-				    // Add Microcks test here.
-				    microcksTest(apiURL: 'http://microcks-microcks.52.174.149.59.nip.io/api',
-				      serviceId: 'Beer Catalog API:0.9',
-				      testEndpoint: 'http://beer-catalog-impl-beer-catalog-dev.52.174.149.59.nip.io/api/',
-				      runnerType: 'POSTMAN', verbose: 'true')
-				  }
-				  stage ('promoteToProd') {
-				    // ...
-				  }
-				  stage ('deployToProd') {
-				    // ...
-				  }
-				}
+node('maven') {
+  stage ('build') {
+    // ...
+  }
+  stage ('deployInDev') {
+    // ...
+  }
+  stage ('testInDev') {
+    // Add Microcks test here.
+    microcksTest(apiURL: 'http://microcks-microcks.52.174.149.59.nip.io/api',
+      serviceId: 'Beer Catalog API:0.9',
+      testEndpoint: 'http://beer-catalog-impl-beer-catalog-dev.52.174.149.59.nip.io/api/',
+      runnerType: 'POSTMAN', verbose: 'true')
+  }
+  stage ('promoteToProd') {
+    // ...
+  }
+  stage ('deployToProd') {
+    // ...
+  }
+}
 				</code></pre>
 			</p>
-
+			<p>
+				The parameters that can be set here are the same that in <code>Build Step</code> usage but take care to cases and typos:<ul>
+					<li>The <code>apiURL</code> of Microcks server: this is your running instance of Microcks where services or API are defined,</li>
+					<li>The <code>serviceId</code> to launch tests for: this is simply a <code>service_name:service_version</code> expression,</li>
+					<li>The <code>testEndpoint</code> to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
+					<li>The <code>runnerType</code> to use: this is the test strategy you may want to have regarding endpoint,</li>
+					<li>The <code>verbose</code> flag: allows to collect detailed logs on Microcks plugin execution,</li>
+					<li>The <code>waitTime</code> configuration: allows you to override the default time quantity for this tests.</li>
+					<li>The <code>waitUnit</code> configuration: allows you to override the default time unit for this tests (values in milli, sec or min).</li>
+				</ul>
+			</p>
 		</section>
   </div>
 </div>
