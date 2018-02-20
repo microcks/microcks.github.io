@@ -40,16 +40,26 @@ title: Using Microcks from Jenkins
 		<section id="usage" class="article">
 			<h2 class="arvo">Using Microcks Jenkins plugin</h2>
 			<p>
-				Jenkins plugins may be used
+				Jenkins plugins may be used in 2 ways:<ul>
+					<li>As a simple `Build Step` using a form to define what service to test,</li>
+					<li>As an action defined using Domain Specific Language within a `Pipeline stage`.</li>
+				</ul>
 			</p>
 
-			<h3 class="arvo">Simple build step configuration</h3>
+			<h3 class="arvo">Simple build step usage</h3>
 			<p>
-
+				When defining a new project into Jenkins GUI, you may want to add a new `Launch Microcks Test Runner` step as shown in the capture below.<br/>
 			</p>
 			<img src="../assets/images/jenkins-build-step.png" class="img-responsive"/>
 			<p>
-
+				The parameters that can be set here are:<ul>
+					<li>The `API URL` of Microcks server: this is your running instance of Microcks where services or API are defined,</li>
+					<li>The `Service Identifier` to launch tests for: this is simply a `service_name:service_version` expression,</li>
+					<li>The `Test Endpoint` to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
+					<li>The `Runner Type` to use: this is the test strategy you may want to have regarding endpoint,</li>
+					<li>The `Verbose` flag: allows to collect detailed logs on Microcks plugin execution,</li>
+					<li>The `Timeout` configuration: allows you to override default timeout for this tests.</li>
+				</ul>
 			</p>
 
 			<h3 class="arvo">DSL plugin usage</h3>
