@@ -102,6 +102,10 @@ node('maven') {
 					<li>The <code>waitUnit</code> configuration: allows you to override the default time unit for this tests (values in milli, sec or min).</li>
 				</ul>
 			</p>
+			<p>
+				Using Microcks and its Jenkins plugin, you may achieve some clean CI/CD pipelines that ensures your developed API implementation is fully aligned to expectations. See below a visualization of such a pipeline for our <code>Beer Catalog API</code> (full project to come soon).<br/>
+			</p>
+			<img src="../../assets/images/jenkins-pipeline-openshift.png" class="img-responsive"/>
 		</section>
   </div>
 </div>
