@@ -26,10 +26,14 @@ title: Getting started
 			<p>
 				The easiest way of installing Microcks for production use is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs :
 				<ul>
-					<li> Full blown OpenShift cluster at your site, see how to <a href="https://docs.openshift.com/container-platform/3.3/install_config/index.html">Install OpenShift at your site</a>,</li>
+					<li>Full blown OpenShift cluster at your site, see how to <a href="https://docs.openshift.com/container-platform/3.3/install_config/index.html">Install OpenShift at your site</a>,</li>
 					<li>Red Hat Container Development Kit on your laptop, see how to <a href="http://developers.redhat.com/products/cdk/get-started/">Get Started with CDK</a>,</li>
 					<li>Lightweight Minishift on your laptop, see <a href="https://github.com/minishift/minishift">Minishift project page</a>.</li>
 				</ul>
+
+				<blockquote>
+					When running on OpenShift, take care that you did not have the <code>anyuid</code> capability enabled. This prevents Microcks from using OpenShift internal Identity Provider. <code>anyuid</code> addon is enabled by default on Red Hat CDK. You may want to turn it off by executing <code>oc adm policy remove-scc-from-group anyuid system:authenticated</code> as this is a bad practice.
+				</blockquote>
 
 				Then you have to ensure that Microcks templates for OpenShift are added and available into your Cluster. Templates come in 2 flavors: ephemeral or persistent. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster. Add the templates, by using these commands :<br/>
 				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-ephemeral-full-template.yml -n openshift</code><br/>
@@ -55,8 +59,9 @@ title: Getting started
 
 			<h3 class="arvo">Installing using Docker Compose</h3>
 			<p>
-				For those of you familiar with simple Docker Compose, a <source>docker-compose</source> file is available within GitHub repository and can be used to rapidly test up things. First step is to download the file and then to execute docker-compose with local files copies like in this commands :<br/><br/>
-				<code>mkdir keycloak-realm && cd keycloak-realm && curl -o microcks-realm-sample.json https://raw.githubusercontent.com/microcks/microcks/master/src/main/docker/keycloak-realm/microcks-realm-sample.json && cd .. && curl -o microcks-mongodb.yml https://raw.githubusercontent.com/microcks/microcks/master/src/main/docker/microcks-mongodb.yml</code><br/>
+				For those of you familiar with simple Docker Compose, a <source>docker-compose</source> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands :<br/><br/>
+				<code>git clone https://github.com/microcks/microcks.git</code><br/>
+				<code>cd microcks/src/main/docker</code><br/>
 				<code>docker-compose -f microcks-mongodb.yml up -d</code><br/>
 
 				<br/>
