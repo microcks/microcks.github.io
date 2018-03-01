@@ -19,12 +19,36 @@ title: Getting started
 		<section id="installation" class="article">
 			<h2 class="arvo">Installing Microcks</h2>
 			<p>
-				Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed using OpenShift, using Docker-Compose or directly using binary and source of Microcks.
+				Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
+			</p>
+
+			<h3 class="arvo">Installing on Kubernetes</h3>
+			<p>
+				One easy way if installing Microcks is to do it on Kubernetes. Kubernetes in version 1.6 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs :
+				<ul>
+					<li>Lightweight Minikube on your laptop, see <a href="https://github.com/kubernetes/minikube">Minikube project page</a>,</li>
+					<li>Google Cloud Engine account in the cloud, see how to start a <a href="https://console.cloud.google.com/freetrial">Free trial</a>,</li>
+					<li>Any other Kubernetes distribution provider.</li>
+				</ul>
+
+				We provide <a href="https://raw.githubusercontent.com/microcks/microcks/master/install/kubernetes/kubernetes-ephemeral-full.yml">basic Kubernetes manifest</a> for simple needs but also a <code>Chart</code> for using with <a href="https://helm.sh/">Helm</a> Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.<br/>
+
+				Just clone the GitHub repository, go to Helm directory and install the chart with these commands:<br/>
+				<code>git clone https://github.com/microcks/microcks.git</code><br/>
+				<code>cd microcks/install/kubernetes/helm</code><br/>
+				<code>helm install ./microcks --name microcks --namespace=microcks</code><br/>
+
+				<br/>
+				After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<br/>
+			</p>
+			<img src="../assets/images/running-pods-k8s.png" class="img-responsive"/>
+			<p>
+				Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>. Before starting playing with Microcks, you'll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.
 			</p>
 
 			<h3 class="arvo">Installing on OpenShift</h3>
 			<p>
-				The easiest way of installing Microcks for production use is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs :
+				The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs :
 				<ul>
 					<li>Full blown OpenShift cluster at your site, see how to <a href="https://docs.openshift.com/container-platform/3.3/install_config/index.html">Install OpenShift at your site</a>,</li>
 					<li>Red Hat Container Development Kit on your laptop, see how to <a href="http://developers.redhat.com/products/cdk/get-started/">Get Started with CDK</a>,</li>
@@ -36,8 +60,8 @@ title: Getting started
 				</blockquote>
 
 				Then you have to ensure that Microcks templates for OpenShift are added and available into your Cluster. Templates come in 2 flavors: ephemeral or persistent. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster. Add the templates, by using these commands :<br/>
-				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-ephemeral-full-template.yml -n openshift</code><br/>
-				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/openshift-persistent-full-template.yml -n openshift</code><br/>
+				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template.yml -n openshift</code><br/>
+				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml -n openshift</code><br/>
 
 				<br/>
 				Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:<ul>
@@ -61,8 +85,8 @@ title: Getting started
 			<p>
 				For those of you familiar with simple Docker Compose, a <source>docker-compose</source> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands :<br/><br/>
 				<code>git clone https://github.com/microcks/microcks.git</code><br/>
-				<code>cd microcks/src/main/docker</code><br/>
-				<code>docker-compose -f microcks-mongodb.yml up -d</code><br/>
+				<code>cd microcks/install/docker-compose</code><br/>
+				<code>docker-compose -f microcks.yml up -d</code><br/>
 
 				<br/>
 				After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code>http://localhost:8080</code> URL.
