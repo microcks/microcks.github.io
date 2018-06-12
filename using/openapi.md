@@ -109,7 +109,7 @@ requestBody:
 
       <h3 class="arvo">Specifying response payload</h3>
       <p>
-        Response payload is used within our <code>laurent_cars</code sample. It is defined under the <code>Http status</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40">line 40</a>. Response payload may refer to OpenAPI schema definitions like in the snippet below:
+        Response payload is used within our <code>laurent_cars</code> sample. It is defined under the <code>Http status</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40">line 40</a>. Response payload may refer to OpenAPI schema definitions like in the snippet below:
         <pre><code>
 responses:
   200:
