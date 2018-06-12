@@ -106,7 +106,7 @@ title: Postman usage for Microcks
 		<section id="Save project" class="article">
 			<h2 class="arvo">Export Postman collection</h2>
 			<p>
-				Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favourite Source Configuration Management tool for an easy integration with Microcks.
+				Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.
 			</p>
 			<img src="../../assets/images/postman-export.png" class="img-responsive, center-block" style="max-width: 50%"/>
 		</section>
