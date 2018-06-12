@@ -51,8 +51,7 @@ title: OpenAPI usage for Microcks
       <h4 class="arvo">Path parameters</h4>
       <p>
         This is done within the <code>parameters</code> part of corresponding API <code>path</code>, on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L83">line 83</a> of our file. Snippet is represented below:
-        <pre><code>
-parameters:
+        <pre><code>parameters:
   - name: owner
     in: path
     description: Owner of the cars
@@ -65,8 +64,7 @@ parameters:
         summary: Value for laurent related examples
         value: laurent
       laurent_307:
-        $ref: '#/components/examples/param_laurent'
-        </code></pre>
+        $ref: '#/components/examples/param_laurent'</code></pre>
       </p>
       <p>
         One thing to notice here is that Microcks importer supports the use of references like <code>'#/components/examples/param_laurent'</code> to avoid duplication of complex values.
@@ -75,8 +73,7 @@ parameters:
       <h4 class="arvo">Query parameters</h4>
       <p>
         Query parameters are specified using parameters defined under the <code>verb</code> of the specification as you may find on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L20">line 20</a>. Snippet is represented below for the <code>laurent_cars</code> mock:
-        <pre>code>
-- name: limit
+        <pre><code>- name: limit
   in: query
   description: Number of result in page
   required: false
@@ -84,15 +81,13 @@ parameters:
     type: integer
   examples:
     laurent_cars:
-      value: 20
-        </code></pre>
+      value: 20</code></pre>
       </p>
 
       <h3 class="arvo">Specifying request payload</h3>
       <p>
         Request payload is used within our <code>laurent_307</code> sample. It is specified under the <code>requestBody</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L55">line 55</a>. Request payload may refer to OpenAPI schema definitions like in the snippet below:
-        <pre>code>
-requestBody:
+        <pre><code>requestBody:
   description: Car body
   content:
     application/json:
@@ -103,15 +98,13 @@ requestBody:
           summary: Creation of a valid car
           description: Should return 201
           value: '{"name": "307", "model": "Peugeot 307", "year": 2003}'
-  required: true
-        </code></pre>
+  required: true</code></pre>
       </p>
 
       <h3 class="arvo">Specifying response payload</h3>
       <p>
         Response payload is used within our <code>laurent_cars</code> sample. It is defined under the <code>Http status</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40">line 40</a>. Response payload may refer to OpenAPI schema definitions like in the snippet below:
-        <pre><code>
-responses:
+        <pre><code>responses:
   200:
     description: Success
     content:
@@ -126,8 +119,7 @@ responses:
               [
                   {"name": "307", "model": "Peugeot 307", "year": 2003},
                   {"name": "jean-pierre", "model": "Peugeot Traveller", "year": 2017}
-              ]
-          </code></pre>
+              ]</code></pre>
         </p>
         <p>
           And yes... I've called one of my car jean-pierre... ;-)
