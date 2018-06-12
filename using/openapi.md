@@ -51,7 +51,7 @@ title: OpenAPI usage for Microcks
       <h4 class="arvo">Path parameters</h4>
       <p>
         This is done within the <code>parameters</code> part of corresponding API <code>path</code>, on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L83">line 83</a> of our file. Snippet is represented below:
-        <pre>code>
+        <pre><code>
 parameters:
   - name: owner
     in: path
@@ -66,7 +66,7 @@ parameters:
         value: laurent
       laurent_307:
         $ref: '#/components/examples/param_laurent'
-        </code></p>
+        </code></pre>
       </p>
       <p>
         One thing to notice here is that Microcks importer supports the use of references like <code>'#/components/examples/param_laurent'</code> to avoid duplication of complex values.
@@ -75,7 +75,7 @@ parameters:
       <h4 class="arvo">Query parameters</h4>
       <p>
         Query parameters are specified using parameters defined under the <code>verb</code> of the specification as you may find on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L20">line 20</a>. Snippet is represented below for the <code>laurent_cars</code> mock:
-        <pre>code>
+        <pre><code>
 - name: limit
   in: query
   description: Number of result in page
@@ -91,7 +91,7 @@ parameters:
       <h3 class="arvo">Specifying request payload</h3>
       <p>
         Request payload is used within our <code>laurent_307</code> sample. It is specified under the <code>requestBody</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L55">line 55</a>. Request payload may refer to OpenAPI schema definitions like in the snippet below:
-        <pre>code>
+        <pre><code>
 requestBody:
   description: Car body
   content:
