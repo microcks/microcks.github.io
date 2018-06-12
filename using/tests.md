@@ -58,7 +58,12 @@ title: Executing tests
 					<tr>
 						<td><code>POSTMAN</code></td>
 						<td>REST</td>
-						<td>When the microservice mock repository is defined using <a href="../soapui">SoapUI</a>: executes test scripts as specified within Postman. Report failures.</td>
+						<td>When the microservice mock repository is defined using <a href="../postman">Postman</a>: executes test scripts as specified within Postman. Report failures.</td>
+					</tr>
+					<tr>
+						<td><code>OPEN_API_SCHEMA</code></td>
+						<td>REST</td>
+						<td>When the microservice mock repository is defined using <a href="../openapi">Open API</a>: it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.</td>
 					</tr>
 				</tbody>
 			</table>
