@@ -66,7 +66,7 @@ parameters:
         value: laurent
       laurent_307:
         $ref: '#/components/examples/param_laurent'
-        </code></p>
+        </code></pre>
       </p>
       <p>
         One thing to notice here is that Microcks importer supports the use of references like <code>'#/components/examples/param_laurent'</code> to avoid duplication of complex values.
