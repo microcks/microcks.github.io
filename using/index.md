@@ -83,7 +83,7 @@ title: Getting started
 
 			<h3 class="arvo">Installing using Docker Compose</h3>
 			<p>
-				For those of you familiar with simple Docker Compose, a <source>docker-compose</source> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands :<br/><br/>
+				For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands :<br/><br/>
 				<code>git clone https://github.com/microcks/microcks.git</code><br/>
 				<code>cd microcks/install/docker-compose</code><br/>
 				<code>docker-compose -f microcks.yml up -d</code><br/>

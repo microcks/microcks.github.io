@@ -30,7 +30,7 @@ title: Using Microcks from Jenkins
 			</p>
 			<p>
 				Given you have an OpenShift installation running and you're logged on it, just execute that command from terminal:<br/>
-				<code>oc create -f https://raw.githubusercontent.com/microcks/microcks-jenkins-plugin/master/openshift-jenkins-master-bc.yml</code><br/>
+				<code>oc process -f https://raw.githubusercontent.com/microcks/microcks-jenkins-plugin/master/openshift-jenkins-master-bc.yml | oc create -f -</code><br/>
 
 				<br/>
 				This should start a <code>Build</code> and then create an <code>ImageStream</code> called <code>microcks-jenkins-master</code> in your current project. After few minutes, a <code>microcks-jenkins-master:latest</code> container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.
