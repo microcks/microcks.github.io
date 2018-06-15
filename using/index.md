@@ -83,21 +83,7 @@ title: Getting started
 
 			<h3 class="arvo">Installing using Docker Compose</h3>
 			<p>
-				For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands :<br/><br/>
-				<code>git clone https://github.com/microcks/microcks.git</code><br/>
-				<code>cd microcks/install/docker-compose</code><br/>
-				<code>docker-compose -f microcks.yml up -d</code><br/>
-
-				<br/>
-				After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code>http://localhost:8080</code> URL.
-				<pre><code>
-» docker ps
-CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                    NAMES
-6a563e9d87c1        microcks/microcks:latest                  "/bin/sh -c 'exec ..."   6 days ago          Up 33 seconds       0.0.0.0:8080->8080/tcp   microcks
-162e99a97a6f        microcks/microcks-postman-runtime:latest   "node app.js"            6 days ago          Up 39 seconds       3000/tcp                 microcks-postman-runtime
-b3cb4840597b        mongo:3.3.12                               "/entrypoint.sh mo..."   6 days ago          Up 39 seconds       27017/tcp                microcks-mongo
-949e0b9bdac6        jboss/keycloak:3.4.0.Final                 "/opt/jboss/docker..."   6 days ago          Up 38 seconds       0.0.0.0:8180->8080/tcp   microcks-keycloak
-				</code></pre>
+				You'll find instructions on how to use Docker Compose for installation <a href="../installing/docker-compose">here</a>.
 			</p>
 
 			<h3 class="arvo">Building from binary/sources</h3>
