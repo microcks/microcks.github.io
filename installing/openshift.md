@@ -41,7 +41,7 @@ title: Installing on OpenShift
 				<br/>
 				After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<br/>
 			</p>
-			<img src="../assets/images/running-pods.png" class="img-responsive"/>
+			<img src="../../assets/images/running-pods.png" class="img-responsive"/>
 			<p>
 				 Now you can retrieve the URL of the created route using <code>oc get routes</code> command and navigate to this URL to get started with Microcks. Depending on your environment, URL should be something like <code>http://microcks-microcks.192.168.99.100.nip.io</code>. By default, Microcks integrates with OpenShift identity provider through the use of Keycloak but you may configure some other providers later.
 			</p>
