@@ -21,8 +21,15 @@ title: Using Microcks from Jenkins
 
 			<h3 class="arvo">Getting raw plugin</h3>
       <p>
-        While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.0/microcks-jenkins-plugin-0.1.0.hpi">Central Maven repository</a>. Just get the <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.0/microcks-jenkins-plugin-0.1.0.hpi">HPI file</a> and install it on your Jenkins master <a href="https://jenkins.io/doc/book/managing/plugins/">your preferred way</a>.
+        While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/">Central Maven repository</a>. Just get the <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi">HPI file</a> and install it on your Jenkins master <a href="https://jenkins.io/doc/book/managing/plugins/">your preferred way</a>.
       </p>
+			<p>
+				Pick up the version corresponding to your Microcks installation :
+				<ul>
+					<li><a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi">0.2.0 version</a> from Microcks <version>0.7.0</version> or greater,</li>
+					<li><a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi">0.1.1 version</a> from Microcks version before <version>0.7.0</version></li>
+				</ul>
+			</p>
 
 			<h3 class="arvo">Building an OpenShift Jenkins master embedding plugin</h3>
 			<p>
@@ -36,6 +43,27 @@ title: Using Microcks from Jenkins
 				This should start a <code>Build</code> and then create an <code>ImageStream</code> called <code>microcks-jenkins-master</code> in your current project. After few minutes, a <code>microcks-jenkins-master:latest</code> container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.
 			</p>
     </section>
+
+		<section id="usage" class="article">
+			<h2 class="arvo">Setting up Microcks Jenkins plugin</h2>
+
+			<p>
+				Since the version <code>0.2.0</code>, this plugin is using identified <i>Service Accounts</i> when connecting to Microcks server. It is also able to manage multiple Microcks installation and hide the technical details from your Jobs using Microcks plugins. As a Jenkins administrator, go to the <i>Manage Jenkins</i> page and find the <i>Microcks</i> section. You should be able to add and configure as many instance of Microcks installation as you want like in the 2 configured in screenshot below:
+			</p>
+			<img src="../../assets/images/jenkins-installations.png" class="img-responsive"/>
+			<p>
+				A Microcks installation configuration need 5 parameters:<ul>
+					<li>A <code>Name</code> will be used by your Jobs or Pipelines as a reference of an environment,</li>
+					<li>The <code>API URL</code> is the endpoint of your Microcks server receiving API calls,</li>
+					<li>The <code>Keycloak URL</code> is the endpoint of the Keycloak associated with your Microcks server. You should set it the full URL including the realm name your instance is attached,</li>
+					<li>The <code>Credentials</code> to use for authenticating the Service Account and allowing it to retrieve an OAuth token (more on that on <a href="../../automating/service-account/">Service Account</a>). These are Crederentials that should be registered into Jenkins,</li>
+					<li>The <code>Disable Cert Validation</code> box you have to check if you have a HTTPS setup with auto-signed certificates.</li>
+				</ul>
+			</p>
+			<p>
+				You should then be able to test the connection to endpoints and save your configuration. Later, your Jobs and Pipelines will just use the installation <code>Name</code> to refer it from their build steps.
+			</p>
+		</section>
 
 		<section id="usage" class="article">
 			<h2 class="arvo">Using Microcks Jenkins plugin</h2>
@@ -53,7 +81,7 @@ title: Using Microcks from Jenkins
 			<img src="../../assets/images/jenkins-build-step.png" class="img-responsive"/>
 			<p>
 				The parameters that can be set here are:<ul>
-					<li>The <code>API URL</code> of Microcks server: this is your running instance of Microcks where services or API are defined,</li>
+					<li>The <code>Server</code>: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),</li>
 					<li>The <code>Service Identifier</code> to launch tests for: this is simply a <code>service_name:service_version</code> expression,</li>
 					<li>The <code>Test Endpoint</code> to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
 					<li>The <code>Runner Type</code> to use: this is the test strategy you may want to have regarding endpoint,</li>
@@ -77,7 +105,7 @@ node('maven') {
   }
   stage ('testInDev') {
     // Add Microcks test here.
-    microcksTest(apiURL: 'http://microcks-microcks.52.174.149.59.nip.io/api',
+    microcksTest(server: 'minishiftMicrocks',
       serviceId: 'Beer Catalog API:0.9',
       testEndpoint: 'http://beer-catalog-impl-beer-catalog-dev.52.174.149.59.nip.io/api/',
       runnerType: 'POSTMAN', verbose: 'true')
@@ -93,7 +121,7 @@ node('maven') {
 			</p>
 			<p>
 				The parameters that can be set here are the same that in <code>Build Step</code> usage but take care to cases and typos:<ul>
-					<li>The <code>apiURL</code> of Microcks server: this is your running instance of Microcks where services or API are defined,</li>
+					<li>The <code>server</code>: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),</li>
 					<li>The <code>serviceId</code> to launch tests for: this is simply a <code>service_name:service_version</code> expression,</li>
 					<li>The <code>testEndpoint</code> to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
 					<li>The <code>runnerType</code> to use: this is the test strategy you may want to have regarding endpoint,</li>
