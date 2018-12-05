@@ -31,7 +31,7 @@ title: Using exposed mocks
 			<p>
 				Let's now focus on the <code>Operations</code> section of this page. A click on the operation name, unveil its details. Within an Operation panel, you will get generic information on this operation as well as visualization of typical request/response pairs examples (payload content and headers). 2 major informations should be isolated here are :
 				<ul>
-					<li>The <code>Mocks URL</code>: this is the URL fragment to which are exposed the mocks for this Operation of the API/Service. This fragment should be appended to your Microcks server URL to form a invokable URL. For example: <code>http://microcks-microcks.192.168.99.100.nip.io/rest/Test%20API/0.0.1/order/:id</code>. When this URL contains variables part, this part is instanciated within each example panel,</li>
+					<li>The <code>Mocks URL</code>: this is the URL fragment to which are exposed the mocks for this Operation of the API/Service. This fragment should be appended to your Microcks server URL to form a invokable URL. For example: <code>http://microcks-microcks.192.168.99.100.nip.io/rest/Test+API/0.0.1/order/:id</code>. When this URL contains variables part, this part is instanciated within each example panel,</li>
 					<li>The <code>Dispatcher</code> and <code>Dispatching Rules</code> used by this operation. These elements are used by Microcks for finding an appropriate response to return receiving a mock request. It tells the user of the mocks what should be the immutable elements of his requests wether they may be located into the URL, the query string or the body payload. Microcks supports many dispatcher implementations whose names are rather self-explanatory. You may find: <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code></li>
 				</ul>
 			</p>
@@ -81,14 +81,14 @@ title: Using exposed mocks
 							<td>Test API</td>
 							<td>0.0.1</td>
 							<td>"Find by id" operation, order resource, example with id=123456</td>
-							<td><code>http://microcks.example.com/rest/Test%20API/0.0.1/order/123456</code></td>
+							<td><code>http://microcks.example.com/rest/Test+API/0.0.1/order/123456</code></td>
 						</tr>
 						<tr>
 							<td>REST</td>
 							<td>Test API</td>
 							<td>0.0.1</td>
 							<td>"List by status" operation, order resource, example with status=approved</td>
-							<td><code>http://microcks.example.com/rest/Test%20API/0.0.1/order?status=approved</code></td>
+							<td><code>http://microcks.example.com/rest/Test+API/0.0.1/order?status=approved</code></td>
 						</tr>
 					</tbody>
 				</table>
