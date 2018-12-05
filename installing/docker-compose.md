@@ -39,7 +39,8 @@ b3cb4840597b        mongo:3.3.12                               "/entrypoint.sh m
         <br/>
         The directives just below show the detailed operations when using simple HTTP. If want to use HTTPS, you'll have to update the <code>sslRequired</code> and <code>keycloak.ssl-required</code> properties to <code>external</code> value.
         <pre><code>
-$ hostname -f myserver.example.com
+$ hostname -f
+  myserver.example.com
 $ cd microcks/install/docker-compose/
 $ cp keycloak-realm/microcks-realm-sample.json keycloak-realm/microcks-realm-sample.json.bak
 $ apt-get install jq
@@ -51,15 +52,15 @@ $ sudo docker-compose -f microcks.yml up -d
       </p>
 
       <p>
-        Just run the <code>docker-compose -f microcks.yml up -d</code><br/> command after this setup.
+				All this directives are grouped into a single script named <code>setup-microcks-apt.sh</code> you'll find into the <code>install/docker-compose</code> directory. You can use it to setup your single server installation of Microcks. Just run the <code>docker-compose -f microcks.yml up -d</code><br/> command after having used this script.
       </p>
     </section>
 
     <section id="aws" class="article">
-      <h2 class="arvo">Quick AWS installation</h2>
+      <h2 class="arvo">Quick Azure installation</h2>
 
       <p>
-        Coming soon...
+        We provide this side project <a href="https://github.com/microcks/microcks-azure">microcks/microcks-azure</a> for easily setting up a demo server on Azure. This project reuse some form of the simple script exposed above, triggered by the Azure template instanciation.
       </p>
     </section>
   </div>
