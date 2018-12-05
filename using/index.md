@@ -37,8 +37,7 @@ title: Getting started
 					<li>Embedding Keycloak or using an external mutualized instance,</li>
 					<li>With or without HTTPS Routes setup.</li>
 				</ul>
-			</p>
-			<p>
+			
 				Have a look on this <a href="../installing/kubernetes">page</a> for more informations.
 			</p>
 
