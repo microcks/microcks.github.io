@@ -102,6 +102,24 @@ section {
   width: 50%;
 }
 
+.swagger-ui .info .title small {
+  font-size: 10px !important;
+  position: relative !important;
+  top: -5px !important;
+  display: inline-block !important;
+  margin: 0 0 0 5px !important;
+  padding: 2px 4px !important;
+  vertical-align: super !important;
+  border-radius: 57px !important;
+  background: #7d8492 !important;
+}
+.swagger-ui .info .title small pre {
+  padding: 2px 4px !important;
+  border-radius: 57px !important;
+  background: #7d8492 !important;
+  border-color: #7d8492 !important;
+}
+
 @media (min-width: 880px) {
   .jumbotron h2 {
     font-size: 3em;
