@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resources on Microcks.io</title>
+    <link>https://microcks.io/resources/</link>
+    <description>Recent content in Resources on Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://microcks.io/resources/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An API Journey, from Mock to Deployment!</title>
+      <link>https://microcks.io/resources/video/api-journey/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/resources/video/api-journey/</guid>
+      <description>As API are now becoming mainstream, a lot of focus is put on development and API Gateways. However, this does not solve all the problems… People are still facing issues regarding versioning, pragmatic usage of contract-first approaches or governance! In order to be truly efficient delivering API, it’s the whole lifecycle that needs to be considered. In this hands-on lab, we’ll go through Red Hat’s approach for API development.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>Getting started | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.57.2" />
+
+      
+        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.54f1079c9e5d65255241fb69e0b0e333650d3c2a83ed1020db81f467ac047c77.css" integrity="sha256-VPEHnJ5dZSVSQftp4LDjM2UNPCqD7RAg24H0Z6wEfHc=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.f737c8b2045ad5d49e0003daa30a8b246161b176c159bfbbcd5325be495a8409.js" integrity="sha256-9zfIsgRa1dSeAAPaowqLJGFhsXbBWb&#43;7zVMlvklahAk=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Getting started" />
+<meta property="og:description" content="Getting started On this page, you will go through :
+ Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
+Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/getting-started/" />
+<meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
+<meta itemprop="name" content="Getting started">
+<meta itemprop="description" content="Getting started On this page, you will go through :
+ Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
+Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager.">
+
+
+<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="686">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting started"/>
+<meta name="twitter:description" content="Getting started On this page, you will go through :
+ Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
+Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager."/>
+
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img">
+
+    <h1 class="dim f2 lh-solid ml0-ns mr0 ml6-l ml6-ns mv0 pl3-ns fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#0a1922;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+  <article class="w-100 ph3 pb5">
+    <div class="flex-l">
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#installing-microcks">Installing Microcks</a>
+<ul>
+<li><a href="#installing-on-kubernetes-h3">Installing on Kubernetes</h3></a></li>
+<li><a href="#installing-on-openshift">Installing on OpenShift</a></li>
+<li><a href="#installing-using-docker-compose">Installing using Docker Compose</a></li>
+</ul></li>
+<li><a href="#using-microcks">Using Microcks</a>
+<ul>
+<li><a href="#loading-samples">Loading samples</a></li>
+<li><a href="#viewing-services">Viewing services</a></li>
+<li><a href="#viewing-details">Viewing details</a></li>
+</ul></li>
+<li><a href="#what-s-next">What&rsquo;s next?</a></li>
+</ul></li>
+</ul>
+</nav>
+	
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv4 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Getting started</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>On this page, you will go through :</p>
+
+<ul>
+<li><a href="#installing-microcks">Installing Microcks</a>,</li>
+<li><a href="#using-microcks">Using Microcks</a>,</li>
+<li><a href="#what-s-next">Going further&hellip;</a></li>
+</ul>
+
+<h2 id="installing-microcks">Installing Microcks</h2>
+
+<p>Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.</p>
+
+<h3 id="installing-on-kubernetes-h3">Installing on Kubernetes</h3></h3>
+
+<p>We provide <a href="https://raw.githubusercontent.com/microcks/microcks/master/install/kubernetes/kubernetes-ephemeral-full.yml">basic Kubernetes manifest</a> for simple needs but also a <code>Chart</code> for using with <a href="https://helm.sh/">Helm</a> Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.</p>
+
+<p>Have a look on this <a href="/documentation/installing/kubernetes">page</a> for more informations.</p>
+
+<h3 id="installing-on-openshift">Installing on OpenShift</h3>
+
+<p>We provide OpenShift templates in many flavors for rapid deployment onto OpenShift. We will basically have different installation options:</p>
+
+<ul>
+<li>Ephemeral or Persistent setup,</li>
+<li>Embedding Keycloak or using an external mutualized instance,</li>
+<li>With or without HTTPS Routes setup.
+<br /></li>
+</ul>
+
+<p>Have a look on this <a href="/documentation/installing/openshift">page</a> for more informations.</p>
+
+<h3 id="installing-using-docker-compose">Installing using Docker Compose</h3>
+
+<p>Docker Compose is really easy for a laptop or single demonstration server. You&rsquo;ll find instructions on how to use Docker Compose for installation <a href="/documentation/installing/docker-compose">here</a>.</p>
+
+<p>Using this deployment solution, we also provide one-click deployment to Microsoft Azure Cloud with this <a href="https://github.com/microcks/microcks-azure">sub-project</a>.</p>
+
+<h2 id="using-microcks">Using Microcks</h2>
+
+<p>Now you are ready to use Microcks for deploying your own services and API mocks! Before that let&rsquo;s have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with 2 main entry points : <b>Services</b> and <b>Jobs</b>.</p>
+
+<p><img src="/images/home-screen.png" class="img-responsive"/></p>
+
+<p>As you may have guessed, <b>API | Services</b> is about browsing your [micro]-services and API repository, discovering and accessing documentation, mocks and tests. <b>Importers</b> is another concept dedicated on how to fill this repository: it allows to define Jobs periodically scan your Git or Subversion repository for checking new definition files that will be parsed and integrated as part of your [micro]-services and API repository. Indeed <b>Importers</b> help discover new or modified <b>Services</b>. Before creating your own service definition files, let load some samples into Microcks for a test ride.</p>
+
+<h3 id="loading-samples">Loading samples</h3>
+
+<p>We provide different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. Using the <b>Importers</b> entry point from home screen or top navigation bar, use the Importers management page to add 3 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:</p>
+
+<ul>
+<li>Hello SOAP Service : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml</code></li>
+<li>Hello REST API : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml</code></li>
+<li>Petstore API : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json</code>
+<br /></li>
+</ul>
+
+<p>Now that you have created your Jobs, you have to <code>Activate</code> them (this make them eligible to a periodically check) and to <code>Force import</code> them (this make a forced refresh right now). After some moments and a page refresh, you should see the status of Jobs changed like in screenshot below:</p>
+
+<p><img src="/images/sample-jobs.png" class="img-responsive"/></p>
+
+<h3 id="viewing-services">Viewing services</h3>
+
+<p>Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 3 new services with basic informations on version and operations/resources handled by this services.</p>
+
+<p><img src="/images/sample-services.png" alt="sample-services" /></p>
+
+<h3 id="viewing-details">Viewing details</h3>
+
+<p>Now choosing the <b>Petstore API</b> REST API, you&rsquo;ll be able to access details, documentation and request/response samples for each operation/resource in the screen below. One important information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below show request/response couples and a detailed URL with the HTTP verb showing how to invoke this mock.</p>
+
+<p><img src="/images/sample-details.png" alt="sample-details" /></p>
+
+<p>Using this URL, you can call the exposed mock for <b>Petstore API</b> using the following curl command:</p>
+
+<pre><code>$ curl &quot;http://microcks-microcks.192.168.99.100.nip.io/rest/Petstore+API/1.0/pet/findByStatus?status=available&amp;user_key=70f735676ec46351c6699c4bb767878a&quot;
+</code></pre>
+
+<p>And you should receive the following response:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192062</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192063</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192285</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192654</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192671</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192727</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192736</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192768</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192878</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190192907</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">190193000</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">-98125093</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">-517488397</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;EJvNbK&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;LuEfMZATrHz&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;XCXOVVkaxa&#34;</span><span class="p">,</span><span class="s2">&#34;gNwYqHEmC&#34;</span><span class="p">,</span><span class="s2">&#34;nvCvphDeuqztysUBNed&#34;</span><span class="p">,</span><span class="s2">&#34;W&#34;</span><span class="p">,</span><span class="s2">&#34;vmrxRIViyXqumolLIeoB&#34;</span><span class="p">,</span><span class="s2">&#34;JRqHVxk&#34;</span><span class="p">,</span><span class="s2">&#34;tCUGbegVHoXajm&#34;</span><span class="p">,</span><span class="s2">&#34;UiHppQn&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">727599428</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;RemggEDzxPljbrlktdWf&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">1987753751</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;zWqdKAGHMmhPPlomljaNtuvm&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">1251632392</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;BAgtgtKOxZGdsS&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">-1813025208</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;OkKxtfAkCMEICbbQDVPi&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">-730110346</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;WshDF&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">2100951153</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;yxUFSknQEleIAQCoocl&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">-2135188117</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;M&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">1352243140</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;koKHsjysHXW&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">1696778814</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;KaihiyarcZkIzkkquWPZ&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">659492963</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;xqIzulcBPzWMyUpQwQK&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">-2118372841</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;naYFGuHmqDqOpfHH&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">},{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">8739826599258110549</span><span class="p">,</span><span class="nt">&#34;category&#34;</span><span class="p">:{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">},</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;doggie&#34;</span><span class="p">,</span><span class="nt">&#34;photoUrls&#34;</span><span class="p">:[</span><span class="s2">&#34;string&#34;</span><span class="p">],</span><span class="nt">&#34;tags&#34;</span><span class="p">:[{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;string&#34;</span><span class="p">}],</span><span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="s2">&#34;available&#34;</span><span class="p">}]</span></code></pre></div>
+<p>Ta Dam !</p>
+
+<h2 id="what-s-next">What&rsquo;s next?</h2>
+
+<p>Now that you have basic information on how to setup and use Microcks, you can go further with:</p>
+
+<ul>
+<li>Understanding how Microcks <a href="/documentation/using/alternatives">compare to alternatives</a>,</li>
+<li>Creating your definition files using <a href="/documentation/using/soapui">SoapUI</a> or <a href="/documentation/using/postman">Postman</a>,</li>
+<li>Using <a href="/documentation/using/mocks">exposed mocks</a> and using variables,</li>
+<li>Executing your <a href="/documentation/using/tests">tests on endpoints</a> where your services and API are deployed,</li>
+<li>Using <a href="(/documentation/using/admin)">advanced features</a> of Microcks and admin stuffs.</li>
+</ul>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
+        
+<nav role="navigation">
+  <ul class="list pa0 nl2">
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray db">
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+              GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/alternatives/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              COMPARISON TO ALTERNATIVES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/openapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              OPENAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/soapui/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              SOAPUI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/mocks/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING EXPOSED MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING DYNAMIC MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXECUTING TESTS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBERNETES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/openshift/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON OPENSHIFT
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH DOCKER-COMPOSE
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".automating">AUTOMATING</a>
+        <ul class="automating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/automating/service-account/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS SERVICE ACCOUNTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/jenkins/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INTEGRATING MICROCKS FROM JENKINS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/cli/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              CLI FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/tekton/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING MICROCKS FROM TEKTON
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/api/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS API
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".administrating">ADMINISTRATING</a>
+        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MANAGING USERS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/secrets/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXTERNAL SECRETS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/snapshots/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              REPOSITORY SNAPSHOTS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/resources/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".resources">RESOURCES</a>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/community/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".community">COMMUNITY</a>
+      </li>
+  </ul>
+</nav>
+
+      </div>
+    </div>
+
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/getting-started/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “Getting started”
+  </a> was last updated: September 2, 2019
+</h6>
+
+      <a href="edit/master/content/en/documentation/getting-started.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">The Microcks logos are copyright © Laurent Broudoux 2016–2019.</p>
+    </div>
+
+    
+    <a href="https://gitter.im/microcks/microcks?source=orgpage" target="new">
+      <img src="/images/gitter.png" class="absolute-l bottom-0 dn db-l h4 right-0 mr2 mb2 z-999"/>
+    </a>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>
