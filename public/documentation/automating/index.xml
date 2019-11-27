@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automating on Microcks.io</title>
+    <link>https://microcks.io/documentation/automating/</link>
+    <description>Recent content in Automating on Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://microcks.io/documentation/automating/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Microcks Service Accounts</title>
+      <link>https://microcks.io/documentation/automating/service-account/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/automating/service-account/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integrating Microcks from Jenkins</title>
+      <link>https://microcks.io/documentation/automating/jenkins/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/automating/jenkins/</guid>
+      <description>Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
+Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.</description>
+    </item>
+    
+    <item>
+      <title>CLI for Microcks</title>
+      <link>https://microcks.io/documentation/automating/cli/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/automating/cli/</guid>
+      <description>Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
+The CLI makes usage of Microcks Service Account so it&amp;rsquo;s defintely worth the read ;-)
+Usage instructions Usage is simply microcks-cli [command]
+where [command] can be one of the following:
+ version to check this CLI version, help to display usage informations, test to launch new test on Microcks server.</description>
+    </item>
+    
+    <item>
+      <title>Using Microcks from Tekton</title>
+      <link>https://microcks.io/documentation/automating/tekton/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/automating/tekton/</guid>
+      <description>Microcks Tekton The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines. Microcks makes use of its CLI undercover and provides some Tasks and exemple Pipelines with the /tekton folder of this repository. It also makes usage of Microcks Service Account so it&amp;rsquo;s defintely worth the read ;-)
+Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task for testing with Microcks. You may remove default values for parameters or put your own here.</description>
+    </item>
+    
+    <item>
+      <title>Microcks API</title>
+      <link>https://microcks.io/documentation/automating/api/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/automating/api/</guid>
+      <description>Microcks own&amp;rsquo;s API As a tool focused on APIs, Microcks also offers its own API that allows you to query its datastore and control the import jobs and configuration objects. You may use this API from your automation tool to dynamically launch new tests, register new mocks or globally control your Microcks server configuration.
+The Swagger-UI below allows you to browse and discover the various API endpoints.
+{{ partial &amp;ldquo;swagger-ui.</description>
+    </item>
+    
+  </channel>
+</rss>

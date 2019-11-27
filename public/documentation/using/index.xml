@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using on Microcks.io</title>
+    <link>https://microcks.io/documentation/using/</link>
+    <description>Recent content in Using on Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Comparison to alternatives</title>
+      <link>https://microcks.io/documentation/using/alternatives/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/alternatives/</guid>
+      <description>Microcks vs. SoapUI Scope &amp;amp; Audience SoapUI is one of the oldest tool in the area but also one of the most popular. We like SoapUI for being simple to use and of great value because it lets functional experts to easily edit requests and responses samples. Specially when it relates to SOAP WebServices, SoapUI offers wizards, templates and validation that make correct editing of such samples a breeze. That&amp;rsquo;s why we currently rely on SoapUI for providing the contract artifacts as an input to Microcks.</description>
+    </item>
+    
+    <item>
+      <title>Executing tests</title>
+      <link>https://microcks.io/documentation/using/tests/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/tests/</guid>
+      <description>Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
+From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.</description>
+    </item>
+    
+    <item>
+      <title>Getting dynamic mocks</title>
+      <link>https://microcks.io/documentation/using/dynamic/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/dynamic/</guid>
+      <description>Getting dynamic mocks Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract.</description>
+    </item>
+    
+    <item>
+      <title>OpenAPI usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/openapi/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/openapi/</guid>
+      <description>Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks has recently evolved to provide direct support for OpenAPI 3.0.
+With this new feature, you&amp;rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during [tests](.</description>
+    </item>
+    
+    <item>
+      <title>Postman usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/postman/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/postman/</guid>
+      <description>Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
+Steps for creating a repository In order to create a tests and mocks repository using Postman, you&amp;rsquo;ll need to follow the steps below: * Initialize a Postman collection that will hold the repository, * Create Examples and fill request parameters, headers and body, * Describe associated response in terms of status, headers and body, * Export the result as a JSON file using the Collection v2 format, * Save the collection file into your SCM repository.</description>
+    </item>
+    
+    <item>
+      <title>SoapUI usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/soapui/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/soapui/</guid>
+      <description>Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
+Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&amp;rsquo;ll need to follow the steps below:
+ Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.</description>
+    </item>
+    
+    <item>
+      <title>Using exposed mocks</title>
+      <link>https://microcks.io/documentation/using/mocks/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/mocks/</guid>
+      <description>Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+First, let&amp;rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :</description>
+    </item>
+    
+  </channel>
+</rss>

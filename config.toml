@@ -1,0 +1,20 @@
+baseURL = "https://microcks.io"
+languageCode = "en-us"
+title = "Microcks.io"
+theme = "microcks"
+pygmentsUseClasses = true
+pygmentsCodefences = true
+googleAnalytics = "UA-152524664-1"
+
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params.algolia]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"]
+
+[outputs]
+home = ["HTML", "Algolia"]
