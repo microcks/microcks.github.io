@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/using/advanced/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/administrating/snapshots/</loc>
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
   </url>
@@ -98,32 +103,22 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/administrating/</loc>
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://microcks.io/categories/administrating/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/categories/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2019-11-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/categories/automating/</loc>
     <lastmod>2019-11-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -138,17 +133,11 @@
   </url>
   
   <url>
-    <loc>https://microcks.io/categories/installing/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://microcks.io/resources/video/api-journey/</loc>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/categories/</loc>
   </url>
   
   <url>

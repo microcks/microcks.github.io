@@ -6,10 +6,21 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Advanced topics</title>
+      <link>https://microcks.io/documentation/using/advanced/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/advanced/</guid>
+      <description>Content negocation in REST mocks Microcks mocks engine supports Content Negociation for REST APIs based on Accept HTTP header.
+So supposed you have defined 2 representations for the same example of a GET /pastry/{name} operation into your API contract:
+ One describing a JSON response like below   Another describing a XML response like below  Both samples are matching the same dispatch criterion that is the name part of the URI.</description>
+    </item>
     
     <item>
       <title>Comparison to alternatives</title>
