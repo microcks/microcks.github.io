@@ -19,7 +19,7 @@
       <guid>https://microcks.io/documentation/getting-started/</guid>
       <description>Getting started On this page, you will go through :
  Installing Microcks, Using Microcks, Going further&amp;hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
-Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager.</description>
+Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application.</description>
     </item>
     
   </channel>

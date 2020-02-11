@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Administrating | Microcks.io</title>
+    <title>Installing with Kubernetes Operator | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.57.2" />
@@ -18,7 +18,6 @@
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
       
 
-    <link rel="alternate" type="application/rss&#43;xml" href="https://microcks.io/documentation/administrating/index.xml">
     
     
       <link rel="stylesheet" href="/output/css/app.min.f6d84d8b96ccd4e6bc15db03aa3ead7ea8728af7de0116fe941526adf7805631.css" integrity="sha256-9thNi5bM1Oa8FdsDqj6tfqhyivfeARb&#43;lBUmrfeAVjE=" crossorigin="anonymous"> 
@@ -44,18 +43,29 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Administrating" />
-<meta property="og:description" content="Microcks.io" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://microcks.io/documentation/administrating/" />
+<meta property="og:title" content="Installing with Kubernetes Operator" />
+<meta property="og:description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At time of writing, Microcks only define one cutomer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/installing/operator/" />
+<meta property="article:published_time" content="2020-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-11T00:00:00+00:00" />
+<meta itemprop="name" content="Installing with Kubernetes Operator">
+<meta itemprop="description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At time of writing, Microcks only define one cutomer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.">
 
-<meta property="og:updated_time" content="2019-11-18T00:00:00+00:00" />
-<meta itemprop="name" content="Administrating">
-<meta itemprop="description" content="Microcks.io">
 
+<meta itemprop="datePublished" content="2020-02-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="472">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Administrating"/>
-<meta name="twitter:description" content="Microcks.io"/>
+<meta name="twitter:title" content="Installing with Kubernetes Operator"/>
+<meta name="twitter:description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At time of writing, Microcks only define one cutomer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy."/>
 
       
   </head>
@@ -168,88 +178,163 @@
     
     <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
       
-
-<article class="w-100 ph3 pb5">
+  <article class="w-100 ph3 pb5">
     <div class="flex-l">
-        <div class="order-1 w-60-l mw8 ph0 ph4-ns">
-            <div class="w-100 ph4 pb5 pb6-ns pt1 mt4">
-                <div class="w-100 w-80-l ph0 ph4-l">
-                    <article class="w-100 nested-copy-line-height nested-links nested-img">
-                        <h1 class="primary-color-dark f2">
-                            Administrating
-                        </h1>
-                        <div class=" mid-gray f5 f4-l">
-                            <p>Here below all the documentation pages related to <strong>Administration</strong>.</p>
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#microcksinstall-resource">MicrocksInstall resource</a></li>
+<li><a href="#on-openshift-4-with-olm">On OpenShift 4 with OLM</a></li>
+<li><a href="#on-kubernetes-with-olm">On Kubernetes with OLM</a></li>
+<li><a href="#on-any-kube-distribution-without-olm">On any Kube distribution without OLM</a></li>
+</ul></li>
+</ul>
+</nav>
+	
 
-                        </div>
-                    </article>
-                
-                    
-                
-                    <div class="flex flex-wrap">
-                        
-                        <section class="flex-ns flex-wrap justify-between w-100">
-                            
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/administrating/users/" class="link primary-color dim">Managing Users</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                
-                                            
-                                    
-                                            <a href="/documentation/administrating/users/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/administrating/secrets/" class="link primary-color dim">External Secrets</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                
-                                            
-                                    
-                                            <a href="/documentation/administrating/secrets/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/administrating/snapshots/" class="link primary-color dim">Repository Snapshots</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                
-                                            
-                                    
-                                            <a href="/documentation/administrating/snapshots/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            
-                        </section>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-        <div class="order-0 w-20 dn db-l mt4 ph3">
+	<div date-pref>
+		
+			<a href="https://microcks.io/documentation/installing/kubernetes/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Installing on Kubernetes ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+
+		
+			<a href="https://microcks.io/documentation/installing/openshift/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Installing with OpenShift templates">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+	</div>
+
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Installing with Kubernetes Operator</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+
+
+<h2 id="overview">Overview</h2>
+
+<p>Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific <code>Custom Resources</code> defining their domain of expertise. Microcks provide an Operator that was developed using the <a href="https://github.com/operator-framework/operator-sdk">Operator Framework SDK</a> and that is distributed through <a href="https://operatorhub.io/operator/microcks">OperatorHub.io</a>.</p>
+
+<p>At time of writing, Microcks only define one cutomer resource that is called the <code>MicrocksInstall</code>: a description of the instance configuration you want to deploy. The properties of this custom resource are described below.</p>
+
+<p>Depending on your needs and usage of Operators, they can be easily deployed and managed using the <a href="https://github.com/operator-framework/operator-lifecycle-manager">Operator Lifecycle Manager</a>, an add-on that you may install into your Kubernetes cluster to track subscription and upgrades of operators. We describe both installation methods below: with or without Operator Lifecycle Manager (OLM).</p>
+
+<h2 id="microcksinstall-resource">MicrocksInstall resource</h2>
+
+<p>Here&rsquo;s below the minimalistic form of a <code>MicrocksInstall</code>. You just have to specify a name, the desired version of Microcks and replicas.</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>MicrocksInstall<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w">  </span>version<span class="p">:</span><span class="w"> </span><span class="s2">&#34;0.8.0&#34;</span><span class="w">
+</span><span class="w">  </span>microcks<span class="p">:</span><span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>postman<span class="p">:</span><span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
+<p>This form can only be used onto OpenShift as vanilla Kube will need more information to customize <code>Ingress</code>. Here&rsquo;s for example a full version that can be used onto Minikube:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>MicrocksInstall<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks-minikube<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks-minikube<span class="w">
+</span><span class="w">  </span>version<span class="p">:</span><span class="w"> </span><span class="s2">&#34;0.8.1&#34;</span><span class="w">
+</span><span class="w">  </span>microcks<span class="p">:</span><span class="w"> 
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">    </span>url<span class="p">:</span><span class="w"> </span>microcks<span class="m">.192.168.99.100</span>.nip.io<span class="w">
+</span><span class="w">  </span>postman<span class="p">:</span><span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">  </span>keycloak<span class="p">:</span><span class="w">
+</span><span class="w">    </span>install<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>persistent<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>volumeSize<span class="p">:</span><span class="w"> </span>1Gi<span class="w">
+</span><span class="w">    </span>url<span class="p">:</span><span class="w"> </span>keycloak<span class="m">.192.168.99.100</span>.nip.io<span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>mongodb<span class="p">:</span><span class="w">
+</span><span class="w">    </span>install<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>persistent<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>volumeSize<span class="p">:</span><span class="w"> </span>2Gi<span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
+<p>We recommend having a look at <a href="https://github.com/microcks/microcks-ansible-operator">operator documentation</a> for full understanding of CR.</p>
+
+<h2 id="on-openshift-4-with-olm">On OpenShift 4 with OLM</h2>
+
+<p>As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also expose the post-installation steps required for creating user and connecting to the app.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/P2RFDxL0xsA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h2 id="on-kubernetes-with-olm">On Kubernetes with OLM</h2>
+
+<p>Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.14.1/install.sh <span class="p">|</span> bash -s <span class="m">0</span>.13.0</code></pre></div>
+<p>Install the operator by running the following command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create -f https://operatorhub.io/install/microcks.yaml</code></pre></div>
+<p>For more details on what&rsquo;s going on with this command, check <a href="https://operatorhub.io/how-to-install-an-operator#What-happens-when-I-execute-the-'Install'-command-presented-in-the-pop-up?">this page</a>.
+This Operator will be installed in the <code>my-microcks</code> namespace and will be usable from this namespace only. After install, watch your operator come up using next command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get csv -n my-microcks</code></pre></div>
+<p>To use it, checkout the custom resource definitions (CRDs) introduced by this operator to start using it.</p>
+
+<h2 id="on-any-kube-distribution-without-olm">On any Kube distribution without OLM</h2>
+
+<p>For development or on bare OpenShift and Kubernetes clusters, without Operator Lifecycle Management (OLM).</p>
+
+<p>Start cloning this repos and then, optionnally, create a new project:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks-ansible-operator.git
+$ <span class="nb">cd</span> microcks-ansible-operator/
+$ oc new-project microcks-operator</code></pre></div>
+<p>Then, from this repository root directory, create the specific CRDS and resources needed for Operator:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f deploy/crds/microcks_v1alpha1_microcksinstall_crd.yaml
+$ oc create -f deploy/service_account.yaml 
+$ oc create -f deploy/role.yaml
+$ oc create -f deploy/role_binding.yaml </code></pre></div>
+<p>Finally, deploy the operator:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f deploy/operator.yaml</code></pre></div>
+<p>Wait a minute or two and check everything is running:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc get pods                                                                                                                                 
+NAME                                        READY     STATUS    RESTARTS   AGE
+microcks-ansible-operator-f58b97548-qj26l   <span class="m">1</span>/1       Running   <span class="m">0</span>          3m</code></pre></div>
+<p>Now just create a <code>MicrocksInstall</code> CR!</p>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
         
 <nav role="navigation">
   <ul class="list pa0 nl2">
@@ -312,15 +397,15 @@
       </li>
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
-        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING ON KUBERNETES
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               INSTALLING WITH KUBERNETES OPERATOR
             </a>
           </li>
@@ -399,9 +484,31 @@
   </ul>
 </nav>
 
-        </div>
+      </div>
     </div>
-</article>
+
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/installing/operator/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “Installing with Kubernetes Operator”
+  </a> was last updated: February 11, 2020
+</h6>
+
+      <a href="edit/master/content/en/documentation/installing/operator.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
 
     </main>
 

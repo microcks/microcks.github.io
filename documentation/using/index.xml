@@ -6,10 +6,21 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Templating mock responses</title>
+      <link>https://microcks.io/documentation/using/advanced/templates/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/advanced/templates/</guid>
+      <description>Introduction Whilst we deeply think that &amp;ldquo;real-world&amp;rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
+Those use-case encompass:
+ random numbers that may be defined in a range, today&amp;rsquo;s date or today&amp;rsquo;s + an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduce in Microcks 0.</description>
+    </item>
     
     <item>
       <title>Advanced topics</title>
@@ -47,7 +58,7 @@ From the page displaying basic information on your microservice mocks, you have 
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/dynamic/</guid>
-      <description>Getting dynamic mocks Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract.</description>
+      <description>Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.</description>
     </item>
     
     <item>
@@ -67,7 +78,7 @@ With this new feature, you&amp;rsquo;ll now be able to directly import your Open
       
       <guid>https://microcks.io/documentation/using/postman/</guid>
       <description>Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
-Steps for creating a repository In order to create a tests and mocks repository using Postman, you&amp;rsquo;ll need to follow the steps below: * Initialize a Postman collection that will hold the repository, * Create Examples and fill request parameters, headers and body, * Describe associated response in terms of status, headers and body, * Export the result as a JSON file using the Collection v2 format, * Save the collection file into your SCM repository.</description>
+Steps for creating a repository In order to create a tests and mocks repository using Postman, you&amp;rsquo;ll need to follow the steps below:</description>
     </item>
     
     <item>

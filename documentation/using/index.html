@@ -49,7 +49,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/using/" />
 
-<meta property="og:updated_time" content="2019-12-12T00:00:00+00:00" />
+<meta property="og:updated_time" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="name" content="Using">
 <meta itemprop="description" content="Microcks.io">
 
@@ -194,6 +194,25 @@
                                 <div class="relative  weight-90">
                                     <div class="bg-white mb2 pa3 pa4-l gray">
                                         <h1 class="near-black f3">
+                                            <a href="/documentation/using/advanced/templates/" class="link primary-color dim">Templating mock responses</a>
+                                        </h1>
+                                        <div class="lh-copy links">
+                                            
+                                                Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
+Those use-case encompass:
+ random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s + an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduce in Microcks 0.
+                                            
+                                    
+                                            <a href="/documentation/using/advanced/templates/" class="f6 mt2 db link primary-color dim">
+                                            Read More &raquo;
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="relative  weight-90">
+                                    <div class="bg-white mb2 pa3 pa4-l gray">
+                                        <h1 class="near-black f3">
                                             <a href="/documentation/using/advanced/" class="link primary-color dim">Advanced topics</a>
                                         </h1>
                                         <div class="lh-copy links">
@@ -252,7 +271,7 @@ From the page displaying basic information on your microservice mocks, you have 
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Getting dynamic mocks Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract.
+                                                Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.
                                             
                                     
                                             <a href="/documentation/using/dynamic/" class="f6 mt2 db link primary-color dim">
@@ -288,7 +307,7 @@ With this new feature, you&rsquo;ll now be able to directly import your OpenAPI 
                                         <div class="lh-copy links">
                                             
                                                 Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
-Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below: * Initialize a Postman collection that will hold the repository, * Create Examples and fill request parameters, headers and body, * Describe associated response in terms of status, headers and body, * Export the result as a JSON file using the Collection v2 format, * Save the collection file into your SCM repository.
+Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:
                                             
                                     
                                             <a href="/documentation/using/postman/" class="f6 mt2 db link primary-color dim">
@@ -396,6 +415,11 @@ First, let&rsquo;s have a look at the summary page presenting an API or Service 
               ADVANCED TOPICS
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TEMPLATING MOCK RESPONSES
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -408,8 +432,13 @@ First, let&rsquo;s have a look at the summary page presenting an API or Service 
             </a>
           </li>
           <li class="f6 fw4">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH KUBERNETES OPERATOR
+            </a>
+          </li>
+          <li class="f6 fw4">
             <a href="/documentation/installing/openshift/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              INSTALLING ON OPENSHIFT
+              INSTALLING WITH OPENSHIFT TEMPLATES
             </a>
           </li>
           <li class="f6 fw4">
@@ -514,7 +543,7 @@ First, let&rsquo;s have a look at the summary page presenting an API or Service 
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2019. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2020. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

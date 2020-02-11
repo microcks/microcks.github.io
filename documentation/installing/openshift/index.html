@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Installing on OpenShift | Microcks.io</title>
+    <title>Installing with OpenShift templates | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.57.2" />
@@ -43,28 +43,28 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Installing on OpenShift" />
-<meta property="og:description" content="Installing on OpenShift Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
+<meta property="og:title" content="Installing with OpenShift templates" />
+<meta property="og:description" content="Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
  Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/openshift/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="name" content="Installing on OpenShift">
-<meta itemprop="description" content="Installing on OpenShift Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
+<meta itemprop="name" content="Installing with OpenShift templates">
+<meta itemprop="description" content="Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
  Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page.">
 
 
 <meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="414">
+<meta itemprop="wordCount" content="411">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Installing on OpenShift"/>
-<meta name="twitter:description" content="Installing on OpenShift Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
+<meta name="twitter:title" content="Installing with OpenShift templates"/>
+<meta name="twitter:description" content="Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
  Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page."/>
 
       
@@ -188,10 +188,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#installing-on-openshift">Installing on OpenShift</a>
-<ul>
 <li><a href="#instructions">Instructions</a></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -199,7 +196,7 @@
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/installing/kubernetes/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Installing on Kubernetes ">
+			<a href="https://microcks.io/documentation/installing/operator/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Installing with Kubernetes Operator ">
 				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -224,7 +221,7 @@
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Installing on OpenShift</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Installing with OpenShift templates</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -238,9 +235,7 @@
 
 
 
-<h2 id="installing-on-openshift">Installing on OpenShift</h2>
-
-<h3 id="instructions">Instructions</h3>
+<h2 id="instructions">Instructions</h2>
 
 <p>The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:</p>
 
@@ -255,11 +250,8 @@
 </blockquote>
 
 <p>Then you have to ensure that Microcks templates for OpenShift are added and available into your Cluster. Templates come in 2 flavors: ephemeral or persistent. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster. Add the templates, by using these commands :</p>
-
-<pre><code>$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml -n openshift
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml -n openshift</code></pre></div>
 <p>Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:</p>
 
 <ul>
@@ -269,15 +261,12 @@ $ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/instal
 </ul>
 
 <p>Typically, you&rsquo;ll got this kind of commands for a local Minishift instance:</p>
-
-<pre><code>$ oc new-project microcks --display-name=&quot;Microcks&quot;
-$ oc new-app --template=microcks-persistent \
-   --param=APP_ROUTE_HOSTNAME=microcks-microcks.192.168.99.100.nip.io \
-   --param=KEYCLOAK_ROUTE_HOSTNAME=keycloak-microcks.192.168.99.100.nip.io \
-   --param=OPENSHIFT_MASTER=https://192.168.99.100:8443 \
-   --param=OPENSHIFT_OAUTH_CLIENT_NAME=microcks-client
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc new-project microcks --display-name<span class="o">=</span><span class="s2">&#34;Microcks&#34;</span>
+$ oc new-app --template<span class="o">=</span>microcks-persistent <span class="se">\
+</span><span class="se"></span>   --param<span class="o">=</span><span class="nv">APP_ROUTE_HOSTNAME</span><span class="o">=</span>microcks-microcks.192.168.99.100.nip.io <span class="se">\
+</span><span class="se"></span>   --param<span class="o">=</span><span class="nv">KEYCLOAK_ROUTE_HOSTNAME</span><span class="o">=</span>keycloak-microcks.192.168.99.100.nip.io <span class="se">\
+</span><span class="se"></span>   --param<span class="o">=</span><span class="nv">OPENSHIFT_MASTER</span><span class="o">=</span>https://192.168.99.100:8443 <span class="se">\
+</span><span class="se"></span>   --param<span class="o">=</span><span class="nv">OPENSHIFT_OAUTH_CLIENT_NAME</span><span class="o">=</span>microcks-client</code></pre></div>
 <p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<br/></p>
 
 <p><img src="/images/running-pods.png" class="img-responsive"/></p>
@@ -343,6 +332,11 @@ $ oc new-app --template=microcks-persistent \
               ADVANCED TOPICS
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TEMPLATING MOCK RESPONSES
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -355,8 +349,13 @@ $ oc new-app --template=microcks-persistent \
             </a>
           </li>
           <li class="f6 fw4">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH KUBERNETES OPERATOR
+            </a>
+          </li>
+          <li class="f6 fw4">
             <a href="/documentation/installing/openshift/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
-              INSTALLING ON OPENSHIFT
+              INSTALLING WITH OPENSHIFT TEMPLATES
             </a>
           </li>
           <li class="f6 fw4">
@@ -441,7 +440,7 @@ $ oc new-app --template=microcks-persistent \
   <a href="https://microcks.io/documentation/installing/openshift/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Installing on OpenShift”
+    “Installing with OpenShift templates”
   </a> was last updated: September 2, 2019
 </h6>
 
@@ -483,7 +482,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2019. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2020. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

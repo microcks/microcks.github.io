@@ -46,7 +46,7 @@
 <meta property="og:title" content="Getting started" />
 <meta property="og:description" content="Getting started On this page, you will go through :
  Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
-Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager." />
+Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/getting-started/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
@@ -54,12 +54,12 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
 <meta itemprop="name" content="Getting started">
 <meta itemprop="description" content="Getting started On this page, you will go through :
  Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
-Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager.">
+Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application.">
 
 
 <meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="686">
+<meta itemprop="wordCount" content="722">
 
 
 
@@ -68,7 +68,7 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
 <meta name="twitter:title" content="Getting started"/>
 <meta name="twitter:description" content="Getting started On this page, you will go through :
  Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
-Installing on Kubernetes We provide basic Kubernetes manifest for simple needs but also a Chart for using with Helm Packet Manager."/>
+Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application."/>
 
       
   </head>
@@ -194,8 +194,9 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
 <li><a href="#getting-started">Getting started</a></li>
 <li><a href="#installing-microcks">Installing Microcks</a>
 <ul>
-<li><a href="#installing-on-kubernetes-h3">Installing on Kubernetes</h3></a></li>
-<li><a href="#installing-on-openshift">Installing on OpenShift</a></li>
+<li><a href="#installing-with-kubernetes-operator">Installing with Kubernetes Operator</a></li>
+<li><a href="#installing-on-kubernetes-with-helm">Installing on Kubernetes with Helm</a></li>
+<li><a href="#installing-with-openshift-templates">Installing with OpenShift templates</a></li>
 <li><a href="#installing-using-docker-compose">Installing using Docker Compose</a></li>
 </ul></li>
 <li><a href="#using-microcks">Using Microcks</a>
@@ -242,13 +243,19 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
 
 <p>Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.</p>
 
-<h3 id="installing-on-kubernetes-h3">Installing on Kubernetes</h3></h3>
+<h3 id="installing-with-kubernetes-operator">Installing with Kubernetes Operator</h3>
+
+<p>We provide an Operator that is distributed through <a href="https://operatorhub.io/operator/microcks">OperatorHub.io</a> for easy install and management of Microcks as a Kubernetes-native application.</p>
+
+<p>Have a look on this <a href="/documentation/installing/operator">page</a> for more informations.</p>
+
+<h3 id="installing-on-kubernetes-with-helm">Installing on Kubernetes with Helm</h3>
 
 <p>We provide <a href="https://raw.githubusercontent.com/microcks/microcks/master/install/kubernetes/kubernetes-ephemeral-full.yml">basic Kubernetes manifest</a> for simple needs but also a <code>Chart</code> for using with <a href="https://helm.sh/">Helm</a> Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.</p>
 
 <p>Have a look on this <a href="/documentation/installing/kubernetes">page</a> for more informations.</p>
 
-<h3 id="installing-on-openshift">Installing on OpenShift</h3>
+<h3 id="installing-with-openshift-templates">Installing with OpenShift templates</h3>
 
 <p>We provide OpenShift templates in many flavors for rapid deployment onto OpenShift. We will basically have different installation options:</p>
 
@@ -320,7 +327,7 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
 <li>Creating your definition files using <a href="/documentation/using/soapui">SoapUI</a> or <a href="/documentation/using/postman">Postman</a>,</li>
 <li>Using <a href="/documentation/using/mocks">exposed mocks</a> and using variables,</li>
 <li>Executing your <a href="/documentation/using/tests">tests on endpoints</a> where your services and API are deployed,</li>
-<li>Using <a href="(/documentation/using/admin)">advanced features</a> of Microcks and admin stuffs.</li>
+<li>Using <a href="(/documentation/using/advanced)">advanced features</a> of Microcks and admin stuffs.</li>
 </ul>
 
 </div>
@@ -382,6 +389,11 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
               ADVANCED TOPICS
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TEMPLATING MOCK RESPONSES
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -394,8 +406,13 @@ Installing on Kubernetes We provide basic Kubernetes manifest for simple needs b
             </a>
           </li>
           <li class="f6 fw4">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH KUBERNETES OPERATOR
+            </a>
+          </li>
+          <li class="f6 fw4">
             <a href="/documentation/installing/openshift/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              INSTALLING ON OPENSHIFT
+              INSTALLING WITH OPENSHIFT TEMPLATES
             </a>
           </li>
           <li class="f6 fw4">
@@ -522,7 +539,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2019. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2020. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

@@ -6,7 +6,7 @@
     <description>Recent content in Installing on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,17 +17,27 @@
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/kubernetes/</guid>
-      <description>Installing on Kubernetes Instructions One easy way if installing Microcks is to do it on Kubernetes. Kubernetes in version 1.6 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+      <description>Instructions One easy way if installing Microcks is to do it on Kubernetes. Kubernetes in version 1.6 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
  Lightweight Minikube on your laptop, see Minikube project page, Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.</description>
     </item>
     
     <item>
-      <title>Installing on OpenShift</title>
+      <title>Installing with Kubernetes Operator</title>
+      <link>https://microcks.io/documentation/installing/operator/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/installing/operator/</guid>
+      <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At time of writing, Microcks only define one cutomer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.</description>
+    </item>
+    
+    <item>
+      <title>Installing with OpenShift templates</title>
       <link>https://microcks.io/documentation/installing/openshift/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/openshift/</guid>
-      <description>Installing on OpenShift Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
+      <description>Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
  Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page.</description>
     </item>
     
@@ -37,8 +47,8 @@
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/docker-compose/</guid>
-      <description>Installing with Docker-compose Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
-$ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docker-compose $ docker-compose -f microcks.yml up -d   Depending on your operating system, you&amp;rsquo;ll have to first edit the microcks.</description>
+      <description>Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
+$ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docker-compose $ docker-compose -f microcks.yml up -d  Depending on your operating system, you&amp;rsquo;ll have to first edit the microcks.</description>
     </item>
     
   </channel>
