@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Installing with docker-compose | Microcks.io</title>
+    <title>Importing Services &amp; APIs | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.57.2" />
@@ -43,29 +43,26 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Installing with docker-compose" />
-<meta property="og:description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
-$ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docker-compose $ docker-compose -f microcks.yml up -d  Depending on your operating system, you&rsquo;ll have to first edit the microcks." />
+<meta property="og:title" content="Importing Services &amp; APIs" />
+<meta property="og:description" content=" Supported formats " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/installing/docker-compose/" />
-<meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="name" content="Installing with docker-compose">
-<meta itemprop="description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
-$ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docker-compose $ docker-compose -f microcks.yml up -d  Depending on your operating system, you&rsquo;ll have to first edit the microcks.">
+<meta property="og:url" content="https://microcks.io/documentation/using/importers/" />
+<meta property="article:published_time" content="2020-02-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-26T00:00:00+00:00" />
+<meta itemprop="name" content="Importing Services &amp; APIs">
+<meta itemprop="description" content=" Supported formats ">
 
 
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="422">
+<meta itemprop="datePublished" content="2020-02-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Installing with docker-compose"/>
-<meta name="twitter:description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
-$ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docker-compose $ docker-compose -f microcks.yml up -d  Depending on your operating system, you&rsquo;ll have to first edit the microcks."/>
+<meta name="twitter:title" content="Importing Services &amp; APIs"/>
+<meta name="twitter:description" content=" Supported formats "/>
 
       
   </head>
@@ -188,9 +185,7 @@ $ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docke
 <ul>
 <li>
 <ul>
-<li><a href="#localhost-installation">Localhost installation</a></li>
-<li><a href="#server-installation">Server installation</a></li>
-<li><a href="#quick-azure-installation">Quick Azure installation</a></li>
+<li><a href="#supported-formats">Supported formats</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -198,15 +193,15 @@ $ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docke
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/installing/openshift/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Installing with OpenShift templates ">
-				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+
+		
+			<a href="https://microcks.io/documentation/using/advanced/templates/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Templating mock responses">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
 </svg>
 
 			</a>
-		
-
 		
 	</div>
 
@@ -215,7 +210,7 @@ $ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docke
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Installing with docker-compose</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Importing Services &amp; APIs</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -229,42 +224,7 @@ $ git clone https://github.com/microcks/microcks.git $ cd microcks/install/docke
 
 
 
-<h2 id="localhost-installation">Localhost installation</h2>
-
-<p>For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks.git
-$ <span class="nb">cd</span> microcks/install/docker-compose
-$ docker-compose -f microcks.yml up -d</code></pre></div>
-<blockquote>
-<p>Depending on your operating system, you&rsquo;ll have to first edit the <code>microcks.yml</code> file to comment and uncomment the value for <code>KEYCLOAK_URL</code> variable. Use the <code>docker.for.mac.localhost</code> or <code>docker.for.win.localhost</code> values accordingly.</p>
-</blockquote>
-
-<p>After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code><a href="http://localhost:8080">http://localhost:8080</a></code> URL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker ps
-CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                    NAMES
-6a563e9d87c1        microcks/microcks:latest                  <span class="s2">&#34;/bin/sh -c &#39;exec ...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">33</span> seconds       <span class="m">0</span>.0.0.0:8080-&gt;8080/tcp   microcks
-162e99a97a6f        microcks/microcks-postman-runtime:latest   <span class="s2">&#34;node app.js&#34;</span>            <span class="m">6</span> days ago          Up <span class="m">39</span> seconds       <span class="m">3000</span>/tcp                 microcks-postman-runtime
-b3cb4840597b        mongo:3.3.12                               <span class="s2">&#34;/entrypoint.sh mo...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">39</span> seconds       <span class="m">27017</span>/tcp                microcks-mongo
-949e0b9bdac6        jboss/keycloak:3.4.0.Final                 <span class="s2">&#34;/opt/jboss/docker...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">38</span> seconds       <span class="m">0</span>.0.0.0:8180-&gt;8080/tcp   microcks-keycloak</code></pre></div>
-<h2 id="server-installation">Server installation</h2>
-
-<p>When installing on a shared server that will be accessed from some other places and machines, you&rsquo;ll need to tweak some configuration files before launching the <code>docker-compose</code> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server and the access mode to Keycloak depending on the protocol your want to use.</p>
-
-<p>The directives just below show the detailed operations when using simple HTTP. If want to use HTTPS, you&rsquo;ll have to update the <code>sslRequired</code> and <code>keycloak.ssl-required</code> properties to <code>external</code> value.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ hostname -f
-  myserver.example.com
-$ <span class="nb">cd</span> microcks/install/docker-compose/
-$ cp keycloak-realm/microcks-realm-sample.json keycloak-realm/microcks-realm-sample.json.bak
-$ apt-get install jq
-$ jq <span class="s1">&#39;.applications |= map(if .name == &#34;microcks-app-js&#34; then .redirectUris = [ &#34;http://myserver.example.com:8080/*&#34; ] else . end) | .sslRequired |= &#34;none&#34;&#39;</span> keycloak-realm/microcks-realm-sample.json.bak &gt; keycloak-realm/microcks-realm-sample.json
-$ perl -i.bak -pe <span class="s1">&#39;s|KEYCLOAK_URL=http://localhost:8180/auth|KEYCLOAK_URL=http://myserver.example.com:8180/auth|&#39;</span> microcks.yml
-$ perl -i.bak -pe <span class="s1">&#39;s|keycloak.ssl-required=external|keycloak.ssl-required=none|&#39;</span> config/application.properties
-$ sudo docker-compose -f microcks.yml up -d</code></pre></div>
-<p>All this directives are grouped into a single script named <code>setup-microcks-apt.sh</code> you&rsquo;ll find into the <code>install/docker-compose</code> directory. You can use it to setup your single server installation of Microcks. Just run the <code>docker-compose -f microcks.yml up -d</code><br/> command after having used this script.</p>
-
-<h2 id="quick-azure-installation">Quick Azure installation</h2>
-
-<p>We provide this side project <a href="https://github.com/microcks/microcks-azure">microcks/microcks-azure</a> for easily setting up a demo server on Azure. This project reuse some form of the simple script exposed above, triggered by the Azure template instanciation.</p>
+<h2 id="supported-formats">Supported formats</h2>
 
 </div>
 
@@ -278,8 +238,8 @@ $ sudo docker-compose -f microcks.yml up -d</code></pre></div>
     
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
-        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
@@ -291,7 +251,7 @@ $ sudo docker-compose -f microcks.yml up -d</code></pre></div>
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               IMPORTING SERVICES &amp; APIS
             </a>
           </li>
@@ -339,8 +299,8 @@ $ sudo docker-compose -f microcks.yml up -d</code></pre></div>
       </li>
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".installing">INSTALLING</a>
-        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray db">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
           <li class="f6 fw4">
             <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING ON KUBERNETES
@@ -357,7 +317,7 @@ $ sudo docker-compose -f microcks.yml up -d</code></pre></div>
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING WITH DOCKER-COMPOSE
             </a>
           </li>
@@ -435,14 +395,14 @@ $ sudo docker-compose -f microcks.yml up -d</code></pre></div>
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/installing/docker-compose/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/using/importers/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Installing with docker-compose”
-  </a> was last updated: September 2, 2019
+    “Importing Services &amp; APIs”
+  </a> was last updated: February 26, 2020
 </h6>
 
-      <a href="edit/master/content/en/documentation/installing/docker-compose.md" class="
+      <a href="edit/master/content/en/documentation/using/importers.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 
