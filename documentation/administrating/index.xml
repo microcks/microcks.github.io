@@ -17,8 +17,8 @@
       <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/administrating/users/</guid>
-      <description>Introduction Starting with Microcks version 0.8.0, we add the ability to partially manage users directly from the Microcks GUI. &amp;ldquo;Partially&amp;rdquo; means that you are able to manage a user&amp;rsquo;s roles within Microcks application but not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider.
-Users can only be managed by Microcks administrator - we mean people having the administrator role assigned.</description>
+      <description>Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
+Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm.</description>
     </item>
     
     <item>
