@@ -6,10 +6,20 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Custom dispatching rules</title>
+      <link>https://microcks.io/documentation/using/advanced/dispatching/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/advanced/dispatching/</guid>
+      <description>Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
+However in some cases, this could not be enough and it will be useful to override these deduced values.</description>
+    </item>
     
     <item>
       <title>Importing Services &amp; APIs</title>
