@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/using/advanced/organizing/</loc>
+    <lastmod>2020-03-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/using/advanced/dispatching/</loc>
     <lastmod>2020-03-03T00:00:00+00:00</lastmod>
   </url>
@@ -124,12 +129,12 @@
   
   <url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>

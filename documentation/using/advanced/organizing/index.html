@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Postman usage for Microcks | Microcks.io</title>
+    <title>Organizing repository | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.57.2" />
@@ -43,29 +43,29 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Postman usage for Microcks" />
-<meta property="og:description" content="Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
-Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:" />
+<meta property="og:title" content="Organizing repository" />
+<meta property="og:description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/postman/" />
-<meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-01-02T00:00:00+00:00" />
-<meta itemprop="name" content="Postman usage for Microcks">
-<meta itemprop="description" content="Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
-Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:">
+<meta property="og:url" content="https://microcks.io/documentation/using/advanced/organizing/" />
+<meta property="article:published_time" content="2020-03-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-22T00:00:00+00:00" />
+<meta itemprop="name" content="Organizing repository">
+<meta itemprop="description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services.">
 
 
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="986">
+<meta itemprop="datePublished" content="2020-03-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="562">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Postman usage for Microcks"/>
-<meta name="twitter:description" content="Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
-Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:"/>
+<meta name="twitter:title" content="Organizing repository"/>
+<meta name="twitter:description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services."/>
 
       
   </head>
@@ -188,16 +188,9 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <ul>
 <li>
 <ul>
-<li><a href="#overview">Overview</a>
-<ul>
-<li><a href="#pre-requisites">Pre-requisites</a></li>
-<li><a href="#steps-for-creating-a-repository">Steps for creating a repository</a></li>
-<li><a href="#conventions">Conventions</a></li>
-</ul></li>
-<li><a href="#collection-initialisation">Collection initialisation</a></li>
-<li><a href="#defining-examples">Defining Examples</a></li>
-<li><a href="#defining-test-scripts">Defining Test Scripts</a></li>
-<li><a href="#export-postman-collection">Export Postman collection</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#applying-labels">Applying labels</a></li>
+<li><a href="#master-level-filter">Master level filter</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -205,17 +198,9 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/using/openapi/" class="dib f6 pl1 hover-bg-light-gray br-100" title="OpenAPI usage for Microcks ">
-				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 
 		
-			<a href="https://microcks.io/documentation/using/soapui/" class="dib f6 pr1 hover-bg-light-gray br-100" title="SoapUI usage for Microcks">
+			<a href="https://microcks.io/documentation/using/advanced/dispatching/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Custom dispatching rules">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -230,7 +215,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Postman usage for Microcks</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Organizing repository</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -244,94 +229,91 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 
 
-<h2 id="overview">Overview</h2>
+<h2 id="introduction">Introduction</h2>
 
-<h3 id="pre-requisites">Pre-requisites</h3>
+<p>From <code>0.9.0</code> release, we introduce the ability to manage <code>labels</code> upon APIs &amp; Services present into your Microcks repository.</p>
 
-<p>Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.</p>
+<p>Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to
+specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services. Labels can be attached at creation time and subsequently added and modified at any time. Each APIs &amp; Services can have a set of key/value labels defined and each key must be unique for a given object.</p>
 
-<h3 id="steps-for-creating-a-repository">Steps for creating a repository</h3>
-
-<p>In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:</p>
-
-<ul>
-<li>Initialize a Postman collection that will hold the repository,</li>
-<li>Create Examples and fill request parameters, headers and body,</li>
-<li>Describe associated response in terms of status, headers and body,</li>
-<li>Export the result as a JSON file using the Collection v2 format,</li>
-<li>Save the collection file into your SCM repository.</li>
-</ul>
-
-<h3 id="conventions">Conventions</h3>
-
-<p>In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.</p>
+<p>Labels are a very flexible way to map your own organizational structures onto APIs &amp; Services with loose coupling. Some example labels
+that may suit your classification needs:</p>
 
 <ul>
-<li>Your Postman collection may contain one or more API definitions. However, because it&rsquo;s a best practice to consider each API as an autonomous and isolated software asset, we&rsquo;d recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,</li></li>
-<li>Your Postman collection description should hold a custom property named <code>version</code> that allows tracking of API version. It is a good practice to change this version identifier for each API interface versionned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: <code>version=1.0 - Here is now the full description of my collection...</code>.</li>
+<li><code>domain</code> may represent the business or application domain this API belongs to. Example values: <code>customer</code>, <code>finance</code>, <code>sales</code>, <code>shipping</code>&hellip;</li>
+<li><code>status</code> may represent the status of the API in the lifecycle. Example values: <code>wip</code>, <code>preview</code>, <code>GA</code>, <code>deprecated</code>, <code>retired</code>&hellip;</li>
+<li><code>type</code> or <code>pattern</code> may represent the pattern involved in the API implementation. Example values: <code>proxy</code>, <code>composition</code>, <code>assembly</code>&hellip;</li>
+<li><code>team</code> may represent the owner team for this API. Example values: <code>team-A</code>, <code>team-B</code>&hellip;</li>
 </ul>
 
-<p>We recommend having a look at our sample Postman collection for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json">Test API</a> to fully understand and see in action those conventions.</p>
+<p>Microcks does not impose any labels or way of modeling them 😉 However, for now it only applies one level filtering in its UI using one <code>master</code> label you define as the most important. Below an example of what you&rsquo;ve got on the UI side when defining <code>Domain</code> as the main label:</p>
 
-<h2 id="collection-initialisation">Collection initialisation</h2>
+<p><img src="/images/organizing-services.png" alt="organizing-services" /></p>
 
-<p>Collection initialization is done through <em>Import</em> of an existing resource into Postman. A best practice being using a &ldquo;contract first&rdquo; approach for API definition and management, you&rsquo;ll typically choose to <em>Import File</em> or <em>Import From Link</em> referencing a Swagger or OpenAPI contract definition.</p>
+<h2 id="applying-labels">Applying labels</h2>
 
-<p>The screenshot below shows how to create a new collection from a Swagger file. We are using here the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> Swagger file.</p>
+<p>When accessing API details, labels are displayed with global metadata at the top level. Users have the <code>manager</code> or <code>administrator</code> roles will also see the <strong>Manage labels&hellip;</strong>  item available right next to label list.</p>
 
-<p><img src="/images/postman-import.png" alt="postman-import" /></p>
 
-<p>After successful import and collection creation, you should get the following result into Postman: a valid Collection with a list of default requests created for your API paths and verbs. Elements of this list will be called <code>Operations</code> within Microcks. Here&rsquo;s the result for our <code>Test API</code>:</p>
+<div style="margin: auto; width: 80%">
+    <img src="/images/organizing-labels.png" width="650">
+</div>
 
-<p><img src="/images/postman-operations.png" alt="postman-operations" /></p>
+<p>Label management is done through the dialog shown below when one can easily add new labels or remove existing ones.</p>
 
-<h2 id="defining-examples">Defining Examples</h2>
 
-<p>As stated by Postman documentation :</p>
+<div style="margin: auto; width: 80%">
+    <img src="/images/organizing-labels-edit.png" width="650">
+</div>
 
 <blockquote>
-<p><em>Developers can mock a request and response in Postman before sending the actual request or setting up a single endpoint to return the response. Establishing an example during the earliest phase of API development requires clear communication between team members, aligns their expectations, and means developers and testers can get started more quickly.</em></p>
+<p>Labels are saved into Microcks database and not replaced by a new importation of your Service or API definition. They can be independently set and updated using the <a href="/documentation/using/automating/api">Microcks APIs</a>.</p>
 </blockquote>
 
-<p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!</p>
+<h2 id="master-level-filter">Master level filter</h2>
 
-<p>In contrary to <a href="./soapui/#defining-dispatch-rules">SoapUI usage</a>, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.</p>
+<p>Microcks instance administrator are also able to configure one label as being the main one, the <code>master</code> that will be used for first level filtering in the Services list page of the Microcks web UI.</p>
 
-<h2 id="defining-test-scripts">Defining Test Scripts</h2>
+<p>For that, we rely on the <code>features.properties</code> configuration file found on the server side. Depending on how you install Microcks - through Operator or Helm Chart or Docker-Compose - these properties are made available directly into a <code>MicrocksInstall</code> custom resource or a <code>ConfigMap</code> or a regular file.</p>
 
-<blockquote>
-<p>This is an optional step that is only required if you also want to use Microcks for testing your Service or API implement as the development process goes.</p>
-</blockquote>
+<p>The feature to activate for that is simply called <code>repository-filter</code>. It has the following sub-properties:</p>
 
-<p>Postman allows to attach some test scripts defined in JavaScript to a request or <code>Operation</code>. Contrary to ../soapui/#defining-tests&rdquo;&gt;SoapUI usage where different tests assertions can be put on each test requests, Postman only allows you to attach script to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global views of tests in Postman and their capabilities, we recommend reading the <a href="https://www.getpostman.com/docs/postman/scripts/intro_to_scripts">Introducting to Scripts</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Sub-Property</th>
+<th> Description</th>
+</tr>
+</thead>
 
-<p>As an illustration to how Microcks use Postman and offers, let&rsquo;s imagine we are still using the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> we mentionned aboved. There&rsquo;s an <code>Operation</code> allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned <code>order</code> has the <code>id</code> we specified into URI. We will write a test script that way:</p>
+<tbody>
+<tr>
+<td> <code>enabled</code></td>
+<td> A boolean flag that turns on the feature. <code>true</code> or <code>false</code></td>
+</tr>
 
-<p><img src="/images/postman-script.png" alt="postman-script" /></p>
+<tr>
+<td><code>label-key</code></td>
+<td> The label key to use for first level filtering in Services list page.</td>
+</tr>
 
-<p>You will notice the usage of following JavaScript code: <code>var expectedId = globals[&quot;id&quot;];</code>. What does that mean? Indeed, <code>globals</code> is an array of variables managed by Postman runtime. Usually, you have to pre-populate this array using <em>Pre-request script</em>. When running this tests in Microcks, such pre-request initialization are automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the <code>globals</code> context so that you can directly used them within your script.</p>
+<tr>
+<td><code>label-label</code></td>
+<td> The display label of the first level filtering key in Services list page.</td>
+</tr>
 
-<p>The execution of Postman tests using Microcks follows this flow:</p>
+<tr>
+<td><code>label-list</code></td>
+<td> A comma separated list of label keys you want to display in Services list page.</td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-<li>for each example defined for a request, collect URI and query string parameters as key/value pairs,</li>
-<li>inject each pair within <code>globals</code> JavaScript array,</li>
-<li>invoke request attached script with the <code>globals</code> injected into runtime context,</li>
-<li>collect the results within <code>tests</code> array to detect success or failure.</li>
-</ul>
-
-<p>Here&rsquo;s below another example of such a generic script that validated the received JSON content:</p>
-
-<p><img src="/images/postman-script-validation.png" alt="postman-script-validation" /></p>
-
-<p>This script validates that all the JSON <code>order</code> objects returned in response have all the <code>status</code> that is requested using the query parameter <code>status</code> value. Otherwise, a <code>Valid response</code> assertion failure is thrown and stored into the tests array.</p>
-
-<h2 id="export-postman-collection">Export Postman collection</h2>
-
-<p>Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
-
-<p><img src="/images/postman-export.png" alt="postman-export" /></p>
-
+<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-filter</code> and having the results shown in the cepture on the top of this page. You&rsquo;ll see that we use <code>domain</code> as the main label and that we only display <code>domain</code> and <code>status</code> labels on the Services list page:</p>
+<div class="highlight"><pre class="chroma"><code class="language-properties" data-lang="properties">features.feature.repository-filter.enabled=true
+features.feature.repository-filter.label-key=domain
+features.feature.repository-filter.label-label=Domain
+features.feature.repository-filter.label-list=domain,status</code></pre></div>
 </div>
 
         
@@ -367,7 +349,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               POSTMAN USAGE FOR MICROCKS
             </a>
           </li>
@@ -397,7 +379,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               ORGANIZING REPOSITORY
             </a>
           </li>
@@ -511,14 +493,14 @@ Steps for creating a repository In order to create a tests and mocks repository 
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/using/postman/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/using/advanced/organizing/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Postman usage for Microcks”
-  </a> was last updated: January 2, 2020
+    “Organizing repository”
+  </a> was last updated: March 22, 2020
 </h6>
 
-      <a href="edit/master/content/en/documentation/using/postman.md" class="
+      <a href="edit/master/content/en/documentation/using/advanced/organizing.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 
