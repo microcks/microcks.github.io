@@ -57,7 +57,7 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <meta itemprop="datePublished" content="2020-02-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-02-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1168">
+<meta itemprop="wordCount" content="1172">
 
 
 
@@ -251,7 +251,7 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <p>As previously introduced, Microcks <em>&ldquo;turns out your API contract into live mocks in seconds&rdquo;</em> - the noticeable part of these sentence being <strong>API contract</strong>. The cool things here is that is does not require you to produce another document: it is able to reuse existing <strong>artifacts</strong> that you may gather Microcks with. In order to be usable by Microcks, such artifacts should hold syntactical contracts but also full samples on how your Service is expected to work - and this is only possible by embedding complete pairs of requests and responses.</p>
 
-<p>Microcks supports the folloming editing tools and export/import formats as <strong>artifacts</strong> formats:</p>
+<p>Microcks supports the following editing tools and export/import formats as <strong>artifacts</strong> formats:</p>
 
 <p><img src="/images/artifacts-formats.png" alt="artifacts-formats" /></p>
 
@@ -259,7 +259,7 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <ul>
 <li><a href="https://www.soapui.org/soapui-projects/soapui-projects.html">SoapUI projects</a> files starting with the version 5.1 or SoapUI. See our <a href="../soapui/">documentation</a> on some conventions you should follow for this project structure,</li>
-<li><a href="https://learning.postman.com/docs/postman/collections/data-formats/">Postman collecitons</a> files with v1.0 or v2.x file format. See our <a href="../postman/">documentation</a> on some conventions you should follow for this collection structure,</li>
+<li><a href="https://learning.postman.com/docs/postman/collections/data-formats/">Postman collections</a> files with v1.0 or v2.x file format. See our <a href="../postman/">documentation</a> on some conventions you should follow for this collection structure,</li>
 <li><a href="https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api">Apicurio Studio</a> direct integration when working on OpenAPI 3.x API specifications,</li>
 <li><a href="http://spec.openapis.org/oas/v3.0.3">OpenAPI v3.x</a> files whether using the YAML of JSON format. See our <a href="../openapi/">documentation</a> on some conventions you should follow for this specification,</li>
 </ul>
@@ -268,7 +268,7 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 <p>People very often ask <em>&ldquo;Why the Swagger format - aka OpenApi 2.0 - isn&rsquo;t supported by Microcks?&rdquo;</em>. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they&rsquo;re only doing this using schema information with random generated values&hellip;</p>
 </blockquote>
 
-<p>If you own a bunch of Swagger specifications, you won&rsquo;t be able to directly import thme into Microcks - see the above note on the reason why. Thus, you will need to have an extra step and use a wrapper tool (Postman or SoapUI) for adding complete requests / responses pairs that will be used as the basis of your API real-life mocks.</p>
+<p>If you own a bunch of Swagger specifications, you won&rsquo;t be able to directly import them into Microcks - see the above note on the reason why. Thus, you will need to have an extra step and use a wrapper tool (Postman or SoapUI) for adding complete requests / responses pairs that will be used as the basis of your API real-life mocks.</p>
 
 <p><img src="/images/artifacts-swagger-adaptations.png" alt="artifacts-swagger-adaptations" /></p>
 
@@ -282,27 +282,27 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <p><img src="/images/artifacts-upload.png" alt="artifacts-upload" /></p>
 
-<p>Hit the <code>Upload</code> green button. Upload and then artifact import shoud then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the <strong>APIs | Services</strong> repository.</p>
+<p>Hit the <code>Upload</code> green button. Upload and then artifact import should then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the <strong>APIs | Services</strong> repository.</p>
 
 <p>While this method is very convenient for quick test, we&rsquo;ll have to re-import your artifact file on every new change&hellip;</p>
 
 <h2 id="scheduled-import">Scheduled import</h2>
 
-<p>Another way of adding new Services or APIs mocks is by scheduling an <strong>Importer Job</strong> into Microcks. Actually we see it as the best way to achieve continuous, iteratove and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you&rsquo;ll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if chnages have been applied and new mock or services definitions are present into your artifact.</p>
+<p>Another way of adding new Services or APIs mocks is by scheduling an <strong>Importer Job</strong> into Microcks. Actually we see it as the best way to achieve continuous, iterative and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you&rsquo;ll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present into your artifact.</p>
 
 <p><img src="/images/artifacts-scheduling.png" alt="artifacts-scheduling" /></p>
 
 <blockquote>
-<p>Though we think that Git repository (or vesion control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.</p>
+<p>Though we think that Git repository (or version control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.</p>
 </blockquote>
 
 <p>Still from the left vertical navigation bar, just select the <strong>Importers</strong> menu entry and then see the list of already existing importers.</p>
 
-<p>Once created, importer jobs can be managed, activated or forced through this scree. You&rsquo;ll see colored marker for each job line:</p>
+<p>Once created, importer jobs can be managed, activated or forced through this screen. You&rsquo;ll see colored marker for each job line:</p>
 
 <ul>
-<li><code>Scanned</code> means that job is actually scheduled for next importation run. Otherwise <code>Inactive</code>  will be displayed.</li>
-<li><code>Imported</code> means thet job has been successfully imported on previous run. Otherwise <code>Last import errors</code> will be displayed with a popup showing last error,</li>
+<li><code>Scanned</code> means that the job is actually scheduled for next importation run. Otherwise <code>Inactive</code>  will be displayed.</li>
+<li><code>Imported</code> means that the job has been successfully imported on previous run. Otherwise <code>Last import errors</code> will be displayed with a popup showing the last error,</li>
 <li><code>Services</code> is a shortcut to access the services definitions discovered by this job.</li>
 </ul>
 
@@ -314,11 +314,11 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <p>You may declare a new Importer job hitting the <code>Create</code> button.</p>
 
-<p>A wizard modal then appear as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.</p>
+<p>A wizard modal then appears as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.</p>
 
 <p><img src="/images/importer-step1.png" alt="importer-step1" /></p>
 
-<p>Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validaton as well as manage an authentication process through the usage of a <strong>Secret</strong>. See more on Secrets <a href="../../administrating/secrets">here</a>.</p>
+<p>Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validation as well as manage an authentication process through the usage of a <strong>Secret</strong>. See more on Secrets <a href="../../administrating/secrets">here</a>.</p>
 
 <p><img src="/images/importer-step2.png" alt="importer-step3" /></p>
 
@@ -330,15 +330,15 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <h3 id="configure-scheduling-interval">Configure scheduling interval</h3>
 
-<p>Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the <code>services.update.interval</code> property into the <code>application.properties</code> configuration file that takes the value of <code>SERVICES_UPDATE_INTERVAL</code> environment variable. The value shoud be set to a valid <a href="https://en.wikipedia.org/wiki/Cron#CRON_expression">CRON expression</a> ; default is every 2 hours.</p>
+<p>Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the <code>services.update.interval</code> property into the <code>application.properties</code> configuration file that takes the value of <code>SERVICES_UPDATE_INTERVAL</code> environment variable. The value should be set to a valid <a href="https://en.wikipedia.org/wiki/Cron#CRON_expression">CRON expression</a> ; default is every 2 hours.</p>
 <div class="highlight"><pre class="chroma"><code class="language-properties" data-lang="properties">services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}</code></pre></div>
 <h2 id="errors-management">Errors management</h2>
 
-<p>As import can be scheduled and take some <em>little</em> time, it is done asynchronously regarding the humain interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.</p>
+<p>As import can be scheduled and take some <em>little</em> time, it is done asynchronously regarding the human interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.</p>
 
-<p>Some of the error messages will be reported through the <code>Last import errors</code> status but some not&hellip; We try making the logged informations clearer regarding this type of errors but we incite you having a look at the <strong>Trouble shooting</strong> section of each specific importer documentation if the discovered services informations do not match with your expectations.</p>
+<p>Some of the error messages will be reported through the <code>Last import errors</code> status but some not&hellip; We try making the logged information clearer regarding this type of errors but we incite you to have a look at the <strong>Trouble shooting</strong> section of each specific importer documentation if the discovered services information do not match with your expectations.</p>
 
-<p>We hope releasing in near future some kind of <code>linter</code> that may help with analysing your artifact to check compliance with recommended practices and conventions.</p>
+<p>We hope releasing in near future some kind of <code>linter</code> that may help with analyzing your artifact to check compliance with recommended practices and conventions.</p>
 
 </div>
 

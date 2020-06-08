@@ -57,7 +57,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 <meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="986">
+<meta itemprop="wordCount" content="987">
 
 
 
@@ -268,7 +268,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 <ul>
 <li>Your Postman collection may contain one or more API definitions. However, because it&rsquo;s a best practice to consider each API as an autonomous and isolated software asset, we&rsquo;d recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,</li></li>
-<li>Your Postman collection description should hold a custom property named <code>version</code> that allows tracking of API version. It is a good practice to change this version identifier for each API interface versionned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: <code>version=1.0 - Here is now the full description of my collection...</code>.</li>
+<li>Your Postman collection description should hold a custom property named <code>version</code> that allows tracking of API version. It is a good practice to change this version identifier for each API interface versioned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: <code>version=1.0 - Here is now the full description of my collection...</code>.</li>
 </ul>
 
 <p>We recommend having a look at our sample Postman collection for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json">Test API</a> to fully understand and see in action those conventions.</p>
@@ -295,21 +295,21 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 <p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!</p>
 
-<p>In contrary to <a href="./soapui/#defining-dispatch-rules">SoapUI usage</a>, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.</p>
+<p>In contrary to <a href="../soapui/#defining-dispatch-rules">SoapUI usage</a>, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.</p>
 
 <h2 id="defining-test-scripts">Defining Test Scripts</h2>
 
 <blockquote>
-<p>This is an optional step that is only required if you also want to use Microcks for testing your Service or API implement as the development process goes.</p>
+<p>This is an optional step that is only required if you also want to use Microcks to test your Service or API implementation as the development process progresses.</p>
 </blockquote>
 
-<p>Postman allows to attach some test scripts defined in JavaScript to a request or <code>Operation</code>. Contrary to ../soapui/#defining-tests&rdquo;&gt;SoapUI usage where different tests assertions can be put on each test requests, Postman only allows you to attach script to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global views of tests in Postman and their capabilities, we recommend reading the <a href="https://www.getpostman.com/docs/postman/scripts/intro_to_scripts">Introducting to Scripts</a>.</p>
+<p>Postman allows to attach some test scripts defined in JavaScript to a request or <code>Operation</code>. Contrary to <a href="../soapui/#defining-tests">SoapUI usage</a> where different tests assertions can be put on each test request, Postman only allows you to attach scripts to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global view of tests in Postman and their capabilities, we recommend reading the <a href="https://www.getpostman.com/docs/postman/scripts/intro_to_scripts">Introduction to Scripts</a>.</p>
 
-<p>As an illustration to how Microcks use Postman and offers, let&rsquo;s imagine we are still using the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> we mentionned aboved. There&rsquo;s an <code>Operation</code> allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned <code>order</code> has the <code>id</code> we specified into URI. We will write a test script that way:</p>
+<p>As an illustration to how Microcks use Postman and offers, let&rsquo;s imagine we are still using the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> we mentioned above. There&rsquo;s an <code>Operation</code> allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned <code>order</code> has the <code>id</code> we specified into URI. We will write a test script that way:</p>
 
 <p><img src="/images/postman-script.png" alt="postman-script" /></p>
 
-<p>You will notice the usage of following JavaScript code: <code>var expectedId = globals[&quot;id&quot;];</code>. What does that mean? Indeed, <code>globals</code> is an array of variables managed by Postman runtime. Usually, you have to pre-populate this array using <em>Pre-request script</em>. When running this tests in Microcks, such pre-request initialization are automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the <code>globals</code> context so that you can directly used them within your script.</p>
+<p>You will notice the usage of following JavaScript code: <code>var expectedId = globals[&quot;id&quot;];</code>. What does that mean? Indeed, <code>globals</code> is an array of variables managed by the Postman runtime. Usually, you have to pre-populate this array using <em>Pre-request script</em>. When running this test in Microcks, such pre-request initialization is automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the <code>globals</code> context so that you can directly used them within your script.</p>
 
 <p>The execution of Postman tests using Microcks follows this flow:</p>
 
@@ -320,11 +320,11 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <li>collect the results within <code>tests</code> array to detect success or failure.</li>
 </ul>
 
-<p>Here&rsquo;s below another example of such a generic script that validated the received JSON content:</p>
+<p>Here is another example of such a generic script that validates the received JSON content:</p>
 
 <p><img src="/images/postman-script-validation.png" alt="postman-script-validation" /></p>
 
-<p>This script validates that all the JSON <code>order</code> objects returned in response have all the <code>status</code> that is requested using the query parameter <code>status</code> value. Otherwise, a <code>Valid response</code> assertion failure is thrown and stored into the tests array.</p>
+<p>This script validates that all the JSON <code>order</code> objects returned in response all have the <code>status</code> that is requested using the query parameter <code>status</code> value. Otherwise, a <code>Valid response</code> assertion failure is thrown and stored into the tests array.</p>
 
 <h2 id="export-postman-collection">Export Postman collection</h2>
 
