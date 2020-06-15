@@ -55,7 +55,7 @@
 
 <meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-03-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="503">
+<meta itemprop="wordCount" content="525">
 
 
 
@@ -259,17 +259,25 @@ b3cb4840597b        mongo:3.3.12                               <span class="s2">
 949e0b9bdac6        jboss/keycloak:3.4.0.Final                 <span class="s2">&#34;/opt/jboss/docker...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">38</span> seconds       <span class="m">0</span>.0.0.0:8180-&gt;8080/tcp   microcks-keycloak</code></pre></div>
 <h2 id="server-installation">Server installation</h2>
 
-<p>When installing on a shared server that will be accessed from some other places and machines, you&rsquo;ll need to tweak some configuration files before launching the <code>docker-compose</code> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server and the access mode to Keycloak depending on the protocol your want to use.</p>
+<p>When installing on a shared server that will be accessed from some other places and machines, you&rsquo;ll need to tweak some configuration files before launching the <code>docker-compose</code> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server.</p>
 
-<p>The directives just below show the detailed operations when using simple HTTP. If want to use HTTPS, you&rsquo;ll have to update the <code>sslRequired</code> and <code>keycloak.ssl-required</code> properties to <code>external</code> value.</p>
+<p>You&rsquo;ll also need some valid certs, keystore and trustore in the <code>keycloak</code> folder for both the Microks and the Keycloak components. You can use this simple useful docker image for generating them:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -v <span class="nv">$PWD</span>/keystore:/certs -e <span class="nv">SERVER_HOSTNAMES</span><span class="o">=</span><span class="s2">&#34;myserver.example.com&#34;</span> -it nmasse/mkcert:0.1
+$ mv ./keystore/server.crt ./keystore/tls.crt
+$ mv ./keystore/server.key ./keystore/tls.key
+$ mv ./keystore/server.p12 ./keystore/microcks.p12
+$ ls keystore/
+keystore.jks   microcks.p12   rootCA-key.pem rootCA.pem     tls.crt        tls.key        truststore.jks</code></pre></div>
+<p>Here are below the basic commands for doing the setup:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ hostname -f
   myserver.example.com
 $ <span class="nb">cd</span> microcks/install/docker-compose/
 $ cp keycloak-realm/microcks-realm-sample.json keycloak-realm/microcks-realm-sample.json.bak
-$ apt-get install jq
-$ jq <span class="s1">&#39;.applications |= map(if .name == &#34;microcks-app-js&#34; then .redirectUris = [ &#34;http://myserver.example.com:8080/*&#34; ] else . end) | .sslRequired |= &#34;none&#34;&#39;</span> keycloak-realm/microcks-realm-sample.json.bak &gt; keycloak-realm/microcks-realm-sample.json
-$ perl -i.bak -pe <span class="s1">&#39;s|KEYCLOAK_URL=http://localhost:8180/auth|KEYCLOAK_URL=http://myserver.example.com:8180/auth|&#39;</span> microcks.yml
-$ perl -i.bak -pe <span class="s1">&#39;s|keycloak.ssl-required=external|keycloak.ssl-required=none|&#39;</span> config/application.properties
+$ apt-get install -y jq docker-compose
+
+$ jq <span class="s1">&#39;.applications |= map(if .name == &#34;microcks-app-js&#34; then .redirectUris = [ &#34;https://myserver.example.com:8080/*&#34; ] else . end)&#39;</span> keycloak-realm/microcks-realm-sample.json.bak &gt; keycloak-realm/microcks-realm-sample.json
+$ perl -i.bak -pe <span class="s1">&#39;s|KEYCLOAK_URL=https://localhost:8543/auth|KEYCLOAK_URL=https://myserver.example.com:8543/auth|&#39;</span> microcks.yml
+
 $ sudo docker-compose -f microcks.yml up -d</code></pre></div>
 <p>All this directives are grouped into a single script named <code>setup-microcks-apt.sh</code> you&rsquo;ll find into the <code>install/docker-compose</code> directory. You can use it to setup your single server installation of Microcks. Just run the <code>docker-compose -f microcks.yml up -d</code><br/> command after having used this script.</p>
 
