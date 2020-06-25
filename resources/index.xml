@@ -6,9 +6,22 @@
     <description>Recent content in Resources on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/resources/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Media resources</title>
+      <link>https://microcks.io/resources/media/media-resources/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/resources/media/media-resources/</guid>
+      <description>Here are a few assets in case you want to show off your support for Microcks, integration to Microcks, or want to link back to us. Please feel free to borrow these!
+Logos Simple logo, blue and light variants with transparent background:
+     Simple logo with name stacked, blue and light variants with transparent background:
+     Horizontal logo with name, blue and light variants with transparent background:</description>
+    </item>
     
     <item>
       <title>An API Journey, from Mock to Deployment!</title>
