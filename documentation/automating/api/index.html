@@ -46,7 +46,7 @@
 <meta property="og:title" content="Microcks API" />
 <meta property="og:description" content="Microcks own&rsquo;s API As a tool focused on APIs, Microcks also offers its own API that allows you to query its datastore and control the import jobs and configuration objects. You may use this API from your automation tool to dynamically launch new tests, register new mocks or globally control your Microcks server configuration.
 The Swagger-UI below allows you to browse and discover the various API endpoints.
-{{ partial &ldquo;swagger-ui." />
+iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth : false, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/api/" />
 <meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
@@ -54,12 +54,12 @@ The Swagger-UI below allows you to browse and discover the various API endpoints
 <meta itemprop="name" content="Microcks API">
 <meta itemprop="description" content="Microcks own&rsquo;s API As a tool focused on APIs, Microcks also offers its own API that allows you to query its datastore and control the import jobs and configuration objects. You may use this API from your automation tool to dynamically launch new tests, register new mocks or globally control your Microcks server configuration.
 The Swagger-UI below allows you to browse and discover the various API endpoints.
-{{ partial &ldquo;swagger-ui.">
+iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth : false, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;">
 
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="71">
+<meta itemprop="wordCount" content="86">
 
 
 
@@ -68,7 +68,7 @@ The Swagger-UI below allows you to browse and discover the various API endpoints
 <meta name="twitter:title" content="Microcks API"/>
 <meta name="twitter:description" content="Microcks own&rsquo;s API As a tool focused on APIs, Microcks also offers its own API that allows you to query its datastore and control the import jobs and configuration objects. You may use this API from your automation tool to dynamically launch new tests, register new mocks or globally control your Microcks server configuration.
 The Swagger-UI below allows you to browse and discover the various API endpoints.
-{{ partial &ldquo;swagger-ui."/>
+iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth : false, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;"/>
 
       
   </head>
@@ -236,7 +236,21 @@ The Swagger-UI below allows you to browse and discover the various API endpoints
 
 <p>The Swagger-UI below allows you to browse and discover the various API endpoints.</p>
 
-<p>{{ partial &ldquo;swagger-ui.html&rdquo; }}</p>
+<style>iframe{width:100%}</style>
+<iframe id="swagger-ui" frameBorder="0" scrolling="no" src="https://microcks.io/swagger-ui/index.html" >
+</iframe>
+
+<script type="text/javascript" src="https://microcks.io/scripts/iframeResizer.min.js"></script>
+<script type="text/javascript">
+  iFrameResize({
+    log         : false,                  
+    checkOrigin : false,
+    sizeWidth   : false,
+    widthCalculationMethod : 'rightMostElement'
+  });
+  var shortcode_url = "https:\/\/raw.githubusercontent.com\/microcks\/microcks\/master\/api\/microcks-openapi-v1.0.yaml";
+  
+</script>
 
 </div>
 
