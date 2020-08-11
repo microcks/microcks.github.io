@@ -6,10 +6,19 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AsyncAPI usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/asyncapi/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/asyncapi/</guid>
+      <description>Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !</description>
+    </item>
     
     <item>
       <title>Organizing repository</title>
@@ -98,7 +107,7 @@ From the page displaying basic information on your microservice mocks, you have 
       
       <guid>https://microcks.io/documentation/using/openapi/</guid>
       <description>Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks has recently evolved to provide direct support for OpenAPI 3.0.
-With this new feature, you&amp;rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during [tests](.</description>
+With this new feature, you&amp;rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy.</description>
     </item>
     
     <item>

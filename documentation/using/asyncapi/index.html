@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Organizing repository | Microcks.io</title>
+    <title>AsyncAPI usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.57.2" />
@@ -43,29 +43,26 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Organizing repository" />
-<meta property="og:description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services." />
+<meta property="og:title" content="AsyncAPI usage for Microcks" />
+<meta property="og:description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/advanced/organizing/" />
-<meta property="article:published_time" content="2020-03-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-03-22T00:00:00+00:00" />
-<meta itemprop="name" content="Organizing repository">
-<meta itemprop="description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services.">
+<meta property="og:url" content="https://microcks.io/documentation/using/asyncapi/" />
+<meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="name" content="AsyncAPI usage for Microcks">
+<meta itemprop="description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !">
 
 
-<meta itemprop="datePublished" content="2020-03-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-22T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="562">
+<meta itemprop="datePublished" content="2020-08-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="691">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Organizing repository"/>
-<meta name="twitter:description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services."/>
+<meta name="twitter:title" content="AsyncAPI usage for Microcks"/>
+<meta name="twitter:description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !"/>
 
       
   </head>
@@ -188,9 +185,21 @@ Generally speaking, labels are key/value pairs that are attached to objects, suc
 <ul>
 <li>
 <ul>
+<li><a href="#overview">Overview</a>
+<ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#applying-labels">Applying labels</a></li>
-<li><a href="#master-level-filter">Master level filter</a></li>
+<li><a href="#bindings">Bindings</a></li>
+<li><a href="#conventions">Conventions</a></li>
+</ul></li>
+<li><a href="#illustration">Illustration</a>
+<ul>
+<li><a href="#specifying-samples-messages">Specifying samples messages</a>
+<ul>
+<li><a href="#payload">Payload</a></li>
+<li><a href="#headers">Headers</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#importing-asyncapi-specification">Importing AsyncAPI specification</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -198,17 +207,9 @@ Generally speaking, labels are key/value pairs that are attached to objects, suc
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/using/asyncapi/" class="dib f6 pl1 hover-bg-light-gray br-100" title="AsyncAPI usage for Microcks ">
-				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 
 		
-			<a href="https://microcks.io/documentation/using/advanced/dispatching/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Custom dispatching rules">
+			<a href="https://microcks.io/documentation/using/advanced/organizing/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Organizing repository">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -223,7 +224,7 @@ Generally speaking, labels are key/value pairs that are attached to objects, suc
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Organizing repository</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">AsyncAPI usage for Microcks</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -237,91 +238,96 @@ Generally speaking, labels are key/value pairs that are attached to objects, suc
 
 
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="overview">Overview</h2>
 
-<p>From <code>0.9.0</code> release, we introduce the ability to manage <code>labels</code> upon APIs &amp; Services present into your Microcks repository.</p>
+<h3 id="introduction">Introduction</h3>
 
-<p>Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to
-specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services. Labels can be attached at creation time and subsequently added and modified at any time. Each APIs &amp; Services can have a set of key/value labels defined and each key must be unique for a given object.</p>
+<p>AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !</p>
 
-<p>Labels are a very flexible way to map your own organizational structures onto APIs &amp; Services with loose coupling. Some example labels
-that may suit your classification needs:</p>
+<p>Starting with Microcks version <code>1.0.0</code>, Microcks is now able to import AsyncAPI definitions for enriching the API catalogs with <code>Event</code> typed APIs. When set up accordingly, it is also able to mock the API by publishing samples messages on a dedicated message broker destination.</p>
 
-<ul>
-<li><code>domain</code> may represent the business or application domain this API belongs to. Example values: <code>customer</code>, <code>finance</code>, <code>sales</code>, <code>shipping</code>&hellip;</li>
-<li><code>status</code> may represent the status of the API in the lifecycle. Example values: <code>wip</code>, <code>preview</code>, <code>GA</code>, <code>deprecated</code>, <code>retired</code>&hellip;</li>
-<li><code>type</code> or <code>pattern</code> may represent the pattern involved in the API implementation. Example values: <code>proxy</code>, <code>composition</code>, <code>assembly</code>&hellip;</li>
-<li><code>team</code> may represent the owner team for this API. Example values: <code>team-A</code>, <code>team-B</code>&hellip;</li>
-</ul>
+<h3 id="bindings">Bindings</h3>
 
-<p>Microcks does not impose any labels or way of modeling them 😉 However, for now it only applies one level filtering in its UI using one <code>master</code> label you define as the most important. Below an example of what you&rsquo;ve got on the UI side when defining <code>Domain</code> as the main label:</p>
-
-<p><img src="/images/organizing-services.png" alt="organizing-services" /></p>
-
-<h2 id="applying-labels">Applying labels</h2>
-
-<p>When accessing API details, labels are displayed with global metadata at the top level. Users have the <code>manager</code> or <code>administrator</code> roles will also see the <strong>Manage labels&hellip;</strong>  item available right next to label list.</p>
-
-
-<div style="margin: auto; width: 80%">
-    <img src="/images/organizing-labels.png" width="650">
-</div>
-
-<p>Label management is done through the dialog shown below when one can easily add new labels or remove existing ones.</p>
-
-
-<div style="margin: auto; width: 80%">
-    <img src="/images/organizing-labels-edit.png" width="650">
-</div>
+<p>AsyncAPI specification decorellates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.</p>
 
 <blockquote>
-<p>Labels are saved into Microcks database and not replaced by a new importation of your Service or API definition. They can be independently set and updated using the <a href="/documentation/using/automating/api">Microcks APIs</a>.</p>
+<p>At the time of <code>1.0.0</code> release, Microcks only supports the <code>KAFKA</code> binding. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.</p>
 </blockquote>
 
-<h2 id="master-level-filter">Master level filter</h2>
+<p>For each version of an API managed by Microcks, it will create appropriate destination for <strong>operations</strong> in mixing specification elements, protocol binding specifics and versionning issues. Destination managed by Microcks are then referenced within the API details page.</p>
 
-<p>Microcks instance administrator are also able to configure one label as being the main one, the <code>master</code> that will be used for first level filtering in the Services list page of the Microcks web UI.</p>
+<h3 id="conventions">Conventions</h3>
 
-<p>For that, we rely on the <code>features.properties</code> configuration file found on the server side. Depending on how you install Microcks - through Operator or Helm Chart or Docker-Compose - these properties are made available directly into a <code>MicrocksInstall</code> custom resource or a <code>ConfigMap</code> or a regular file.</p>
+<p>With AsyncAPI <a href="https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#messageObject">Messages Objects</a> you have the ability to define <code>examples</code> with your AsyncAPI specification document. For now (in the <code>2.0.0</code> release of the specification), <code>examples</code> is simply a <code>[Map[ string , any]]</code> but we ought to propose the here-after conventions as the formal specification (see this <a href="https://github.com/asyncapi/asyncapi/issues/329">Feature request</a> if you want to contribute to conversation).</p>
 
-<p>The feature to activate for that is simply called <code>repository-filter</code>. It has the following sub-properties:</p>
+<p>So basically, we propose to describe <code>examples</code> using the following guidelines. An <code>example</code> may have:
+* A short name that will be used as the key within the <code>examples</code> array,
+* An optional <code>summary</code> to provide more informations on the use-case mapping of the sample,
+* A mandatory <code>payload</code> that should be compliant with the defined schema for Message payload and may be expressed directly in YAML or by embedding JSON representation,
+* An optional <code>headers</code> that should be compliant with the aggregated schema for both Message-level headers and Trait-level headers.</p>
 
-<table>
-<thead>
-<tr>
-<th>Sub-Property</th>
-<th> Description</th>
-</tr>
-</thead>
+<h2 id="illustration">Illustration</h2>
 
-<tbody>
-<tr>
-<td> <code>enabled</code></td>
-<td> A boolean flag that turns on the feature. <code>true</code> or <code>false</code></td>
-</tr>
+<p>We will illustrate how Microcks is using OpenAPI specification through a <code>User signed-up API</code> sample that is inspired yb one of AsyncAPI tutorial. The specification file in YAML format can be found <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml">here</a>. This is a single <code>SUBSCRIBE</code> operation API that defines the format of events that are published when a User signed-up an application.</p>
 
-<tr>
-<td><code>label-key</code></td>
-<td> The label key to use for first level filtering in Services list page.</td>
-</tr>
+<h3 id="specifying-samples-messages">Specifying samples messages</h3>
 
-<tr>
-<td><code>label-label</code></td>
-<td> The display label of the first level filtering key in Services list page.</td>
-</tr>
+<p>Sample messages are defined within your specification document, simply using the <code>examples</code> attribute like marked below:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">channels<span class="p">:</span><span class="w">
+</span><span class="w">  </span>user/signedup<span class="p">:</span><span class="w">
+</span><span class="w">    </span>description<span class="p">:</span><span class="w"> </span>The<span class="w"> </span>topic<span class="w"> </span>on<span class="w"> </span>which<span class="w"> </span>user<span class="w"> </span>signed<span class="w"> </span>up<span class="w"> </span>events<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>consumed<span class="w">
+</span><span class="w">    </span>subscribe<span class="p">:</span><span class="w">
+</span><span class="w">      </span>summary<span class="p">:</span><span class="w"> </span>Receive<span class="w"> </span>informations<span class="w"> </span>about<span class="w"> </span>user<span class="w"> </span>signed<span class="w"> </span>up<span class="w">
+</span><span class="w">      </span>operationId<span class="p">:</span><span class="w"> </span>receivedUserSIgnedUp<span class="w">
+</span><span class="w">      </span>message<span class="p">:</span><span class="w">
+</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span>An<span class="w"> </span>event<span class="w"> </span>describing<span class="w"> </span>that<span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>just<span class="w"> </span>signed<span class="w"> </span>up.<span class="w">
+</span><span class="w">        </span>traits<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>$ref<span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
+</span><span class="w">        </span>payload<span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">        </span>examples<span class="p">:</span><span class="w"> </span><span class="c"># &lt;= Where we&#39;ll define sample messages for this operation</span></code></pre></div>
+<p>Examples will be an array of example objects, starting with a <strong>key</strong> that Microcks will simply use as the example name. They may include a <code>summary</code> attribute to provide a short description.</p>
 
-<tr>
-<td><code>label-list</code></td>
-<td> A comma separated list of label keys you want to display in Services list page.</td>
-</tr>
-</tbody>
-</table>
+<h4 id="payload">Payload</h4>
 
-<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-filter</code> and having the results shown in the cepture on the top of this page. You&rsquo;ll see that we use <code>domain</code> as the main label and that we only display <code>domain</code> and <code>status</code> labels on the Services list page:</p>
-<div class="highlight"><pre class="chroma"><code class="language-properties" data-lang="properties">features.feature.repository-filter.enabled=true
-features.feature.repository-filter.label-key=domain
-features.feature.repository-filter.label-label=Domain
-features.feature.repository-filter.label-list=domain,status</code></pre></div>
+<p>Payload is expressed into the mandatory <code>payload</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">examples<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>laurent<span class="p">:</span><span class="w">
+</span><span class="w">      </span>summary<span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Laurent<span class="w"> </span>user<span class="w">
+</span><span class="w">      </span>payload<span class="p">:</span><span class="w"> </span>|<span class="sd">-
+</span><span class="sd">        {&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: 41}</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>john<span class="p">:</span><span class="w">
+</span><span class="w">      </span>summary<span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>John<span class="w"> </span>Doe<span class="w"> </span>user<span class="w">
+</span><span class="w">      </span>payload<span class="p">:</span><span class="w">
+</span><span class="w">        </span>id<span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
+</span><span class="w">        </span>sendAt<span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
+</span><span class="w">        </span>fullName<span class="p">:</span><span class="w"> </span>John<span class="w"> </span>Doe<span class="w">
+</span><span class="w">        </span>email<span class="p">:</span><span class="w"> </span>john@microcks.io<span class="w">
+</span><span class="w">        </span>age<span class="p">:</span><span class="w"> </span><span class="m">36</span></code></pre></div>
+<blockquote>
+<p>You can see here that we&rsquo;re using specific <code>{{ }}</code> notation that involves the generation of dynamic content. You can find description of the <code>now()</code> and <code>randomString()</code> functions into <a href="./advanced/templates/#function-expressions">Function Expressions</a> documentation.</p>
+</blockquote>
+
+<h4 id="headers">Headers</h4>
+
+<p>Headers are expressed into the optional <code>headers</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">examples<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>laurent<span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span>headers<span class="p">:</span><span class="w"> </span>|<span class="sd">-
+</span><span class="sd">        {&#34;my-app-header&#34;: 23}</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>john<span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span>headers<span class="p">:</span><span class="w">
+</span><span class="w">        </span>my-app-header<span class="p">:</span><span class="w"> </span><span class="m">24</span></code></pre></div>
+<h2 id="importing-asyncapi-specification">Importing AsyncAPI specification</h2>
+
+<p>When you&rsquo;re happy with your API design and example definitions just put the result YAML or JSON file into your favorite Source Configuration Management tool, grab the URL of the file corresponding to the branch you want to use and add it as a regular Job import into Microcks. On import, Microcks should detect that it&rsquo;s an AsyncAPI specification file and choose the correct importer.</p>
+
+<p>Using the above <code>User signed-up API</code> example, you should get the following results:</p>
+
+<p><img src="/images/asyncapi-mocks.png" alt="asyncapi-mocks" /></p>
+
 </div>
 
         
@@ -357,7 +363,7 @@ features.feature.repository-filter.label-list=domain,status</code></pre></div>
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/asyncapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/asyncapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               ASYNCAPI USAGE FOR MICROCKS
             </a>
           </li>
@@ -392,7 +398,7 @@ features.feature.repository-filter.label-list=domain,status</code></pre></div>
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               ORGANIZING REPOSITORY
             </a>
           </li>
@@ -506,14 +512,14 @@ features.feature.repository-filter.label-list=domain,status</code></pre></div>
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/using/advanced/organizing/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/using/asyncapi/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Organizing repository”
-  </a> was last updated: March 22, 2020
+    “AsyncAPI usage for Microcks”
+  </a> was last updated: August 5, 2020
 </h6>
 
-      <a href="edit/master/content/en/documentation/using/advanced/organizing.md" class="
+      <a href="edit/master/content/en/documentation/using/asyncapi.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 

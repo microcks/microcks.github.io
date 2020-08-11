@@ -43,6 +43,11 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/using/asyncapi/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/using/advanced/organizing/</loc>
     <lastmod>2020-03-22T00:00:00+00:00</lastmod>
   </url>
@@ -54,7 +59,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/using/importers/</loc>
-    <lastmod>2020-02-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -104,7 +109,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/using/openapi/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -134,17 +139,17 @@
   
   <url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2020-06-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/resources/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2020-03-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
