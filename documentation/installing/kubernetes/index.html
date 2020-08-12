@@ -57,7 +57,7 @@
 
 <meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="396">
+<meta itemprop="wordCount" content="411">
 
 
 
@@ -246,6 +246,10 @@
 
 <h2 id="helm-2">Helm 2</h2>
 
+<blockquote>
+<p>Helm 2 installation method is now deprecated with the release of <code>1.0.0</code> version. Prefer using Helm 3 that is extensively tested.</p>
+</blockquote>
+
 <p>Just clone the GitHub repository, start by creating the <code>microcks</code> namespace, then go to Helm directory and install the chart with these commands:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks.git
 $ <span class="nb">cd</span> microcks/install/kubernetes/
@@ -261,13 +265,14 @@ $ helm install ./microcks --name microcks --namespace<span class="o">=</span>mic
 
 <h2 id="helm-3">Helm 3</h2>
 
-<p>Helm 3 chart has been tested from Kubernetes 1.17. Like the previous verion, clone the GitHub repository, start by creating the <code>microcks</code> namespace, then go to Helm directory and install the chart with these commands:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks.git
-$ <span class="nb">cd</span> microcks/install/kubernetes
-$ kubectl create -f kubernetes-namespace.yml
-$ <span class="nb">cd</span> helm-3-kube-1.17+
-<span class="c1"># Adapt values in values.yaml depending on your Kubernetes Ingress IP or default domain name.</span>
-$ helm install microcks ./microcks --namespace microcks</code></pre></div>
+<p>Helm 3 chart has been tested from Kubernetes 1.17 and is now available on our own repository. This allow to install Microcks with just 3 commands:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ helm repo add microcks https://microcks.io/helm
+
+$ kubectl create namespace microcks
+
+$ helm install microcks microcks/microcks —-version <span class="m">1</span>.0.0 --namespace microcks --set microcks.url<span class="o">=</span>microcks.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io --set keycloak.url<span class="o">=</span>keycloak.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io</code></pre></div>
+<p>For full instructions and deployment optinos, we recommand reading the <a href="https://github.com/microcks/microcks/blob/master/install/kubernetes/helm-3-kube-1.17%2B/README.md">README</a> on GitHub repository.</p>
+
 <h2 id="minikube-configuration">Minikube configuration</h2>
 
 <p>When using Minikube, depending on what you&rsquo;ve already deployed, default configuration may be little bit slow and induce timeout on readiness probes. We usually setup the following configuration for successfull deployments:</p>
