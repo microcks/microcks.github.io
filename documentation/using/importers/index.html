@@ -12,7 +12,7 @@
     <title>Importing Services &amp; APIs | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -53,10 +53,8 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 <meta itemprop="name" content="Importing Services &amp; APIs">
 <meta itemprop="description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.
 Supported formats As previously introduced, Microcks &ldquo;turns out your API contract into live mocks in seconds&rdquo; - the noticeable part of these sentence being API contract.">
-
-
-<meta itemprop="datePublished" content="2020-02-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-08-04T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-02-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-04T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1194">
 
 
@@ -185,20 +183,18 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#supported-formats">Supported formats</a></li>
-<li><a href="#direct-upload">Direct upload</a></li>
-<li><a href="#scheduled-import">Scheduled import</a>
-<ul>
-<li><a href="#creating-a-new-scheduled-import">Creating a new scheduled import</a></li>
-<li><a href="#configure-scheduling-interval">Configure scheduling interval</a></li>
-</ul></li>
-<li><a href="#errors-management">Errors management</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#supported-formats">Supported formats</a></li>
+    <li><a href="#direct-upload">Direct upload</a></li>
+    <li><a href="#scheduled-import">Scheduled import</a>
+      <ul>
+        <li><a href="#creating-a-new-scheduled-import">Creating a new scheduled import</a></li>
+        <li><a href="#configure-scheduling-interval">Configure scheduling interval</a></li>
+      </ul>
+    </li>
+    <li><a href="#errors-management">Errors management</a></li>
+  </ul>
 </nav>
 	
 
@@ -241,22 +237,13 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="introduction">Introduction</h2>
-
 <p>Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this <a href="../../getting-started/#loading-samples">Getting Started</a> section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.</p>
-
 <h2 id="supported-formats">Supported formats</h2>
-
 <p>As previously introduced, Microcks <em>&ldquo;turns out your API contract into live mocks in seconds&rdquo;</em> - the noticeable part of these sentence being <strong>API contract</strong>. The cool things here is that is does not require you to produce another document: it is able to reuse existing <strong>artifacts</strong> that you may gather Microcks with. In order to be usable by Microcks, such artifacts should hold syntactical contracts but also full samples on how your Service is expected to work - and this is only possible by embedding complete pairs of requests and responses.</p>
-
 <p>Microcks supports the following editing tools and export/import formats as <strong>artifacts</strong> formats:</p>
-
-<p><img src="/images/artifacts-formats.png" alt="artifacts-formats" /></p>
-
+<p><img src="/images/artifacts-formats.png" alt="artifacts-formats"></p>
 <p>We provide built-in parsers and importers for the following formats:</p>
-
 <ul>
 <li><a href="https://www.soapui.org/soapui-projects/soapui-projects.html">SoapUI projects</a> files starting with the version 5.1 or SoapUI. See our <a href="../soapui/">documentation</a> on some conventions you should follow for this project structure,</li>
 <li><a href="https://learning.postman.com/docs/postman/collections/data-formats/">Postman collections</a> files with v1.0 or v2.x file format. See our <a href="../postman/">documentation</a> on some conventions you should follow for this collection structure,</li>
@@ -264,81 +251,49 @@ Supported formats As previously introduced, Microcks &ldquo;turns out your API c
 <li><a href="http://spec.openapis.org/oas/v3.0.3">OpenAPI v3.x</a> files whether using the YAML of JSON format. See our <a href="../openapi/">documentation</a> on some conventions you should follow for this specification,</li>
 <li><a href="https://www.asyncapi.com/docs/specifications/2.0.0">AsyncAPI v2.x</a> files whether using the YAML or JSON format. See our <a href="../asyncapi/">documentation</a> on some conventions you should follow for this specification,</li>
 </ul>
-
 <blockquote>
-<p>People very often ask <em>&ldquo;Why the Swagger format - aka OpenApi 2.0 - isn&rsquo;t supported by Microcks?&rdquo;</em>. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they&rsquo;re only doing this using schema information with random generated values&hellip;</p>
+<p>People very often ask <em>&ldquo;Why the Swagger format - aka OpenApi 2.0 - isn&rsquo;t supported by Microcks?&quot;</em>. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they&rsquo;re only doing this using schema information with random generated values&hellip;</p>
 </blockquote>
-
 <p>If you own a bunch of Swagger specifications, you won&rsquo;t be able to directly import them into Microcks - see the above note on the reason why. Thus, you will need to have an extra step and use a wrapper tool (Postman or SoapUI) for adding complete requests / responses pairs that will be used as the basis of your API real-life mocks.</p>
-
-<p><img src="/images/artifacts-swagger-adaptations.png" alt="artifacts-swagger-adaptations" /></p>
-
+<p><img src="/images/artifacts-swagger-adaptations.png" alt="artifacts-swagger-adaptations"></p>
 <blockquote>
 <p>Please notice that the same issue and workaround may apply to some others API specification formats like <a href="https://www.w3.org/Submission/wadl/">WADL</a> or <a href="https://raml.org/">RAML</a>. They&rsquo;ve got really good importers for Postman or SoapUI that offers you a very easy way to complete your syntactic specification with some real life samples that can make the genesis for useful mocks ;-)</p>
 </blockquote>
-
 <h2 id="direct-upload">Direct upload</h2>
-
 <p>The first way of adding new Services or APIs mocks to your Microcks instance is by realizing a direct upload of the artifact. From the left vertical navigation bar, just select the <strong>Importers</strong> menu entry and then choose <code>Upload</code>. You&rsquo;ll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.</p>
-
-<p><img src="/images/artifacts-upload.png" alt="artifacts-upload" /></p>
-
+<p><img src="/images/artifacts-upload.png" alt="artifacts-upload"></p>
 <p>Hit the <code>Upload</code> green button. Upload and then artifact import should then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the <strong>APIs | Services</strong> repository.</p>
-
 <p>While this method is very convenient for quick test, we&rsquo;ll have to re-import your artifact file on every new change&hellip;</p>
-
 <h2 id="scheduled-import">Scheduled import</h2>
-
 <p>Another way of adding new Services or APIs mocks is by scheduling an <strong>Importer Job</strong> into Microcks. Actually we see it as the best way to achieve continuous, iterative and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you&rsquo;ll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present into your artifact.</p>
-
-<p><img src="/images/artifacts-scheduling.png" alt="artifacts-scheduling" /></p>
-
+<p><img src="/images/artifacts-scheduling.png" alt="artifacts-scheduling"></p>
 <blockquote>
 <p>Though we think that Git repository (or version control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.</p>
 </blockquote>
-
 <p>Still from the left vertical navigation bar, just select the <strong>Importers</strong> menu entry and then see the list of already existing importers.</p>
-
 <p>Once created, importer jobs can be managed, activated or forced through this screen. You&rsquo;ll see colored marker for each job line:</p>
-
 <ul>
 <li><code>Scanned</code> means that the job is actually scheduled for next importation run. Otherwise <code>Inactive</code>  will be displayed.</li>
 <li><code>Imported</code> means that the job has been successfully imported on previous run. Otherwise <code>Last import errors</code> will be displayed with a popup showing the last error,</li>
 <li><code>Services</code> is a shortcut to access the services definitions discovered by this job.</li>
 </ul>
-
 <p>Using the 3-dotted menu, you can easily enable/disable of force the job.</p>
-
-<p><img src="/images/importer-status.png" alt="importer-status" /></p>
-
+<p><img src="/images/importer-status.png" alt="importer-status"></p>
 <h3 id="creating-a-new-scheduled-import">Creating a new scheduled import</h3>
-
 <p>You may declare a new Importer job hitting the <code>Create</code> button.</p>
-
 <p>A wizard modal then appears as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.</p>
-
-<p><img src="/images/importer-step1.png" alt="importer-step1" /></p>
-
+<p><img src="/images/importer-step1.png" alt="importer-step1"></p>
 <p>Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validation as well as manage an authentication process through the usage of a <strong>Secret</strong>. See more on Secrets <a href="../../administrating/secrets">here</a>.</p>
-
-<p><img src="/images/importer-step2.png" alt="importer-step3" /></p>
-
+<p><img src="/images/importer-step2.png" alt="importer-step3"></p>
 <p>Finally the review displays a summary before effective creation of the Importer Job.</p>
-
-<p><img src="/images/importer-step3.png" alt="importer-step3" /></p>
-
+<p><img src="/images/importer-step3.png" alt="importer-step3"></p>
 <p>On first time creation the Job is automatically <code>Scanned</code> and <code>Imported</code>.</p>
-
 <h3 id="configure-scheduling-interval">Configure scheduling interval</h3>
-
 <p>Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the <code>services.update.interval</code> property into the <code>application.properties</code> configuration file that takes the value of <code>SERVICES_UPDATE_INTERVAL</code> environment variable. The value should be set to a valid <a href="https://en.wikipedia.org/wiki/Cron#CRON_expression">CRON expression</a> ; default is every 2 hours.</p>
-<div class="highlight"><pre class="chroma"><code class="language-properties" data-lang="properties">services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}</code></pre></div>
-<h2 id="errors-management">Errors management</h2>
-
+<pre><code class="language-properties" data-lang="properties">services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
+</code></pre><h2 id="errors-management">Errors management</h2>
 <p>As import can be scheduled and take some <em>little</em> time, it is done asynchronously regarding the human interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.</p>
-
 <p>Some of the error messages will be reported through the <code>Last import errors</code> status but some not&hellip; We try making the logged information clearer regarding this type of errors but we incite you to have a look at the <strong>Trouble shooting</strong> section of each specific importer documentation if the discovered services information do not match with your expectations.</p>
-
 <p>We hope releasing in near future some kind of <code>linter</code> that may help with analyzing your artifact to check compliance with recommended practices and conventions.</p>
 
 </div>

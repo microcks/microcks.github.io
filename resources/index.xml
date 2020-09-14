@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Resources on Microcks.io</title>
@@ -19,8 +19,9 @@
       <guid>https://microcks.io/resources/media/media-resources/</guid>
       <description>Here are a few assets in case you want to show off your support for Microcks, integration to Microcks, or want to link back to us. Please feel free to borrow these!
 Logos Simple logo, blue and light variants with transparent background:
-     Simple logo with name stacked, blue and light variants with transparent background:
-     Horizontal logo with name, blue and light variants with transparent background:</description>
+Simple logo with name stacked, blue and light variants with transparent background:
+Horizontal logo with name, blue and light variants with transparent background:
+Horizontal logo with baseline, blue and light variants with transparent background:</description>
     </item>
     
     <item>

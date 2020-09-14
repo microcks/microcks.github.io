@@ -12,7 +12,7 @@
     <title>Getting dynamic mocks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -51,10 +51,8 @@
 <meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="name" content="Getting dynamic mocks">
 <meta itemprop="description" content="Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="813">
 
 
@@ -182,14 +180,11 @@
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#creating-dynamic-mocks">Creating dynamic mocks</a></li>
-<li><a href="#checking-created-resources">Checking created resources</a></li>
-<li><a href="#querying-dynamic-mock-resources">Querying dynamic mock resources</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#creating-dynamic-mocks">Creating dynamic mocks</a></li>
+    <li><a href="#checking-created-resources">Checking created resources</a></li>
+    <li><a href="#querying-dynamic-mock-resources">Querying dynamic mock resources</a></li>
+  </ul>
 </nav>
 	
 
@@ -232,68 +227,50 @@
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="creating-dynamic-mocks">Creating dynamic mocks</h2>
-
 <p>Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.</p>
-
 <p>In a few clicks, Microcks will easily generate for you a basic API with CRUD operations (CRUD for <em>Create-Retrieve-Update-Delete</em>) and associated mocks that you&rsquo;ll be able to use for recording, retrieving and deleting any type of JSON document. In order to use this &ldquo;Backend As A Service&rdquo; like feature, just go to the <strong>API | Services</strong> repository and hit the <code>Add Dynamic API...</code> button:</p>
-
-<p><img src="/images/dynamic-link.png" alt="dynamic-link" /></p>
-
+<p><img src="/images/dynamic-link.png" alt="dynamic-link"></p>
 <p>A simple form is now display, asking you to give the following Service Properties:</p>
-
 <ul>
 <li><code>Service Name and Version</code> will be the unique identifiers of the new dynamic service you want to create,</li>
-<li><code>Resource</code> will the kind of resource (as REST protocol understands <em>resource</em>) that will be manage by dynamic service.
-<br /></li>
+<li><code>Resource</code> will the kind of resource (as REST protocol understands <em>resource</em>) that will be manage by dynamic service.</li>
 </ul>
-
-<p><img src="/images/dynamic-form.png" alt="dynamic-form" /></p>
-
+<p><img src="/images/dynamic-form.png" alt="dynamic-form"></p>
 <p>Just hit the <code>Add</code> button and you are few seconds away of having a ready-to-use REST Service/API that proposes different operations as shown in capture below. This Service/API is immediately exposing mocks endpoints for the different operations. It Swagger contract is also directly available for download.</p>
-
-<p><img src="/images/dynamic-operations.png" alt="dynamic-operations" /></p>
-
+<p><img src="/images/dynamic-operations.png" alt="dynamic-operations"></p>
 <p>Given the previously created dynamic Service, it is now possible to use the <code>/dynarest/Foo+API/0.1/foo</code> endpoint (append after your Microcks base URL) to interact with it. This dynamic Service/API is indeed agnostic to a payload you send to it as long as it is formatted as JSON. For example, you can easily record a new <code>foo</code> resource having a <code>name</code> and a <code>bar</code> attributes like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ curl -X POST http://localhost:8080/dynarest/Foo%20API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;andrew&#34;, &#34;bar&#34;: 223}&#39;</span></code></pre></div>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://localhost:8080/dynarest/Foo%20API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;andrew&#34;, &#34;bar&#34;: 223}&#39;</span></code></pre></div>
-<p>And you should receive the following response :</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;andrew&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">223</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb52a710ffa9f0b7c6de8&#34;</span> <span class="p">}</span></code></pre></div>
-<p>What has simply done Microcks is recorded your JSON payload and assigned it an <code>id</code> attribute.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://localhost:8080/dynarest/Foo%20API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;andrew&#34;, &#34;bar&#34;: 223}&#39;</span>
+</code></pre></div><p>And you should receive the following response :</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;andrew&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">223</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb52a710ffa9f0b7c6de8&#34;</span> <span class="p">}</span>
+</code></pre></div><p>What has simply done Microcks is recorded your JSON payload and assigned it an <code>id</code> attribute.</p>
 <h2 id="checking-created-resources">Checking created resources</h2>
-
 <p>Creating resource is useful but how to check what are the already existing resources ? Let create another bunch of <code>foo</code> resources like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X POST http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;andrew&#34;, &#34;bar&#34;: 224}&#39;</span>
 curl -X POST http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;marina&#34;, &#34;bar&#34;: 225}&#39;</span>
-curl -X POST http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;marina&#34;, &#34;bar&#34;: 226}&#39;</span></code></pre></div>
-<p>Now, just hitting the <code>Resources</code> button just next to <code>Operations</code> section, you should be able to check all the resources Microcks has recorded as being viable representations of the <code>foo</code> resource. Each of them has received a unique identifier:</p>
-
-<p><img src="/images/dynamic-resources.png" alt="dynamic-resources" /></p>
-
+curl -X POST http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;:&#34;marina&#34;, &#34;bar&#34;: 226}&#39;</span>
+</code></pre></div><p>Now, just hitting the <code>Resources</code> button just next to <code>Operations</code> section, you should be able to check all the resources Microcks has recorded as being viable representations of the <code>foo</code> resource. Each of them has received a unique identifier:</p>
+<p><img src="/images/dynamic-resources.png" alt="dynamic-resources"></p>
 <p>Using dynamic Service/API in Microcks is thus a simple and super-fast mean of recording sample resources to illustrate what should be the future contract design!</p>
-
 <h2 id="querying-dynamic-mock-resources">Querying dynamic mock resources</h2>
-
 <p>Beyond the simple checking of created resources, those resources are also directly available through the endpoints corresponding to retrieval operations. As every resource recorded is identified using an <code>id</code> attribute, it s really easy to invoke the GET endpoint using this id like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo/5a1eb52a710ffa9f0b7c6de8</code></pre></div>
-<p>This give you the JSON payload you have previously recorded!</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;andrew&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">223</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb52a710ffa9f0b7c6de8&#34;</span> <span class="p">}</span><span class="err">`</span></code></pre></div>
-<p>More sophisticated retrieval options are also available when using the listing endpoint of dynamic Service. Microcks follows the conventions of querying by example: you can specify a JSON document as data and it will be used as a prototype for retrieving recorded resources having the same attributes and same attribute values. For example, to get all the <code>foo</code> resources having a name of <em>marina</em> just issue this query:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;marina&#34;}}&#39;</span></code></pre></div>
-<p>That will give you the following results:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb608710ffa9f0b7c6deb&#34;</span> <span class="p">},</span> <span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">226</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb613710ffa9f0b7c6dec&#34;</span> <span class="p">}]</span></code></pre></div>
-<p>Microcks is also able to understand the operators you&rsquo;ll find into <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">MongoDB Query DSL</a> syntax. Thus you&rsquo;re able for example to filter results using a range for an integer value like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;bar&#34;: {$gt: 223, $lt: 226} }}&#39;</span></code></pre></div>
-<p>With results:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;andrew&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">224</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb5fd710ffa9f0b7c6dea&#34;</span> <span class="p">},</span> <span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb608710ffa9f0b7c6deb&#34;</span> <span class="p">}]</span></code></pre></div>
-<p>You can also mix-and-match attribute values and DSL operators so that you may build more complex filters likte this one restricted the previous set of <code>foo</code> to those having only the name of <em>marina</em>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;marina&#34;, &#34;bar&#34;: {$gt: 223, $lt: 226} }}&#39;</span></code></pre></div>
-<p>With results:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb608710ffa9f0b7c6deb&#34;</span> <span class="p">}]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo/5a1eb52a710ffa9f0b7c6de8
+</code></pre></div><p>This give you the JSON payload you have previously recorded!</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;andrew&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">223</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb52a710ffa9f0b7c6de8&#34;</span> <span class="p">}</span><span class="err">`</span>
+</code></pre></div><p>More sophisticated retrieval options are also available when using the listing endpoint of dynamic Service. Microcks follows the conventions of querying by example: you can specify a JSON document as data and it will be used as a prototype for retrieving recorded resources having the same attributes and same attribute values. For example, to get all the <code>foo</code> resources having a name of <em>marina</em> just issue this query:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;marina&#34;}}&#39;</span>
+</code></pre></div><p>That will give you the following results:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb608710ffa9f0b7c6deb&#34;</span> <span class="p">},</span> <span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">226</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb613710ffa9f0b7c6dec&#34;</span> <span class="p">}]</span>
+</code></pre></div><p>Microcks is also able to understand the operators you&rsquo;ll find into <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">MongoDB Query DSL</a> syntax. Thus you&rsquo;re able for example to filter results using a range for an integer value like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;bar&#34;: {$gt: 223, $lt: 226} }}&#39;</span>
+</code></pre></div><p>With results:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;andrew&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">224</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb5fd710ffa9f0b7c6dea&#34;</span> <span class="p">},</span> <span class="p">{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb608710ffa9f0b7c6deb&#34;</span> <span class="p">}]</span>
+</code></pre></div><p>You can also mix-and-match attribute values and DSL operators so that you may build more complex filters likte this one restricted the previous set of <code>foo</code> to those having only the name of <em>marina</em>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">curl -X GET http://localhost:8080/dynarest/Foo+API/0.1/foo -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;marina&#34;, &#34;bar&#34;: {$gt: 223, $lt: 226} }}&#39;</span>
+</code></pre></div><p>With results:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span> <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;marina&#34;</span><span class="p">,</span> <span class="nt">&#34;bar&#34;</span> <span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;5a1eb608710ffa9f0b7c6deb&#34;</span> <span class="p">}]</span>
+</code></pre></div>
 </div>
 
         

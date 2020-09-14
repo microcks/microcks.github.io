@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Administrating on Microcks.io</title>
@@ -38,7 +38,8 @@ Secrets can only be managed by Microcks administrator - we mean people having th
       
       <guid>https://microcks.io/documentation/administrating/snapshots/</guid>
       <description>Introduction Microcks allows users to export a part of its database as a Snapshot and import such a Snapshot within another instance. Such Snapshots are not complete database exports because they only integrate the Services &amp;amp; APIs definitions parts. As an example, they do not embed all the tests runs and analytics data.
-Snapshots are lightweight structures that can be used to: * easily exchange a set of Services &amp;amp; APIs definition with another instance of Microcks, * easily setup a new Microcks instance dedicated for mocking a functionnal subsystem - optionally with different configured response times for simulating a real behaviour, * easily backup your instance if you do not bother loosing tests runs and analytics data</description>
+Snapshots are lightweight structures that can be used to:
+ easily exchange a set of Services &amp;amp; APIs definition with another instance of Microcks, easily setup a new Microcks instance dedicated for mocking a functionnal subsystem - optionally with different configured response times for simulating a real behaviour, easily backup your instance if you do not bother loosing tests runs and analytics data  Snapshots can only be managed by Microcks administrator - we mean people having the administrator role assigned.</description>
     </item>
     
   </channel>

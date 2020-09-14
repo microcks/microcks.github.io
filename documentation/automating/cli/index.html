@@ -12,7 +12,7 @@
     <title>CLI for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -59,10 +59,8 @@ The CLI makes usage of Microcks Service Account so it&rsquo;s defintely worth th
 Usage instructions Usage is simply microcks-cli [command]
 where [command] can be one of the following:
  version to check this CLI version, help to display usage informations, test to launch new test on Microcks server.">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="244">
 
 
@@ -194,18 +192,16 @@ where [command] can be one of the following:
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#microcks-cli">Microcks CLI</a></li>
-<li><a href="#usage-instructions">Usage instructions</a></li>
-<li><a href="#installation">Installation</a>
-<ul>
-<li><a href="#binary">Binary</a></li>
-<li><a href="#container-image">Container image</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#microcks-cli">Microcks CLI</a></li>
+    <li><a href="#usage-instructions">Usage instructions</a></li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#binary">Binary</a></li>
+        <li><a href="#container-image">Container image</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	
 
@@ -248,54 +244,34 @@ where [command] can be one of the following:
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="microcks-cli">Microcks CLI</h2>
-
 <p><code>microcks-cli</code> is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its <a href="https://github.com/microcks/microcks-cli">own GitHub repository</a>.</p>
-
 <p>The CLI makes usage of Microcks <a href="../service-account">Service Account</a> so it&rsquo;s defintely worth the read ;-)</p>
-
 <h2 id="usage-instructions">Usage instructions</h2>
-
 <p>Usage is simply <code>microcks-cli [command]</code></p>
-
 <p>where <code>[command]</code> can be one of the following:</p>
-
 <ul>
 <li><code>version</code> to check this CLI version,</li>
 <li><code>help</code> to display usage informations,</li>
 <li><code>test</code> to launch new test on Microcks server.</li>
 </ul>
-
 <p>The main <code>test</code> command has abunch of arguments and flags so that you can use it that way:</p>
-
 <pre><code>$ microcks-cli test &lt;apiName:apiVersion&gt; &lt;testEndpoint&gt; &lt;runner&gt; \
 	--microcksURL=&lt;&gt; --waitFor=5sec \
 	--keycloakClientId=&lt;&gt; --keycloakClientSecret=&lt;&gt;
-</code></pre>
-
-<p>Check <a href="https://github.com/microcks/microcks-cli/blob/master/README.md">README.md</a> for full instructions on arguments and flags.</p>
-
+</code></pre><p>Check <a href="https://github.com/microcks/microcks-cli/blob/master/README.md">README.md</a> for full instructions on arguments and flags.</p>
 <h2 id="installation">Installation</h2>
-
 <h3 id="binary">Binary</h3>
-
 <p>Binary releases for Linux, MacOS or Windows platform are available on the GitHub <a href="https://github.com/microcks/microcks-cli/releases">releases page</a>. Just download the binary corresponding to your system and put the binary into the <code>PATH</code> somewhere.</p>
-
 <h3 id="container-image">Container image</h3>
-
 <p>The <code>microcks-cli</code> is now available as a container image as version <code>0.2.0</code>. So that you&rsquo;d be able to easily use it from a GitLab CI or a <a href="../tekton">Tekton pipeline</a>. The hosting repository is now on Docker Hub <a href="https://hub.docker.com/r/microcks/microcks-cli">here</a>.</p>
-
 <p>Below a sample on how using the image without getting the CLI binary:</p>
-
 <pre><code>$ docker run -it microcks/microcks-cli:latest microcks-cli test 'Beer Catalog API:0.9' \
     http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/ POSTMAN \
     --microcksURL=http://microcks.apps.144.76.24.92.nip.io/api/ \
     --keycloakClientId=microcks-serviceaccount \ --keycloakClientSecret=7deb71e8-8c80-4376-95ad-00a399ee3ca1 --waitFor=8sec \
     --operationsHeaders='{&quot;globals&quot;: [{&quot;name&quot;: &quot;x-api-key&quot;, &quot;values&quot;: &quot;my-values&quot;}], &quot;GET /beer&quot;: [{&quot;name&quot;: &quot;x-trace-id&quot;, &quot;values&quot;: &quot;xcvbnsdfghjklm&quot;}]}'
 </code></pre>
-
 </div>
 
         

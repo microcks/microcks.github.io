@@ -12,7 +12,7 @@
     <title>Postman usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -53,10 +53,8 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <meta itemprop="name" content="Postman usage for Microcks">
 <meta itemprop="description" content="Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
 Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-02T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="987">
 
 
@@ -185,21 +183,19 @@ Steps for creating a repository In order to create a tests and mocks repository 
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#overview">Overview</a>
-<ul>
-<li><a href="#pre-requisites">Pre-requisites</a></li>
-<li><a href="#steps-for-creating-a-repository">Steps for creating a repository</a></li>
-<li><a href="#conventions">Conventions</a></li>
-</ul></li>
-<li><a href="#collection-initialisation">Collection initialisation</a></li>
-<li><a href="#defining-examples">Defining Examples</a></li>
-<li><a href="#defining-test-scripts">Defining Test Scripts</a></li>
-<li><a href="#export-postman-collection">Export Postman collection</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#pre-requisites">Pre-requisites</a></li>
+        <li><a href="#steps-for-creating-a-repository">Steps for creating a repository</a></li>
+        <li><a href="#conventions">Conventions</a></li>
+      </ul>
+    </li>
+    <li><a href="#collection-initialisation">Collection initialisation</a></li>
+    <li><a href="#defining-examples">Defining Examples</a></li>
+    <li><a href="#defining-test-scripts">Defining Test Scripts</a></li>
+    <li><a href="#export-postman-collection">Export Postman collection</a></li>
+  </ul>
 </nav>
 	
 
@@ -242,18 +238,11 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="overview">Overview</h2>
-
 <h3 id="pre-requisites">Pre-requisites</h3>
-
 <p>Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.</p>
-
 <h3 id="steps-for-creating-a-repository">Steps for creating a repository</h3>
-
 <p>In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:</p>
-
 <ul>
 <li>Initialize a Postman collection that will hold the repository,</li>
 <li>Create Examples and fill request parameters, headers and body,</li>
@@ -261,76 +250,47 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <li>Export the result as a JSON file using the Collection v2 format,</li>
 <li>Save the collection file into your SCM repository.</li>
 </ul>
-
 <h3 id="conventions">Conventions</h3>
-
 <p>In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.</p>
-
 <ul>
-<li>Your Postman collection may contain one or more API definitions. However, because it&rsquo;s a best practice to consider each API as an autonomous and isolated software asset, we&rsquo;d recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,</li></li>
+<li>Your Postman collection may contain one or more API definitions. However, because it&rsquo;s a best practice to consider each API as an autonomous and isolated software asset, we&rsquo;d recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,<!-- raw HTML omitted --></li>
 <li>Your Postman collection description should hold a custom property named <code>version</code> that allows tracking of API version. It is a good practice to change this version identifier for each API interface versioned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: <code>version=1.0 - Here is now the full description of my collection...</code>.</li>
 </ul>
-
 <p>We recommend having a look at our sample Postman collection for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json">Test API</a> to fully understand and see in action those conventions.</p>
-
 <h2 id="collection-initialisation">Collection initialisation</h2>
-
 <p>Collection initialization is done through <em>Import</em> of an existing resource into Postman. A best practice being using a &ldquo;contract first&rdquo; approach for API definition and management, you&rsquo;ll typically choose to <em>Import File</em> or <em>Import From Link</em> referencing a Swagger or OpenAPI contract definition.</p>
-
 <p>The screenshot below shows how to create a new collection from a Swagger file. We are using here the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> Swagger file.</p>
-
-<p><img src="/images/postman-import.png" alt="postman-import" /></p>
-
+<p><img src="/images/postman-import.png" alt="postman-import"></p>
 <p>After successful import and collection creation, you should get the following result into Postman: a valid Collection with a list of default requests created for your API paths and verbs. Elements of this list will be called <code>Operations</code> within Microcks. Here&rsquo;s the result for our <code>Test API</code>:</p>
-
-<p><img src="/images/postman-operations.png" alt="postman-operations" /></p>
-
+<p><img src="/images/postman-operations.png" alt="postman-operations"></p>
 <h2 id="defining-examples">Defining Examples</h2>
-
 <p>As stated by Postman documentation :</p>
-
 <blockquote>
 <p><em>Developers can mock a request and response in Postman before sending the actual request or setting up a single endpoint to return the response. Establishing an example during the earliest phase of API development requires clear communication between team members, aligns their expectations, and means developers and testers can get started more quickly.</em></p>
 </blockquote>
-
 <p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!</p>
-
 <p>In contrary to <a href="../soapui/#defining-dispatch-rules">SoapUI usage</a>, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.</p>
-
 <h2 id="defining-test-scripts">Defining Test Scripts</h2>
-
 <blockquote>
 <p>This is an optional step that is only required if you also want to use Microcks to test your Service or API implementation as the development process progresses.</p>
 </blockquote>
-
 <p>Postman allows to attach some test scripts defined in JavaScript to a request or <code>Operation</code>. Contrary to <a href="../soapui/#defining-tests">SoapUI usage</a> where different tests assertions can be put on each test request, Postman only allows you to attach scripts to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global view of tests in Postman and their capabilities, we recommend reading the <a href="https://www.getpostman.com/docs/postman/scripts/intro_to_scripts">Introduction to Scripts</a>.</p>
-
 <p>As an illustration to how Microcks use Postman and offers, let&rsquo;s imagine we are still using the <a href="https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json">Test API</a> we mentioned above. There&rsquo;s an <code>Operation</code> allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned <code>order</code> has the <code>id</code> we specified into URI. We will write a test script that way:</p>
-
-<p><img src="/images/postman-script.png" alt="postman-script" /></p>
-
+<p><img src="/images/postman-script.png" alt="postman-script"></p>
 <p>You will notice the usage of following JavaScript code: <code>var expectedId = globals[&quot;id&quot;];</code>. What does that mean? Indeed, <code>globals</code> is an array of variables managed by the Postman runtime. Usually, you have to pre-populate this array using <em>Pre-request script</em>. When running this test in Microcks, such pre-request initialization is automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the <code>globals</code> context so that you can directly used them within your script.</p>
-
 <p>The execution of Postman tests using Microcks follows this flow:</p>
-
 <ul>
 <li>for each example defined for a request, collect URI and query string parameters as key/value pairs,</li>
 <li>inject each pair within <code>globals</code> JavaScript array,</li>
 <li>invoke request attached script with the <code>globals</code> injected into runtime context,</li>
 <li>collect the results within <code>tests</code> array to detect success or failure.</li>
 </ul>
-
 <p>Here is another example of such a generic script that validates the received JSON content:</p>
-
-<p><img src="/images/postman-script-validation.png" alt="postman-script-validation" /></p>
-
+<p><img src="/images/postman-script-validation.png" alt="postman-script-validation"></p>
 <p>This script validates that all the JSON <code>order</code> objects returned in response all have the <code>status</code> that is requested using the query parameter <code>status</code> value. Otherwise, a <code>Valid response</code> assertion failure is thrown and stored into the tests array.</p>
-
 <h2 id="export-postman-collection">Export Postman collection</h2>
-
 <p>Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
-
-<p><img src="/images/postman-export.png" alt="postman-export" /></p>
+<p><img src="/images/postman-export.png" alt="postman-export"></p>
 
 </div>
 

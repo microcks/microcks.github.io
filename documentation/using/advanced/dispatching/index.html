@@ -12,7 +12,7 @@
     <title>Custom dispatching rules | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -53,10 +53,8 @@ However in some cases, this could not be enough and it will be useful to overrid
 <meta itemprop="name" content="Custom dispatching rules">
 <meta itemprop="description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values.">
-
-
-<meta itemprop="datePublished" content="2020-03-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-03T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="921">
 
 
@@ -185,21 +183,16 @@ However in some cases, this could not be enough and it will be useful to overrid
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#the-need-for-custom-dispatching-rules">The need for custom dispatching rules</a></li>
-<li><a href="#dispatching-rules-override">Dispatching rules override</a>
-<ul>
-<li><a href="#inferred-dispatchers">Inferred dispatchers</a></li>
-<li><a href="#json-body-dispatcher">JSON BODY dispatcher</a>
-<ul>
-<li><a href="#test-our-new-rule">Test our new rule!</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-need-for-custom-dispatching-rules">The need for custom dispatching rules</a></li>
+    <li><a href="#dispatching-rules-override">Dispatching rules override</a>
+      <ul>
+        <li><a href="#inferred-dispatchers">Inferred dispatchers</a></li>
+        <li><a href="#json-body-dispatcher">JSON BODY dispatcher</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	
 
@@ -242,53 +235,33 @@ However in some cases, this could not be enough and it will be useful to overrid
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="introduction">Introduction</h2>
-
 <p>As explained into <a href="../mocks">Using exposed mocks</a>, Microcks is using <code>Dispatcher</code> and <code>Dispatching Rules</code> for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.</p>
-
 <p>However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules ;-) But you can realize that by overriding the <code>Dispatching Rules</code> after the first import of the API into the repository.</p>
-
 <h2 id="the-need-for-custom-dispatching-rules">The need for custom dispatching rules</h2>
-
 <p>Let&rsquo;s illustrate this with an example! Say we&rsquo;ve got this API allowing to record a new beer in our own catalog. We have this <code>POST</code> method that allows to create new beer resources and we want to make the difference between 2 cases: the <code>Accepted</code> and the <code>Not accepted</code> responses. So we have to start describing the 2 samples into our API contract. You&rsquo;ll notice in the capture below that:</p>
-
 <ul>
 <li><code>Dispatcher</code> and <code>Dispatching Rules</code> are empty. That means that you&rsquo;ll get the first found response when invoking the mock, no matter the request.</li>
 <li>We have used <a href="../templates/">Templating features</a> to make the response content more dynamic. So the <code>{{ }}</code> notation within response body.</li>
 </ul>
-
-<p><img src="/images/dispatcher-case.png" alt="dispatcher-case" /></p>
-
+<p><img src="/images/dispatcher-case.png" alt="dispatcher-case"></p>
 <h2 id="dispatching-rules-override">Dispatching rules override</h2>
-
 <p>Now just select <code>Edit Properties</code> of the operation from the 3-dots menu on the right of the opration name. You should be logged as a repository <code>manager</code> to have this option (see <a href="../administrating/users/">Users management</a> section of documentation if needed). The next screen allows you to override default operation properties, one of them being the <code>Dispatching Rules</code> like shown in the screen below.</p>
-
-<p><img src="/images/dispatcher-edit.png" alt="dispatcher-edit" /></p>
-
+<p><img src="/images/dispatcher-edit.png" alt="dispatcher-edit"></p>
 <blockquote>
-<p>The above rule can be simply read like this <em>&ldquo;From the incoming request, look for the value of the country field. If this field has the value &lsquo;Belgium&rsquo; then return the response called &lsquo;Accepted&rsquo; otherwise return the response called &lsquo;Not accepted&rsquo;.&rdquo;</em></p>
+<p>The above rule can be simply read like this <em>&ldquo;From the incoming request, look for the value of the country field. If this field has the value &lsquo;Belgium&rsquo; then return the response called &lsquo;Accepted&rsquo; otherwise return the response called &lsquo;Not accepted&rsquo;.&quot;</em></p>
 </blockquote>
-
 <h3 id="inferred-dispatchers">Inferred dispatchers</h3>
-
 <p>A reminder on default, inferred dispatchers: you may find <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code>. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contraxct artifact.</p>
-
 <h3 id="json-body-dispatcher">JSON BODY dispatcher</h3>
-
 <p>The <code>JSON_BODY</code> dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right secion of the page that will provide examples and copy/paste shortcuts.</p>
-
 <p>The dispatching rules of <code>JSON_BODY</code> dispatcher are always expressed using a JSON payload with 3 properties:</p>
-
 <ul>
 <li><code>exp</code> is the expression to evaluate against the request body. It is indeed a <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> expression. We already use this expressiong language in <a href="../templates/#json-body-pointer-expression">Templating features</a>. From the evaluation of this expression, we&rsquo;ll get a value. Here <code>/country</code> denotes the <code>country</code> field of incoming request.</li>
 <li><code>op</code> is the operator to apply. Different operators are available like <code>equals</code>, <code>range</code>, <code>regexp</code>, <code>size</code> and <code>presence</code>,</li>
 <li><code>cases</code> are a number of cases where keys are values to compare to extracted value from incoming request.</li>
 </ul>
-
 <p>Depending on the operator applied, the <code>cases</code> may have different specification formats.</p>
-
 <table>
 <thead>
 <tr>
@@ -297,32 +270,27 @@ However in some cases, this could not be enough and it will be useful to overrid
 <th> Comments</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>equals</code></td>
 <td><code>&quot;&lt;value&gt;&quot;: &quot;&lt;response&gt;&quot;</code></td>
 <td>A case named <code>default</code> is used as default option</td>
 </tr>
-
 <tr>
 <td><code>range</code></td>
 <td><code>[&lt;min&gt;;&lt;max&gt;]: &quot;&lt;response&gt;&quot;</code></td>
 <td> Bracket side matter: <code>[</code> means incluse, <code>]</code> means exclusive for a left bracket. A case named <code>default</code> is used as default option</td>
 </tr>
-
 <tr>
 <td><code>size</code></td>
 <td><code>&quot;[&lt;min&gt;;&lt;max&gt;]&quot;: &quot;&lt;response&gt;&quot;</code></td>
 <td>Size of an array property. Brackets must be inclusive. A case named <code>default</code> is used as default option</td>
 </tr>
-
 <tr>
 <td><code>regexp</code></td>
 <td><code>&quot;&lt;posix regexp&gt;&quot;: &quot;&lt;response&gt;&quot;</code></td>
 <td>Regular expression applied to value. A case named <code>default</code> is used as default option</td>
 </tr>
-
 <tr>
 <td><code>regexp</code></td>
 <td><code>&quot;found&quot;: &quot;&lt;response&gt;&quot;</code></td>
@@ -330,19 +298,13 @@ However in some cases, this could not be enough and it will be useful to overrid
 </tr>
 </tbody>
 </table>
-
 <p>Now that we have edited or dipsatching rule and save, we can check this rule is applied to our operation. This override of rule will be persisted into Microcks and will survive future discoveries and refreshed of this API version.</p>
-
-<p><img src="/images/dispatcher-updated.png" alt="dispatcher-updated" /></p>
-
+<p><img src="/images/dispatcher-updated.png" alt="dispatcher-updated"></p>
 <blockquote>
 <p>We recommend having an in-depth look at the exemple provided on the page to fully understand the power of different options.</p>
 </blockquote>
-
 <h4 id="test-our-new-rule">Test our new rule!</h4>
-
 <p>Given the templated responses and the above dispatching rule evaluting the body of incoming requests, we can now test our mock.</p>
-
 <p>Let start by creating a new beer coming from Belgium:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer <span class="se">\
 </span><span class="se"></span>    -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\
@@ -351,14 +313,13 @@ However in some cases, this could not be enough and it will be useful to overrid
   <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Abbey Brune&#34;</span>,
   <span class="s2">&#34;country&#34;</span>: <span class="s2">&#34;Belgium&#34;</span>,
   <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;Brown ale&#34;</span>,
-  <span class="s2">&#34;rating&#34;</span>: <span class="m">4</span>.2,
+  <span class="s2">&#34;rating&#34;</span>: 4.2,
   <span class="s2">&#34;references&#34;</span>: <span class="o">[</span>
     <span class="o">{</span> <span class="s2">&#34;referenceId&#34;</span>: <span class="m">1234</span> <span class="o">}</span>,
     <span class="o">{</span> <span class="s2">&#34;referenceId&#34;</span>: <span class="m">5678</span> <span class="o">}</span>
   <span class="o">]</span>
-<span class="o">}</span></code></pre></div>
-<p>It is a success as the <code>country</code> has the <code>Belgium</code> value and the <code>Accepted</code> response is returned. Templates in this response are evaluated regarding request content.</p>
-
+<span class="o">}</span>
+</code></pre></div><p>It is a success as the <code>country</code> has the <code>Belgium</code> value and the <code>Accepted</code> response is returned. Templates in this response are evaluated regarding request content.</p>
 <p>Now let&rsquo;s try with a German beer&hellip; You&rsquo;ll see that the <code>Not accepted</code> response is matched (look also at the return code) and adpated regarding incoming request:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer <span class="se">\
 </span><span class="se"></span>    -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\
@@ -367,7 +328,8 @@ However in some cases, this could not be enough and it will be useful to overrid
 <span class="o">{</span>
   <span class="s2">&#34;error&#34;</span>: <span class="s2">&#34;Not accepted&#34;</span>,
   <span class="s2">&#34;message&#34;</span>: <span class="s2">&#34;Germany origin country is forbiden&#34;</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 </div>
 
         

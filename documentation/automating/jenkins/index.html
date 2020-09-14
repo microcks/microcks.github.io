@@ -12,7 +12,7 @@
     <title>Integrating Microcks from Jenkins | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -44,27 +44,25 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Integrating Microcks from Jenkins" />
-<meta property="og:description" content="Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
+<meta property="og:description" content="Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Testsfor more informations on running tests with Microcks.
 Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/jenkins/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-03-29T00:00:00+00:00" />
 <meta itemprop="name" content="Integrating Microcks from Jenkins">
-<meta itemprop="description" content="Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
+<meta itemprop="description" content="Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Testsfor more informations on running tests with Microcks.
 Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-29T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="992">
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="991">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Integrating Microcks from Jenkins"/>
-<meta name="twitter:description" content="Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
+<meta name="twitter:description" content="Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Testsfor more informations on running tests with Microcks.
 Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results."/>
 
       
@@ -185,22 +183,21 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#microcks-jenkins-plugin">Microcks Jenkins plugin</a>
-<ul>
-<li><a href="#getting-raw-plugin">Getting raw plugin</a></li>
-<li><a href="#building-an-openshift-jenkins-master-embedding-plugin">Building an OpenShift Jenkins master embedding plugin</a></li>
-</ul></li>
-<li><a href="#setting-up-microcks-jenkins-plugin">Setting up Microcks Jenkins plugin</a></li>
-<li><a href="#using-microcks-jenkins-plugin">Using Microcks Jenkins plugin</a>
-<ul>
-<li><a href="#simple-build-step-usage">Simple build step usage</a></li>
-<li><a href="#dsl-plugin-usage">DSL plugin usage</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#microcks-jenkins-plugin">Microcks Jenkins plugin</a>
+      <ul>
+        <li><a href="#getting-raw-plugin">Getting raw plugin</a></li>
+        <li><a href="#building-an-openshift-jenkins-master-embedding-plugin">Building an OpenShift Jenkins master embedding plugin</a></li>
+      </ul>
+    </li>
+    <li><a href="#setting-up-microcks-jenkins-plugin">Setting up Microcks Jenkins plugin</a></li>
+    <li><a href="#using-microcks-jenkins-plugin">Using Microcks Jenkins plugin</a>
+      <ul>
+        <li><a href="#simple-build-step-usage">Simple build step usage</a></li>
+        <li><a href="#dsl-plugin-usage">DSL plugin usage</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	
 
@@ -243,92 +240,55 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="microcks-jenkins-plugin">Microcks Jenkins plugin</h2>
-
-<p>Microcks provides a Jenkins plugin that you may find here: <a href="https://github.com/microcks/microcks-jenkins-plugin">microcks-jenkins-plugin</a>. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See <a href="../../using/tests/">this page on Tests</a> for more informations on running tests with Microcks.</p>
-
+<p>Microcks provides a Jenkins plugin that you may find here: <!-- raw HTML omitted -->microcks-jenkins-plugin<!-- raw HTML omitted -->. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See <!-- raw HTML omitted -->this page on Tests<!-- raw HTML omitted --> for more informations on running tests with Microcks.</p>
 <p>Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.</p>
-
 <h3 id="getting-raw-plugin">Getting raw plugin</h3>
-
 <p>While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from <a href="https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/">Central Maven repository</a>. Just get the <a href="http://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi">HPI file</a> and install it on your Jenkins master <a href="https://jenkins.io/doc/book/managing/plugins/">your preferred way</a>.</p>
-
 <p>Pick up the version corresponding to your Microcks installation :</p>
-
 <ul>
 <li><a href="https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi">0.2.0 version</a> from Microcks <code>0.7.0</code> or greater</li>
-<li><a href="https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi">0.1.1 version</a> from Microcks version before <code>0.7.0</code>
-<br /></li>
+<li><a href="https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi">0.1.1 version</a> from Microcks version before <code>0.7.0</code></li>
 </ul>
-
 <h3 id="building-an-openshift-jenkins-master-embedding-plugin">Building an OpenShift Jenkins master embedding plugin</h3>
-
 <p>A common option for running Jenkins is through OpenShift platform. In that case, you may want to create your own custom Jenkins master container image embedding this plugin. While there&rsquo;s <a href="https://github.com/clerixmaxime/custom-jenkins">many ways of building such images</a>, as Microcks plugin is not yet an official Jenkins plugin, we provide our own OpenShift configuration for that.</p>
-
 <p>Given you have an OpenShift installation running and you&rsquo;re logged on it, just execute that command from terminal:</p>
-
 <pre><code>$ oc process -f https://raw.githubusercontent.com/microcks/microcks-jenkins-plugin/master/openshift-jenkins-master-bc.yml | oc create -f -
-</code></pre>
-
-<p>This should start a <code>Build</code> and then create an <code>ImageStream</code> called <code>microcks-jenkins-master</code> in your current project. After few minutes, a <code>microcks-jenkins-master:latest</code> container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.</p>
-
+</code></pre><p>This should start a <code>Build</code> and then create an <code>ImageStream</code> called <code>microcks-jenkins-master</code> in your current project. After few minutes, a <code>microcks-jenkins-master:latest</code> container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.</p>
 <p>If you already have a Jenkins deployment you want to update, just issue the two following commands:</p>
-
 <pre><code>$ oc set triggers dc/jenkins --remove --from-image=openshift/jenkins:2
 $ oc set triggers dc/jenkins --from-image=microcks-jenkins-master:latest -c jenkins
-</code></pre>
-
-<h2 id="setting-up-microcks-jenkins-plugin">Setting up Microcks Jenkins plugin</h2>
-
+</code></pre><h2 id="setting-up-microcks-jenkins-plugin">Setting up Microcks Jenkins plugin</h2>
 <p>Since the version <code>0.2.0</code>, this plugin is using identified <strong>Service Accounts</strong> when connecting to Microcks server. It is also able to manage multiple Microcks installation and hide the technical details from your Jobs using Microcks plugins. As a Jenkins administrator, go to the <strong>Manage Jenkins</strong> page and find the <strong>Microcks</strong> section. You should be able to add and configure as many instance of Microcks installation as you want like in the 2 configured in screenshot below:</p>
-
-<p><img src="/images/jenkins-installations.png" alt="jenkins-installations" /></p>
-
+<p><img src="/images/jenkins-installations.png" alt="jenkins-installations"></p>
 <p>A Microcks installation configuration need 5 parameters:</p>
-
 <ul>
 <li>A <code>Name</code> will be used by your Jobs or Pipelines as a reference of an environment,</li>
 <li>The <code>API URL</code> is the endpoint of your Microcks server receiving API calls,</li>
 <li>The <code>Keycloak URL</code> is the endpoint of the Keycloak associated with your Microcks server. You should set it the full URL including the realm name your instance is attached,</li>
 <li>The <code>Credentials</code> to use for authenticating the Service Account and allowing it to retrieve an OAuth token (more on that on <a href="/automating/service-account">service-account</a>). These are Crederentials that should be registered into Jenkins,</li>
-<li>The <code>Disable Cert Validation</code> box you have to check if you have a HTTPS setup with auto-signed certificates.
-<br /></li>
+<li>The <code>Disable Cert Validation</code> box you have to check if you have a HTTPS setup with auto-signed certificates.</li>
 </ul>
-
 <p>You should then be able to test the connection to endpoints and save your configuration. Later, your Jobs and Pipelines will just use the installation <code>Name</code> to refer it from their build steps.</p>
-
 <h2 id="using-microcks-jenkins-plugin">Using Microcks Jenkins plugin</h2>
-
 <p>Jenkins plugins may be used in 2 ways:</p>
-
 <ul>
 <li>As a simple <code>Build Step</code> using a form to define what service to test,</li>
-<li>As an action defined using Domain Specific Language within a <code>Pipeline stage</code>
-<br /></li>
+<li>As an action defined using Domain Specific Language within a <code>Pipeline stage</code></li>
 </ul>
-
 <h3 id="simple-build-step-usage">Simple build step usage</h3>
-
 <p>When defining a new project into Jenkins GUI, you may want to add a new <code>Launch Microcks Test Runner</code> step as shown in the capture below.</p>
-
-<p><img src="/images/jenkins-build-step.png" alt="jenkins-build-step" /></p>
-
+<p><img src="/images/jenkins-build-step.png" alt="jenkins-build-step"></p>
 <p>The parameters that can be set here are:</p>
-
 <ul>
 <li>The <code>Server</code>: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),</li>
 <li>The <code>Service Identifier</code> to launch tests for: this is simply a <code>service_name:service_version</code> expression,</li>
 <li>The <code>Test Endpoint</code> to test: this is a valid endpoint where your service or API implementation has been deployed,</li>
 <li>The <code>Runner Type</code> to use: this is the test strategy you may want to have regarding endpoint,</li>
 <li>The <code>Verbose</code> flag: allows to collect detailed logs on Microcks plugin execution,</li>
-<li>The <code>Timeout</code> configuration: allows you to override default timeout for this tests.
-<br /></li>
+<li>The <code>Timeout</code> configuration: allows you to override default timeout for this tests.</li>
 </ul>
-
 <h3 id="dsl-plugin-usage">DSL plugin usage</h3>
-
 <p>When defining a new CI/CD pipeline - even through the Jenkins or OpenShift GUI or through a <code>Jenkinsfile</code> within your source repository - you may want to add a specific <code>microcksTest</code> within your pipeline script as the example below:</p>
 <div class="highlight"><pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="n">node</span><span class="o">(</span><span class="s1">&#39;maven&#39;</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">stage</span> <span class="o">(</span><span class="s1">&#39;build&#39;</span><span class="o">)</span> <span class="o">{</span>
@@ -350,9 +310,8 @@ $ oc set triggers dc/jenkins --from-image=microcks-jenkins-master:latest -c jenk
   <span class="n">stage</span> <span class="o">(</span><span class="s1">&#39;deployToProd&#39;</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// ...
 </span><span class="c1"></span>  <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
-<p>The parameters that can be set here are the same that in <code>Build Step</code> usage but take care to cases and typos:</p>
-
+<span class="o">}</span>
+</code></pre></div><p>The parameters that can be set here are the same that in <code>Build Step</code> usage but take care to cases and typos:</p>
 <ul>
 <li>The <code>server</code>: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),</li>
 <li>The <code>serviceId</code> to launch tests for: this is simply a <code>service_name:service_version</code> expression,</li>
@@ -360,13 +319,10 @@ $ oc set triggers dc/jenkins --from-image=microcks-jenkins-master:latest -c jenk
 <li>The <code>runnerType</code> to use: this is the test strategy you may want to have regarding endpoint,</li>
 <li>The <code>verbose</code> flag: allows to collect detailed logs on Microcks plugin execution,</li>
 <li>The <code>waitTime</code> configuration: allows you to override the default time quantity for this tests.</li>
-<li>The <code>waitUnit</code> configuration: allows you to override the default time unit for this tests (values in milli, sec or min).
-<br /></li>
+<li>The <code>waitUnit</code> configuration: allows you to override the default time unit for this tests (values in milli, sec or min).</li>
 </ul>
-
 <p>Using Microcks and its Jenkins plugin, you may achieve some clean CI/CD pipelines that ensures your developed API implementation is fully aligned to expectations. See below a visualization of such a pipeline for our <code>Beer Catalog API</code> (full project to come soon).</p>
-
-<p><img src="/images/jenkins-pipeline-openshift.png" alt="jenkins-pipeline-openshift" /></p>
+<p><img src="/images/jenkins-pipeline-openshift.png" alt="jenkins-pipeline-openshift"></p>
 
 </div>
 

@@ -12,7 +12,7 @@
     <title>Using Microcks from Tekton | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -53,11 +53,9 @@ Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task
 <meta itemprop="name" content="Using Microcks from Tekton">
 <meta itemprop="description" content="Microcks Tekton The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines. Microcks makes use of its CLI undercover and provides some Tasks and exemple Pipelines with the /tekton folder of this repository. It also makes usage of Microcks Service Account so it&rsquo;s defintely worth the read ;-)
 Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task for testing with Microcks. You may remove default values for parameters or put your own here.">
-
-
-<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="685">
+<meta itemprop="datePublished" content="2019-11-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="729">
 
 
 
@@ -185,20 +183,19 @@ Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#microcks-tekton">Microcks Tekton</a></li>
-<li><a href="#tekton-task">Tekton Task</a>
-<ul>
-<li><a href="#executing-a-task">Executing a Task</a></li>
-</ul></li>
-<li><a href="#tekton-pipeline">Tekton Pipeline</a>
-<ul>
-<li><a href="#executing-a-pipeline">Executing a Pipeline</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#microcks-tekton">Microcks Tekton</a></li>
+    <li><a href="#tekton-task">Tekton Task</a>
+      <ul>
+        <li><a href="#executing-a-task">Executing a Task</a></li>
+      </ul>
+    </li>
+    <li><a href="#tekton-pipeline">Tekton Pipeline</a>
+      <ul>
+        <li><a href="#executing-a-pipeline">Executing a Pipeline</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	
 
@@ -241,178 +238,153 @@ Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="microcks-tekton">Microcks Tekton</h2>
-
 <p>The <a href="https://tekton.dev/">Tekton</a> Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines. Microcks makes use of its <a href="../cli">CLI</a> undercover and provides some <code>Tasks</code> and exemple <code>Pipelines</code> with the <code>/tekton</code> folder of <a href="https://github.com/microcks/microcks-cli/tree/master/tekton">this repository</a>. It also makes usage of Microcks <a href="../service-account">Service Account</a> so it&rsquo;s defintely worth the read ;-)</p>
-
 <h2 id="tekton-task">Tekton Task</h2>
-
 <p>The <a href="https://github.com/microcks/microcks-cli/blob/master/tekton/microcks-test-task.yaml"><code>microcks-test-task.yaml</code></a> resource holds a sample of a Tekton Task for testing with Microcks. You may remove default values for parameters or put your own here.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>tekton.dev/v1alpha1<span class="w">
-</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>Task<span class="w">
-</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
-</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
-</span><span class="w"></span>spec<span class="p">:</span><span class="w">
-</span><span class="w">  </span>inputs<span class="p">:</span><span class="w">
-</span><span class="w">    </span>params<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>apiNameAndVersion<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;apiName:apiVersion&gt;: Service to test reference. Exemple: &#39;Beer Catalog API:0.9&#39;&#34;</span><span class="w">
-</span><span class="w">        </span>default<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Beer Catalog API:0.9&#34;</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>testEndpoint<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;URL where is deployed implementation to test&#34;</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>runner<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Test strategy (one of: HTTP, SOAP, SOAP_UI, POSTMAN, OPEN_API_SCHEMA)&#34;</span><span class="w">
-</span><span class="w">        </span>default<span class="p">:</span><span class="w"> </span>HTTP<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>microcksURL<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Microcks instance API endpoint&#34;</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>keycloakClientId<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Keycloak Realm Service Account ClientId&#34;</span><span class="w">
-</span><span class="w">        </span>default<span class="p">:</span><span class="w"> </span>microcks-serviceaccount<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>keycloakClientSecret<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Keycloak Realm Service Account ClientSecret&#34;</span><span class="w">
-</span><span class="w">        </span>default<span class="p">:</span><span class="w"> </span>7deb71e8-8c80<span class="m">-4376</span>-95ad-00a399ee3ca1<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>waitFor<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Time to wait for test to finish (int + one of: milli, sec, min)&#34;</span><span class="w">
-</span><span class="w">        </span>default<span class="p">:</span><span class="w"> </span>5sec<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>operationsHeaders<span class="w">
-</span><span class="w">        </span>type<span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">        </span>description<span class="p">:</span><span class="w"> </span><span class="s2">&#34;JSON that override some operations headers for the tests to launch&#34;</span><span class="w">
-</span><span class="w">        </span>default<span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
-</span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
-</span><span class="w">      </span>image<span class="p">:</span><span class="w"> </span>microcks/microcks-cli<span class="p">:</span>latest<span class="w">
-</span><span class="w">      </span>command<span class="p">:</span><span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>/usr/bin/bash<span class="w">
-</span><span class="w">      </span>args<span class="p">:</span><span class="w">
-</span><span class="w">        </span>-<span class="w"> </span><span class="s1">&#39;-c&#39;</span><span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>&gt;<span class="sd">-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>tekton.dev/v1alpha1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>Task<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
+</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">inputs</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">params</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>apiNameAndVersion<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;apiName:apiVersion&gt;: Service to test reference. Exemple: &#39;Beer Catalog API:0.9&#39;&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Beer Catalog API:0.9&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>testEndpoint<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;URL where is deployed implementation to test&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>runner<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Test strategy (one of: HTTP, SOAP, SOAP_UI, POSTMAN, OPEN_API_SCHEMA)&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">default</span><span class="p">:</span><span class="w"> </span>HTTP<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>microcksURL<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Microcks instance API endpoint&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>keycloakClientId<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Keycloak Realm Service Account ClientId&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">default</span><span class="p">:</span><span class="w"> </span>microcks-serviceaccount<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>keycloakClientSecret<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Keycloak Realm Service Account ClientSecret&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">default</span><span class="p">:</span><span class="w"> </span>7deb71e8-8c80<span class="m">-4376</span>-95ad-00a399ee3ca1<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>waitFor<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Time to wait for test to finish (int + one of: milli, sec, min)&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">default</span><span class="p">:</span><span class="w"> </span>5sec<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>operationsHeaders<span class="w">
+</span><span class="w">        </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
+</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;JSON that override some operations headers for the tests to launch&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span><span class="w">  </span><span class="k">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
+</span><span class="w">      </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>microcks/microcks-cli<span class="p">:</span>latest<span class="w">
+</span><span class="w">      </span><span class="k">command</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- /usr/bin/bash<span class="w">
+</span><span class="w">      </span><span class="k">args</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;-c&#39;</span><span class="w">
+</span><span class="w">        </span>- &gt;<span class="sd">-
 </span><span class="sd">          microcks-cli test &#39;$(inputs.params.apiNameAndVersion)&#39; $(inputs.params.testEndpoint) $(inputs.params.runner) \</span><span class="w">
 </span><span class="w">            </span>--microcksURL=$(inputs.params.microcksURL)<span class="w"> </span>--waitFor=$(inputs.params.waitFor)<span class="w"> </span>\<span class="w">
 </span><span class="w">            </span>--keycloakClientId=$(inputs.params.keycloakClientId)<span class="w"> </span>--keycloakClientSecret=$(inputs.params.keycloakClientSecret)<span class="w"> </span>\<span class="w">
-</span><span class="w">            </span>--insecure<span class="w"> </span>--operationsHeaders=<span class="s1">&#39;$(inputs.params.operationsHeaders)&#39;</span></code></pre></div>
-<p>You can just create this task within your namespace with:</p>
-
+</span><span class="w">            </span>--insecure<span class="w"> </span>--operationsHeaders=<span class="s1">&#39;$(inputs.params.operationsHeaders)&#39;</span><span class="w">
+</span></code></pre></div><p>You can just create this task within your namespace with:</p>
 <pre><code>$ kubectl apply -f microcks-test-task.yaml -n microcks-tekton
-</code></pre>
-
-<p>In case you have your Microcks installation between behind a TLS Ingress with custom certificate authority, you may have a look at the <a href="https://github.com/microcks/microcks-cli/blob/master/tekton/microcks-test-customcerts-task.yaml"><code>microcks-test-customcerts-task.yaml</code></a> that refer to an existing secret for retrieving this certificate.</p>
-
+</code></pre><p>In case you have your Microcks installation between behind a TLS Ingress with custom certificate authority, you may have a look at the <a href="https://github.com/microcks/microcks-cli/blob/master/tekton/microcks-test-customcerts-task.yaml"><code>microcks-test-customcerts-task.yaml</code></a> that refer to an existing secret for retrieving this certificate.</p>
 <p>You should have previously created your secret using something like this:</p>
-
 <pre><code>$ kubectl create secret generic microcks-test-customcerts-secret --from-file=ca.crt=ca.crt
-</code></pre>
-
-<h3 id="executing-a-task">Executing a Task</h3>
-
+</code></pre><h3 id="executing-a-task">Executing a Task</h3>
 <p>Running a task can be done either by creating a <code>TaskRun</code> resource of through the <a href="https://github.com/tektoncd/cli"><code>tkn</code> CLI tool</a>. Both methods should provide the values for parameters of the <code>microcks-test</code>task. Here below an example on running such a task:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>tekton.dev/v1alpha1<span class="w">
-</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>TaskRun<span class="w">
-</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
-</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks-test-taskrun-beer-catalog<span class="w">
-</span><span class="w"></span>spec<span class="p">:</span><span class="w">
-</span><span class="w">  </span>taskRef<span class="p">:</span><span class="w">
-</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
-</span><span class="w">  </span>inputs<span class="p">:</span><span class="w">
-</span><span class="w">    </span>params<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>apiNameAndVersion<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Beer Catalog API:0.9&#34;</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>testEndpoint<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//beer-catalog-impl-beer-catalog-dev.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>runner<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>POSTMAN<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>microcksURL<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//microcks.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>waitFor<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>12sec<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>keycloakClientId<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>microcks-serviceaccount<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>keycloakClientSecret<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>34a49089<span class="m">-7566</span>-45a0-88a6-112b297fd803<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>operationsHeaders<span class="w">
-</span><span class="w">        </span>value<span class="p">:</span><span class="w"> </span>|<span class="sd">-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>tekton.dev/v1alpha1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>TaskRun<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-test-taskrun-beer-catalog<span class="w">
+</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">taskRef</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
+</span><span class="w">  </span><span class="k">inputs</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">params</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>apiNameAndVersion<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Beer Catalog API:0.9&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>testEndpoint<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//beer-catalog-impl-beer-catalog-dev.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>runner<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>POSTMAN<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>microcksURL<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//microcks.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>waitFor<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>12sec<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>keycloakClientId<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>microcks-serviceaccount<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>keycloakClientSecret<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>34a49089<span class="m">-7566</span>-45a0-88a6-112b297fd803<span class="w">
+</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>operationsHeaders<span class="w">
+</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
 </span><span class="sd">          {</span><span class="w">
-</span><span class="w">            </span><span class="s2">&#34;globals&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="w">              </span>{<span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;x-api-key&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;values&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;my-values&#34;</span>}<span class="w">
+</span><span class="w">            </span><span class="k">&#34;globals&#34;: </span><span class="p">[</span><span class="w">
+</span><span class="w">              </span>{<span class="k">&#34;name&#34;: &#34;x-api-key&#34;, &#34;values&#34;: </span><span class="s2">&#34;my-values&#34;</span>}<span class="w">
 </span><span class="w">            </span><span class="p">],</span><span class="w">
-</span><span class="w">            </span><span class="s2">&#34;GET /beer&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="w">              </span>{<span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;x-trace-id&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;values&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;xcvbnsdfghjklm&#34;</span>}<span class="w">
+</span><span class="w">            </span><span class="k">&#34;GET /beer&#34;: </span><span class="p">[</span><span class="w">
+</span><span class="w">              </span>{<span class="k">&#34;name&#34;: &#34;x-trace-id&#34;, &#34;values&#34;: </span><span class="s2">&#34;xcvbnsdfghjklm&#34;</span>}<span class="w">
 </span><span class="w">            </span><span class="p">]</span><span class="w">
-</span><span class="w">          </span>}</code></pre></div>
-<p>Once you have adapted the parameter values to your own environment, you can just create the resource into your namespace:</p>
-
+</span><span class="w">          </span>}<span class="w">
+</span></code></pre></div><p>Once you have adapted the parameter values to your own environment, you can just create the resource into your namespace:</p>
 <pre><code>$ kubectl apply -f microcks-test-taskrun.yaml -n microcks-tekton
-</code></pre>
-
-<p>The <code>tkn</code> CLI tool is very convenient for getting the logs of a Task run:</p>
-
+</code></pre><p>The <code>tkn</code> CLI tool is very convenient for getting the logs of a Task run:</p>
 <pre><code>$ tkn taskrun logs  microcks-test-taskrun-beer-catalog
 [microcks-test] MicrocksClient got status for test &quot;5dcd11fc9b625c0001b0e185&quot; - success: false, inProgress: true 
 [microcks-test] MicrocksTester waiting for 2 seconds before checking again or exiting.
 [microcks-test] MicrocksClient got status for test &quot;5dcd11fc9b625c0001b0e185&quot; - success: false, inProgress: true 
 [microcks-test] MicrocksTester waiting for 2 seconds before checking again or exiting.
 [microcks-test] MicrocksClient got status for test &quot;5dcd11fc9b625c0001b0e185&quot; - success: true, inProgress: false 
-</code></pre>
-
-<h2 id="tekton-pipeline">Tekton Pipeline</h2>
-
+</code></pre><h2 id="tekton-pipeline">Tekton Pipeline</h2>
 <p>A <code>Pipeline</code> defines a list of <code>Tasks</code> to execute in order. The same variable substitution you used in <code>TaskRun</code> is also available here and you may create a specific pipeline like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>tekton.dev/v1alpha1<span class="w">
-</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>Pipeline<span class="w">
-</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
-</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>microcks-pipeline-beer-catalog<span class="w">
-</span><span class="w"></span>spec<span class="p">:</span><span class="w">
-</span><span class="w">  </span>tasks<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>microcks-test-beer-catalog<span class="w">
-</span><span class="w">      </span>taskRef<span class="p">:</span><span class="w">
-</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
-</span><span class="w">      </span>params<span class="p">:</span><span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>apiNameAndVersion<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Beer Catalog API:0.9&#34;</span><span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>testEndpoint<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//beer-catalog-impl-beer-catalog-dev.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>runner<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>POSTMAN<span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>microcksURL<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//microcks.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>waitFor<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>12sec<span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>keycloakClientId<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>microcks-serviceaccount<span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>keycloakClientSecret<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>34a49089<span class="m">-7566</span>-45a0-88a6-112b297fd803<span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>operationsHeaders<span class="w">
-</span><span class="w">          </span>value<span class="p">:</span><span class="w"> </span>|<span class="sd">-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>tekton.dev/v1alpha1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>Pipeline<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-pipeline-beer-catalog<span class="w">
+</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">tasks</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-test-beer-catalog<span class="w">
+</span><span class="w">      </span><span class="k">taskRef</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks-test<span class="w">
+</span><span class="w">      </span><span class="k">params</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>apiNameAndVersion<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Beer Catalog API:0.9&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>testEndpoint<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//beer-catalog-impl-beer-catalog-dev.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>runner<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>POSTMAN<span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>microcksURL<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//microcks.apps<span class="m">.144.76.24.92</span>.nip.io/api/<span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>waitFor<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>12sec<span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>keycloakClientId<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>microcks-serviceaccount<span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>keycloakClientSecret<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>34a49089<span class="m">-7566</span>-45a0-88a6-112b297fd803<span class="w">
+</span><span class="w">        </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>operationsHeaders<span class="w">
+</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
 </span><span class="sd">            {</span><span class="w">
-</span><span class="w">              </span><span class="s2">&#34;globals&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="w">                </span>{<span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;x-api-key&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;values&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;my-values&#34;</span>}<span class="w">
+</span><span class="w">              </span><span class="k">&#34;globals&#34;: </span><span class="p">[</span><span class="w">
+</span><span class="w">                </span>{<span class="k">&#34;name&#34;: &#34;x-api-key&#34;, &#34;values&#34;: </span><span class="s2">&#34;my-values&#34;</span>}<span class="w">
 </span><span class="w">              </span><span class="p">],</span><span class="w">
-</span><span class="w">              </span><span class="s2">&#34;GET /beer&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="w">                </span>{<span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;x-trace-id&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;values&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;xcvbnsdfghjklm&#34;</span>}<span class="w">
+</span><span class="w">              </span><span class="k">&#34;GET /beer&#34;: </span><span class="p">[</span><span class="w">
+</span><span class="w">                </span>{<span class="k">&#34;name&#34;: &#34;x-trace-id&#34;, &#34;values&#34;: </span><span class="s2">&#34;xcvbnsdfghjklm&#34;</span>}<span class="w">
 </span><span class="w">              </span><span class="p">]</span><span class="w">
 </span><span class="w">            </span>}<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>echo-hello-world<span class="w">
-</span><span class="w">      </span>taskRef<span class="p">:</span><span class="w">
-</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>echo-hello-world<span class="w">
-</span><span class="w">      </span>runAfter<span class="p">:</span><span class="w">
-</span><span class="w">        </span>-<span class="w"> </span>microcks-test-beer-catalog</code></pre></div>
-<p>Once you have adapted the parameter values to your own environment, you can just create the resource into your namespace:</p>
-
+</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>echo-hello-world<span class="w">
+</span><span class="w">      </span><span class="k">taskRef</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>echo-hello-world<span class="w">
+</span><span class="w">      </span><span class="k">runAfter</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- microcks-test-beer-catalog<span class="w">
+</span></code></pre></div><p>Once you have adapted the parameter values to your own environment, you can just create the resource into your namespace:</p>
 <pre><code>$ kubectl apply -f microcks-test-pipeline-beer-catalog.yaml -n microcks-tekton
-</code></pre>
-
-<h3 id="executing-a-pipeline">Executing a Pipeline</h3>
-
+</code></pre><h3 id="executing-a-pipeline">Executing a Pipeline</h3>
 <p><code>Pipeline</code> can be executed through a new <code>PipelineRun</code> resource creation or using the <code>tkn</code> CLI tool. This time we&rsquo;re using the CLI tool to start a new pipeline:</p>
-
 <pre><code>$ tkn pipeline start microcks-pipeline-beer-catalog
 Pipelinerun started: microcks-pipeline-beer-catalog-run-9b9lk
 Showing logs...
@@ -423,10 +395,7 @@ Showing logs...
 [microcks-test-beer-catalog : microcks-test] MicrocksClient got status for test &quot;5dcd3ee91466840001b5aa0b&quot; - success: true, inProgress: false 
 
 [echo-hello-world : echo] hello world
-</code></pre>
-
-<p><code>tkn</code> can also be used later to retrieve the logs for the pipeline execution:</p>
-
+</code></pre><p><code>tkn</code> can also be used later to retrieve the logs for the pipeline execution:</p>
 <pre><code>$ tkn pipeline logs microcks-pipeline-beer-catalog
 ? Select pipelinerun : microcks-pipeline-beer-catalog-run-9b9lk started 17 hours ago
 [microcks-test-beer-catalog : microcks-test] MicrocksClient got status for test &quot;5dcd3ee91466840001b5aa0b&quot; - success: false, inProgress: true 
@@ -436,15 +405,10 @@ Showing logs...
 [microcks-test-beer-catalog : microcks-test] MicrocksClient got status for test &quot;5dcd3ee91466840001b5aa0b&quot; - success: true, inProgress: false 
 
 [echo-hello-world : echo] hello world
-</code></pre>
-
-<p>Using the <strong>OpenShift Pipelines</strong> implementation of Tekton, you may easily get all this information at hands within the Developer Console of your OpenShift cluster. Here&rsquo;s belo a capture of our pipeline execution:</p>
-
-<p><img src="/images/tekton-pipeline-run.png" alt="tekton-pipeline-run" /></p>
-
+</code></pre><p>Using the <strong>OpenShift Pipelines</strong> implementation of Tekton, you may easily get all this information at hands within the Developer Console of your OpenShift cluster. Here&rsquo;s belo a capture of our pipeline execution:</p>
+<p><img src="/images/tekton-pipeline-run.png" alt="tekton-pipeline-run"></p>
 <p>With the view to access the logs of this execution:</p>
-
-<p><img src="/images/tekton-pipeline-logs.png" alt="tekton-pipeline-logs" /></p>
+<p><img src="/images/tekton-pipeline-logs.png" alt="tekton-pipeline-logs"></p>
 
 </div>
 

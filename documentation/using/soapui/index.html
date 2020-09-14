@@ -12,7 +12,7 @@
     <title>SoapUI usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -55,10 +55,8 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <meta itemprop="description" content="Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:
  Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="984">
 
 
@@ -188,26 +186,25 @@ Steps for creating a repository In order to create a tests and mocks repository 
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#overview">Overview</a>
-<ul>
-<li><a href="#pre-requisites">Pre-requisites</a></li>
-<li><a href="#steps-for-creating-a-repository">Steps for creating a repository</a></li>
-<li><a href="#conventions">Conventions</a></li>
-</ul></li>
-<li><a href="#project-initialisation">Project initialisation</a></li>
-<li><a href="#defining-test-requests">Defining Test Requests</a></li>
-<li><a href="#defining-mock-responses">Defining Mock Responses</a></li>
-<li><a href="#defining-dispatch-rules">Defining dispatch rules</a>
-<ul>
-<li><a href="#using-xpath-expression">Using XPath expression</a></li>
-<li><a href="#using-a-groovy-script">Using a Groovy script</a></li>
-</ul></li>
-<li><a href="#save-soapui-project">Save SoapUI project</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#pre-requisites">Pre-requisites</a></li>
+        <li><a href="#steps-for-creating-a-repository">Steps for creating a repository</a></li>
+        <li><a href="#conventions">Conventions</a></li>
+      </ul>
+    </li>
+    <li><a href="#project-initialisation">Project initialisation</a></li>
+    <li><a href="#defining-test-requests">Defining Test Requests</a></li>
+    <li><a href="#defining-mock-responses">Defining Mock Responses</a></li>
+    <li><a href="#defining-dispatch-rules">Defining dispatch rules</a>
+      <ul>
+        <li><a href="#using-xpath-expression">Using XPath expression</a></li>
+        <li><a href="#using-a-groovy-script">Using a Groovy script</a></li>
+      </ul>
+    </li>
+    <li><a href="#save-soapui-project">Save SoapUI project</a></li>
+  </ul>
 </nav>
 	
 
@@ -250,108 +247,63 @@ Steps for creating a repository In order to create a tests and mocks repository 
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="overview">Overview</h2>
-
 <h3 id="pre-requisites">Pre-requisites</h3>
-
 <p>Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.</p>
-
 <h3 id="steps-for-creating-a-repository">Steps for creating a repository</h3>
-
 <p>In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:</p>
-
 <ul>
 <li>Initialize a SoapUI project that will hold the repository,</li>
 <li>Create sample Tests Requests (and optionnally the associated tests assertions),</li>
 <li>Create sample Mocks Responses,</li>
 <li>Define dispatching rules that describe how requests and responses are associated together,</li>
-<li>Save the project into your SCM repository.
-<br /></li>
+<li>Save the project into your SCM repository.</li>
 </ul>
-
 <h3 id="conventions">Conventions</h3>
-
 <p>In order to be correctly imported and understood by Microcks, your SoapUI project should follow a little set of reasonable conventions and best practices.</p>
-
 <ul>
 <li>Your SoapUI project may contain one or more Service definitions. However, because it&rsquo;s a best practice to consider each Service or API as an autonomous and isolated software asset, we&rsquo;d recommend managing only one Service definition per SoapUI project,</li>
 <li>Your SoapUI Mock Service should define a custom property named <code>version</code> that allows tracking of Service(s) version. It is a good practice to change this version identifier for each Service or API interface versioned changes,</li>
 <li>The name of Tests Requests should be something like <code>&quot;&lt;sample_id&amp;&gt; Request&quot;</code>. For example: <code>&quot;Karla Request&quot;</code>,</li>
 <li>The name of Mock Responses should be something like <code>&quot;&lt;sample_id&gt; Response&quot;</code>. For example: <code>&quot;Karla Response&quot;</code>,</li>
-<li>The name of matching rules should be something like <code>&quot;&lt;sample_id&gt;&quot;</code>. For example: <code>&quot;Karla&quot;</code>,
-<br /></li>
+<li>The name of matching rules should be something like <code>&quot;&lt;sample_id&gt;&quot;</code>. For example: <code>&quot;Karla&quot;</code>,</li>
 </ul>
-
 <p>We recommend having a look at our sample SoapUI projects for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml">SOAP WebServices</a> and for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml">REST APIs</a> to fully understand and see in action those conventions.</p>
-
 <h2 id="project-initialisation">Project initialisation</h2>
-
 <p>Project initialization is as simple as creating a new <em>Empty Project</em> in SoapUI. The Tests Request you will need to define later will be defined through a <em>SoapUI TestSuite</em> ; the Mock Responses you will need to define later will be defined through a <em>SoapUI ServiceMock</em>. So when using a &ldquo;contract first&rdquo; approach for Services - approach that is required for SOAP WebServices in SoapUI - it is a better choice to directly create those items through the wizard when choosing the <em>Add WSDL</em> or <em>Add WADL</em> actions once project has been created.</p>
-
 <p>The screenshot below shows how to add a WSDL to an existing empty project :</p>
-
-<p><img src="/images/soapui-add-wsdl.png" alt="soapui-add-wsdl" /></p>
-
+<p><img src="/images/soapui-add-wsdl.png" alt="soapui-add-wsdl"></p>
 <h2 id="defining-test-requests">Defining Test Requests</h2>
-
 <p>The sample requests that are used by Microcks are indeed <em>SoapUI TestSuite</em> requests. So select the newly imported Service, right-click and choose <em>Generate TestSuite</em>. You should get this following screenshot where you select these options, validate and then give your TestSuite a name like <code>&quot;&lt;Service&gt; TestSuite&quot;</code> or something:</p>
-
-<p><img src="/images/soapui-create-testsuite.png" alt="soapui-create-testsuite" /></p>
-
+<p><img src="/images/soapui-create-testsuite.png" alt="soapui-create-testsuite"></p>
 <p>You are now free to create as many <em>TestSteps</em> as you want within the <em>TestCases</em>. TestCases represents the <strong>Operation</strong> level and TestSteps represents the request sample level. The screenshot below shows how we have created 2 sample requests (<code>Andrew</code> and <code>Karla</code>) for the <code>sayHello</code> operation of our WebService:</p>
-
-<p><img src="/images/soapui-testrequest.png" alt="soapui-testrequest" /></p>
-
+<p><img src="/images/soapui-testrequest.png" alt="soapui-testrequest"></p>
 <p>As shown above, you are also free to add some assertions within your TestStep requests. The SoapUI documentation introduces the assertion concept on <a href="https://www.soapui.org/functional-testing/assertion-teststep.html">this page</a>. Assertions in TestSteps can be later reused when wanting to use Microcks for <a href="../tests">Contract testing</a> of your Service.</p>
-
 <h2 id="defining-mock-responses">Defining Mock Responses</h2>
-
 <p>Mock Responses you will need to define later will be defined through a <em>SoapUI ServiceMock</em>. You have to select the newly imported Service, right-click and choose <em>Generate MockService</em>. You can let the default options as shown below and give your MockService a name like <code>&quot;&lt;Service&gt; Mock&quot;</code>:</p>
-
-<p><img src="/images/soapui-create-servicemock.png" alt="soapui-create-servicemock" /></p>
-
+<p><img src="/images/soapui-create-servicemock.png" alt="soapui-create-servicemock"></p>
 <p>You will now be able to create as many <em>Responses</em> attached to <em>Operation</em> as you&rsquo;ve got samples requests defined in previously created <em>TestSteps</em>. As introduced into the naming conventions, your responses must have the same <code>&quot;&amp;lt;sample_id&amp;gt;</code> radix that the associated requests so that Microcks will be later able to associate them.</p>
-
-<p><img src="/images/soapui-mockresponse.png" alt="soapui-mockresponse" /></p>
-
+<p><img src="/images/soapui-mockresponse.png" alt="soapui-mockresponse"></p>
 <p>The screenshot above shows a Mock response corresponding to the <code>Andrew Request</code>. It is simply code <code>Andrew Response</code>. Note that you are free to setup any HTTP Header you want for responses, Microcks will reuse them later to issue real headers in responses.</p>
-
 <h2 id="defining-dispatch-rules">Defining dispatch rules</h2>
-
 <p>Latest step is now to define a technical mean for Microcks to analyse an incoming requests and find out the corresponding response to return. This is done in Microcks via the concept of <strong>Dispatcher</strong> that represent a dispatch strategy and <strong>Dispatcher Rules</strong> that represent the dispatching parameters. Microcks supports 2 strategies for dispatching SOAP requests:</p>
-
 <ul>
 <li>Via the analysis of SOAP request payload through XPath,</li>
-<li>Via the evaluation of a Groovy script.
-<br /></li>
+<li>Via the evaluation of a Groovy script.</li>
 </ul>
-
 <p>These two strategies have equivalent in SoapUI via Dispatch configuration on each Operation of your Mock Service.</p>
-
 <h3 id="using-xpath-expression">Using XPath expression</h3>
-
 <p>After double-clicking on the operation node of your Mock Service, a window as shown in following screenshot should appear. If you want to use XPath for matching, select the <em>QUERY_MATCH</em> Dispatch and associate a <em>Mock Response</em> (upper section) with a new <em>Match Rule</em> (lower left) defining an XPath assertion (lower right). You can use the <em>Extract</em> helper in SoapUI if you&rsquo;re not familiar to XPath expression.</p>
-
 <blockquote>
 <p><strong>Warning</strong>: The XPath expression used by your different <em>Match Rule</em> must strictly be the same. You cannot used different expression for different rules.</p>
 </blockquote>
-
 <p>Below the exemple of using the name find in incoming request to find a matching response.</p>
-
-<p><img src="/images/soapui-querymatch.png" alt="soapui-querymatch" /></p>
-
+<p><img src="/images/soapui-querymatch.png" alt="soapui-querymatch"></p>
 <h3 id="using-a-groovy-script">Using a Groovy script</h3>
-
 <p>Another mean of defining matching rules is using a Groovy script. Such a script allows to define much more logic for finding a response for an incoming requests. With scripts you can use request payload but also have access to query string, http headers and so on&hellip; Groovy script are very powerful when dealing with REST services in SoapUI !</p>
-
-<p><img src="/images/soapui-script.png" alt="soapui-script" /></p>
-
+<p><img src="/images/soapui-script.png" alt="soapui-script"></p>
 <h2 id="save-soapui-project">Save SoapUI project</h2>
-
 <p>Finally, you just have to save the whole project as a SoapUI XML project file. Just put the result JSON file into your favourite Source Configuration Management tool for an easy integration with Microcks.</p>
-
 <blockquote>
 <p>Do not forget to add the <code>version</code> custom property on your <em>MockService</em> object, otherwise Microcks will not be able to successfully import your SoapUI project</p>
 </blockquote>

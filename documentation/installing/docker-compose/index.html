@@ -12,7 +12,7 @@
     <title>Installing with docker-compose | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -44,25 +44,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Installing with docker-compose" />
-<meta property="og:description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:" />
+<meta property="og:description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-composefile is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/docker-compose/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-03-26T00:00:00+00:00" />
 <meta itemprop="name" content="Installing with docker-compose">
-<meta itemprop="description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="525">
+<meta itemprop="description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-composefile is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:">
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="517">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing with docker-compose"/>
-<meta name="twitter:description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:"/>
+<meta name="twitter:description" content="Localhost installation For those of you familiar with simple Docker Compose, a docker-composefile is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:"/>
 
       
   </head>
@@ -182,14 +180,11 @@
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#localhost-installation">Localhost installation</a></li>
-<li><a href="#server-installation">Server installation</a></li>
-<li><a href="#quick-azure-installation">Quick Azure installation</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#localhost-installation">Localhost installation</a></li>
+    <li><a href="#server-installation">Server installation</a></li>
+    <li><a href="#quick-azure-installation">Quick Azure installation</a></li>
+  </ul>
 </nav>
 	
 
@@ -224,11 +219,8 @@
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="localhost-installation">Localhost installation</h2>
-
-<p>For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local <code>/keystore</code> folder. Just follow this procedure:</p>
+<p>For those of you familiar with simple Docker Compose, a <!-- raw HTML omitted -->docker-compose<!-- raw HTML omitted --> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local <code>/keystore</code> folder. Just follow this procedure:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks.git
 $ <span class="nb">cd</span> microcks/install/docker-compose
 $ ./setup-tls-run.sh
@@ -245,30 +237,27 @@ Having issues? Check you have changed microcks.yml to your platform
 Starting microcks-keycloak        ... <span class="k">done</span>
 Starting microcks-mongo           ... <span class="k">done</span>
 Starting microcks-postman-runtime ... <span class="k">done</span>
-Starting microcks                 ... <span class="k">done</span></code></pre></div>
-<blockquote>
+Starting microcks                 ... <span class="k">done</span>
+</code></pre></div><blockquote>
 <p>Depending on your operating system, you&rsquo;ll have to first edit the <code>microcks.yml</code> file to comment and uncomment the value for <code>KEYCLOAK_URL</code> variable. Use the <code>docker.for.mac.localhost</code> or <code>docker.for.win.localhost</code> values accordingly.</p>
 </blockquote>
-
-<p>After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code><a href="https://localhost:8080">https://localhost:8080</a></code> URL.</p>
+<p>After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <!-- raw HTML omitted -->admin<!-- raw HTML omitted --> with <!-- raw HTML omitted -->123<!-- raw HTML omitted --> password. The Microcks application is now available on <!-- raw HTML omitted -->https://localhost:8080<!-- raw HTML omitted --> URL.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker ps
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                    NAMES
-6a563e9d87c1        microcks/microcks:latest                  <span class="s2">&#34;/bin/sh -c &#39;exec ...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">33</span> seconds       <span class="m">0</span>.0.0.0:8080-&gt;8080/tcp   microcks
-162e99a97a6f        microcks/microcks-postman-runtime:latest   <span class="s2">&#34;node app.js&#34;</span>            <span class="m">6</span> days ago          Up <span class="m">39</span> seconds       <span class="m">3000</span>/tcp                 microcks-postman-runtime
-b3cb4840597b        mongo:3.3.12                               <span class="s2">&#34;/entrypoint.sh mo...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">39</span> seconds       <span class="m">27017</span>/tcp                microcks-mongo
-949e0b9bdac6        jboss/keycloak:3.4.0.Final                 <span class="s2">&#34;/opt/jboss/docker...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">38</span> seconds       <span class="m">0</span>.0.0.0:8180-&gt;8080/tcp   microcks-keycloak</code></pre></div>
-<h2 id="server-installation">Server installation</h2>
-
-<p>When installing on a shared server that will be accessed from some other places and machines, you&rsquo;ll need to tweak some configuration files before launching the <code>docker-compose</code> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server.</p>
-
+6a563e9d87c1        microcks/microcks:latest                  <span class="s2">&#34;/bin/sh -c &#39;exec ...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">33</span> seconds       0.0.0.0:8080-&gt;8080/tcp   microcks
+162e99a97a6f        microcks/microcks-postman-runtime:latest   <span class="s2">&#34;node app.js&#34;</span>            <span class="m">6</span> days ago          Up <span class="m">39</span> seconds       3000/tcp                 microcks-postman-runtime
+b3cb4840597b        mongo:3.3.12                               <span class="s2">&#34;/entrypoint.sh mo...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">39</span> seconds       27017/tcp                microcks-mongo
+949e0b9bdac6        jboss/keycloak:3.4.0.Final                 <span class="s2">&#34;/opt/jboss/docker...&#34;</span>   <span class="m">6</span> days ago          Up <span class="m">38</span> seconds       0.0.0.0:8180-&gt;8080/tcp   microcks-keycloak
+</code></pre></div><h2 id="server-installation">Server installation</h2>
+<p>When installing on a shared server that will be accessed from some other places and machines, you&rsquo;ll need to tweak some configuration files before launching the <!-- raw HTML omitted -->docker-compose<!-- raw HTML omitted --> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server.</p>
 <p>You&rsquo;ll also need some valid certs, keystore and trustore in the <code>keycloak</code> folder for both the Microks and the Keycloak components. You can use this simple useful docker image for generating them:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -v <span class="nv">$PWD</span>/keystore:/certs -e <span class="nv">SERVER_HOSTNAMES</span><span class="o">=</span><span class="s2">&#34;myserver.example.com&#34;</span> -it nmasse/mkcert:0.1
 $ mv ./keystore/server.crt ./keystore/tls.crt
 $ mv ./keystore/server.key ./keystore/tls.key
 $ mv ./keystore/server.p12 ./keystore/microcks.p12
 $ ls keystore/
-keystore.jks   microcks.p12   rootCA-key.pem rootCA.pem     tls.crt        tls.key        truststore.jks</code></pre></div>
-<p>Here are below the basic commands for doing the setup:</p>
+keystore.jks   microcks.p12   rootCA-key.pem rootCA.pem     tls.crt        tls.key        truststore.jks
+</code></pre></div><p>Here are below the basic commands for doing the setup:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ hostname -f
   myserver.example.com
 $ <span class="nb">cd</span> microcks/install/docker-compose/
@@ -278,11 +267,9 @@ $ apt-get install -y jq docker-compose
 $ jq <span class="s1">&#39;.applications |= map(if .name == &#34;microcks-app-js&#34; then .redirectUris = [ &#34;https://myserver.example.com:8080/*&#34; ] else . end)&#39;</span> keycloak-realm/microcks-realm-sample.json.bak &gt; keycloak-realm/microcks-realm-sample.json
 $ perl -i.bak -pe <span class="s1">&#39;s|KEYCLOAK_URL=https://localhost:8543/auth|KEYCLOAK_URL=https://myserver.example.com:8543/auth|&#39;</span> microcks.yml
 
-$ sudo docker-compose -f microcks.yml up -d</code></pre></div>
-<p>All this directives are grouped into a single script named <code>setup-microcks-apt.sh</code> you&rsquo;ll find into the <code>install/docker-compose</code> directory. You can use it to setup your single server installation of Microcks. Just run the <code>docker-compose -f microcks.yml up -d</code><br/> command after having used this script.</p>
-
+$ sudo docker-compose -f microcks.yml up -d
+</code></pre></div><p>All this directives are grouped into a single script named <!-- raw HTML omitted -->setup-microcks-apt.sh<!-- raw HTML omitted --> you&rsquo;ll find into the <!-- raw HTML omitted -->install/docker-compose<!-- raw HTML omitted --> directory. You can use it to setup your single server installation of Microcks. Just run the <!-- raw HTML omitted -->docker-compose -f microcks.yml up -d<!-- raw HTML omitted --><!-- raw HTML omitted --> command after having used this script.</p>
 <h2 id="quick-azure-installation">Quick Azure installation</h2>
-
 <p>We provide this side project <a href="https://github.com/microcks/microcks-azure">microcks/microcks-azure</a> for easily setting up a demo server on Azure. This project reuse some form of the simple script exposed above, triggered by the Azure template instanciation.</p>
 
 </div>

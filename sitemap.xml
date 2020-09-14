@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -19,7 +19,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/service-account/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -138,8 +138,13 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -164,12 +169,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2020-03-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -186,6 +186,10 @@
   
   <url>
     <loc>https://microcks.io/news/</loc>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/categories/releases/</loc>
   </url>
   
   <url>

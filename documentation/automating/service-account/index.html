@@ -12,7 +12,7 @@
     <title>Microcks Service Accounts | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -44,25 +44,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Microcks Service Accounts" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/service-account/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-14T00:00:00+00:00" />
 <meta itemprop="name" content="Microcks Service Accounts">
-<meta itemprop="description" content="">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="description" content="Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak.">
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="611">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Microcks Service Accounts"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak."/>
 
       
   </head>
@@ -181,7 +179,17 @@
 <aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
 	
 		<p class="b">What's on this Page</p>
-  	
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#microcks-service-accounts">Microcks Service Accounts</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#inspecting-defaul-service-account">Inspecting defaul Service Account</a></li>
+        <li><a href="#using-service-account">Using Service Account</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 	
 
 	<div date-pref>
@@ -215,7 +223,105 @@
 
 <div class="prose" id="prose">
 
+<h2 id="microcks-service-accounts">Microcks Service Accounts</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Microcks is using <a href="https://openid.net/connect/">OpenId Connect</a> and <a href="https://oauth.net/2/bearer-tokens/">OAuth 2.0 bearer tokens</a> to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple <a href="https://oauth.net/2/grant-types/client-credentials/">OAuth 2.0 Client Credentials Grant</a> in addition of other grants. This authentication is implemented using <code>Service Accounts</code> clients defined into the Realm configuration in Keycloak.</p>
+<p>Microcks comes with a default account named <code>microcks-serviceaccount</code> that comes with default installation but you are free to create as many account as you may have robots users.</p>
+<h3 id="inspecting-defaul-service-account">Inspecting defaul Service Account</h3>
+<p>Let&rsquo;s start inspecting the properties of the default Service Account to check its anatomy ;-) Start connecting as an administrator to the Keycloak instance your Microcks instance is running.</p>
+<blockquote>
+<p>Hint: just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of realm you&rsquo;re using:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="err">$</span> <span class="err">curl</span> <span class="err">https://microcks.example.com/api/keycloak/config</span> <span class="err">-s</span> <span class="err">-k</span> <span class="err">|</span> <span class="err">jq</span> <span class="err">.</span>
+<span class="p">{</span>
+  <span class="nt">&#34;realm&#34;</span><span class="p">:</span> <span class="s2">&#34;microcks&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;resource&#34;</span><span class="p">:</span> <span class="s2">&#34;microcks-app-js&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;auth-server-url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://keycloak.microcks.example.com/auth&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;ssl-required&#34;</span><span class="p">:</span> <span class="s2">&#34;external&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;public-client&#34;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div><p>Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined <code>Applications</code> or <code>Client</code> defined on this realm and see the default <code>microcks-serviceaccount</code> as in below screenshot:</p>
+<p><img src="/images/service-account-clients.png" alt="service-account-clients"></p>
+<p>Getting to the details of the <code>Service Account</code>, you can check that it is <code>Enabled</code>, that it should conform to the <code>openid-connect</code> Client Protocol with a <code>confidential</code> Access Type. Finally, it should also be able to do a <code>Direct Access Grant</code> and act as a <code>Service Account</code>. See below the settings of default account:</p>
+<p><img src="/images/service-account-settings.png" alt="service-account-settings"></p>
+<p>So one crucial thing for <code>Service Account</code> is their associated <code>Credentials</code> because because clients will have to know it for initating the flow. Credetnials are available in the <code>Credentials</code> thumb like shown below:</p>
+<p><img src="/images/service-account-credentials.png" alt="service-account-credentials"></p>
+<p>Finally, in order to operate correctly, Service Account should have role assigned. The default account comes with the <code>user</code> role defined into the main <code>microcks-app</code> OpenId client that matches to the main Microcks component:</p>
+<p><img src="/images/service-account-roles.png" alt="service-account-roles"></p>
+<h3 id="using-service-account">Using Service Account</h3>
+<p>In Microcks, the default <code>microcks-serviceaccount</code> is used by internal components when communicating with the main Microcks webapp that is holding API. So be careful before changing its credentials and do not delete it!</p>
+<p>However, you can create as many other <code>Service Accounts</code> as you may have CI/CD pipelines, CLI users or integration with your own solutions.</p>
+<p>As a sum-up, here&rsquo;s some basic commands showing you how to use this service account once defined:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># account:credentials should be first encoded as base 64</span>
+$ <span class="nb">echo</span> <span class="s2">&#34;microcks-serviceaccount:ab54d329-e435-41ae-a900-ec6b3fe15c54&#34;</span> <span class="p">|</span> base64
+<span class="nv">bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0Cg</span><span class="o">=</span>
 
+<span class="c1"># then you issue a POST command to authenticate and retrieve an access_token from Keycloak</span>
+<span class="c1"># the grant_type used is client_credentials</span>
+$ curl -X POST https://keycloak.microcks.example.com/auth/realms/microcks/protocol/openid-connect/token -H <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -H <span class="s1">&#39;Accept: application/json&#39;</span> -H <span class="s1">&#39;Authorization: Basic bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0Cg=&#39;</span> -d <span class="s1">&#39;grant_type=client_credentials&#39;</span> -k -s <span class="p">|</span> jq . 
+<span class="o">{</span>
+  <span class="s2">&#34;access_token&#34;</span>: <span class="s2">&#34;eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJFdlRzbVZhQ3dya3p6LTBlYTJhVDBmTHV1dzJfal9zNnNjOW9zVUN3Q1JnIn0.eyJleHAiOjE2MDAwNzc5NDYsImlhdCI6MTYwMDA3NzY0NiwianRpIjoiNjNjZGRjM2YtODBmMi00NmM0LThlOTQtM2RjNjg5MjU1NmE3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL21pY3JvY2tzIiwiYXVkIjpbIm1pY3JvY2tzLWFwcCIsImFjY291bnQiXSwic3ViIjoiYzNhMzYyNjctMjQxOC00MTg1LWJiMTktODI4MjFiNDZkOWQzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibWljcm9ja3Mtc2VydmljZWFjY291bnQiLCJzZXNzaW9uX3N0YXRlIjoiMWFmNGI2MjEtNGM2OS00OWQwLWExOTktYmIzMTRkY2RmY2NkIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1pY3JvY2tzLWFwcCI6eyJyb2xlcyI6WyJ1c2VyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJjbGllbnRJZCI6Im1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTI3LjAuMC4xIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LW1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiY2xpZW50QWRkcmVzcyI6IjEyNy4wLjAuMSJ9.T6dSjW_tFdIFaQPECXaui_iBO_pemf7n7kLaG6D30gyq6TOPe0D3kzyXXVl2_MXGtAjxD1Yc_CCtbHZKJOS-NHG_qmdiuOdMgLJnqot2zRirvpcsAvX1kDVugAlx1r5RDfLKuokDvN3paVFvO00HTKGzm5P59rIQRCx6neEzq_eAeU-0-l962OidjVsq8r77q0sVpusHQuFiaYPrcNGiVbyL08--fYyxq97yovRInj2WOsFjhyrVPjpYJBCgbC5eLUNFh2WH6T9HecegsEfqXR_7CNPN2TjMQZdo2zkuzcKGiHHVId7ntIzupPLc95N487Jwd0Y3WHSdbMdVPptTeA&#34;</span>,
+  <span class="s2">&#34;expires_in&#34;</span>: 300,
+  <span class="s2">&#34;refresh_expires_in&#34;</span>: 1800,
+  <span class="s2">&#34;refresh_token&#34;</span>: <span class="s2">&#34;eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1Y2UyOGQyOC05ODY4LTQxNzEtYjRkZi02OGE2NmQ4ZTE5NDIifQ.eyJleHAiOjE2MDAwNzk0NDYsImlhdCI6MTYwMDA3NzY0NiwianRpIjoiM2EwODM0YzQtZjI4Yi00ZmIxLWI1YjEtMzFkNzE0ODVmZjBkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL21pY3JvY2tzIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL21pY3JvY2tzIiwic3ViIjoiYzNhMzYyNjctMjQxOC00MTg1LWJiMTktODI4MjFiNDZkOWQzIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6Im1pY3JvY2tzLXNlcnZpY2VhY2NvdW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjFhZjRiNjIxLTRjNjktNDlkMC1hMTk5LWJiMzE0ZGNkZmNjZCIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSJ9.xOaUJyq4GLAtHd-GeSr7JKG4HfLn9LU5r6coGO-DjyA&#34;</span>,
+  <span class="s2">&#34;token_type&#34;</span>: <span class="s2">&#34;bearer&#34;</span>,
+  <span class="s2">&#34;not-before-policy&#34;</span>: 0,
+  <span class="s2">&#34;session_state&#34;</span>: <span class="s2">&#34;1af4b621-4c69-49d0-a199-bb314dcdfccd&#34;</span>,
+  <span class="s2">&#34;scope&#34;</span>: <span class="s2">&#34;email profile&#34;</span>
+<span class="o">}</span>
+
+<span class="c1"># finally, you can reuse this access_token as the bearer to call Microcks APIs</span>
+$ curl https://microcks.example.com/api/services -H <span class="s1">&#39;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJFdlRzbVZhQ3dya3p6LTBlYTJhVDBmTHV1dzJfal9zNnNjOW9zVUN3Q1JnIn0.eyJleHAiOjE2MDAwNzc5NDYsImlhdCI6MTYwMDA3NzY0NiwianRpIjoiNjNjZGRjM2YtODBmMi00NmM0LThlOTQtM2RjNjg5MjU1NmE3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL21pY3JvY2tzIiwiYXVkIjpbIm1pY3JvY2tzLWFwcCIsImFjY291bnQiXSwic3ViIjoiYzNhMzYyNjctMjQxOC00MTg1LWJiMTktODI4MjFiNDZkOWQzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibWljcm9ja3Mtc2VydmljZWFjY291bnQiLCJzZXNzaW9uX3N0YXRlIjoiMWFmNGI2MjEtNGM2OS00OWQwLWExOTktYmIzMTRkY2RmY2NkIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1pY3JvY2tzLWFwcCI6eyJyb2xlcyI6WyJ1c2VyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJjbGllbnRJZCI6Im1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTI3LjAuMC4xIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LW1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiY2xpZW50QWRkcmVzcyI6IjEyNy4wLjAuMSJ9.T6dSjW_tFdIFaQPECXaui_iBO_pemf7n7kLaG6D30gyq6TOPe0D3kzyXXVl2_MXGtAjxD1Yc_CCtbHZKJOS-NHG_qmdiuOdMgLJnqot2zRirvpcsAvX1kDVugAlx1r5RDfLKuokDvN3paVFvO00HTKGzm5P59rIQRCx6neEzq_eAeU-0-l962OidjVsq8r77q0sVpusHQuFiaYPrcNGiVbyL08--fYyxq97yovRInj2WOsFjhyrVPjpYJBCgbC5eLUNFh2WH6T9HecegsEfqXR_7CNPN2TjMQZdo2zkuzcKGiHHVId7ntIzupPLc95N487Jwd0Y3WHSdbMdVPptTeA&#39;</span> -k -s <span class="p">|</span> jq .
+<span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;5ddc0abd448ff8ba296c13b3&#34;</span>,
+    <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;API Pastry&#34;</span>,
+    <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;1.0.0&#34;</span>,
+    <span class="s2">&#34;xmlNS&#34;</span>: null,
+    <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;REST&#34;</span>,
+    <span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
+      <span class="s2">&#34;createdOn&#34;</span>: 1574701757816,
+      <span class="s2">&#34;lastUpdate&#34;</span>: 1599316976801,
+      <span class="s2">&#34;annotations&#34;</span>: null,
+      <span class="s2">&#34;labels&#34;</span>: <span class="o">{</span>
+        <span class="s2">&#34;domain&#34;</span>: <span class="s2">&#34;pastry&#34;</span>,
+        <span class="s2">&#34;status&#34;</span>: <span class="s2">&#34;deprecated&#34;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">&#34;operations&#34;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;GET /pastry/:name&#34;</span>,
+        <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>,
+        <span class="s2">&#34;inputName&#34;</span>: null,
+        <span class="s2">&#34;outputName&#34;</span>: null,
+        <span class="s2">&#34;bindings&#34;</span>: null,
+        <span class="s2">&#34;dispatcher&#34;</span>: <span class="s2">&#34;URI_PARTS&#34;</span>,
+        <span class="s2">&#34;dispatcherRules&#34;</span>: <span class="s2">&#34;name&#34;</span>,
+        <span class="s2">&#34;defaultDelay&#34;</span>: null,
+        <span class="s2">&#34;resourcePaths&#34;</span>: <span class="o">[</span>
+          <span class="s2">&#34;/pastry/Eclair%20Cafe&#34;</span>,
+          <span class="s2">&#34;/pastry/Millefeuille&#34;</span>
+        <span class="o">]</span>,
+        <span class="s2">&#34;parameterConstraints&#34;</span>: null
+      <span class="o">}</span>,
+      <span class="o">{</span>
+        <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;GET /pastry&#34;</span>,
+        <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>,
+        <span class="s2">&#34;inputName&#34;</span>: null,
+        <span class="s2">&#34;outputName&#34;</span>: null,
+        <span class="s2">&#34;bindings&#34;</span>: null,
+        <span class="s2">&#34;dispatcher&#34;</span>: null,
+        <span class="s2">&#34;dispatcherRules&#34;</span>: null,
+        <span class="s2">&#34;defaultDelay&#34;</span>: null,
+        <span class="s2">&#34;resourcePaths&#34;</span>: <span class="o">[</span>
+          <span class="s2">&#34;/pastry&#34;</span>
+        <span class="o">]</span>,
+        <span class="s2">&#34;parameterConstraints&#34;</span>: null
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">]</span>
+</code></pre></div>
 </div>
 
         
@@ -404,7 +510,7 @@
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Microcks Service Accounts”
-  </a> was last updated: September 2, 2019
+  </a> was last updated: September 14, 2020
 </h6>
 
       <a href="edit/master/content/en/documentation/automating/service-account.md" class="

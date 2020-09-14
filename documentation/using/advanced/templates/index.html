@@ -12,7 +12,7 @@
     <title>Templating mock responses | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -55,10 +55,8 @@ Those use-case encompass:
 <meta itemprop="description" content="Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
 Those use-case encompass:
  random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s &#43; an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduce in Microcks 0.">
-
-
-<meta itemprop="datePublished" content="2020-02-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-02-11T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1196">
 
 
@@ -188,29 +186,29 @@ Those use-case encompass:
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#introduction">Introduction</a>
-<ul>
-<li><a href="#tell-me-more">Tell me more!</a></li>
-<li><a href="#few-concepts">Few concepts</a></li>
-</ul></li>
-<li><a href="#variable-reference-expressions">Variable Reference Expressions</a>
-<ul>
-<li><a href="#simple-array-and-map">Simple, array and map</a></li>
-<li><a href="#json-body-pointer-expression">JSON body Pointer expression</a></li>
-<li><a href="#xml-body-xpath-expression">XML body XPath expression</a></li>
-</ul></li>
-<li><a href="#function-expressions">Function Expressions</a>
-<ul>
-<li><a href="#date-generator">Date generator</a></li>
-<li><a href="#uuid-generator">UUID generator</a></li>
-<li><a href="#random-integer-generator">Random Integer generator</a></li>
-<li><a href="#random-string-generator">Random String generator</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#tell-me-more">Tell me more!</a></li>
+        <li><a href="#few-concepts">Few concepts</a></li>
+      </ul>
+    </li>
+    <li><a href="#variable-reference-expressions">Variable Reference Expressions</a>
+      <ul>
+        <li><a href="#simple-array-and-map">Simple, array and map</a></li>
+        <li><a href="#json-body-pointer-expression">JSON body Pointer expression</a></li>
+        <li><a href="#xml-body-xpath-expression">XML body XPath expression</a></li>
+      </ul>
+    </li>
+    <li><a href="#function-expressions">Function Expressions</a>
+      <ul>
+        <li><a href="#date-generator">Date generator</a></li>
+        <li><a href="#uuid-generator">UUID generator</a></li>
+        <li><a href="#random-integer-generator">Random Integer generator</a></li>
+        <li><a href="#random-string-generator">Random String generator</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	
 
@@ -253,32 +251,20 @@ Those use-case encompass:
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="introduction">Introduction</h2>
-
 <p>Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.</p>
-
 <p>Those use-case encompass:</p>
-
 <ul>
 <li>random numbers that may be defined in a range,</li>
 <li>today&rsquo;s date or today&rsquo;s + an amount of time (for validity date for example),</li>
 <li>response part expressed from request part (body part, header, query param)</li>
 </ul>
-
 <p>Thus, we introduce in Microcks 0.9.0 version (use the <code>nightly</code> tag until it&rsquo;s released) some templating features allowing to specify dynamic parts in response content.</p>
-
 <h3 id="tell-me-more">Tell me more!</h3>
-
 <p>Let&rsquo;s introduc this new feature with an example: a simple <code>Hello API</code> that takes a JSON payload as request payload and that return a <code>Greeting</code> response including: the id of message, the date of message generation and the message content itself that is just saying <code>Hello !</code>.</p>
-
 <p>You can find the OpenAPI v3 contract of this API <a href="https://github.com/microcks/microcks/blob/0.9.0/src/test/resources/io/github/microcks/util/openapi/hello-dynamic-openapi.yaml">here</a> and here&rsquo;s below the result once imported into Microcks.</p>
-
-<p><img src="/images/template-intro.png" alt="template-intro" /></p>
-
+<p><img src="/images/template-intro.png" alt="template-intro"></p>
 <p>You&rsquo;ll notice that response payload is expressed using some templating mustaches (<code>{{</code> and <code>}}</code>) that indicates here that Microcks should recognized the delimited expression and replace it with new values.</p>
-
 <p>When invoked twice with different params at different dates, here are the results:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;World&#34;}&#39;</span> -s <span class="p">|</span> jq .
 <span class="o">{</span>
@@ -293,38 +279,28 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
   <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;Hn9lUKkzYsvQq98wDEHa7Ln3H4eVfnfpJLLPPe4ns9vBgaTRvblOOBHIVq3BluEC&#34;</span>,
   <span class="s2">&#34;date&#34;</span>: <span class="s2">&#34;11/02/2020&#34;</span>,
   <span class="s2">&#34;message&#34;</span>: <span class="s2">&#34;Hello Laurent!&#34;</span>
-<span class="o">}</span></code></pre></div>
-<p>Here we are: 1 sample definition but dynamic content generated on purpose!</p>
-
+<span class="o">}</span>
+</code></pre></div><p>Here we are: 1 sample definition but dynamic content generated on purpose!</p>
 <h3 id="few-concepts">Few concepts</h3>
-
 <p>Let explain the few concepts behind Microcks templating features. These are really simple and straightforward:</p>
-
 <ul>
 <li>An expression should be delimited by mustaches like this: <code>{{ expression }}</code>. This pattern can be included in any textual representation of your response body content: plain text, JSON, XML, whatever&hellip; Microcks will just replace this pattern by its evaluated content or <code>null</code> if evaluation fail for any reason,</li>
 <li>An expression can be a reference to a context variable. In this case, we use a <code>.</code> notation to tell which property of this variable we refer to. At time of writing, all contextual informations are attache to variable named <code>request</code> so we may use expression like <code>request.body</code> for example,</li>
 <li>An expression can also be a function evaluation. In this case, we use a <code>()</code> notation to indicate the function name and its arguments. For example we use <code>randomString(64)</code> to evaluate the random string generation function with one arg being <code>64</code> (the length of the desired string).</li>
 </ul>
-
 <p>Pretty easy. No? The rest of this page presents the reference of available variable and function expressions.</p>
-
 <h2 id="variable-reference-expressions">Variable Reference Expressions</h2>
-
 <h3 id="simple-array-and-map">Simple, array and map</h3>
-
 <p>The <code>request</code> object is a simple bean of class <code>EvaluableRequest</code> that contains 4 properties of different types. Properties can be simply evaluated using the <code>.</code> notation to navigate to their value:</p>
-
 <ul>
 <li><code>body</code> is a string property representing request payload,</li>
 <li><code>path</code> is a string array property representing the sequence of path elements in URI,</li>
 <li><code>params</code> is a map of string:string representing the request query parameters,</li>
 <li><code>headers</code> is a map of string:string representing the request headers.</li>
 </ul>
-
 <p>Now let&rsquo;s imagine the following request coming onto a Microcks endpoint for <code>Hello API</code> version <code>1.0</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+API/1.0/hello/microcksd?locale<span class="o">=</span>US -H <span class="s1">&#39;trace: azertyuiop&#39;</span> -d <span class="s1">&#39;rocks&#39;</span></code></pre></div>
-<p>Here&rsquo;s how the different expressions will be evaluated:</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+API/1.0/hello/microcksd?locale<span class="o">=</span>US -H <span class="s1">&#39;trace: azertyuiop&#39;</span> -d <span class="s1">&#39;rocks&#39;</span>
+</code></pre></div><p>Here&rsquo;s how the different expressions will be evaluated:</p>
 <table>
 <thead>
 <tr>
@@ -332,34 +308,27 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <th> Evaluation Result</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td> <code>request.body</code></td>
 <td> <code>rocks</code></td>
 </tr>
-
 <tr>
 <td><code>request.path[1]</code></td>
 <td> <code>microcks</code></td>
 </tr>
-
 <tr>
 <td><code>request.params[locale]</code></td>
 <td> <code>US</code></td>
 </tr>
-
 <tr>
 <td><code>request.headers[trace]</code></td>
 <td> <code>azertyuiop</code></td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="json-body-pointer-expression">JSON body Pointer expression</h3>
-
 <p>In the case where request payload body can be interpreted as JSON, Microcks has also the capability of defining template expressions that will analyse this structured content and pick some elements for rendering.</p>
-
 <p>Imagine our API deal with library and may receive this kind of request body payload:</p>
 <div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&#34;library&#34;</span><span class="p">:</span> <span class="s2">&#34;My Personal Library&#34;</span><span class="p">,</span>
@@ -367,9 +336,8 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
     <span class="p">{</span> <span class="nt">&#34;title&#34;</span><span class="p">:</span><span class="s2">&#34;Title 1&#34;</span><span class="p">,</span> <span class="nt">&#34;author&#34;</span><span class="p">:</span><span class="s2">&#34;Jane Doe&#34;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="nt">&#34;title&#34;</span><span class="p">:</span><span class="s2">&#34;Title 2&#34;</span><span class="p">,</span> <span class="nt">&#34;author&#34;</span><span class="p">:</span><span class="s2">&#34;John Doe&#34;</span> <span class="p">}</span>
   <span class="p">]</span>
-<span class="p">}</span></code></pre></div>
-<p>Using Microcks we can just append a <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> expression to <code>request.body</code> element in order to ask for a deeper parsing and evaluation. The JSON Pointer part should be expressed just after a starting <code>/</code> indicating we&rsquo;re navigating into a sub-query. Here&rsquo;s a bunch of examples on previous library case and how they&rsquo;ll be rendered:</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Using Microcks we can just append a <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> expression to <code>request.body</code> element in order to ask for a deeper parsing and evaluation. The JSON Pointer part should be expressed just after a starting <code>/</code> indicating we&rsquo;re navigating into a sub-query. Here&rsquo;s a bunch of examples on previous library case and how they&rsquo;ll be rendered:</p>
 <table>
 <thead>
 <tr>
@@ -378,14 +346,12 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <th> Comment</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>request.body/library</code></td>
 <td><code>My Personal Library</code></td>
 <td></td>
 </tr>
-
 <tr>
 <td><code>request.body/library/books/1/author</code></td>
 <td><code>John Doe</code></td>
@@ -393,11 +359,8 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 </tr>
 </tbody>
 </table>
-
 <h3 id="xml-body-xpath-expression">XML body XPath expression</h3>
-
 <p>In the case where request payload body can be interpreted as XML, Microcks has also the capability of defining template expressions too!</p>
-
 <p>Imagine our API deal with library and may receive this kind of request body payload:</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;library&gt;</span>
   <span class="nt">&lt;name&gt;</span>My Personal Library<span class="nt">&lt;/name&gt;</span>
@@ -405,9 +368,8 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
     <span class="nt">&lt;book&gt;&lt;title&gt;</span>Title 1<span class="nt">&lt;/title&gt;&lt;author&gt;</span>Jane Doe<span class="nt">&lt;/author&gt;&lt;/book&gt;</span>
     <span class="nt">&lt;book&gt;&lt;title&gt;</span>Title 2<span class="nt">&lt;/title&gt;&lt;author&gt;</span>John Doe<span class="nt">&lt;/author&gt;&lt;/book&gt;</span>
   <span class="nt">&lt;/books&gt;</span>
-<span class="nt">&lt;/library&gt;</span></code></pre></div>
-<p>Analogous to JSON payload, we can just append a <a href="https://www.w3.org/TR/xpath/all/">XPath</a> expression to <code>request.body</code> element to ask for deeper parsing and evaluation. Here&rsquo;s a bunch of examples on previous library case and how they&rsquo;ll be rendered:</p>
-
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div><p>Analogous to JSON payload, we can just append a <a href="https://www.w3.org/TR/xpath/all/">XPath</a> expression to <code>request.body</code> element to ask for deeper parsing and evaluation. Here&rsquo;s a bunch of examples on previous library case and how they&rsquo;ll be rendered:</p>
 <table>
 <thead>
 <tr>
@@ -416,20 +378,17 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <th> Comment</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>request.body/library/name</code></td>
 <td><code>My Personal Library</code></td>
 <td></td>
 </tr>
-
 <tr>
 <td><code>request.body//name</code></td>
 <td><code>My Personal Library</code></td>
 <td>Use wilcard form. <code>//</code> means &ldquo;any path&rdquo;</td>
 </tr>
-
 <tr>
 <td><code>request.body/library/books/book[1]/author</code></td>
 <td> <code>Jane Doe</code></td>
@@ -437,7 +396,6 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 </tr>
 </tbody>
 </table>
-
 <p>In the case you&rsquo;re dealing with namespaced XML or SOAP request, Microcks does not support namespaced for now but the relaxed <code>local-name()</code> XPath expression allowed you to workaround this limitation. If we get a namespaced version of our XML payload:</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ns:library</span> <span class="na">xmlns:ns=</span><span class="s">&#34;https://microcks.io&#34;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ns:name&gt;</span>My Personal Library<span class="nt">&lt;/ns:name&gt;</span>
@@ -445,9 +403,8 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
     <span class="nt">&lt;ns:book&gt;&lt;ns:title&gt;</span>Title 1<span class="nt">&lt;/ns:title&gt;&lt;ns:author&gt;</span>Jane Doe<span class="nt">&lt;/ns:author&gt;&lt;/ns:book&gt;</span>
     <span class="nt">&lt;ns:book&gt;&lt;ns:title&gt;</span>Title 2<span class="nt">&lt;/ns:title&gt;&lt;ns:author&gt;</span>John Doe<span class="nt">&lt;/ns:author&gt;&lt;/ns:book&gt;</span>
   <span class="nt">&lt;/ns:books&gt;</span>
-<span class="nt">&lt;/ns:library&gt;</span></code></pre></div>
-<p>We can adapt the XPath expression to ignore namespaces prefix:</p>
-
+<span class="nt">&lt;/ns:library&gt;</span>
+</code></pre></div><p>We can adapt the XPath expression to ignore namespaces prefix:</p>
 <table>
 <thead>
 <tr>
@@ -456,7 +413,6 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <th> Comment</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>request.body//*[local-name() = 'name']</code></td>
@@ -465,38 +421,25 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 </tr>
 </tbody>
 </table>
-
 <h2 id="function-expressions">Function Expressions</h2>
-
 <h3 id="date-generator">Date generator</h3>
-
 <p>The <code>now()</code> function allows to generate current date.</p>
-
 <p>Invoked with no argument, it&rsquo;s a simple mong timestamp since EPOCH beginning. This function can also be invoked with one argument being the pattern to use for rendering current&rsquo;s date as string. The Java <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">date and time patterns</a> are use as referenced.</p>
-
 <p>It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates ;-) Here&rsquo;s some examples below:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">now</span><span class="p">()</span> <span class="c1">// 1581425292309
 </span><span class="c1"></span><span class="nx">now</span><span class="p">(</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span> <span class="nx">HH</span><span class="o">:</span><span class="nx">mm</span><span class="o">:</span><span class="nx">ss</span><span class="p">)</span> <span class="c1">// 11/02/2020 13:48:12
 </span><span class="c1"></span><span class="nx">now</span><span class="p">(</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span><span class="p">,</span> <span class="mi">1</span><span class="nx">M</span><span class="p">)</span> <span class="c1">// 11/03/2020
-</span></code></pre></div>
-<h3 id="uuid-generator">UUID generator</h3>
-
-<p>The <code>uuid()</code>function allows to simply generate a UUID compliant with RFC 4122 (see <a href="https://www.cryptosys.net/pki/uuid-rfc4122.html">https://www.cryptosys.net/pki/uuid-rfc4122.html</a>).</p>
+</span></code></pre></div><h3 id="uuid-generator">UUID generator</h3>
+<p>The <code>uuid()</code>function allows to simply generate a UUID compliant with RFC 4122 (see <a href="https://www.cryptosys.net/pki/uuid-rfc4122.html)">https://www.cryptosys.net/pki/uuid-rfc4122.html)</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">uuid</span><span class="p">()</span> <span class="c1">// 3F897E85-62CE-4B2C-A957-FCF0CCE649FD
-</span></code></pre></div>
-<h3 id="random-integer-generator">Random Integer generator</h3>
-
+</span></code></pre></div><h3 id="random-integer-generator">Random Integer generator</h3>
 <p>The <code>randomInt()</code> function allows to generate a random integer.</p>
-
 <p>When called with no argument, the value span between -65635 and 65635. You can specify an argument to force the generation of a positive integer that is less or equals this argument.</p>
-
 <p>Finally, it can be invoked with a second argument thus defining a range for the integer to be generated. Here&rsquo;s some examples below:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomInt</span><span class="p">()</span> <span class="c1">// -5239
 </span><span class="c1"></span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1">// 27
 </span><span class="c1"></span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1">// 43
-</span></code></pre></div>
-<h3 id="random-string-generator">Random String generator</h3>
-
+</span></code></pre></div><h3 id="random-string-generator">Random String generator</h3>
 <p>The <code>randomString()</code> function simply generates a random alphanumeric string. The default lentgh when called by no argument is 32 charracters. One can specify a integer argument to force string length to desired lentgh. Here&rsquo;s some examples below:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomString</span><span class="p">()</span> <span class="c1">// kYM8nSjEdLfgKOGG1dfacro2IUmuuan
 </span><span class="c1"></span><span class="nx">randomString</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span> <span class="c1">// VclBAQiNAybe0B5IrXjGqOChQNDFdoTguf5jWn2tqRNfptWSYFy7yxdpxoNIGOpC

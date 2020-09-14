@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>releases on Microcks.io</title>
+    <link>https://microcks.io/categories/releases/</link>
+    <description>Recent content in releases on Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://microcks.io/categories/releases/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>News about Microcks</title>
+      <link>https://microcks.io/news/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/news/</guid>
+      <description>Fresh Releases Microcks core 1.0.0 on 11 Aug 2020 We are very pleased to announce the Microcks release 1.0.0!
+ The major announcement is the support of AsyncAPI for Event-driven APIs, A lot of security enhancements including major components versions bump, better Keycloak reuse and container images systematic scanning.  Check out our Medium release notes!
+You can also check GitHub milestone for the full list of closed issues.
+0.9.2 on 19 May 2020 Version 0.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -12,7 +12,7 @@
     <title>Advanced topics | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -55,10 +55,8 @@ So supposed you have defined 2 representations for the same example of a GET /pa
 <meta itemprop="description" content="Content negocation in REST mocks Microcks mocks engine supports Content Negociation for REST APIs based on Accept HTTP header.
 So supposed you have defined 2 representations for the same example of a GET /pastry/{name} operation into your API contract:
  One describing a JSON response like below   Another describing a XML response like below  Both samples are matching the same dispatch criterion that is the name part of the URI.">
-
-
-<meta itemprop="datePublished" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-13T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-12-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-13T00:00:00+00:00" />
 <meta itemprop="wordCount" content="453">
 
 
@@ -188,14 +186,11 @@ So supposed you have defined 2 representations for the same example of a GET /pa
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#content-negocation-in-rest-mocks">Content negocation in REST mocks</a></li>
-<li><a href="#operation-parameters-constraints">Operation parameters constraints</a></li>
-<li><a href="#override-default-headers-during-tests">Override default headers during tests</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#content-negocation-in-rest-mocks">Content negocation in REST mocks</a></li>
+    <li><a href="#operation-parameters-constraints">Operation parameters constraints</a></li>
+    <li><a href="#override-default-headers-during-tests">Override default headers during tests</a></li>
+  </ul>
 </nav>
 	
 
@@ -238,30 +233,21 @@ So supposed you have defined 2 representations for the same example of a GET /pa
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="content-negocation-in-rest-mocks">Content negocation in REST mocks</h2>
-
 <p>Microcks mocks engine supports <a href="https://restfulapi.net/content-negotiation/">Content Negociation</a> for REST APIs based on <code>Accept</code> HTTP header.</p>
-
 <p>So supposed you have defined 2 representations for the same example of a <code>GET /pastry/{name}</code> operation into your API contract:</p>
-
 <ul>
 <li>One describing a JSON response like below</li>
 </ul>
-
-<p><img src="/images/content-negociation-json.png" alt="content-negociation-json" /></p>
-
+<p><img src="/images/content-negociation-json.png" alt="content-negociation-json"></p>
 <ul>
 <li>Another describing a XML response like below</li>
 </ul>
-
-<p><img src="/images/content-negociation-xml.png" alt="content-negociation-xml" /></p>
-
+<p><img src="/images/content-negociation-xml.png" alt="content-negociation-xml"></p>
 <p>Both samples are matching the same dispatch criterion that is the <code>name</code> part of the URI. However depending on the <code>Accept</code> header of your request, Microcks will return different responses:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair+Cafe
-<span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;Eclair Cafe&#34;</span>,<span class="s2">&#34;description&#34;</span>:<span class="s2">&#34;Delicieux Eclair au Cafe pas calorique du tout&#34;</span>,<span class="s2">&#34;size&#34;</span>:<span class="s2">&#34;M&#34;</span>,<span class="s2">&#34;price&#34;</span>:2.5,<span class="s2">&#34;status&#34;</span>:<span class="s2">&#34;available&#34;</span><span class="o">}</span></code></pre></div>
-<p>or</p>
+<span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;Eclair Cafe&#34;</span>,<span class="s2">&#34;description&#34;</span>:<span class="s2">&#34;Delicieux Eclair au Cafe pas calorique du tout&#34;</span>,<span class="s2">&#34;size&#34;</span>:<span class="s2">&#34;M&#34;</span>,<span class="s2">&#34;price&#34;</span>:2.5,<span class="s2">&#34;status&#34;</span>:<span class="s2">&#34;available&#34;</span><span class="o">}</span>
+</code></pre></div><p>or</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml">$ curl http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair+Cafe -H &#39;Accept: text/xml&#39;
 <span class="nt">&lt;pastry&gt;</span>
     <span class="nt">&lt;name&gt;</span>Eclair Cafe<span class="nt">&lt;/name&gt;</span>
@@ -269,49 +255,43 @@ So supposed you have defined 2 representations for the same example of a GET /pa
     <span class="nt">&lt;size&gt;</span>M<span class="nt">&lt;/size&gt;</span>
     <span class="nt">&lt;price&gt;</span>2.5<span class="nt">&lt;/price&gt;</span>
     <span class="nt">&lt;status&gt;</span>available<span class="nt">&lt;/status&gt;</span>
-<span class="nt">&lt;/pastry&gt;</span></code></pre></div>
-<h2 id="operation-parameters-constraints">Operation parameters constraints</h2>
-
+<span class="nt">&lt;/pastry&gt;</span>
+</code></pre></div><h2 id="operation-parameters-constraints">Operation parameters constraints</h2>
 <p>Sometimes it may be important to specify additional constraints onto a Mock operation. Constraints that are related to API behaviour or semantic may be hard even impossible to express with an API contract. Microcks allows you to specify such constraints by editing the properties of a Service or API operation.</p>
-
 <p>Constraints can be put onto <code>Query</code> or <code>Header</code> parameters and are of 3 types:</p>
-
 <ul>
 <li><code>required</code> constraints are forcing the presence of parameter in incoming request,</li>
 <li><code>recopy</code> constraints are just sending back the same parameter name and value into mock response,</li>
 <li><code>match</code> constraints are checking the value of a parameter against a specified regular expression.</li>
 </ul>
-
 <p>Now imagine you put such constraints onto the <code>GET /pastry</code> operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:</p>
-
-<p><img src="/images/parameters-constraints.png" alt="parameters-constraints" /></p>
-
+<p><img src="/images/parameters-constraints.png" alt="parameters-constraints"></p>
 <p>Now let&rsquo;s do some tests to check Microcks behavior:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry
 HTTP/1.1 <span class="m">400</span> 
 Connection: close
 Content-Length: <span class="m">65</span>
 Content-Type: text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-Date: Fri, <span class="m">13</span> Dec <span class="m">2019</span> <span class="m">19</span>:20:31 GMT
+Date: Fri, <span class="m">13</span> Dec <span class="m">2019</span> 19:20:31 GMT
 X-Application-Context: application
 
-Parameter Authorization is required. Check parameter constraints.</code></pre></div>
-<p>Hum&hellip; Adding the <code>Authorization</code> header&hellip;</p>
+Parameter Authorization is required. Check parameter constraints.
+</code></pre></div><p>Hum&hellip; Adding the <code>Authorization</code> header&hellip;</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:<span class="s1">&#39;Bearer 123&#39;</span>
 HTTP/1.1 <span class="m">400</span> 
 Connection: close
 Content-Length: <span class="m">89</span>
 Content-Type: text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-Date: Fri, <span class="m">13</span> Dec <span class="m">2019</span> <span class="m">19</span>:31:01 GMT
+Date: Fri, <span class="m">13</span> Dec <span class="m">2019</span> 19:31:01 GMT
 X-Application-Context: application
 
-Parameter Authorization should match ^Bearer<span class="se">\s</span><span class="o">[</span>a-f0-9<span class="o">]{</span><span class="m">36</span><span class="o">}</span>$. Check parameter constraints.</code></pre></div>
-<p>Hum&hellip; Fixing the <code>Bearer</code> format and adding the <code>x-request-id</code> header:</p>
+Parameter Authorization should match ^Bearer<span class="se">\s</span><span class="o">[</span>a-f0-9<span class="o">]{</span>36<span class="o">}</span>$. Check parameter constraints.
+</code></pre></div><p>Hum&hellip; Fixing the <code>Bearer</code> format and adding the <code>x-request-id</code> header:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:<span class="s1">&#39;Bearer abcdefabcdefabcdefabcdefab1234567890&#39;</span> x-request-id:123
 HTTP/1.1 <span class="m">200</span> 
 Content-Length: <span class="m">559</span>
 Content-Type: application/json
-Date: Fri, <span class="m">13</span> Dec <span class="m">2019</span> <span class="m">19</span>:33:52 GMT
+Date: Fri, <span class="m">13</span> Dec <span class="m">2019</span> 19:33:52 GMT
 X-Application-Context: application
 x-request-id: <span class="m">123</span>
 
@@ -319,31 +299,29 @@ x-request-id: <span class="m">123</span>
     <span class="o">{</span>
         <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;Delicieux Baba au Rhum pas calorique du tout&#34;</span>,
         <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Baba Rhum&#34;</span>,
-        <span class="s2">&#34;price&#34;</span>: <span class="m">3</span>.2,
+        <span class="s2">&#34;price&#34;</span>: 3.2,
         <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;L&#34;</span>,
         <span class="s2">&#34;status&#34;</span>: <span class="s2">&#34;available&#34;</span>
     <span class="o">}</span>,
     <span class="o">{</span>
         <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;Delicieux Divorces pas calorique du tout&#34;</span>,
         <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Divorces&#34;</span>,
-        <span class="s2">&#34;price&#34;</span>: <span class="m">2</span>.8,
+        <span class="s2">&#34;price&#34;</span>: 2.8,
         <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;M&#34;</span>,
         <span class="s2">&#34;status&#34;</span>: <span class="s2">&#34;available&#34;</span>
     <span class="o">}</span>,
     <span class="o">{</span>
         <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;Delicieuse Tartelette aux Fraises fraiches&#34;</span>,
         <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Tartelette Fraise&#34;</span>,
-        <span class="s2">&#34;price&#34;</span>: <span class="m">2</span>,
+        <span class="s2">&#34;price&#34;</span>: 2,
         <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;S&#34;</span>,
         <span class="s2">&#34;status&#34;</span>: <span class="s2">&#34;available&#34;</span>
     <span class="o">}</span>
-<span class="o">]</span></code></pre></div>
-<blockquote>
+<span class="o">]</span>
+</code></pre></div><blockquote>
 <p>Operation parameters constraints are saved into Microcks database and not replaced by a new importation of your Service or API definition. They can be independently set and updated using the <a href="../automating/api/">Microcks APIs</a>.</p>
 </blockquote>
-
 <h2 id="override-default-headers-during-tests">Override default headers during tests</h2>
-
 <p>Coming soon&hellip;</p>
 
 </div>

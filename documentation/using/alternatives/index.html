@@ -12,7 +12,7 @@
     <title>Comparison to alternatives | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.57.2" />
+     <meta name="generator" content="Hugo 0.74.3" />
 
       
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.9463342593aa659111baf7367ff8c73e01d4ecf6352fc82aca590dd64d04947c.css" integrity="sha256-lGM0JZOqZZERuvc2f/jHPgHU7PY1L8gqylkN1k0ElHw=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
           
     
 
@@ -51,10 +51,8 @@
 <meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="name" content="Comparison to alternatives">
 <meta itemprop="description" content="Microcks vs. SoapUI Scope &amp; Audience SoapUI is one of the oldest tool in the area but also one of the most popular. We like SoapUI for being simple to use and of great value because it lets functional experts to easily edit requests and responses samples. Specially when it relates to SOAP WebServices, SoapUI offers wizards, templates and validation that make correct editing of such samples a breeze. That&rsquo;s why we currently rely on SoapUI for providing the contract artifacts as an input to Microcks.">
-
-
-<meta itemprop="datePublished" content="2019-09-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="797">
 
 
@@ -182,29 +180,29 @@
 	
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#microcks-vs-soapui">Microcks vs. SoapUI</a>
-<ul>
-<li><a href="#scope-audience">Scope &amp; Audience</a></li>
-<li><a href="#mocking">Mocking</a></li>
-<li><a href="#testing">Testing</a></li>
-</ul></li>
-<li><a href="#microcks-vs-postman">Microcks vs. Postman</a>
-<ul>
-<li><a href="#scope-audience-1">Scope &amp; Audience</a></li>
-<li><a href="#mocking-1">Mocking</a></li>
-<li><a href="#testing-1">Testing</a></li>
-</ul></li>
-<li><a href="#microcks-vs-wiremock">Microcks vs. WireMock</a>
-<ul>
-<li><a href="#scope-audience-2">Scope &amp; Audience</a></li>
-<li><a href="#mocking-2">Mocking</a></li>
-<li><a href="#testing-2">Testing</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#microcks-vs-soapui">Microcks vs. SoapUI</a>
+      <ul>
+        <li><a href="#scope--audience">Scope &amp; Audience</a></li>
+        <li><a href="#mocking">Mocking</a></li>
+        <li><a href="#testing">Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#microcks-vs-postman">Microcks vs. Postman</a>
+      <ul>
+        <li><a href="#scope--audience-1">Scope &amp; Audience</a></li>
+        <li><a href="#mocking-1">Mocking</a></li>
+        <li><a href="#testing-1">Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#microcks-vs-wiremock">Microcks vs. WireMock</a>
+      <ul>
+        <li><a href="#scope--audience-2">Scope &amp; Audience</a></li>
+        <li><a href="#mocking-2">Mocking</a></li>
+        <li><a href="#testing-2">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	
 
@@ -247,48 +245,26 @@
 
 <div class="prose" id="prose">
 
-
-
 <h2 id="microcks-vs-soapui">Microcks vs. SoapUI</h2>
-
-<h3 id="scope-audience">Scope &amp; Audience</h3>
-
+<h3 id="scope--audience">Scope &amp; Audience</h3>
 <p><a href="http://www.soapui.org">SoapUI</a> is one of the oldest tool in the area but also one of the most popular. We like SoapUI for being simple to use and of great value because it lets functional experts to easily edit requests and responses samples. Specially when it relates to SOAP WebServices, SoapUI offers wizards, templates and validation that make correct editing of such samples a breeze. That&rsquo;s why we currently rely on SoapUI for providing the contract artifacts as an input to Microcks. The main difference between SoapUI and Microcks is that Microcks has been thought as a platform allowing you to easily centralize and share information about your services. Where SoapUI persists information to file that you have to share and re-load, Microcks just expose all its information through Web UI and API to ease access.</p>
-
 <h3 id="mocking">Mocking</h3>
-
 <p>SoapUI supports mocking and we rely also on its mock editor. However when it comes to deploying such mocks to the rest of the world, SoapUI uses a static approach where you have to generate and collect a Java Web Archive for later deploying on an application server. Scaling with this model may quickly become an issue as you may use a big amount of resources to &ldquo;simply&rdquo; handle mocks. Microcks provides a more scalable, dynamic approach where mocks are created and updated on-the-fly without any deployment.</p>
-
 <h3 id="testing">Testing</h3>
-
 <p>SoapUI offers first class support for testing. Microcks is also able to reuse the tests assertions you may have defined with SoapUI for your services. Where SoapUI tests may be launched manually, through the <code>soapui-runner</code> CLI or a Jenkins plugin, Microcks also offers this means for launching tests on different endpoints. The main difference here is that tests results and all the data exchanged with tested endpoints are recorded and persisted by Microcks. This allow you to get history on results for easily compare tests results on different environments or time frames.</p>
-
 <h2 id="microcks-vs-postman">Microcks vs. Postman</h2>
-
-<h3 id="scope-audience-1">Scope &amp; Audience</h3>
-
+<h3 id="scope--audience-1">Scope &amp; Audience</h3>
 <p><a href="http://www.getpostman.com">Postman</a> is the populest tool regarding new API and REST WebServices. We particularly likes its support of Swagger for easily importing an API contract file and then editing samples for different operations. As SoapUI, Postman is easy to use by functional experts because of its form-based UI that offers guidance when editing mocks and tests. As it should be possible to manage SOAP WebServices through Postman, it does not offer any guidance for that protocol and is really dedicated to REST styled services. Microcks currently supports Postman as an input source for information about your REST services.</p>
-
 <h3 id="mocking-1">Mocking</h3>
-
 <p>Mocking in Postman seems to involve some Software-as-a-Service offering and thus not being available in your own datacenter. Also, the number of mock server calls per month seems to be a billable resource. Being easy to deploy on the Cloud or within your datacenter, Microcks offers much more ability to scale and handle all the API and services, even the most critical to your business. Note also that SOAP mocking support is minimalistic because mock servers should not be able to realize query matching request payload.</p>
-
 <h3 id="testing-1">Testing</h3>
-
 <p>Postman offers first class support for testing and we definitely love the ability to define JavaScript snippets as test script. Microcks is able to reuse these tests definitions and to launch them repeatedly when being into an agile CI/CD process. Contrary to Postman, all the interactions and exchanged data with the tested endpoints will be recorded and persisted to ease later analysis.</p>
-
 <h2 id="microcks-vs-wiremock">Microcks vs. WireMock</h2>
-
-<h3 id="scope-audience-2">Scope &amp; Audience</h3>
-
+<h3 id="scope--audience-2">Scope &amp; Audience</h3>
 <p><a href="http://wiremock.org/">WireMock</a> is much more a framework for writing mocks than a frontend tooling. WireMock is indeed targeted to developers that want to rapidly generate mocks for the dependency they should be isolated from. As a consequence, WireMock is not really usable by a functional expert that goal is to deliver samples to be used across projects. Most of the time, it is used to locally redefined - in every project - the set of mocks developers may need from their CI process.</p>
-
 <h3 id="mocking-2">Mocking</h3>
-
 <p>WireMock allows mocking and deployment of mocks through its Java API. It is nice for producing local, short-lived mocks that are keen to be destroyed just after the tests of local project have failed. On the contrary, Microcks focused on long-lived mocks that are exposed and shared throughout the Enterprise. Those mocks should be defined by functional experts within service owner team in order to be the most representative possible of service behavior.</p>
-
 <h3 id="testing-2">Testing</h3>
-
 <p>Tests scripts and assertions in WireMock are written using Java API. Once again, it is targeted to developers and not realy to functional experts. Moreover, WireMock relies on some other tools for getting result reports and persisting this reports in time. With Microcks those test results are directly persisted and remains reachable throurh the UI or API at any time.</p>
 
 </div>
