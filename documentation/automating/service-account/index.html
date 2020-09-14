@@ -184,7 +184,7 @@
     <li><a href="#microcks-service-accounts">Microcks Service Accounts</a>
       <ul>
         <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#inspecting-defaul-service-account">Inspecting defaul Service Account</a></li>
+        <li><a href="#inspecting-default-service-account">Inspecting default Service Account</a></li>
         <li><a href="#using-service-account">Using Service Account</a></li>
       </ul>
     </li>
@@ -227,20 +227,20 @@
 <h3 id="introduction">Introduction</h3>
 <p>Microcks is using <a href="https://openid.net/connect/">OpenId Connect</a> and <a href="https://oauth.net/2/bearer-tokens/">OAuth 2.0 bearer tokens</a> to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple <a href="https://oauth.net/2/grant-types/client-credentials/">OAuth 2.0 Client Credentials Grant</a> in addition of other grants. This authentication is implemented using <code>Service Accounts</code> clients defined into the Realm configuration in Keycloak.</p>
 <p>Microcks comes with a default account named <code>microcks-serviceaccount</code> that comes with default installation but you are free to create as many account as you may have robots users.</p>
-<h3 id="inspecting-defaul-service-account">Inspecting defaul Service Account</h3>
+<h3 id="inspecting-default-service-account">Inspecting default Service Account</h3>
 <p>Let&rsquo;s start inspecting the properties of the default Service Account to check its anatomy ;-) Start connecting as an administrator to the Keycloak instance your Microcks instance is running.</p>
 <blockquote>
 <p>Hint: just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of realm you&rsquo;re using:</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="err">$</span> <span class="err">curl</span> <span class="err">https://microcks.example.com/api/keycloak/config</span> <span class="err">-s</span> <span class="err">-k</span> <span class="err">|</span> <span class="err">jq</span> <span class="err">.</span>
-<span class="p">{</span>
-  <span class="nt">&#34;realm&#34;</span><span class="p">:</span> <span class="s2">&#34;microcks&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;resource&#34;</span><span class="p">:</span> <span class="s2">&#34;microcks-app-js&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;auth-server-url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://keycloak.microcks.example.com/auth&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;ssl-required&#34;</span><span class="p">:</span> <span class="s2">&#34;external&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;public-client&#34;</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
-</code></pre></div><p>Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined <code>Applications</code> or <code>Client</code> defined on this realm and see the default <code>microcks-serviceaccount</code> as in below screenshot:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.example.com/api/keycloak/config -s -k <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;realm&#34;</span>: <span class="s2">&#34;microcks&#34;</span>,
+  <span class="s2">&#34;resource&#34;</span>: <span class="s2">&#34;microcks-app-js&#34;</span>,
+  <span class="s2">&#34;auth-server-url&#34;</span>: <span class="s2">&#34;https://keycloak.microcks.example.com/auth&#34;</span>,
+  <span class="s2">&#34;ssl-required&#34;</span>: <span class="s2">&#34;external&#34;</span>,
+  <span class="s2">&#34;public-client&#34;</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div><p>Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined <code>Applications</code> or <code>Clients</code> defined on this realm and see the default <code>microcks-serviceaccount</code> as in below screenshot:</p>
 <p><img src="/images/service-account-clients.png" alt="service-account-clients"></p>
 <p>Getting to the details of the <code>Service Account</code>, you can check that it is <code>Enabled</code>, that it should conform to the <code>openid-connect</code> Client Protocol with a <code>confidential</code> Access Type. Finally, it should also be able to do a <code>Direct Access Grant</code> and act as a <code>Service Account</code>. See below the settings of default account:</p>
 <p><img src="/images/service-account-settings.png" alt="service-account-settings"></p>
