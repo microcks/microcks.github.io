@@ -53,7 +53,7 @@
 <meta itemprop="description" content="Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-09-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="611">
+<meta itemprop="wordCount" content="583">
 
 
 
@@ -277,12 +277,10 @@ $ curl https://microcks.example.com/api/services -H <span class="s1">&#39;Author
     <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;5ddc0abd448ff8ba296c13b3&#34;</span>,
     <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;API Pastry&#34;</span>,
     <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;1.0.0&#34;</span>,
-    <span class="s2">&#34;xmlNS&#34;</span>: null,
     <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;REST&#34;</span>,
     <span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
       <span class="s2">&#34;createdOn&#34;</span>: 1574701757816,
       <span class="s2">&#34;lastUpdate&#34;</span>: 1599316976801,
-      <span class="s2">&#34;annotations&#34;</span>: null,
       <span class="s2">&#34;labels&#34;</span>: <span class="o">{</span>
         <span class="s2">&#34;domain&#34;</span>: <span class="s2">&#34;pastry&#34;</span>,
         <span class="s2">&#34;status&#34;</span>: <span class="s2">&#34;deprecated&#34;</span>
@@ -292,31 +290,19 @@ $ curl https://microcks.example.com/api/services -H <span class="s1">&#39;Author
       <span class="o">{</span>
         <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;GET /pastry/:name&#34;</span>,
         <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>,
-        <span class="s2">&#34;inputName&#34;</span>: null,
-        <span class="s2">&#34;outputName&#34;</span>: null,
-        <span class="s2">&#34;bindings&#34;</span>: null,
         <span class="s2">&#34;dispatcher&#34;</span>: <span class="s2">&#34;URI_PARTS&#34;</span>,
         <span class="s2">&#34;dispatcherRules&#34;</span>: <span class="s2">&#34;name&#34;</span>,
-        <span class="s2">&#34;defaultDelay&#34;</span>: null,
         <span class="s2">&#34;resourcePaths&#34;</span>: <span class="o">[</span>
           <span class="s2">&#34;/pastry/Eclair%20Cafe&#34;</span>,
           <span class="s2">&#34;/pastry/Millefeuille&#34;</span>
-        <span class="o">]</span>,
-        <span class="s2">&#34;parameterConstraints&#34;</span>: null
+        <span class="o">]</span>
       <span class="o">}</span>,
       <span class="o">{</span>
         <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;GET /pastry&#34;</span>,
         <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>,
-        <span class="s2">&#34;inputName&#34;</span>: null,
-        <span class="s2">&#34;outputName&#34;</span>: null,
-        <span class="s2">&#34;bindings&#34;</span>: null,
-        <span class="s2">&#34;dispatcher&#34;</span>: null,
-        <span class="s2">&#34;dispatcherRules&#34;</span>: null,
-        <span class="s2">&#34;defaultDelay&#34;</span>: null,
         <span class="s2">&#34;resourcePaths&#34;</span>: <span class="o">[</span>
           <span class="s2">&#34;/pastry&#34;</span>
-        <span class="o">]</span>,
-        <span class="s2">&#34;parameterConstraints&#34;</span>: null
+        <span class="o">]</span>
       <span class="o">}</span>
     <span class="o">]</span>
   <span class="o">}</span>
