@@ -26,7 +26,7 @@
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/automating/jenkins/</guid>
-      <description>Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Testsfor more informations on running tests with Microcks.
+      <description>Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
 Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.</description>
     </item>
     

@@ -55,7 +55,7 @@
  Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-04-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="772">
+<meta itemprop="wordCount" content="780">
 
 
 
@@ -238,7 +238,7 @@
 <li>Lightweight Minishift on your laptop, see <a href="https://github.com/minishift/minishift">Minishift project page</a>.</li>
 </ul>
 <blockquote>
-<p>When running on OpenShift, take care that you did not have the <!-- raw HTML omitted -->anyuid<!-- raw HTML omitted --> capability enabled. This prevents Microcks from using OpenShift internal Identity Provider. <!-- raw HTML omitted -->anyuid<!-- raw HTML omitted --> addon is enabled by default on Red Hat CDK. You may want to turn it off by executing <!-- raw HTML omitted -->oc adm policy remove-scc-from-group anyuid system:authenticated<!-- raw HTML omitted --> as this is a bad practice.</p>
+<p>When running on OpenShift, take care that you did not have the <code>anyuid</code> capability enabled. This prevents Microcks from using OpenShift internal Identity Provider. <code>anyuid</code> addon is enabled by default on Red Hat CDK. You may want to turn it off by executing <code>oc adm policy remove-scc-from-group anyuid system:authenticated</code> as this is a bad practice.</p>
 </blockquote>
 <p>Then you have to ensure that Microcks templates for OpenShift are added and available into your Cluster. Templates come in many flavours depending on your OpenShift version.</p>
 <h2 id="openshift-4x">OpenShift 4.x</h2>
@@ -257,9 +257,9 @@ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/
 $ oc new-app --template<span class="o">=</span>microcks-persistent <span class="se">\
 </span><span class="se"></span>   --param<span class="o">=</span><span class="nv">APP_ROUTE_HOSTNAME</span><span class="o">=</span>microcks-microcks.192.168.99.100.nip.io <span class="se">\
 </span><span class="se"></span>   --param<span class="o">=</span><span class="nv">KEYCLOAK_ROUTE_HOSTNAME</span><span class="o">=</span>keycloak-microcks.192.168.99.100.nip.io
-</code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p>Now you can retrieve the URL of the created route using <!-- raw HTML omitted -->oc get routes<!-- raw HTML omitted --> command and navigate to this URL to get started with Microcks. Depending on your environment, URL should be something like <!-- raw HTML omitted --><a href="http://microcks-microcks.192.168.99.100.nip.io">http://microcks-microcks.192.168.99.100.nip.io</a><!-- raw HTML omitted -->. Before starting playing with Microcks, you&rsquo;ll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <!-- raw HTML omitted -->microcks-keycloak-config<!-- raw HTML omitted --> secret created during setup.</p>
+</code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<br/></p>
+<img src="/images/running-pods-ocp4.png" class="img-responsive"/>
+<p>Now you can retrieve the URL of the created route using <code>oc get routes</code> command and navigate to this URL to get started with Microcks. Depending on your environment, URL should be something like <code><a href="http://microcks-microcks.192.168.99.100.nip.io">http://microcks-microcks.192.168.99.100.nip.io</a></code>. Before starting playing with Microcks, you&rsquo;ll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.</p>
 <h2 id="openshift-3x">OpenShift 3.x</h2>
 <p>Templates for OpenShift 3.x come in many flavors: ephemeral or persistent, with or without Keycloak installation, with or without HTTPS support. With OpenShift 3.x, instanciating a template embedding Keycloak will require <code>cluster-admin</code> privileges as we configure the OpenShift Identity Provider by default and need to create an OAuth client for that. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster.</p>
 <p>Add the templates, by using these commands :</p>
@@ -273,7 +273,7 @@ $ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/instal
 $ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template-https.yml -n openshift
 </code></pre></div><p>Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:</p>
 <ul>
-<li>the hostname for routes serving Microcks and embedded Keycloak (typically <!-- raw HTML omitted -->component_name-project-app_domain<!-- raw HTML omitted -->),<!-- raw HTML omitted --></li>
+<li>the hostname for routes serving Microcks and embedded Keycloak (typically <code>component_name-project-app_domain</code>),</li></li>
 <li>the URL for joining OpenShift Master,</li>
 <li>a name for an OAuth Client that will be created apart the app creation.</li>
 </ul>
@@ -284,9 +284,9 @@ $ oc new-app --template<span class="o">=</span>microcks-persistent <span class="
 </span><span class="se"></span>   --param<span class="o">=</span><span class="nv">KEYCLOAK_ROUTE_HOSTNAME</span><span class="o">=</span>keycloak-microcks.192.168.99.100.nip.io <span class="se">\
 </span><span class="se"></span>   --param<span class="o">=</span><span class="nv">OPENSHIFT_MASTER</span><span class="o">=</span>https://192.168.99.100:8443 <span class="se">\
 </span><span class="se"></span>   --param<span class="o">=</span><span class="nv">OPENSHIFT_OAUTH_CLIENT_NAME</span><span class="o">=</span>microcks-client
-</code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p>Now you can retrieve the URL of the created route using <!-- raw HTML omitted -->oc get routes<!-- raw HTML omitted --> command and navigate to this URL to get started with Microcks. Depending on your environment, URL should be something like <!-- raw HTML omitted --><a href="http://microcks-microcks.192.168.99.100.nip.io">http://microcks-microcks.192.168.99.100.nip.io</a><!-- raw HTML omitted -->. By default, Microcks integrates with OpenShift identity provider through the use of Keycloak but you may configure some other providers later.</p>
+</code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.<br/></p>
+<img src="/images/running-pods.png" class="img-responsive"/>
+<p>Now you can retrieve the URL of the created route using <code>oc get routes</code> command and navigate to this URL to get started with Microcks. Depending on your environment, URL should be something like <code><a href="http://microcks-microcks.192.168.99.100.nip.io">http://microcks-microcks.192.168.99.100.nip.io</a></code>. By default, Microcks integrates with OpenShift identity provider through the use of Keycloak but you may configure some other providers later.</p>
 
 </div>
 
