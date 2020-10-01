@@ -52,7 +52,7 @@ where [command] can be one of the following:
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/cli/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-01T00:00:00+00:00" />
 <meta itemprop="name" content="CLI for Microcks">
 <meta itemprop="description" content="Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&rsquo;s defintely worth the read ;-)
@@ -60,7 +60,7 @@ Usage instructions Usage is simply microcks-cli [command]
 where [command] can be one of the following:
  version to check this CLI version, help to display usage informations, test to launch new test on Microcks server.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="244">
 
 
@@ -255,7 +255,7 @@ where [command] can be one of the following:
 <li><code>help</code> to display usage informations,</li>
 <li><code>test</code> to launch new test on Microcks server.</li>
 </ul>
-<p>The main <code>test</code> command has abunch of arguments and flags so that you can use it that way:</p>
+<p>The main <code>test</code> command has a bunch of arguments and flags so that you can use it that way:</p>
 <pre><code>$ microcks-cli test &lt;apiName:apiVersion&gt; &lt;testEndpoint&gt; &lt;runner&gt; \
 	--microcksURL=&lt;&gt; --waitFor=5sec \
 	--keycloakClientId=&lt;&gt; --keycloakClientSecret=&lt;&gt;
@@ -264,9 +264,9 @@ where [command] can be one of the following:
 <h3 id="binary">Binary</h3>
 <p>Binary releases for Linux, MacOS or Windows platform are available on the GitHub <a href="https://github.com/microcks/microcks-cli/releases">releases page</a>. Just download the binary corresponding to your system and put the binary into the <code>PATH</code> somewhere.</p>
 <h3 id="container-image">Container image</h3>
-<p>The <code>microcks-cli</code> is now available as a container image as version <code>0.2.0</code>. So that you&rsquo;d be able to easily use it from a GitLab CI or a <a href="../tekton">Tekton pipeline</a>. The hosting repository is now on Docker Hub <a href="https://hub.docker.com/r/microcks/microcks-cli">here</a>.</p>
+<p>The <code>microcks-cli</code> is now available as a container image as version <code>0.3.0</code>. So that you&rsquo;d be able to easily use it from a GitLab CI or a <a href="../tekton">Tekton pipeline</a>. The hosting repository is now on Quay.io <a href="https://quay.io/repository/microcks/microcks-cli?tab=info">here</a>.</p>
 <p>Below a sample on how using the image without getting the CLI binary:</p>
-<pre><code>$ docker run -it microcks/microcks-cli:latest microcks-cli test 'Beer Catalog API:0.9' \
+<pre><code>$ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test 'Beer Catalog API:0.9' \
     http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/ POSTMAN \
     --microcksURL=http://microcks.apps.144.76.24.92.nip.io/api/ \
     --keycloakClientId=microcks-serviceaccount \ --keycloakClientSecret=7deb71e8-8c80-4376-95ad-00a399ee3ca1 --waitFor=8sec \
@@ -460,7 +460,7 @@ where [command] can be one of the following:
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “CLI for Microcks”
-  </a> was last updated: September 2, 2019
+  </a> was last updated: October 1, 2020
 </h6>
 
       <a href="edit/master/content/en/documentation/automating/cli.md" class="

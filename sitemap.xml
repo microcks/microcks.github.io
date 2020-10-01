@@ -39,7 +39,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/jenkins/</loc>
-    <lastmod>2020-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -79,7 +79,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/cli/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -129,7 +129,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/tekton/</loc>
-    <lastmod>2019-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -138,13 +138,28 @@
   </url>
   
   <url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+    <loc>https://microcks.io/categories/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/news/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/categories/releases/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -169,7 +184,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -177,19 +192,11 @@
   </url>
   
   <url>
-    <loc>https://microcks.io/categories/</loc>
-  </url>
-  
-  <url>
     <loc>https://microcks.io/community/</loc>
   </url>
   
   <url>
-    <loc>https://microcks.io/news/</loc>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/categories/releases/</loc>
+    <loc>https://microcks.io/news/history/</loc>
   </url>
   
   <url>

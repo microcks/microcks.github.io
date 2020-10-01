@@ -6,9 +6,21 @@
     <description>Recent content in News about Microcks on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/news/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Historical Microcks release notes</title>
+      <link>https://microcks.io/news/history/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/news/history/</guid>
+      <description>Older Releases Microcks core 0.8.0 on 27 Nov 2019 We just release version 0.8.0 of Microcks core! This release holds something like 40 issues fix!
+Among some other stuffs, we now have:
+ Support for media type negociation on REST mocks, Support of CORS policy for REST mocks, Support of PATCH and OPTIONS operations on REST mocks, Multi-format support for OpenAPI v3 examples, Addition of users management from the Microcks UI, Addition of custom JSON body dispatcher, Many UI improvements like embedded help, about modal and easier importer creation flow, Fix of HTTPS with custom certificates support for accessing private repositories.</description>
+    </item>
     
   </channel>
 </rss>
