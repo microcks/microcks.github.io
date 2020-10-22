@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microcks Blog on Microcks.io</title>
+    <link>https://microcks.io/blog/</link>
+    <description>Recent content in Microcks Blog on Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why Microcks?</title>
+      <link>https://microcks.io/blog/why-microcks/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/why-microcks/</guid>
+      <description>Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of Microcks 1.0.0, being our first General Availability (GA) version. With it we deliver the promise of providing an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era — whatever the type of services or API.
+As we have received massive supportive feedback since August, we consider it a great opportunity to take some time to come back to the reasons why we started Microcks, especially for the newcomers.</description>
+    </item>
+    
+    <item>
+      <title>Microcks 1.0.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.0.0-release/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.0.0-release/</guid>
+      <description>Today is a very special day as we launch Microcks 1.0.0 and as it materializes a vision we had 18 months ago when starting investing more time on what was just a fun side-project at that time. That vision was about building one simple, scalable and consolidating tool for all the Enterprise services mocking and testing needs — whatever the type of services or API: green-field or legacy. Today, Microcks is the only Open source Kubernetes native tool for API Mocking and Testing supporting REST APIs, SOAP WebServices and now asynchronous / event-driven APIs!</description>
+    </item>
+    
+    <item>
+      <title>Install Microcks on AWS for a test drive 🧪</title>
+      <link>https://microcks.io/blog/install-microcks-on-aws/</link>
+      <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/install-microcks-on-aws/</guid>
+      <description>Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of official setup documentation.
+This will give you a Microcks installation on an AWS EC2 instance running Ubuntu 18.</description>
+    </item>
+    
+    <item>
+      <title>Microcks 0.9.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-0.9.0-release/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-0.9.0-release/</guid>
+      <description>I am delighted to announce Microcks release 0.9.0 — the Open source Kubernetes native tool for API Mocking and Testing. This new version introduces a tremendous amount of enhancements and new features.
+Big thanks to our growing community for all the work done, the raised issues and the collected feedback during the last 5 months to make it possible.
+This release was the preparation to become more Enterprise-grade, and we are glad that Microcks is in production in more and more medium to large organisations.</description>
+    </item>
+    
+  </channel>
+</rss>

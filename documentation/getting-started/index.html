@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
           
     
 
@@ -50,14 +50,14 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/getting-started/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-19T00:00:00+00:00" />
 <meta itemprop="name" content="Getting started">
 <meta itemprop="description" content="Getting started On this page, you will go through :
  Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
 Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="774">
+<meta itemprop="dateModified" content="2020-10-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="727">
 
 
 
@@ -68,6 +68,8 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
  Installing Microcks, Using Microcks, Going further&hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
 Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application."/>
 
+
+      
       
   </head>
   <body class="ma0 sans-serif bg-primary-color-light">
@@ -100,6 +102,16 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
             
           <a href="/documentation/" class="dim link light-silver">
             DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
               
             
             
@@ -192,7 +204,6 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
       <ul>
         <li><a href="#installing-with-kubernetes-operator">Installing with Kubernetes Operator</a></li>
         <li><a href="#installing-on-kubernetes-with-helm">Installing on Kubernetes with Helm</a></li>
-        <li><a href="#installing-with-openshift-templates">Installing with OpenShift templates</a></li>
         <li><a href="#installing-using-docker-compose">Installing using Docker Compose</a></li>
       </ul>
     </li>
@@ -207,6 +218,21 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
   </ul>
 </nav>
 	
+
+	<div date-pref>
+		
+			<a href="https://microcks.io/documentation/getting-started-tests/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Getting started with Tests ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+
+		
+	</div>
+
 </aside>
 </div>
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
@@ -237,16 +263,8 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
 <p>We provide an Operator that is distributed through <a href="https://operatorhub.io/operator/microcks">OperatorHub.io</a> for easy install and management of Microcks as a Kubernetes-native application.</p>
 <p>Have a look on this <a href="/documentation/installing/operator">page</a> for more informations.</p>
 <h3 id="installing-on-kubernetes-with-helm">Installing on Kubernetes with Helm</h3>
-<p>We provide <a href="https://raw.githubusercontent.com/microcks/microcks/master/install/kubernetes/kubernetes-ephemeral-full.yml">basic Kubernetes manifest</a> for simple needs but also a <code>Chart</code> for using with <a href="https://helm.sh/">Helm</a> Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.</p>
+<p>We provide a Helm 3 <code>Chart</code> for using with <a href="https://helm.sh/">Helm</a> Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.</p>
 <p>Have a look on this <a href="/documentation/installing/kubernetes">page</a> for more informations.</p>
-<h3 id="installing-with-openshift-templates">Installing with OpenShift templates</h3>
-<p>We provide OpenShift templates in many flavors for rapid deployment onto OpenShift. We will basically have different installation options:</p>
-<ul>
-<li>Ephemeral or Persistent setup,</li>
-<li>Embedding Keycloak or using an external mutualized instance,</li>
-<li>With or without HTTPS Routes setup.</li>
-</ul>
-<p>Have a look on this <a href="/documentation/installing/openshift%22">page</a> for more informations.</p>
 <h3 id="installing-using-docker-compose">Installing using Docker Compose</h3>
 <p>Docker Compose is really easy for a laptop or single demonstration server. You&rsquo;ll find instructions on how to use Docker Compose for installation <a href="/documentation/installing/docker-compose">here</a>.</p>
 <p>Using this deployment solution, we also provide one-click deployment to Microsoft Azure Cloud with this <a href="https://github.com/microcks/microcks-azure">sub-project</a>.</p>
@@ -266,11 +284,11 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
 <p>Now that you have created your Jobs, they are automatically <code>Activated</code> (this make them eligible to a periodically check) and to <code>Imported</code> (this make a forced refresh right now). After some moments and a page refresh, you should see the status of Jobs changed like in screenshot below:</p>
 <img src="/images/sample-jobs.png" class="img-responsive"/>
 <h3 id="viewing-services">Viewing services</h3>
-<p>Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 3 new services with basic informations on version and operations/resources handled by this services.</p>
+<p>Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 5 new services with basic informations on version and operations/resources handled by this services.</p>
 <p><img src="/images/sample-services.png" alt="sample-services"></p>
 <h3 id="viewing-details">Viewing details</h3>
 <p>Now choosing the <b>Petstore API</b> REST API, you&rsquo;ll be able to access details, documentation and request/response samples for each operation/resource in the screen below. One important information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below show request/response couples and a detailed URL with the HTTP verb showing how to invoke this mock.</p>
-<p><img src="/images/sample-details.png%22" alt="sample-details"></p>
+<p><img src="/images/sample-details.png" alt="sample-details"></p>
 <p>Using this URL, you can call the exposed mock for <b>Petstore API</b> using the following curl command:</p>
 <pre><code>$ curl &quot;http://microcks.192.168.64.7.nip.io/rest/Petstore+API/1.0/pet/findByStatus?status=available&amp;user_key=70f735676ec46351c6699c4bb767878a&quot;
 </code></pre><p>And you should receive the following response:</p>
@@ -279,6 +297,7 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>Now that you have basic information on how to setup and use Microcks, you can go further with:</p>
 <ul>
+<li>Pursuing your tour with the <a href="/documentation/getting-started-tests">Getting started with Tests</a>,</li>
 <li>Understanding how Microcks <a href="/documentation/using/alternatives">compare to alternatives</a>,</li>
 <li>Creating your definition files using <a href="/documentation/using/openapi">OpenAPI</a>, <a href="/documentation/using/asyncapi">AsyncAPI</a>, <a href="/documentation/using/soapui">SoapUI</a> or <a href="/documentation/using/postman">Postman</a>,</li>
 <li>Using <a href="/documentation/using/mocks">exposed mocks</a> and using variables,</li>
@@ -303,6 +322,11 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started-tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED WITH TESTS
             </a>
           </li>
           <li class="f6 fw4">
@@ -474,7 +498,7 @@ Installing with Kubernetes Operator We provide an Operator that is distributed t
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Getting started”
-  </a> was last updated: September 2, 2019
+  </a> was last updated: October 19, 2020
 </h6>
 
       <a href="edit/master/content/en/documentation/getting-started.md" class="
@@ -524,6 +548,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
     <a href="https://gitter.im/microcks/microcks?source=orgpage" target="new">
       <img src="/images/gitter.png" class="absolute-l bottom-0 dn db-l h4 right-0 mr2 mb2 z-999"/>
     </a>
+    
 
     <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
     
@@ -539,6 +564,12 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
     <li  class="tl dib ma0 hover-bg-black w-100">
         <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
           Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
         </a>
     </li>
   

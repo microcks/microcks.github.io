@@ -9,12 +9,12 @@
   
   <url>
     <loc>https://microcks.io/documentation/administrating/users/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/documentation/installing/kubernetes/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -40,6 +40,11 @@
   <url>
     <loc>https://microcks.io/documentation/automating/jenkins/</loc>
     <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/getting-started-tests/</loc>
+    <lastmod>2020-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -99,7 +104,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/getting-started/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -138,13 +143,33 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/categories/blog/</loc>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/categories/</loc>
-    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/</loc>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/why-microcks/</loc>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2020-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -158,8 +183,8 @@
   </url>
   
   <url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+    <loc>https://microcks.io/blog/microcks-1.0.0-release/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -168,18 +193,28 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/blog/install-microcks-on-aws/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/resources/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://microcks.io/blog/microcks-0.9.0-release/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/installing/</loc>
-    <lastmod>2020-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/documentation/administrating/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

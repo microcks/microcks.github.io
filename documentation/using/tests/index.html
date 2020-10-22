@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
           
     
 
@@ -55,7 +55,7 @@ From the page displaying basic information on your microservice mocks, you have 
 From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="672">
 
 
 
@@ -65,6 +65,8 @@ From the page displaying basic information on your microservice mocks, you have 
 <meta name="twitter:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."/>
 
+
+      
       
   </head>
   <body class="ma0 sans-serif bg-primary-color-light">
@@ -97,6 +99,16 @@ From the page displaying basic information on your microservice mocks, you have 
             
           <a href="/documentation/" class="dim link light-silver">
             DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
               
             
             
@@ -185,7 +197,15 @@ From the page displaying basic information on your microservice mocks, you have 
   	<nav id="TableOfContents">
   <ul>
     <li><a href="#running-tests">Running tests</a></li>
-    <li><a href="#different-tests-runners">Different tests runners</a></li>
+    <li><a href="#test-parameters">Test parameters</a>
+      <ul>
+        <li><a href="#service-under-test">Service under test</a></li>
+        <li><a href="#test-endpoint">Test Endpoint</a></li>
+        <li><a href="#test-runner">Test Runner</a></li>
+        <li><a href="#timeout">Timeout</a></li>
+        <li><a href="#secret">Secret</a></li>
+      </ul>
+    </li>
     <li><a href="#getting-tests-history-and-details">Getting tests history and details</a></li>
   </ul>
 </nav>
@@ -235,9 +255,18 @@ From the page displaying basic information on your microservice mocks, you have 
 <p>From the page displaying basic information on your <a href="../mocks/#mocks-info">microservice mocks</a>, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <b>NEW TEST&hellip;</b> button, leads you to the following form where you will be able to specify an target URL for test, as well as a Runner - a testing strategy for your new launch :</p>
 <p><img src="/images/test-form.png" alt="test-form"></p>
 <blockquote>
-<p>While it is convenient to launch test &lsquo;on demand&rsquo; manually, it may be interesting to consider launching new tests automatically when a new deployment of the application occurs for example&hellip; Microcks allows you such automation by offering API for ease of integration. See [here](../../contributing/api/&ldquo;&gt; for more details).</p>
+<p>While it is convenient to launch test <code>on demand</code> manually, it may be interesting to consider launching new tests automatically when a new deployment of the application occurs for example&hellip; Microcks allows you such automation by offering API for ease of integration. See <a href="../../automating/api/">here</a> for more details).</p>
 </blockquote>
-<h2 id="different-tests-runners">Different tests runners</h2>
+<h2 id="test-parameters">Test parameters</h2>
+<h3 id="service-under-test">Service under test</h3>
+<p><strong>Service under test</strong> is simply the reference of the API/Service specification we&rsquo;d like to test. This a couple of <code>Service Name</code> and <code>Service Version</code>.</p>
+<h3 id="test-endpoint">Test Endpoint</h3>
+<p>The <strong>Test Endpoint</strong> is simply a URI where a deployed component is providing API specification endpoint. In the testing litterature, this is usually defined as the URI of the <a href="https://en.wikipedia.org/wiki/System_under_test">System Under Test</a>.</p>
+<p>For HTTP based APIs (REST or SOAP), this is a simple URL that should respect following pattern:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">http<span class="o">[</span>s<span class="o">]</span>://<span class="o">{</span>service.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>service.path<span class="o">}</span>
+</code></pre></div><p>For Event based API through <a href="../asyncapi">Async API</a> testing, here is below the list of supported patterns depending on the protocole binding you&rsquo;d like to test:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">kafka://<span class="o">{</span>kafka.broker.url:port<span class="o">}</span>/<span class="o">{</span>kafka.topic.name<span class="o">}</span>
+</code></pre></div><h3 id="test-runner">Test Runner</h3>
 <p>As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as <b>Test Runners</b>. Here are the default Test Runners available within Microcks:</p>
 <table>
 <thead>
@@ -273,8 +302,17 @@ From the page displaying basic information on your microservice mocks, you have 
 <td>REST</td>
 <td>When the microservice mock repository is defined using <a href="../openapi">Open API</a>: it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.</td>
 </tr>
+<tr>
+<td><code>ASYNC_API_SCHEMA</code></td>
+<td>EVENT</td>
+<td>When the microservice mock repository is defined using <a href="../asyncapi">Async API</a>: it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / AsyncAPI schema specified into AsyncAPI specification.</td>
+</tr>
 </tbody>
 </table>
+<h3 id="timeout">Timeout</h3>
+<p>Depending on the type of Service or Tests you are running, the specification of a <strong>Timeout</strong> maybe mandatory. This is a numerical value expressed in millieseconds.</p>
+<h3 id="secret">Secret</h3>
+<p>Depending on the Test Endpoint you are connecting to, you may need additional authenticatoin information - like credentials or custom X509 Certificates. You may reuse <a href="../administrating/secrets">External Secrets</a> that has been made available in the Microcks installation by the admnistrator.</p>
 <h2 id="getting-tests-history-and-details">Getting tests history and details</h2>
 <p>Tests history for an API/Service is easily accessible from the microservice <a href="../mocks/#mocks-info">summary page</a>. Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.</p>
 <p><img src="/images/test-history.png" alt="test-history"></p>
@@ -298,6 +336,11 @@ From the page displaying basic information on your microservice mocks, you have 
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started-tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED WITH TESTS
             </a>
           </li>
           <li class="f6 fw4">
@@ -519,6 +562,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
     <a href="https://gitter.im/microcks/microcks?source=orgpage" target="new">
       <img src="/images/gitter.png" class="absolute-l bottom-0 dn db-l h4 right-0 mr2 mb2 z-999"/>
     </a>
+    
 
     <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
     
@@ -534,6 +578,12 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
     <li  class="tl dib ma0 hover-bg-black w-100">
         <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
           Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
         </a>
     </li>
   

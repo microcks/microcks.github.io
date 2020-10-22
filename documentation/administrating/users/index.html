@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.e3091d3b996f8a0f510a3444ac9c3462dffa83c90590d20738d343c1326fb943.css" integrity="sha256-4wkdO5lvig9RCjRErJw0Yt/6g8kFkNIHONNDwTJvuUM=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
           
     
 
@@ -49,13 +49,13 @@ Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShi
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/administrating/users/" />
 <meta property="article:published_time" content="2019-11-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-09T00:00:00+00:00" />
 <meta itemprop="name" content="Managing Users">
 <meta itemprop="description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
 Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm.">
 <meta itemprop="datePublished" content="2019-11-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-11-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="670">
+<meta itemprop="dateModified" content="2020-10-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="681">
 
 
 
@@ -65,6 +65,8 @@ Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShi
 <meta name="twitter:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
 Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm."/>
 
+
+      
       
   </head>
   <body class="ma0 sans-serif bg-primary-color-light">
@@ -97,6 +99,16 @@ Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShi
             
           <a href="/documentation/" class="dim link light-silver">
             DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
               
             
             
@@ -233,7 +245,7 @@ Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShi
 
 <h2 id="introduction">Introduction</h2>
 <p>Since its inception, Microcks relies on a third party component named <a href="https://www.keycloak.org">Keycloak</a> for managing security related topics like users identification, users  authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a <a href="../automating/service-account">dedicated page</a>.</p>
-<p>Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm">realm</a>. We provide a sample of such a realm configuration that can be imported into your instance <a href="https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json">here</a>.</p>
+<p>Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a <strong>realm</strong>. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm">realm</a>. We provide a sample of such a realm configuration that can be imported into your instance <a href="https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json">here</a>.</p>
 <p>Basically, Microcks own components only need the reference of the Keycloak instance endpoint - the URL with <code>/auth</code> suffix - into an environment variable called <code>KEYCLOAK_URL</code>.</p>
 <h2 id="authentication">Authentication</h2>
 <p>Authentication in Microcks is indeed delegated to the configured Keycloak instance using the <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#authorization-code-flow">OpenID Connect Authorization Code Flow</a>. The Keycloak instance can be used as the direct source of user&rsquo;s Identity or can be used as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker">a broker for one or more</a> configured Identity Providers.</p>
@@ -252,7 +264,7 @@ keycloak.resource=microcks-app
 keycloak.bearer-only=true
 keycloak.ssl-required=external
 </code></pre><h2 id="authorization">Authorization</h2>
-<p>Microcks realm typically defines 3 application roles that are defined as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#realm-roles">realm roles</a> on the Keycloak side.</p>
+<p>Microcks realm typically defines 3 application roles that are defined as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#client-roles">client roles</a> on the Keycloak side. Theses roles are attached to the <code>microcks-app</code> client application.</p>
 <p>These roles are:</p>
 <ul>
 <li><code>user</code>: a regular authenticated user of the Microcks application. This is the default role that is automatically attached the first time a user succeed authenticating into the Microcks app,</li>
@@ -263,7 +275,10 @@ keycloak.ssl-required=external
 <h3 id="technical-notes-1">Technical notes</h3>
 <p>Whilst checks on the client side is disseminated into the pages code, endpoints authorization on the server side is centralized into the <code>application.properties</code> configuration file. This file is usually supplied as a <code>ConfigMap</code> into containerized environments.</p>
 <p>See an excerpt below:</p>
-<pre><code class="language-properties" data-lang="properties"># Keycloak access configuration properties
+<pre><code class="language-properties" data-lang="properties">keycloak.resource=microcks-app
+keycloak.use-resource-role-mappings=true
+
+# Keycloak access configuration properties
 keycloak.security-constraints[0].authRoles[0]=admin
 keycloak.security-constraints[0].authRoles[1]=manager
 keycloak.security-constraints[0].authRoles[2]=user
@@ -295,6 +310,11 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started-tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED WITH TESTS
             </a>
           </li>
           <li class="f6 fw4">
@@ -466,7 +486,7 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Managing Users”
-  </a> was last updated: November 19, 2019
+  </a> was last updated: October 9, 2020
 </h6>
 
       <a href="edit/master/content/en/documentation/administrating/users.md" class="
@@ -516,6 +536,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
     <a href="https://gitter.im/microcks/microcks?source=orgpage" target="new">
       <img src="/images/gitter.png" class="absolute-l bottom-0 dn db-l h4 right-0 mr2 mb2 z-999"/>
     </a>
+    
 
     <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
     
@@ -531,6 +552,12 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
     <li  class="tl dib ma0 hover-bg-black w-100">
         <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
           Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
         </a>
     </li>
   
