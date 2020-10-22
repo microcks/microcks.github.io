@@ -15,7 +15,7 @@
      <meta name="generator" content="Hugo 0.74.3" />
 
       
-        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       
 
     
@@ -76,9 +76,33 @@ where [command] can be one of the following:
 
 
       
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
       
   </head>
-  <body class="ma0 sans-serif bg-primary-color-light">
+  <body class="ma0 sans-serif bg-primary-color-light production">
     
 <nav class="bg-primary-color-dark pv4 w-100" role="navigation">
 
