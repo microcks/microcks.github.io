@@ -44,26 +44,26 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Installing with OpenShift templates" />
-<meta property="og:description" content="Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
- Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page." />
+<meta property="og:description" content="Warning OpenShift Templates support has been removed since Microcks 1.1.0 release. Whilst being convenient, teamplates are a burden to maintain and we now have more robusts, easy-to-use installation process using Helm Charts or Microcks Operator. Though we recommend swithing to these methods. OpenShift Templates can still be found under 1.0.0 tag in the GitHub repository. We&rsquo;ll keep this page here intentionally for a few months.
+ Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/openshift/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-04-15T00:00:00+00:00" />
 <meta itemprop="name" content="Installing with OpenShift templates">
-<meta itemprop="description" content="Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
- Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page.">
+<meta itemprop="description" content="Warning OpenShift Templates support has been removed since Microcks 1.1.0 release. Whilst being convenient, teamplates are a burden to maintain and we now have more robusts, easy-to-use installation process using Helm Charts or Microcks Operator. Though we recommend swithing to these methods. OpenShift Templates can still be found under 1.0.0 tag in the GitHub repository. We&rsquo;ll keep this page here intentionally for a few months.
+ Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-04-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="780">
+<meta itemprop="wordCount" content="845">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing with OpenShift templates"/>
-<meta name="twitter:description" content="Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
- Full blown OpenShift cluster at your site, see how to Install OpenShift at your site, Red Hat Container Development Kit on your laptop, see how to Get Started with CDK, Lightweight Minishift on your laptop, see Minishift project page."/>
+<meta name="twitter:description" content="Warning OpenShift Templates support has been removed since Microcks 1.1.0 release. Whilst being convenient, teamplates are a burden to maintain and we now have more robusts, easy-to-use installation process using Helm Charts or Microcks Operator. Though we recommend swithing to these methods. OpenShift Templates can still be found under 1.0.0 tag in the GitHub repository. We&rsquo;ll keep this page here intentionally for a few months.
+ Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift."/>
 
 
       
@@ -266,6 +266,10 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
+<blockquote>
+<p><strong>Warning</strong> OpenShift Templates support has been removed since Microcks 1.1.0 release. Whilst being convenient, teamplates are a burden to maintain and we now have more robusts, easy-to-use installation process using <a href="./kubernetes">Helm Charts</a> or Microcks <a href="./operator">Operator</a>.
+Though we recommend swithing to these methods. OpenShift Templates can still be found under <code>1.0.0</code> tag in the GitHub repository. We&rsquo;ll keep this page here intentionally for a few months.</p>
+</blockquote>
 <h2 id="instructions">Instructions</h2>
 <p>The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:</p>
 <ul>
@@ -280,10 +284,10 @@ var trackOutboundLink = function(id, url) {
 <h2 id="openshift-4x">OpenShift 4.x</h2>
 <p>In OpenShift 4.x we reduced the number of flavours as HTTPS is now considered as mandatory. Also we no longer configure the OpenShift Identity Provider into the Keycloak instance when deploying it, thus you&rsquo;ll do not need <code>cluster-admin</code> privileges anymore to install Microcks. The templates for OCP 4 all have the <code>-ocp4</code> suffix.</p>
 <p>Add the templates, by using these commands :</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template-https-ocp4.yml 
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-no-keycloak-template-https-ocp4.yml 
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template-https-ocp4.yml 
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template-https-ocp4.yml 
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-full-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-no-keycloak-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-full-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-no-keycloak-template-https-ocp4.yml 
 </code></pre></div><p>Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:</p>
 <ul>
 <li>the hostname for routes serving Microcks and embedded Keycloak (typically <code>component_name-project-app_domain</code>),</li>
@@ -299,14 +303,14 @@ $ oc new-app --template<span class="o">=</span>microcks-persistent <span class="
 <h2 id="openshift-3x">OpenShift 3.x</h2>
 <p>Templates for OpenShift 3.x come in many flavors: ephemeral or persistent, with or without Keycloak installation, with or without HTTPS support. With OpenShift 3.x, instanciating a template embedding Keycloak will require <code>cluster-admin</code> privileges as we configure the OpenShift Identity Provider by default and need to create an OAuth client for that. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster.</p>
 <p>Add the templates, by using these commands :</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template-https.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-no-keycloak-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-no-keycloak-template-https.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template-https.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template-https.yml -n openshift
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-full-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-full-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-no-keycloak-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-no-keycloak-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-full-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-full-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-no-keycloak-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-no-keycloak-template-https.yml -n openshift
 </code></pre></div><p>Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:</p>
 <ul>
 <li>the hostname for routes serving Microcks and embedded Keycloak (typically <code>component_name-project-app_domain</code>),</li></li>
