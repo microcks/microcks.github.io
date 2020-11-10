@@ -6,10 +6,20 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Microcks 1.1.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.1.0-release/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.1.0-release/</guid>
+      <description>We are very thrilled to announce today Microcks 1.1.0 release — the Open source Kubernetes-native tool for API Mocking and Testing. What a ride it has been over the last months since 1.0.0 release and our announcement of AsyncAPI support !
+We received a huge amount of positive feedback from our community including many newcomers. So we took the time to come back and explain where we are coming from and what is our project purpose: see the &amp;ldquo;Why Microcks ?</description>
+    </item>
     
     <item>
       <title>Why Microcks?</title>
