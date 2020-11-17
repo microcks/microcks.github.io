@@ -143,27 +143,32 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/blog/apache-kafka-mocking-testing/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/categories/blog/</loc>
-    <lastmod>2020-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/categories/</loc>
-    <lastmod>2020-11-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/blog/microcks-1.1.0-release/</loc>
-    <lastmod>2020-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/blog/</loc>
-    <lastmod>2020-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/microcks-1.1.0-release/</loc>
     <lastmod>2020-11-09T00:00:00+00:00</lastmod>
   </url>
   
