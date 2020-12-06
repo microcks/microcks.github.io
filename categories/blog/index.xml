@@ -17,7 +17,7 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/blog/continuous-testing-all-your-apis/</guid>
-      <description>We talk a lot about asynchronous API lately at Microcks! We added a lot of new innovative features taking advantage of the AsyncAPI specification. These are nice additions but we do not want them to hide the foundational essence of Microcks: offering you a consistent approach whatever the type of API. See our Why Microcks ? post for a refresher.
+      <description>We talk a lot about asynchronous API lately at Microcks! We added many new innovative features taking advantage of the AsyncAPI specification. These are nice additions but we do not want them to hide the foundational essence of Microcks: offering you a consistent approach whatever the type of API. See our Why Microcks ? post for a refresher.
 With this post we want to demonstrate how traditional REST API and event-based API can be used together and how Microcks can leverage your OpenAPI and AsyncAPI assets to ease the testing of scenarios involving both of them.</description>
     </item>
     
