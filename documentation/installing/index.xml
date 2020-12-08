@@ -47,7 +47,12 @@ At time of writing, Microcks only define one cutomer resource that is called the
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/docker-compose/</guid>
-      <description>Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&amp;rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:</description>
+      <description>Docker Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer.
+Usage To get started, make sure you have Docker installed on your system.
+In your terminal issue the following commands:
+  Clone this repository.
+git clone https://github.com/microcks/microcks.git   Change to the install folder
+cd microcks/install/docker-compose   Spin up the containers</description>
     </item>
     
   </channel>

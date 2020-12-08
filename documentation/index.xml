@@ -27,9 +27,12 @@ If you have not do it in previous step, you will need to load one of Microcks sa
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/getting-started/</guid>
-      <description>Getting started On this page, you will go through :
- Installing Microcks, Using Microcks, Going further&amp;hellip;  Installing Microcks Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
-Installing with Kubernetes Operator We provide an Operator that is distributed through OperatorHub.io for easy install and management of Microcks as a Kubernetes-native application.</description>
+      <description>Quickstart The easiest way to get started is using Docker Compose to start the minimal requirements. Make sure you have Docker installed on your system.
+In your terminal issue the following commands:
+  Clone this repository.
+git clone https://github.com/microcks/microcks.git   Change to the install folder
+cd microcks/install/docker-compose   Spin up the containers
+docker-compose up -d   This will start the required containers and setup an simple environment for your usage.</description>
     </item>
     
   </channel>

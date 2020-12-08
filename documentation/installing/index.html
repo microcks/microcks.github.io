@@ -48,7 +48,7 @@
 <meta property="og:description" content="Microcks.io" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/" />
-<meta property="og:updated_time" content="2020-10-12T00:00:00+00:00" />
+<meta property="og:updated_time" content="2020-12-08T00:00:00+00:00" />
 <meta itemprop="name" content="Installing">
 <meta itemprop="description" content="Microcks.io">
 <meta name="twitter:card" content="summary"/>
@@ -286,7 +286,12 @@ At time of writing, Microcks only define one cutomer resource that is called the
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Localhost installation For those of you familiar with simple Docker Compose, a docker-compose file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we&rsquo;ve have prepared a sole script that takes care of generating everything in a local /keystore folder. Just follow this procedure:
+                                                Docker Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer.
+Usage To get started, make sure you have Docker installed on your system.
+In your terminal issue the following commands:
+  Clone this repository.
+git clone https://github.com/microcks/microcks.git   Change to the install folder
+cd microcks/install/docker-compose   Spin up the containers
                                             
                                     
                                             <a href="/documentation/installing/docker-compose/" class="f6 mt2 db link primary-color dim">
