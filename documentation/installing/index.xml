@@ -6,7 +6,7 @@
     <description>Recent content in Installing on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
     
@@ -53,6 +53,17 @@ In your terminal issue the following commands:
   Clone this repository.
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers</description>
+    </item>
+    
+    <item>
+      <title>Architecture and deployment options</title>
+      <link>https://microcks.io/documentation/installing/deployment-options/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/installing/deployment-options/</guid>
+      <description>Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
+High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.</description>
     </item>
     
   </channel>

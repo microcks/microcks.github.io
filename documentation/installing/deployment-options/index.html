@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Automating | Microcks.io</title>
+    <title>Architecture and deployment options | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.74.3" />
@@ -18,7 +18,6 @@
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       
 
-    <link rel="alternate" type="application/rss&#43;xml" href="https://microcks.io/documentation/automating/index.xml">
     
     
       <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
@@ -44,16 +43,30 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Automating" />
-<meta property="og:description" content="Microcks.io" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://microcks.io/documentation/automating/" />
-<meta property="og:updated_time" content="2020-10-01T00:00:00+00:00" />
-<meta itemprop="name" content="Automating">
-<meta itemprop="description" content="Microcks.io">
+<meta property="og:title" content="Architecture and deployment options" />
+<meta property="og:description" content="Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
+High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/installing/deployment-options/" />
+<meta property="article:published_time" content="2020-12-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-15T00:00:00+00:00" />
+<meta itemprop="name" content="Architecture and deployment options">
+<meta itemprop="description" content="Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
+High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.">
+<meta itemprop="datePublished" content="2020-12-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-12-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="898">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Automating"/>
-<meta name="twitter:description" content="Microcks.io"/>
+<meta name="twitter:title" content="Architecture and deployment options"/>
+<meta name="twitter:description" content="Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
+High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration."/>
 
 
       
@@ -202,130 +215,128 @@ var trackOutboundLink = function(id, url) {
     
     <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
       
-
-<article class="w-100 ph3 pb5">
+  <article class="w-100 ph3 pb5">
     <div class="flex-l">
-        <div class="order-1 w-60-l mw8 ph0 ph4-ns">
-            <div class="w-100 ph4 pb5 pb6-ns pt1 mt4">
-                <div class="w-100 w-80-l ph0 ph4-l">
-                    <article class="w-100 nested-copy-line-height nested-links nested-img">
-                        <h1 class="primary-color-dark f2">
-                            Automating
-                        </h1>
-                        <div class=" mid-gray f5 f4-l">
-                            <p>Here below all the documentation pages related to <strong>Automation</strong>.</p>
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#high-level-architecture">High-level Architecture</a>
+      <ul>
+        <li><a href="#complete-architecture">Complete architecture</a></li>
+      </ul>
+    </li>
+    <li><a href="#deployment-options">Deployment Options</a>
+      <ul>
+        <li><a href="#everything-managed-by-microcks">Everything managed by Microcks</a></li>
+        <li><a href="#partially-managed-by-microcks">Partially managed by Microcks</a></li>
+        <li><a href="#the-kafka-broker-of-your-choice">The Kafka broker of your choice</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	
 
-                        </div>
-                    </article>
-                
-                    
-                
-                    <div class="flex flex-wrap">
-                        
-                        <section class="flex-ns flex-wrap justify-between w-100">
-                            
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/automating/service-account/" class="link primary-color dim">Microcks Service Accounts</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak.
-                                            
-                                    
-                                            <a href="/documentation/automating/service-account/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/automating/jenkins/" class="link primary-color dim">Integrating Microcks from Jenkins</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
-Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.
-                                            
-                                    
-                                            <a href="/documentation/automating/jenkins/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/automating/cli/" class="link primary-color dim">CLI for Microcks</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
-The CLI makes usage of Microcks Service Account so it&rsquo;s defintely worth the read ;-)
-Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:
- version to check this CLI version, help to display usage informations, test to launch new test on Microcks server.
-                                            
-                                    
-                                            <a href="/documentation/automating/cli/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/automating/tekton/" class="link primary-color dim">Using Microcks from Tekton</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                Microcks Tekton The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines. Microcks makes use of its CLI undercover and provides some Tasks and exemple Pipelines with the /tekton folder of this repository. It also makes usage of Microcks Service Account so it&rsquo;s defintely worth the read ;-)
-Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task for testing with Microcks. You may remove default values for parameters or put your own here.
-                                            
-                                    
-                                            <a href="/documentation/automating/tekton/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/automating/api/" class="link primary-color dim">Microcks API</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                Microcks own&rsquo;s API As a tool focused on APIs, Microcks also offers its own API that allows you to query its datastore and control the import jobs and configuration objects. You may use this API from your automation tool to dynamically launch new tests, register new mocks or globally control your Microcks server configuration.
-The Swagger-UI below allows you to browse and discover the various API endpoints.
-iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth : false, widthCalculationMethod : 'rightMostElement' }); var shortcode_url = "
-                                            
-                                    
-                                            <a href="/documentation/automating/api/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            
-                        </section>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-        <div class="order-0 w-20 dn db-l mt4 ph3">
+	<div date-pref>
+		
+			<a href="https://microcks.io/documentation/installing/docker-compose/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Installing with docker-compose ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+
+		
+	</div>
+
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Architecture and deployment options</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+<h2 id="introduction">Introduction</h2>
+<p>Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.</p>
+<h2 id="high-level-architecture">High-level Architecture</h2>
+<p>As its simplest form, Microcks architecture is made of 4 components that are:</p>
+<ul>
+<li>The Microcks main web application (also called <code>webapp</code>) that holds the UI resources as well as API endpoints,</li>
+<li>Its associated MongoDB database for holding your data such as repository of <strong>API | Services</strong> and <strong>Tests</strong>,</li>
+<li>A Microcks Postman runtime (<code>microcks-postman-runtime</code>) that allow the execution of Postman Collection tests and calls back Microcks for storing results,</li>
+<li>A <a href="https://keycloak.org">Keycloak</a> instance that holds the authentication mechanisms and identity provider integration.</li>
+</ul>
+<p>The schema below illustrates this architecture and the relations between components. You&rsquo;ll see that users are accessing the main <code>webapp</code> either from their browser to see the console or from the <a href="../../automating/cli">CLI</a> or any other application using the API endpoints.</p>
+<img src="/images/architecture-simple.png" class="img-responsive"/>
+<blockquote>
+<p>For sake of simplicity we do not represent here the PostgreSQL (or other database) thay may be associated with Keycloak.</p>
+</blockquote>
+<p>Your can deploy this simple architecture whatever the installation method you pick: from <a href="../docker-compose">Docker Compose</a> to fully featured <a href="../operator">Operator</a>.</p>
+<h3 id="complete-architecture">Complete architecture</h3>
+<p>Since the <a href="../../../blog/microcks-1.0.0-release">1.0.0 release</a> when we introduced asyncchronous API support, there&rsquo;s a much complete form of architecture that takes place when you enabled the asynchronous API feature.</p>
+<p>To support this, we rely on 2 additional components:</p>
+<ul>
+<li>The Microcks Async Minion (<code>microcks-async-minion</code>) is a component responsible for publishing mock messages corresponding to <a href="../../using/asyncapi">AsyncAPI</a> definitions. It retrieved theses definitions from Microcks <code>webapp</code> at startup and then listens to a Kafka topic for changes on theses definitions,</li>
+<li>An <a href="https://kafka.apache.org">Apache Kafka</a> broker that holds our private topic for changes and the public topics that will be used to publish mock messages by the <code>microcks-async-minion</code>.</li>
+</ul>
+<p>Because since the <a href="../../../blog/microcks-1.1.0-release">1.1.0 release</a> we are now also able to test AsyncAPI events, the <code>microcks-async-minion</code> will also be likely to connect to outer message broker topics or queues in order to listen to incoming events and validate them.</p>
+<p>The schema below represents this full-featured architecture with connection to outer brokers. We represented Kafka ones (<code>X</code> broker) as well as broker from other protocols with respect to our roadmap. 😉</p>
+<img src="/images/architecture-full.png" class="img-responsive"/>
+<blockquote>
+<p>For sake of simplicity we do not represent here the Zookeeper ensemble thay may be associated with Kafka.</p>
+</blockquote>
+<p>This complete architecture cannot be deployed using Docker Compose that only brings a subset of features. We rely on Kubernetes for deploying it and you will have to use our <a href="../kubernetes">Helm Chart</a> or <a href="../operator">Operator</a> installation methods for that.</p>
+<h2 id="deployment-options">Deployment Options</h2>
+<p>At this point, you should have a better vision on Microcks architecture and should be wondering: should I deploy this as a monolith? Not at all, we provide different deployment options to better suit your environment.</p>
+<h3 id="everything-managed-by-microcks">Everything managed by Microcks</h3>
+<p>Of course - when starting from scratch - the simplest way of deploying Microcks is to use our <a href="../kubernetes">Helm Chart</a> or <a href="../operator">Operator</a> that will handle the setup of all required dependencies for you. All the components from the architecture are setup through community container images or operators like the excellent <a href="https://strimzi.io">Strimzi Operator</a>.</p>
+<p>This setup makes things easy to start and easy to drop: everything is placed under a single Kubernetes namespace as illustrated into the schema below:</p>
+<img src="/images/deployment-all-managed.png" class="img-responsive"/>
+<blockquote>
+<p>Helm Chart or Operator? I would say it depends&hellip; 😉 Operator will handle more complex lifecycle and update procedures as weel as tuning operations in the future. While Helm Chart will remain easier for simple &ldquo;throwable&rdquo; setup.</p>
+</blockquote>
+<h3 id="partially-managed-by-microcks">Partially managed by Microcks</h3>
+<p>Aside this all-in-one approache, you may also use boths installation method to pick the components you want Microcks to install and the other existing one you may want Microcks to connect to. You will have the following options:</p>
+<ul>
+<li>Do not deploy a MongoDB database and reuse an existing one. For that, put the <code>mongodb.install</code> flag to <code>false</code> and specify a <code>mongodb.url</code>, a <code>mongodb.database</code> as well as credentials and that&rsquo;s it!</li>
+<li>Do not deploy a Keycloak instance and reuse an existing one. For that, put the <code>keycloak.install</code> flag to <code>false</code> and specify a <code>keycloak.url</code> and a <code>keycloak.realm</code> and that&rsquo;s it! Optionally you may want to specify a <code>keycloak.privateUrl</code> so that security token trusintg will be done without hopping through a publicly reachable URL.</li>
+<li>Do not deploy a Kafka nstance and reuse an existing one. For that, put the <code>kafka.install</code> flag to <code>false</code> and specify a <code>kafka.url</code> and that&rsquo;s it!</li>
+</ul>
+<img src="/images/deployment-partially-managed.png" class="img-responsive"/>
+<blockquote>
+<p>Reusing already deployed components may allow you to lower operational costs if you&rsquo;re using shared instances. It can also allow you to reuse managed services that may be provided by your favorite cloud vendor.</p>
+</blockquote>
+<h3 id="the-kafka-broker-of-your-choice">The Kafka broker of your choice</h3>
+<p>Whilst it may seem obvious to certain people, it can be useful to recall that Microcks-Kafka interactions are not tied to a particular Kafka vendor.</p>
+<p>Whatever your Kafka vendor or your different Kafka vendors - be it vanilla Kafka, Confluent platform, Amazon MSK or Red Hat AMQ - Microcks will be able to connect and use them as source for testing your event-driven API. We will just need 2 test parameters for that:</p>
+<ul>
+<li><code>testEndpointUrl</code>: a connection string to a remote broker including destination and authentication options,</li>
+<li><code>testSecret</code>: a Secret provided by Microcks administrator that will provide authentication credentials such as user, password and certificates.</li>
+</ul>
+<p>The schema below illustrates non exhaustive options:</p>
+<img src="/images/deployment-brokers.png" class="img-responsive"/>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
         
 <nav role="navigation">
   <ul class="list pa0 nl2">
@@ -413,8 +424,8 @@ iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth 
       </li>
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
-        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING ON KUBERNETES
@@ -436,7 +447,7 @@ iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth 
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               ARCHITECTURE AND DEPLOYMENT OPTIONS
             </a>
           </li>
@@ -505,9 +516,31 @@ iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth 
   </ul>
 </nav>
 
-        </div>
+      </div>
     </div>
-</article>
+
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/installing/deployment-options/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “Architecture and deployment options”
+  </a> was last updated: December 15, 2020
+</h6>
+
+      <a href="edit/master/content/en/documentation/installing/deployment-options.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
 
     </main>
 

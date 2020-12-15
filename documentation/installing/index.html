@@ -48,7 +48,7 @@
 <meta property="og:description" content="Microcks.io" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/" />
-<meta property="og:updated_time" content="2020-12-08T00:00:00+00:00" />
+<meta property="og:updated_time" content="2020-12-15T00:00:00+00:00" />
 <meta itemprop="name" content="Installing">
 <meta itemprop="description" content="Microcks.io">
 <meta name="twitter:card" content="summary"/>
@@ -301,6 +301,25 @@ cd microcks/install/docker-compose   Spin up the containers
                                     </div>
                                 </div>
                                 
+                                <div class="relative  weight-90">
+                                    <div class="bg-white mb2 pa3 pa4-l gray">
+                                        <h1 class="near-black f3">
+                                            <a href="/documentation/installing/deployment-options/" class="link primary-color dim">Architecture and deployment options</a>
+                                        </h1>
+                                        <div class="lh-copy links">
+                                            
+                                                Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
+High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.
+                                            
+                                    
+                                            <a href="/documentation/installing/deployment-options/" class="f6 mt2 db link primary-color dim">
+                                            Read More &raquo;
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             
                         </section>
                     </div>
@@ -416,6 +435,11 @@ cd microcks/install/docker-compose   Spin up the containers
           <li class="f6 fw4">
             <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING WITH DOCKER-COMPOSE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ARCHITECTURE AND DEPLOYMENT OPTIONS
             </a>
           </li>
         </ul>
