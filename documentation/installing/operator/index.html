@@ -55,7 +55,7 @@ At time of writing, Microcks only define one cutomer resource that is called the
 At time of writing, Microcks only define one cutomer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.">
 <meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="470">
+<meta itemprop="wordCount" content="494">
 
 
 
@@ -315,16 +315,18 @@ var trackOutboundLink = function(id, url) {
 <p>Start cloning this repos and then, optionnally, create a new project:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks-ansible-operator.git
 $ <span class="nb">cd</span> microcks-ansible-operator/
-$ oc new-project microcks-operator
+$ kubectl create namespace microcks
 </code></pre></div><p>Then, from this repository root directory, create the specific CRDS and resources needed for Operator:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f deploy/crds/microcks_v1alpha1_microcksinstall_crd.yaml
-$ oc create -f deploy/service_account.yaml 
-$ oc create -f deploy/role.yaml
-$ oc create -f deploy/role_binding.yaml 
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create -f deploy/crds/microcks_v1alpha1_microcksinstall_crd.yaml
+$ kubectl create -f deploy/service_account.yaml -n microcks
+$ kubectl create -f deploy/role.yaml -n microcks
+$ kubectl create -f deploy/role_binding.yaml -n microcks 
 </code></pre></div><p>Finally, deploy the operator:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc create -f deploy/operator.yaml
-</code></pre></div><p>Wait a minute or two and check everything is running:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ oc get pods                                                                                                                                 
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create -f deploy/operator.yaml -n microcks
+</code></pre></div><p>Wait a minute or two for the deployment to be ready:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">kubectl <span class="nb">wait</span> --for<span class="o">=</span><span class="nv">condition</span><span class="o">=</span>available --timeout<span class="o">=</span>600s deployment/microcks-ansible-operator -n microcks
+</code></pre></div><p>Finally, check everything is running:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get pods -n microcks                               
 NAME                                        READY     STATUS    RESTARTS   AGE
 microcks-ansible-operator-f58b97548-qj26l   1/1       Running   <span class="m">0</span>          3m
 </code></pre></div><p>Now just create a <code>MicrocksInstall</code> CR!</p>
