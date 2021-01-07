@@ -58,7 +58,7 @@ Supported formats As previously introduced, Microcks &amp;ldquo;turns out your A
       <guid>https://microcks.io/documentation/using/advanced/templates/</guid>
       <description>Introduction Whilst we deeply think that &amp;ldquo;real-world&amp;rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
 Those use-case encompass:
- random numbers that may be defined in a range, today&amp;rsquo;s date or today&amp;rsquo;s + an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduce in Microcks 0.</description>
+ random numbers that may be defined in a range, today&amp;rsquo;s date or today&amp;rsquo;s + an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0.</description>
     </item>
     
     <item>
