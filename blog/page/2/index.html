@@ -48,7 +48,7 @@
 <meta property="og:description" content="This is meta description" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/blog/" />
-<meta property="og:updated_time" content="2020-12-05T00:00:00+00:00" />
+<meta property="og:updated_time" content="2021-01-28T00:00:00+00:00" />
 <meta itemprop="name" content="Microcks Blog">
 <meta itemprop="description" content="This is meta description">
 <meta name="twitter:card" content="summary"/>
@@ -214,13 +214,13 @@ var trackOutboundLink = function(id, url) {
   <div class="w-60 w-70-ns w-90-xs center pv3">
     <div class="flex-ns flex-wrap center mw9">
       <div class="w-50 w-50-ns w-90-xs ph3 pt5 pv1-xs">
-        <img src="/images/blog/continuous-testing-all-your-apis-pipeline.png" alt="Continuous Testing of ALL your APIs" class="img-fluid w-100 br3" style="object-fit: cover; border: 1px solid #ffffff;">
+        <img src="/images/blog/advanced-dispatching-constraints.jpg" alt="Advanced Dispatching and Constraints for mocks" class="img-fluid w-100 br3" style="object-fit: cover; border: 1px solid #ffffff;">
       </div>
       <div class="w-50 w-50-ns w-90-xs ph3">
-        <h2><a href="https://microcks.io/blog/continuous-testing-all-your-apis/" class="post-link">Continuous Testing of ALL your APIs</a></h2>
-        <p class="f5" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">We talk a lot about asynchronous API lately at Microcks! We added many new innovative features taking advantage of the AsyncAPI specification. These are nice additions but we do not want them to hide the foundational essence of Microcks: offering you a consistent approach whatever the type of API. See our Why Microcks ? post for a refresher.
-With this post we want to demonstrate how traditional REST API and event-based API can be used together and how Microcks can leverage your OpenAPI and AsyncAPI assets to ease the testing of scenarios involving both of them.</p>
-        <a href="https://microcks.io/blog/continuous-testing-all-your-apis/" class="f5 link tc v-mid bg-accent-color-light white ph2 pv2 br3 fem">Read More</a>
+        <h2><a href="https://microcks.io/blog/advanced-dispatching-constraints/" class="post-link">Advanced Dispatching and Constraints for mocks</a></h2>
+        <p class="f5" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have complete examples on how to use them!
+So I setup this new example based on a real life use-case our community users have submitted.</p>
+        <a href="https://microcks.io/blog/advanced-dispatching-constraints/" class="f5 link tc v-mid bg-accent-color-light white ph2 pv2 br3 fem">Read More</a>
       </div>
     </div>
   </div>
@@ -229,6 +229,20 @@ With this post we want to demonstrate how traditional REST API and event-based A
   <div class="w-60 w-70-ns w-90-xs center pv5">
     <h3 class="pv2 pv0-xs">Previous posts</h3>
     <div class="flex-ns flex-wrap center mw9 pv2">
+    
+    
+      <div class="w-33 w-33-ns w-90-xs ph3 pv3-xs">
+        
+        <img src="/images/blog/microcks-1.1.0-kafka.png" alt="Microcks 1.1.0 release 🚀" class="br3" style="object-fit: cover; height: 140px; border: 1px solid #ffffff;">
+        
+        <div class="card-body p-0">
+          <h4><a href="https://microcks.io/blog/microcks-1.1.0-release/" class="post-link">Microcks 1.1.0 release 🚀</a></h4>
+          <p class="f6" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">We are very thrilled to announce today Microcks 1.1.0 release — the Open source Kubernetes-native tool for API Mocking and Testing. What a ride it has been over the last months since 1.0.0 release and our announcement of AsyncAPI support !
+We received a huge amount of positive feedback from our community including many newcomers. So we took the time to come back and explain where we are coming from and what is our project purpose: see the &ldquo;Why Microcks ?</p>
+          <a href="https://microcks.io/blog/microcks-1.1.0-release/" class="home-link">Read More</a>
+        </div>
+      </div>
+    
     
     
       <div class="w-33 w-33-ns w-90-xs ph3 pv3-xs">
@@ -271,21 +285,6 @@ This will give you a Microcks installation on an AWS EC2 instance running Ubuntu
       </div>
     
     
-    
-      <div class="w-33 w-33-ns w-90-xs ph3 pv3-xs">
-        
-        <img src="/images/blog/microcks-0.9.0-enterprise-grade.png" alt="Microcks 0.9.0 release 🚀" class="br3" style="object-fit: cover; height: 140px; border: 1px solid #ffffff;">
-        
-        <div class="card-body p-0">
-          <h4><a href="https://microcks.io/blog/microcks-0.9.0-release/" class="post-link">Microcks 0.9.0 release 🚀</a></h4>
-          <p class="f6" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">I am delighted to announce Microcks release 0.9.0 — the Open source Kubernetes native tool for API Mocking and Testing. This new version introduces a tremendous amount of enhancements and new features.
-Big thanks to our growing community for all the work done, the raised issues and the collected feedback during the last 5 months to make it possible.
-This release was the preparation to become more Enterprise-grade, and we are glad that Microcks is in production in more and more medium to large organisations.</p>
-          <a href="https://microcks.io/blog/microcks-0.9.0-release/" class="home-link">Read More</a>
-        </div>
-      </div>
-    
-    
     </div>
     <div class="pv2 tc tc-ns">
         
@@ -302,11 +301,14 @@ This release was the preparation to become more Enterprise-grade, and we are gla
   <li class="page-item active">
     <a class="page-link" href="/blog/page/2/">2</a>
   </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  <li class="page-item">
+    <a class="page-link" href="/blog/page/3/">3</a>
   </li>
   <li class="page-item">
-    <a href="/blog/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/blog/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/blog/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

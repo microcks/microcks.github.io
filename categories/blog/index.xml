@@ -6,10 +6,20 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Advanced Dispatching and Constraints for mocks</title>
+      <link>https://microcks.io/blog/advanced-dispatching-constraints/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/advanced-dispatching-constraints/</guid>
+      <description>The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have complete examples on how to use them!
+So I setup this new example based on a real life use-case our community users have submitted.</description>
+    </item>
     
     <item>
       <title>Continuous Testing of ALL your APIs</title>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>Advanced Dispatching and Constraints for mocks | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.74.3" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.4b4ea946d55c8edd0ad8d55a64f2f2d0b544f6a9901fb543d3a503fd263fca1b.js" integrity="sha256-S06pRtVcjt0K2NVaZPLy0LVE9qmQH7VD06UD/SY/yhs=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Advanced Dispatching and Constraints for mocks" />
+<meta property="og:description" content="The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have complete examples on how to use them!
+So I setup this new example based on a real life use-case our community users have submitted." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/blog/advanced-dispatching-constraints/" />
+<meta property="article:published_time" content="2021-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-28T00:00:00+00:00" />
+
+      <meta name="og:image" content="https://microcks.io/images/blog/advanced-dispatching-constraints.jpg"></meta>
+      <meta itemprop="name" content="Advanced Dispatching and Constraints for mocks">
+<meta itemprop="description" content="The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have complete examples on how to use them!
+So I setup this new example based on a real life use-case our community users have submitted.">
+<meta itemprop="datePublished" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1443">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Advanced Dispatching and Constraints for mocks"/>
+<meta name="twitter:description" content="The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have complete examples on how to use them!
+So I setup this new example based on a real life use-case our community users have submitted."/>
+
+      <meta name="twitter:image" content="https://microcks.io/images/blog/advanced-dispatching-constraints.jpg"></meta>
+      
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+
+<section class="cf ph4 pv3 pv3-ns bg-white">
+  <div class="w-60 w-70-m w-90-xs center tc tc-ns pv3">
+    <h1 class="primary-color-dark">Advanced Dispatching and Constraints for mocks</h1>
+  </div>
+  <div class="w-60-l w-70-m w-90-xs center">
+    <div class="flex-ns flex-wrap">
+      <div class="w-10 w-40-xs">
+        <img src="/images/blog/bio/lbroudoux.jpeg" alt="Advanced Dispatching and Constraints for mocks" class="br4" style="width: 48px">  
+      </div>
+      <div class="w-40 w-70-xs">
+        <div class="f6 pv2" style="vertical-align: super;">
+          <b>Laurent Broudoux</b> (<a href="https://twitter.com/lbroudoux" class="home-link">@lbroudoux</a>)
+          <br/> MicrocksIO founder - on Jan 28, 2021
+        </div>
+      </div>
+      <div class="w-50 w-90-xs tr">
+        
+
+
+
+<a class="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmicrocks.io%2fblog%2fadvanced-dispatching-constraints%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/share?url=https%3a%2f%2fmicrocks.io%2fblog%2fadvanced-dispatching-constraints%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmicrocks.io%2fblog%2fadvanced-dispatching-constraints%2f&amp;title=Advanced%20Dispatching%20and%20Constraints%20for%20mocks" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fmicrocks.io%2fblog%2fadvanced-dispatching-constraints%2f&amp;resubmit=true&amp;title=Advanced%20Dispatching%20and%20Constraints%20for%20mocks" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex-ns flex-wrap">
+    <div class="w-60-l w-70-m w-90-xs center">
+      <div class="prose pv3 f4" id="prose"><p>The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our <a href="https://microcksio.zulipchat.com">Zulip chat</a>, I realized that all the pieces were present but we did not have complete examples on how to use them!</p>
+<p>So I setup this new example based on a real life use-case our community users have submitted. It is base on a very simple <code>WeatherForecast API</code> that just present one <code>GET</code> endpoint for fetching the forecast. This endpoint has two query parameters:</p>
+<ul>
+<li><code>region</code> (one of the four cardinal points) allows to specify the zone to fetch,</li>
+<li><code>apiKey</code> is a parameter allowing to identify API caller and apply tracing, rate limits and so on&hellip;</li>
+</ul>
+<figure class="tc">
+  <img src="/images/blog/advanced-dispatching-constraints.jpg" style="display: block; margin-left: auto; margin-right: auto;"/>
+  <figcaption><i class="f5">Photo by <a href="https://unsplash.com/@jordanmadrid?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jordan Madrid</a> on <a href="https://unsplash.com/s/photos/compass?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></i></figcaption>
+</figure>
+<p>We&rsquo;ll see how to configure advanced mocking rules in Microcks so that requests will be routed to correct responses based on <code>region</code> value and <code>apiKey</code> will be checked as mandatory even if we did not care of the actual value. If user specified an unknow region, the mock should return a fallback response.</p>
+<h2 id="lets-start">Let&rsquo;s start!</h2>
+<p>Let&rsquo;s start by importing the below OpenAPI contract into your running Microcks instance. As this is a <a href="https://gist.github.com/lbroudoux/75b4ea340d5ddecf9b27a06e7f18ab6d">GitHub gist</a> you may easily retrieve it. If you already have many APIs in the repository, you&rsquo;ll find this one having the name <code>WeatherForecast API</code> with version <code>1.0.0</code>.</p>
+<style type="text/css">
+  .gist-file .gist-data {max-height: 540px}
+</style>
+<script src="https://gist.github.com/lbroudoux/75b4ea340d5ddecf9b27a06e7f18ab6d.js"></script>
+<p>Some important things to notice in this OpenAPI specification:</p>
+<ul>
+<li>There&rsquo;s a single <code>GET</code> operation definition starting at line 16,</li>
+<li>We defined <code>north</code>, <code>east</code>, <code>west</code> and <code>south</code> examples for both <code>200</code> response - see lines 50 to 74 - as weel as examples with the same names for <code>region</code> query parameter - see lines 23 to 29,</li>
+<li>We defined an <code>unknown' example for the </code>404` response - see lines 82 and 83 - as well as an example with same name for query parameter - see line 21,</li>
+<li>We defined an <code>apiKey</code> query parameter starting at line 37 but did not specify any examples as it makes no sense for random values.</li>
+</ul>
+<p>Once imported into Microcks, you should have the same result as below screenshot:</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-init.png" alt="advanced-dispatching-constraints-init"></p>
+<p>Some important things to notice here on how Microcks as interpreted the data coming from the OpenAPI specification:</p>
+<ul>
+<li>It has inferred that the dispatcher will be based on <code>URI_PARAMS</code> (see <a href="https://microcks.io/documentation/using/mocks/">Using Exposed Mocks</a> for introduction on dispatchers),</li>
+<li>Is has inferedd that this dispather will take care of two parameters being <code>region</code> and <code>apiKey</code>,</li>
+<li>It has discovered 5 request/response sample pairs (see <a href="https://microcks.io/documentation/using/openapi/#conventions">OpenAPI Usage Conventions</a> for detailed explanations). Each request is holding an example <strong>Mock URL</strong> for invoking it.</li>
+</ul>
+<p>As soon as it has been imported, new mock endpoints are available and you can start playing around with the mocks like illustrated with below commands:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>east -k -s <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;east&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: -6.6,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;frosty&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">523</span>
+<span class="o">}</span>
+
+$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>north -k -s <span class="p">|</span> jq . 
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;north&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: -1.5,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;snowy&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">25</span>
+<span class="o">}</span>
+</code></pre></div><p>OK! So the default is working pretty well but we&rsquo;ll need to add our constraint related to <code>apiKey</code> and manage our fallback response as well 😉</p>
+<h2 id="adding-constraint">Adding constraint</h2>
+<p>We need to add constraint on <code>apiKey</code> query parameter so that requests that do not have this parameter will be refused by Microcks. In Microcks you can easily add constraints to an operation when accessing the <strong>Edit Properties</strong> page from API summary. You&rsquo;ll just need to have the <code>manager</code> or <code>admin</code> role assigned.</p>
+<p>Once on the properties edition for the <code>GET /forecast</code> operation, add a new constraint like illustrated below:</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-add-constraint.png" alt="advanced-dispatching-constraints-add-constraint"></p>
+<p>Do not forget to hit the <strong>Save</strong> button and then you can re-try calling a mock endpoint:</p>
+<pre><code>$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k       
+Parameter apiKey is required. Check parameter constraints.% 
+</code></pre><p>🎉 Perfect! Our constraint now applies correctly. Getting back on the API summary page and looking at the operation details, you&rsquo;ll see that a new <strong>Parameter Constraints</strong> block has appeared explaining the constraint:</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-constraint-added.png" alt="advanced-dispatching-constraints-constraint-added"></p>
+<p>So far so good but now let&rsquo;s try adding the <code>apiKey</code> parameter to our requests:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>east<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;north&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: -1.5,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;snowy&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">25</span>
+<span class="o">}</span>
+
+$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>west<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;north&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: -1.5,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;snowy&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">25</span>
+<span class="o">}</span>
+</code></pre></div><p>Seems to be OK at first sight but wait&hellip; we are now receiving the same response whatever the requested <code>region</code>! What the hell!? 🧐</p>
+<h2 id="adjusting-dispatcher-rules">Adjusting dispatcher rules</h2>
+<p>The problem is now that we supply <code>apiKey</code> and remember that <code>apiKey</code> belongs to the dispatching rules. Wehn receiving a request, Microcks is looking for a response associated to the <code>qwertyuiop</code> value for <code>apiKey</code> and because we do not have defined examples for <code>apiKey</code> it finds nothing&hellip; It&rsquo;s fallback behaviour is then to answer with the first response it find - here the <code>north</code> response.</p>
+<p>From there you have two options:</p>
+<ul>
+<li>Define a set of possible values for <code>apiKey</code> within the OpenAPI specification examples. This will add complexity and a number of examples to manage if you&rsquo;re managing combinations of parameters,</li>
+<li>Simply tall Microcks to not worry about the <code>apiKey</code> value when dispatching to a response. This make a lot of sense here as this parameter is purely technical!</li>
+</ul>
+<p>Obviously we choose the second options and get back to the <strong>Edit Properties</strong> page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispathing properties. We&rsquo;ll simply tell Microcks to keep the current dispatcher but we&rsquo;ll adapt the rules to only let <code>region</code> as the sole dispatching criterion:</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-adapt-rules.png" alt="advanced-dispatching-constraints-adapt-rules"></p>
+<p>Once saved, you will be able to test again the different mock URLs for the four regions and you&rsquo;ll see that now you&rsquo;re getting the response associated with each requested region:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>west<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;west&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: 12.2,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;rainy&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">300</span>
+<span class="o">}</span>
+
+$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>south<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;south&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: 28.3,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;sunny&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">1500</span>
+<span class="o">}</span>
+</code></pre></div><p>🎉 Excellent! We solved our routing issue. But let&rsquo;s try now with an unknown <code>center</code> region:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>center<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -s <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;north&#34;</span>,
+  <span class="s2">&#34;temp&#34;</span>: -1.5,
+  <span class="s2">&#34;weather&#34;</span>: <span class="s2">&#34;snowy&#34;</span>,
+  <span class="s2">&#34;visibility&#34;</span>: <span class="m">25</span>
+<span class="o">}</span>
+</code></pre></div><p>We still got default fallback response because Microcks cannot find any response associated with the <code>center</code> region&hellip; 🤨</p>
+<h2 id="changing-dispatcher">Changing dispatcher</h2>
+<p>In order to address our final requirement - having a proper 404 response if region is unknown - we will have to change the dispatcher that was inferred by Microcks. Let&rsquo;s get back to the <strong>Edit Properties</strong> page for the operation once again and now change the dispatcher to <code>FALLBACK</code> value. You&rsquo;ll see documentation appearing on the right with the ability to copy-paste the example.</p>
+<blockquote>
+<p>The <code>FALLBACK</code> dispatcher is a new feature from <code>1.2.0</code> release. Depending on the day you are reading this post it may be possible that the realease it not yet available. If you need it in a hurry please use the <code>latest</code> version of Microcks. Feature is already enabled there for some weeks.</p>
+</blockquote>
+<p>The <code>FALLBACK</code> dispatcher behaves kinda like a <code>try-catch</code> wrapping block in programming: it will try applying a first dispatcher with its own rule and if it found nothings it will default to the <code>fallback</code> response. Configure this dispatcher as shown below: picking the <code>unknown</code> response as the one representing our fallback.</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-adapt-dispatcher.png" alt="advanced-dispatching-constraints-adapt-dispatcher"></p>
+<p>Hit the <strong>Save</strong> button and test again the previous curl command, you&rsquo;ll see that you&rsquo;re now receving the <code>404</code> response called <code>unknown</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>center<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k
+Region is unknown. Choose in north, west, east or south.%
+</code></pre></div><p>🎉 TADAM! Now when getting back the API summary page and checking the <code>GET /forecast</code> operation details, you&rsquo;ll see that dispatcher and dispatchin rules have been updated to display your new configuration:</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-final.png" alt="advanced-dispatching-constraints-final"></p>
+<h2 id="wrap-up">Wrap-up</h2>
+<p>In this blog post, we walked through a <em>near real-life</em> sample explaining Microcks dispatching engine default as well as advanced customizations available. We saw that default configuration deduced only from the OpenAPI specification is a great start but does not allow to handle more advanced scenario where we need little smartness. Microcks is proposing advanced constructs for <a href="https://microcks.io/documentation/using/advanced/#operation-parameters-constraints">Parameters Constraints</a> and <a href="https://microcks.io/documentation/using/advanced/dispatching/">Dispatching Rules</a>: we only scratched the surface here!</p>
+<p>You may think that setting up these configuration may be cumbersome but remember that you&rsquo;ll only have to do it once! Microcks will keep your customizations upon subsequent imports - as long as you keep the same operation name of course 😉</p>
+<p>As a primer on what&rsquo;s coming next on Microcks, we plan to integrate some <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#specificationExtensions">OpenAPI Specifications Extensions</a> so that these customizations could live directly within the specification file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">paths</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">/forecast</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">get</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">operationId</span><span class="p">:</span><span class="w"> </span>GetForecast<span class="w">
+</span><span class="w">      </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Get<span class="w"> </span>forecast<span class="w"> </span>for<span class="w"> </span>region<span class="w">
+</span><span class="w">      </span><span class="k">x-microcks-dispatcher</span><span class="p">:</span><span class="w"> </span>FALLBACK<span class="w">
+</span><span class="w">      </span><span class="k">x-microcks-dispatcherRules</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">dispatcher</span><span class="p">:</span><span class="w"> </span>URI_PARAMS<span class="w">
+</span><span class="w">        </span><span class="k">dispatcherRules</span><span class="p">:</span><span class="w"> </span>region<span class="w">
+</span><span class="w">        </span><span class="k">fallback</span><span class="p">:</span><span class="w"> </span>unknown<span class="w">
+</span></code></pre></div><p>If interrested in this feature, do not hesitate commenting or voting one the <a href="https://github.com/microcks/microcks/issues/311">GitHub issue</a>!</p>
+<p>Take care and stay tuned. ❤️</p>
+</div>
+      
+      
+      <div class="pv4">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "microcks-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">
+        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    <a href="https://microcksio.zulipchat.com" target="new">
+      <img src="/images/zulip.png" class="absolute-l bottom-2 dn db-l h4 right-2 mr2 mb2 z-999 br4"/>
+    </a>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>
