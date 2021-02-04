@@ -45,17 +45,17 @@
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Managing Users" />
 <meta property="og:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm." />
+Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/administrating/users/" />
 <meta property="article:published_time" content="2019-11-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-10-09T00:00:00+00:00" />
 <meta itemprop="name" content="Managing Users">
 <meta itemprop="description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm.">
+Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm.">
 <meta itemprop="datePublished" content="2019-11-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-10-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="681">
+<meta itemprop="wordCount" content="683">
 
 
 
@@ -63,7 +63,7 @@ Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShi
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Managing Users"/>
 <meta name="twitter:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm."/>
+Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm."/>
 
 
       
@@ -268,8 +268,8 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="introduction">Introduction</h2>
-<p>Since its inception, Microcks relies on a third party component named <a href="https://www.keycloak.org">Keycloak</a> for managing security related topics like users identification, users  authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a <a href="../automating/service-account">dedicated page</a>.</p>
-<p>Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a <strong>realm</strong>. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm">realm</a>. We provide a sample of such a realm configuration that can be imported into your instance <a href="https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json">here</a>.</p>
+<p>Since its inception, Microcks relies on a third party component named <a href="https://www.keycloak.org">Keycloak</a> for managing security related topics like users identification, users  authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a <a href="../../automating/service-account">dedicated page</a>.</p>
+<p>Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a <strong>realm</strong>. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm">realm</a>. We provide a sample of such a realm configuration that can be imported into your instance <a href="https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json">here</a>.</p>
 <p>Basically, Microcks own components only need the reference of the Keycloak instance endpoint - the URL with <code>/auth</code> suffix - into an environment variable called <code>KEYCLOAK_URL</code>.</p>
 <h2 id="authentication">Authentication</h2>
 <p>Authentication in Microcks is indeed delegated to the configured Keycloak instance using the <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#authorization-code-flow">OpenID Connect Authorization Code Flow</a>. The Keycloak instance can be used as the direct source of user&rsquo;s Identity or can be used as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker">a broker for one or more</a> configured Identity Providers.</p>
@@ -314,7 +314,7 @@ keycloak.security-constraints[0].securityCollections[0].patterns[3]=/api/jobs/co
 keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
 </code></pre><h2 id="users-management">Users management</h2>
 <p>Starting with Microcks version <code>0.8.0</code>, we add the ability to partially manage users directly from the Microcks GUI. &ldquo;Partially&rdquo; means that you are able to manage a user&rsquo;s roles within Microcks application but not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider.</p>
-<p>Users can only be managed by Microcks <code>admin</code> - we mean people having the <code>admin</code> role assigned. Users management is simply a thumbnail with the <code>Administration</code> page that is available from the vertical menu on the left once logged in as administrator. In order to be able to retrieve the list of users and operate changes, the user should also have <strong>manage-users</strong> role from <strong>realm-management</strong> Keycloak internal client. See <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_per_realm_admin_permissions">Keycloak documentation</a> for more on this point.</p>
+<p>Users can only be managed by Microcks <code>admin</code> - we mean people having the <code>admin</code> role assigned. Users management is simply a thumbnail with the <code>Administration</code> page that is available from the vertical menu on the left once logged in as administrator. In order to be able to retrieve the list of users and operate changes, the user should also have <strong>manage-users</strong> and <strong>manage-clients</strong> role from <strong>realm-management</strong> Keycloak internal client. See <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_per_realm_admin_permissions">Keycloak documentation</a> for more on this point.</p>
 <p><img src="/images/users.png" alt="users"></p>
 
 </div>

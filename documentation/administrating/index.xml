@@ -18,7 +18,7 @@
       
       <guid>https://microcks.io/documentation/administrating/users/</guid>
       <description>Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm.</description>
+Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm.</description>
     </item>
     
     <item>
