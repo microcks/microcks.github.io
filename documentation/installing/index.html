@@ -48,7 +48,7 @@
 <meta property="og:description" content="Microcks.io" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/" />
-<meta property="og:updated_time" content="2020-12-15T00:00:00+00:00" />
+<meta property="og:updated_time" content="2021-02-09T00:00:00+00:00" />
 <meta itemprop="name" content="Installing">
 <meta itemprop="description" content="Microcks.io">
 <meta name="twitter:card" content="summary"/>
@@ -228,11 +228,11 @@ var trackOutboundLink = function(id, url) {
                                 <div class="relative  weight-90">
                                     <div class="bg-white mb2 pa3 pa4-l gray">
                                         <h1 class="near-black f3">
-                                            <a href="/documentation/installing/kubernetes/" class="link primary-color dim">Installing on Kubernetes</a>
+                                            <a href="/documentation/installing/kubernetes/" class="link primary-color dim">Installing on Kube using Helm</a>
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Instructions One easy way if installing Microcks is to do it on Kubernetes. Kubernetes in version 1.6 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+                                                Instructions One easy way if installing Microcks is to do it via a Helm Chart. Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
  Lightweight Minikube on your laptop, see Minikube project page, Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.
                                             
                                     
@@ -246,33 +246,15 @@ var trackOutboundLink = function(id, url) {
                                 <div class="relative  weight-90">
                                     <div class="bg-white mb2 pa3 pa4-l gray">
                                         <h1 class="near-black f3">
-                                            <a href="/documentation/installing/operator/" class="link primary-color dim">Installing with Kubernetes Operator</a>
+                                            <a href="/documentation/installing/operator/" class="link primary-color dim">Installing on Kube using Operator</a>
                                         </h1>
                                         <div class="lh-copy links">
                                             
                                                 Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
-At time of writing, Microcks only define one cutomer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.
+At time of writing, Microcks only define one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.
                                             
                                     
                                             <a href="/documentation/installing/operator/" class="f6 mt2 db link primary-color dim">
-                                            Read More &raquo;
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative  weight-90">
-                                    <div class="bg-white mb2 pa3 pa4-l gray">
-                                        <h1 class="near-black f3">
-                                            <a href="/documentation/installing/openshift/" class="link primary-color dim">Installing with OpenShift templates</a>
-                                        </h1>
-                                        <div class="lh-copy links">
-                                            
-                                                Warning OpenShift Templates support has been removed since Microcks 1.1.0 release. Whilst being convenient, teamplates are a burden to maintain and we now have more robusts, easy-to-use installation process using Helm Charts or Microcks Operator. Though we recommend swithing to these methods. OpenShift Templates can still be found under 1.0.0 tag in the GitHub repository. We&rsquo;ll keep this page here intentionally for a few months.
- Instructions The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift.
-                                            
-                                    
-                                            <a href="/documentation/installing/openshift/" class="f6 mt2 db link primary-color dim">
                                             Read More &raquo;
                                             </a>
                                         </div>
@@ -419,17 +401,12 @@ High-level Architecture As its simplest form, Microcks architecture is made of 4
         <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
           <li class="f6 fw4">
             <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              INSTALLING ON KUBERNETES
+              INSTALLING ON KUBE USING HELM
             </a>
           </li>
           <li class="f6 fw4">
             <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              INSTALLING WITH KUBERNETES OPERATOR
-            </a>
-          </li>
-          <li class="f6 fw4">
-            <a href="/documentation/installing/openshift/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              INSTALLING WITH OPENSHIFT TEMPLATES
+              INSTALLING ON KUBE USING OPERATOR
             </a>
           </li>
           <li class="f6 fw4">
