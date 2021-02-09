@@ -49,13 +49,13 @@ However in some cases, this could not be enough and it will be useful to overrid
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/advanced/dispatching/" />
 <meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-03-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-09T00:00:00+00:00" />
 <meta itemprop="name" content="Custom dispatching rules">
 <meta itemprop="description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values.">
 <meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-03-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="921">
+<meta itemprop="dateModified" content="2021-02-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1141">
 
 
 
@@ -226,6 +226,7 @@ var trackOutboundLink = function(id, url) {
       <ul>
         <li><a href="#inferred-dispatchers">Inferred dispatchers</a></li>
         <li><a href="#json-body-dispatcher">JSON BODY dispatcher</a></li>
+        <li><a href="#fallback-dispatcher">FALLBACK dispatcher</a></li>
       </ul>
     </li>
   </ul>
@@ -356,7 +357,7 @@ var trackOutboundLink = function(id, url) {
   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div><p>It is a success as the <code>country</code> has the <code>Belgium</code> value and the <code>Accepted</code> response is returned. Templates in this response are evaluated regarding request content.</p>
-<p>Now let&rsquo;s try with a German beer&hellip; You&rsquo;ll see that the <code>Not accepted</code> response is matched (look also at the return code) and adpated regarding incoming request:</p>
+<p>Now let&rsquo;s try with a German beer&hellip; You&rsquo;ll see that the <code>Not accepted</code> response is matched (look also at the return code) and adapted regarding incoming request:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer <span class="se">\
 </span><span class="se"></span>    -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\
 </span><span class="se"></span>    -d <span class="s1">&#39;{&#34;name&#34;: &#34;Spaten Oktoberfiest&#34;, &#34;country&#34;: &#34;Germany&#34;, &#34;type&#34;: &#34;Amber&#34;, &#34;rating&#34;: 2.8, &#34;references&#34;: []}&#39;</span>
@@ -365,6 +366,20 @@ var trackOutboundLink = function(id, url) {
   <span class="s2">&#34;error&#34;</span>: <span class="s2">&#34;Not accepted&#34;</span>,
   <span class="s2">&#34;message&#34;</span>: <span class="s2">&#34;Germany origin country is forbiden&#34;</span>
 <span class="o">}</span>
+</code></pre></div><h3 id="fallback-dispatcher">FALLBACK dispatcher</h3>
+<p>Another useful advanced dispatching strategy introduced in the <a href="../../../../blog/advanced-dispatching-constraints/">Advanced Dispatching and Constraints for mocks</a> blog post, is the <code>FALLBACK</code> strategy. As you may have guessed by its name, it behaves like a <code>try-catch</code> wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to a <code>fallback</code> response. This will allow you to define a default response event of the incoming requests does not match any dispatching criteria.</p>
+<p>The dispatching rules of <code>FALLBACK</code> dispatcher are expressed using a JSON payload with 3 properties:</p>
+<ul>
+<li><code>dispatcher</code> is the original dispatching strategy you want to be applied at first. Valid values are all the other dispatching strategies,</li>
+<li><code>dispatcherRules</code> are the rules you want the original dispatcher to apply when looking for a response,</li>
+<li><code>fallback</code> is simply the name of the response to use as the fallback if nothing is found on first try.</li>
+</ul>
+<p>Here&rsquo;s below the sample that was introduced in afore mentioned blog post. In case of unknown region requested as a query parameters on a Weather Forecast API, we&rsquo;ll fallback to an <code>unknown</code> response providing meaningful error message:</p>
+<p><img src="/images/blog/advanced-dispatching-constraints-final.png" alt="fallback-dispatcher"></p>
+<h4 id="test-our-new-rule-1">Test our new rule!</h4>
+<p>Just issue a Http request with an unmanaged region like below:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl <span class="s1">&#39;https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&amp;apiKey=qwertyuiop&#39;</span> -k
+Region is unknown. Choose in north, west, east or south.%
 </code></pre></div>
 </div>
 
@@ -559,7 +574,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Custom dispatching rules”
-  </a> was last updated: March 3, 2020
+  </a> was last updated: February 9, 2021
 </h6>
 
       <a href="edit/master/content/en/documentation/using/advanced/dispatching.md" class="

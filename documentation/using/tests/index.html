@@ -55,7 +55,7 @@ From the page displaying basic information on your microservice mocks, you have 
 From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="672">
+<meta itemprop="wordCount" content="770">
 
 
 
@@ -285,13 +285,43 @@ var trackOutboundLink = function(id, url) {
 <h3 id="service-under-test">Service under test</h3>
 <p><strong>Service under test</strong> is simply the reference of the API/Service specification we&rsquo;d like to test. This a couple of <code>Service Name</code> and <code>Service Version</code>.</p>
 <h3 id="test-endpoint">Test Endpoint</h3>
-<p>The <strong>Test Endpoint</strong> is simply a URI where a deployed component is providing API specification endpoint. In the testing litterature, this is usually defined as the URI of the <a href="https://en.wikipedia.org/wiki/System_under_test">System Under Test</a>.</p>
+<p>The <strong>Test Endpoint</strong> is simply a URI where a deployed component is providing API specification endpoint. In the testing literature, this is usually defined as the URI of the <a href="https://en.wikipedia.org/wiki/System_under_test">System Under Test</a>.</p>
+<h4 id="http-based-apis">HTTP based APIs</h4>
 <p>For HTTP based APIs (REST or SOAP), this is a simple URL that should respect following pattern:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">http<span class="o">[</span>s<span class="o">]</span>://<span class="o">{</span>service.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>service.path<span class="o">}</span>
-</code></pre></div><p>For Event based API through <a href="../asyncapi">Async API</a> testing, here is below the list of supported patterns depending on the protocole binding you&rsquo;d like to test:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">kafka://<span class="o">{</span>kafka.broker.url:port<span class="o">}</span>/<span class="o">{</span>kafka.topic.name<span class="o">}</span>
+</code></pre></div><h4 id="event-based-apis">Event based APIs</h4>
+<p>For Event based API through <a href="../asyncapi">Async API</a> testing, pattern is depending on the protocole binding you&rsquo;d like to test.</p>
+<h5 id="kafka">Kafka</h5>
+<p>Kafka Test Endpoint have the following form with optional parameters placed just after a <code>?</code> and separated using <code>&amp;</code> character:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">kafka://<span class="o">{</span>kafka.broker.url:port<span class="o">}</span>/<span class="o">{</span>kafka.topic.name<span class="o">}[</span>?param1<span class="o">=</span>value1<span class="p">&amp;</span><span class="nv">param2</span><span class="o">=</span>value2<span class="o">]</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Optional Params</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registryUrl</code></td>
+<td>The URL of schema registry that is associated to the tested topic. This parameter is required when using and testing <a href="https://avro.apache.org">Avro</a> encoded messages.</td>
+</tr>
+<tr>
+<td><code>registryUsername</code></td>
+<td>The username used if access to the registry is secured.</td>
+</tr>
+<tr>
+<td><code>registryAuthCredSource</code></td>
+<td>The source for authentication credentials if any. Valid values are just <code>USER_INFO</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>As an example, you may have this kind of Test Endpoint value: <code>kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&amp;registryUsername=fred:letmein&amp;regsitryAuthCredSource=USER_INFO</code></p>
+<h5 id="mqtt">MQTT</h5>
+<p>MQTT Test Endpoint have the following form with no optional parameters:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">mqtt://<span class="o">{</span>mqtt.broker.url:port<span class="o">}</span>/<span class="o">{</span>mqtt.topic.name<span class="o">}</span>
 </code></pre></div><h3 id="test-runner">Test Runner</h3>
-<p>As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as <b>Test Runners</b>. Here are the default Test Runners available within Microcks:</p>
+<p>As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as <strong>Test Runners</strong>. Here are the default Test Runners available within Microcks:</p>
 <table>
 <thead>
 <tr>

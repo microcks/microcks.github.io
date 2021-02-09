@@ -48,12 +48,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/asyncapi/" />
 <meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-09T00:00:00+00:00" />
 <meta itemprop="name" content="AsyncAPI usage for Microcks">
 <meta itemprop="description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !">
 <meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-08-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="690">
+<meta itemprop="dateModified" content="2021-02-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="692">
 
 
 
@@ -270,11 +270,11 @@ var trackOutboundLink = function(id, url) {
 <p>AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !</p>
 <p>Starting with Microcks version <code>1.0.0</code>, Microcks is now able to import AsyncAPI definitions for enriching the API catalogs with <code>Event</code> typed APIs. When set up accordingly, it is also able to mock the API by publishing samples messages on a dedicated message broker destination.</p>
 <h3 id="bindings">Bindings</h3>
-<p>AsyncAPI specification decorellates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.</p>
+<p>AsyncAPI specification dissociates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.</p>
 <blockquote>
-<p>At the time of <code>1.0.0</code> release, Microcks only supports the <code>KAFKA</code> binding. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.</p>
+<p>At the time of <code>1.2.0</code> release, Microcks supports the <code>KAFKA</code> and the <code>MQTT</code> bindings. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.</p>
 </blockquote>
-<p>For each version of an API managed by Microcks, it will create appropriate destination for <strong>operations</strong> in mixing specification elements, protocol binding specifics and versionning issues. Destination managed by Microcks are then referenced within the API details page.</p>
+<p>For each version of an API managed by Microcks, it will create appropriate destination for <strong>operations</strong> in mixing specification elements, protocol binding specifics and versioning issues. Destination managed by Microcks are then referenced within the API details page.</p>
 <h3 id="conventions">Conventions</h3>
 <p>With AsyncAPI <a href="https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#messageObject">Messages Objects</a> you have the ability to define <code>examples</code> with your AsyncAPI specification document. For now (in the <code>2.0.0</code> release of the specification), <code>examples</code> is simply a <code>[Map[ string , any]]</code> but we ought to propose the here-after conventions as the formal specification (see this <a href="https://github.com/asyncapi/asyncapi/issues/329">Feature request</a> if you want to contribute to conversation).</p>
 <p>So basically, we propose to describe <code>examples</code> using the following guidelines. An <code>example</code> may have:</p>
@@ -529,7 +529,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “AsyncAPI usage for Microcks”
-  </a> was last updated: August 5, 2020
+  </a> was last updated: February 9, 2021
 </h6>
 
       <a href="edit/master/content/en/documentation/using/asyncapi.md" class="
