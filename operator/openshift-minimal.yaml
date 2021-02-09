@@ -8,17 +8,15 @@ spec:
   version: "latest"
   microcks: 
     replicas: 1
-    url: microcks.KUBE_APPS_URL
   postman:
     replicas: 1
   keycloak:
     install: true
-    url: microcks-keycloak.KUBE_APPS_URL
     persistent: true
     volumeSize: 1Gi
-    #serviceAccount: microcks-serviceaccount
-    #serviceAccountCredentials: ab54d329-e435-41ae-a900-ec6b3fe15c54
+    replicas: 1
   mongodb:
     install: true
     persistent: true
     volumeSize: 2Gi
+    replicas: 1
