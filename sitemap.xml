@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/using/advanced/avro-messaging/</loc>
+    <lastmod>2021-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/getting-started-tests/</loc>
     <lastmod>2020-10-19T00:00:00+00:00</lastmod>
   </url>
@@ -143,6 +148,21 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2021-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2021-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2021-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/blog/advanced-dispatching-constraints/</loc>
     <lastmod>2021-01-28T00:00:00+00:00</lastmod>
   </url>
@@ -160,16 +180,6 @@
   <url>
     <loc>https://microcks.io/blog/</loc>
     <lastmod>2021-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2021-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2021-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -215,11 +225,6 @@
   <url>
     <loc>https://microcks.io/blog/microcks-1.0.0-release/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2021-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
