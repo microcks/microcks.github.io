@@ -55,7 +55,7 @@ Starting with the 1.2.0 release of Microcks, we support Avro as an encoding form
 Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.">
 <meta itemprop="datePublished" content="2021-02-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-12T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2182">
+<meta itemprop="wordCount" content="2179">
 
 
 
@@ -266,7 +266,7 @@ var trackOutboundLink = function(id, url) {
 <p>This guide presents the 2 options that we will call <code>RAW</code> or <code>REGISTRY</code>. Microcks is by default configured to manage the <code>RAW</code> options so that it does not depend on any external dependency to get you starting. If you want to stick with this option, we first step below is obviously optional.</p>
 <h2 id="1-setup-schema-registry">1. Setup Schema Registry</h2>
 <p>Microcks has been successfully tested with both <a href="https://github.com/confluentinc/schema-registry">Confluent Schema Registry</a> and <a href="https://www.apicur.io/registry/">Apicurio Registry</a>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
-<p>When connected to a Schema Registry, Microcks is using to push to the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to ne able to deserialize messages.</p>
+<p>When connected to a Schema Registry, Microcks is pushing the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to ne able to deserialize messages.</p>
 <p><img src="/images/avro-kafka-mocking.png" alt="Avro Kafka Mocking"></p>
 <p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
