@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on Microcks.io</title>
+    <link>https://microcks.io/documentation/guides/</link>
+    <description>Recent content in Guides on Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kafka, Avro and Schema Registry</title>
+      <link>https://microcks.io/documentation/guides/avro-messaging/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/guides/avro-messaging/</guid>
+      <description>Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&amp;rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
+Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>Kafka, Avro and Schema Registry | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.74.3" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.4b4ea946d55c8edd0ad8d55a64f2f2d0b544f6a9901fb543d3a503fd263fca1b.js" integrity="sha256-S06pRtVcjt0K2NVaZPLy0LVE9qmQH7VD06UD/SY/yhs=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Kafka, Avro and Schema Registry" />
+<meta property="og:description" content="Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
+Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/avro-messaging/" />
+<meta property="article:published_time" content="2021-02-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-12T00:00:00+00:00" />
+<meta itemprop="name" content="Kafka, Avro and Schema Registry">
+<meta itemprop="description" content="Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
+Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.">
+<meta itemprop="datePublished" content="2021-02-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2181">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kafka, Avro and Schema Registry"/>
+<meta name="twitter:description" content="Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
+Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI."/>
+
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+  <article class="w-100 ph3 pb5">
+    <div class="flex-l">
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#1-setup-schema-registry">1. Setup Schema Registry</a></li>
+    <li><a href="#2-use-avro-in-asyncapi">2. Use Avro in AsyncAPI</a></li>
+    <li><a href="#3-validate-your-mocks">3. Validate your mocks</a>
+      <ul>
+        <li><a href="#with-schema-registry">With Schema Registry</a></li>
+        <li><a href="#without-schema-registry">Without Schema Registry</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-run-asyncapi-tests">4. Run AsyncAPI tests</a>
+      <ul>
+        <li><a href="#with-schema-registry-1">With Schema Registry</a></li>
+        <li><a href="#without-schema-registry-1">Without Schema Registry</a></li>
+      </ul>
+    </li>
+    <li><a href="#wrap-up">Wrap-Up</a></li>
+  </ul>
+</nav>
+	
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Kafka, Avro and Schema Registry</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+<h2 id="overview">Overview</h2>
+<p>This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing <a href="https://avro.apache.org">Avro</a> encoding on top of <a href="https://kafka.apache.org">Apache Kafka</a>. You&rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.</p>
+<p>Starting with the <code>1.2.0</code> release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through <a href="../../using/asyncapi">AsyncAPI</a>. When it comes to serializing Avro data to a Kafka topic, you usually have 2 options :</p>
+<ul>
+<li>The <em>&ldquo;old-fashioned one&rdquo;</em> that is about putting raw Avro binary representation of the message payload,</li>
+<li>The <em>&ldquo;modern one&rdquo;</em> that is about putting the Schema ID + the Avro binary representation of the message payload (see <a href="https://www.confluent.io/blog/kafka-connect-tutorial-transfer-avro-schemas-across-schema-registry-clusters/">Schema Registry: A quick introduction</a>).</li>
+</ul>
+<p>This guide presents the 2 options that we will call <code>RAW</code> or <code>REGISTRY</code>. Microcks is by default configured to manage the <code>RAW</code> options so that it does not depend on any external dependency to get you starting. If you want to stick with this option, we first step below is obviously optional.</p>
+<h2 id="1-setup-schema-registry">1. Setup Schema Registry</h2>
+<p>Microcks has been successfully tested with both <a href="https://github.com/confluentinc/schema-registry">Confluent Schema Registry</a> and <a href="https://www.apicur.io/registry/">Apicurio Registry</a>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
+<p>When connected to a Schema Registry, Microcks is using to push to the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to ne able to deserialize messages.</p>
+<p><img src="/images/avro-kafka-mocking.png" alt="Avro Kafka Mocking"></p>
+<p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>MicrocksInstall<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">  </span><span class="k">features</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">async</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">defaultAvroEncoding</span><span class="p">:</span><span class="w"> </span>REGISTRY<span class="w">
+</span><span class="w">      </span><span class="k">kafka</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">        </span><span class="k">schemaRegistry</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//schema-registry.apps.example.com<span class="w">
+</span><span class="w">          </span><span class="k">confluent</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">          </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w">          </span><span class="k">credentialsSource</span><span class="p">:</span><span class="w"> </span>USER_INFO<span class="w">
+</span></code></pre></div><p>The important things to notice are:</p>
+<ul>
+<li><code>defaultAvroEncoding</code> should be set to <code>REGISTRY</code> (this is indeed a workaround until AsyncAPI adds support for specifying the serialization details at the Binding level. See <a href="https://github.com/asyncapi/bindings/issues/41">this issue</a> for more.)</li>
+<li><code>schemaRegistry</code> block should now be specified with correct <code>url</code>. The <code>confluent</code> mode allows to tell Microcks that the registry is the Confluent one OR to turn on the Confluent compatibility mode if you&rsquo;re using an <a href="https://www.apicur.io/registry/">Apicurio Registry</a>. <code>username</code> and <code>creadentialsSource</code> are only used if using a secured Confluent registry.</li>
+</ul>
+<p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">features</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">async</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">    </span><span class="k">defaultAvroEncoding</span><span class="p">:</span><span class="w"> </span>REGISTRY<span class="w">
+</span><span class="w">    </span><span class="k">kafka</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">schemaRegistry</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//schema-registry.apps.example.com<span class="w">
+</span><span class="w">        </span><span class="k">confluent</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w">        </span><span class="k">credentialsSource</span><span class="p">:</span><span class="w"> </span>USER_INFO<span class="w">
+</span></code></pre></div><p>Actual connection to the Schema Registry will only be made once Microcks will send Avro messages to Kafka. Let see below how to use Avro encoding with AsyncAPI.</p>
+<h2 id="2-use-avro-in-asyncapi">2. Use Avro in AsyncAPI</h2>
+<p>AsyncAPI allows to reference Avro schema used for serializing / deserializing messages on a Kafka topic. The flexible notation of AsyncAPI allow to do that in 3 different ways:</p>
+<ul>
+<li>Using the <em>embedded notation</em>: that means that Avro schema is defined inline within the message <code>payload</code> property,</li>
+<li>Using <em>remote reference</em>: that means that schema is specified using absolute remote endpoint like <code>$ref: 'https://schemas.example.com/user'</code> within the message <code>payload</code> property,</li>
+<li>Using <em>local reference</em>: that means that schema is specified using relative reference like <code>$ref: './user-signedup.avsc#/User'</code> within the message <code>payload</code> property.</li>
+</ul>
+<blockquote>
+<p>At time of writing and release of the <code>1.2.0</code> version of Microcks, it only supports the <em>local reference</em> way of using Avro schema from AsyncAPI. Other notations will be implemented in a near future though.</p>
+</blockquote>
+<p>Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/user-signedup-avro-ref-asyncapi.yaml">our GitHub repository</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">contentType</span><span class="p">:</span><span class="w"> </span>avro/binary<span class="w">
+</span><span class="w">      </span><span class="k">schemaFormat</span><span class="p">:</span><span class="w"> </span>application/vnd.apache.avro+json;version=<span class="m">1.9.0</span><span class="w">
+</span><span class="w">      </span><span class="k">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;./user-signedup.avsc#/User&#39;</span><span class="w">
+</span></code></pre></div><p>You&rsquo;ll notice that it is of importance that <code>contentType</code> and <code>schemaFormat</code> property should be defined according to the Avro format. In this GitHub repository same folder, you&rsquo;ll also find the <code>user-signedup.avsc</code> file defining the <code>User</code> record type like below:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;namespace&#34;</span><span class="p">:</span> <span class="s2">&#34;microcks.avro&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;record&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;User&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;fields&#34;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;fullName&#34;</span><span class="p">,</span> <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;string&#34;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span>  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;string&#34;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;int&#34;</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><p>As we use references, our full specification is now spanning multiple files so you&rsquo;ll not be able to simply upload one file for API import into Microcks. You will have to define a full <strong>Importer Job</strong> as described <a href="../../documentation/using/importers/#scheduled-import">here</a>. During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the <strong>Contracts</strong> section that there are now two files: an AsyncAPI and an Avro schema one.</p>
+<p><img src="/images/avro-kafka-properties.png" alt="Avro Kafka Properties"></p>
+<p>Finally, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification. But: how to specify examples for a binary encoding such as Avro? No problem! Simply use JSON or YAML as illustrated in the fragment below, still coming from <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/user-signedup-avro-ref-asyncapi.yaml">our GitHub repository</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="k">laurent</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
+</span><span class="sd">              {&#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: 41}</span><span class="w">
+</span><span class="w">        </span>- <span class="k">john</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="k">fullName</span><span class="p">:</span><span class="w"> </span>John<span class="w"> </span>Doe<span class="w">
+</span><span class="w">              </span><span class="k">email</span><span class="p">:</span><span class="w"> </span>john@microcks.io<span class="w">
+</span><span class="w">              </span><span class="k">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
+</span></code></pre></div><h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
+<p>Now it&rsquo;s time to validate that mock publication of Avro messages is correct.</p>
+<h3 id="with-schema-registry">With Schema Registry</h3>
+<p>When using the <code>REGISTRY</code> encoding options with a deployed Schema Registry, things are pretty simple as you can interact with registry either from GUI or CLI. Let&rsquo;s check that Microcks has correctly published the schema for our sample topic. See below the results we have with our sample:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://schema-registry.apps.example.com -s -k <span class="p">|</span> jq . 
+<span class="o">[</span>
+  <span class="s2">&#34;UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User&#34;</span>
+<span class="o">]</span>
+$ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions -s -k <span class="p">|</span> jq .
+<span class="o">[</span>
+  <span class="m">1</span>
+<span class="o">]</span>
+$ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions/1 -s -k <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&#34;subject&#34;</span>: <span class="s2">&#34;UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User&#34;</span>,
+  <span class="s2">&#34;version&#34;</span>: 1,
+  <span class="s2">&#34;id&#34;</span>: 1,
+  <span class="s2">&#34;schema&#34;</span>: <span class="s2">&#34;{\&#34;type\&#34;:\&#34;record\&#34;,\&#34;name\&#34;:\&#34;User\&#34;,\&#34;namespace\&#34;:\&#34;microcks.avro\&#34;,\&#34;fields\&#34;:[{\&#34;name\&#34;:\&#34;fullName\&#34;,\&#34;type\&#34;:\&#34;string\&#34;},{\&#34;name\&#34;:\&#34;email\&#34;,\&#34;type\&#34;:\&#34;string\&#34;},{\&#34;name\&#34;:\&#34;age\&#34;,\&#34;type\&#34;:\&#34;int\&#34;}]}&#34;</span>
+<span class="o">}</span>
+</code></pre></div><p>Very nice! We can also use the <a href="https://github.com/edenhill/kafkacat"><code>kafkacat</code> CLI tool</a> to ensure that a topic consumer will be able to deserialize messages using the schema stored into registry.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kafkacat -b microcks-kafka-bootstrap-microcks.apps.example.com:9092 -t UsersignedupAvroAPI_0.1.2_user-signedup -s <span class="nv">value</span><span class="o">=</span>avro -r https://schema-registry.apps.example.com -o end
+% Auto-selecting Consumer mode <span class="o">(</span>use -P or -C to override<span class="o">)</span>
+% Reached end of topic UsersignedupAvroAPI_0.1.2_user-signedup <span class="o">[</span>0<span class="o">]</span> at offset <span class="m">114</span>
+<span class="o">{</span><span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>, <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>, <span class="s2">&#34;age&#34;</span>: 41<span class="o">}</span>
+<span class="o">{</span><span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;John Doe&#34;</span>, <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;john@microcks.io&#34;</span>, <span class="s2">&#34;age&#34;</span>: 36<span class="o">}</span>
+% Reached end of topic UsersignedupAvroAPI_0.1.2_user-signedup <span class="o">[</span>0<span class="o">]</span> at offset <span class="m">116</span>
+</code></pre></div><p>🎉 Super!</p>
+<h3 id="without-schema-registry">Without Schema Registry</h3>
+<p>Without Schema Registry, things may be more complicated as you have to develop a consuming script or application that should have the Avro Schema locally available to be able to deserialize the message content.</p>
+<p>For our <code>User signedup Avro API</code> sample, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/kafkajs-client/avro-consumer.js">in one GitHub repository</a>.</p>
+<p>Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
+$ <span class="nb">cd</span> api-tooling/async-clients/kafkajs-client
+$ npm install
+
+$ node avro-consumer.js microcks-kafka-bootstrap-microcks.apps.example.com:9092 UsersignedupAvroAPI_0.1.2_user-signedup              
+Connecting to microcks-kafka-bootstrap-microcks.apps.example.com:9092 on topic UsersignedupAvroAPI_0.1.2_user-signedup
+<span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;INFO&#34;</span>,<span class="s2">&#34;timestamp&#34;</span>:<span class="s2">&#34;2021-02-11T20:30:48.672Z&#34;</span>,<span class="s2">&#34;logger&#34;</span>:<span class="s2">&#34;kafkajs&#34;</span>,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;[Consumer] Starting&#34;</span>,<span class="s2">&#34;groupId&#34;</span>:<span class="s2">&#34;kafkajs-client&#34;</span><span class="o">}</span>
+<span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;INFO&#34;</span>,<span class="s2">&#34;timestamp&#34;</span>:<span class="s2">&#34;2021-02-11T20:30:48.708Z&#34;</span>,<span class="s2">&#34;logger&#34;</span>:<span class="s2">&#34;kafkajs&#34;</span>,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;[Runner] Consumer has joined the group&#34;</span>,<span class="s2">&#34;groupId&#34;</span>:<span class="s2">&#34;kafkajs-client&#34;</span>,<span class="s2">&#34;memberId&#34;</span>:<span class="s2">&#34;my-app-7feb2099-1701-4a8a-9eff-50aeed60d65d&#34;</span>,<span class="s2">&#34;leaderId&#34;</span>:<span class="s2">&#34;my-app-7feb2099-1701-4a8a-9eff-50aeed60d65d&#34;</span>,<span class="s2">&#34;isLeader&#34;</span>:true,<span class="s2">&#34;memberAssignment&#34;</span>:<span class="o">{</span><span class="s2">&#34;UsersignedupAvroAPI_0.1.2_user-signedup&#34;</span>:<span class="o">[</span>0<span class="o">]}</span>,<span class="s2">&#34;groupProtocol&#34;</span>:<span class="s2">&#34;RoundRobinAssigner&#34;</span>,<span class="s2">&#34;duration&#34;</span>:36<span class="o">}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>,
+  <span class="s2">&#34;age&#34;</span>: <span class="m">41</span>
+<span class="o">}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;John Doe&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;john@microcks.io&#34;</span>,
+  <span class="s2">&#34;age&#34;</span>: <span class="m">36</span>
+<span class="o">}</span>
+</code></pre></div><blockquote>
+<p>Note: this simple <code>avro-consumer.js</code> script is also able to handle TLS connections to your Kafka broker. It was omitted here for seek of simplicity but you can put the name of the CRT file as the 3rd argument of the command.</p>
+</blockquote>
+<h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
+<p>Now the last step for being fully accustomed to Avro on Kafka support in Microcks is to perform some tests. As we will need API implementation for that it&rsquo;s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>User signedup Avro API</code> sample we used so far but feel free to adapt them for your own use.</p>
+<p>So the first thing for this section, will be to retrieve the scripts and install dependencies if you have not already do that in previous section. Follow below instructions:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
+$ <span class="nb">cd</span> api-tooling/async-clients/kafkajs-client
+$ npm install
+</code></pre></div><h3 id="with-schema-registry-1">With Schema Registry</h3>
+<p>When using a Schema Registry with the <code>REGISTRY</code> encoding configured into Microcks, the following schema illustrates Microcks interactions with broker and registry. Here, we are not necessarily using the broker and registry Microcks is using for mocking but we are able to reuse <em>any Kafka broker</em> and <em>any Schema Registry</em> available within your organization - typically this will depend on the environment you want to launch tests upon.</p>
+<p><img src="/images/avro-kafka-testing.png" alt="Avro Kafka Testing"></p>
+<p>That said, imagine that you want to validate messages from a <strong>QA</strong> environment with dedicated broker and registry. Start by using our utility script to produce some messages on an <code>user-registration</code> arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Regsitry:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
+Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, using registry https://schema-registry-qa.apps.example.com
+<span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;ERROR&#34;</span>,<span class="s2">&#34;timestamp&#34;</span>:<span class="s2">&#34;2021-02-11T21:07:09.962Z&#34;</span>,<span class="s2">&#34;logger&#34;</span>:<span class="s2">&#34;kafkajs&#34;</span>,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;[Connection] Response Metadata(key: 3, version: 5)&#34;</span>,<span class="s2">&#34;broker&#34;</span>:<span class="s2">&#34;kafka-broker-qa.apps.example.com:9092&#34;</span>,<span class="s2">&#34;clientId&#34;</span>:<span class="s2">&#34;my-app&#34;</span>,<span class="s2">&#34;error&#34;</span>:<span class="s2">&#34;There is no leader for this topic-partition as we are in the middle of a leadership election&#34;</span>,<span class="s2">&#34;correlationId&#34;</span>:1,<span class="s2">&#34;size&#34;</span>:108<span class="o">}</span>
+<span class="o">[</span>
+  <span class="o">{</span>
+    topicName: <span class="s1">&#39;user-registration&#39;</span>,
+    partition: 0,
+    errorCode: 0,
+    baseOffset: <span class="s1">&#39;0&#39;</span>,
+    logAppendTime: <span class="s1">&#39;-1&#39;</span>,
+    logStartOffset: <span class="s1">&#39;0&#39;</span>
+  <span class="o">}</span>
+<span class="o">]</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>Do not interrupt the execution of the script and go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
+<ul>
+<li><strong>Test Endpoint</strong>: <code>kafka://kafka-broker-qa.apps.example.com:9092/user-registration?registryUrl=https://schema-registry-qa.apps.example.com</code> and note this new <code>registryUrl</code> parameter to tell Microcks where to get the Avro schema used for writing ;-),</li>
+<li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API.</li>
+</ul>
+<blockquote>
+<p>Whilst Test Endpoint and Schema Registry may be secured with custom TLS certificates or username/password, we skipped this from this guide for seek of simplicity but Microcks is handling this through <a href="../../administrating/secrets">Secrets</a> or additional <code>registryUsername</code> and <code>registryCredentialsSource</code> <a href="../../using/tests/#event-based-apis">parameters</a>.</p>
+</blockquote>
+<p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
+<p><img src="/images/avro-kafka-test-success.png" alt="Avro Kafka Test Success"></p>
+<p>This is fine and we can see that the type is <code>avro/binary</code> and the message content is nicely displayed using JSON but what in case of a failure? What are we able to demonstrate using Microcks validation? Next to the script lies actually two Avro schemas:</p>
+<ul>
+<li><code>user-signedup.avsc</code> is correct and matches the one that is referenced into the AsyncAPI specification,</li>
+<li><code>user-signedup-bad.avsc</code> represented an evolution and does not match the one from the AsyncAPI specification.</li>
+</ul>
+<p>Well let see now if we tweak a little bit the <code>avro-with-registry-producer.js</code> script&hellip; Open it in your favorite editor to put comments on lines 48 and 56 and to remove comments on lines 45 and 55. Relaunch it and relaunch a new test&hellip;</p>
+<p><img src="/images/avro-kafka-test-failure.png" alt="Avro Kafka Test Failure"></p>
+<p>🎉 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when a schema that when your application is using a different and incompatible schemas from those in the AsyncAPI contract, Microcks raises an error and spot the breaking change! The <code>fullName</code> required property was expected as stated in the AsyncAPI file but cannot be found in incoming message&hellip; thus your tested application producing message is sending garbage indeed ;-)</p>
+<h3 id="without-schema-registry-1">Without Schema Registry</h3>
+<p>Now looking at the <code>RAW</code> encoding option and what we can deduce from tests. To simulate an existing application, we will now use the <code>avro-producer.js</code> script that is also using the local <code>user-signedup.avsc</code> Avro schema to do the binary encoding:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ node avro-producer.js kafka-broker-qa.apps.example.com:9092 user-registration
+Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration
+<span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;ERROR&#34;</span>,<span class="s2">&#34;timestamp&#34;</span>:<span class="s2">&#34;2021-02-11T21:37:28.266Z&#34;</span>,<span class="s2">&#34;logger&#34;</span>:<span class="s2">&#34;kafkajs&#34;</span>,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;[Connection] Response Metadata(key: 3, version: 5)&#34;</span>,<span class="s2">&#34;broker&#34;</span>:<span class="s2">&#34;kafka-broker-qa.apps.example.com:9092&#34;</span>,<span class="s2">&#34;clientId&#34;</span>:<span class="s2">&#34;my-app&#34;</span>,<span class="s2">&#34;error&#34;</span>:<span class="s2">&#34;There is no leader for this topic-partition as we are in the middle of a leadership election&#34;</span>,<span class="s2">&#34;correlationId&#34;</span>:1,<span class="s2">&#34;size&#34;</span>:96<span class="o">}</span>
+<span class="o">[</span>
+  <span class="o">{</span>
+    topicName: <span class="s1">&#39;user-registration&#39;</span>,
+    partition: 0,
+    errorCode: 0,
+    baseOffset: <span class="s1">&#39;0&#39;</span>,
+    logAppendTime: <span class="s1">&#39;-1&#39;</span>,
+    logStartOffset: <span class="s1">&#39;0&#39;</span>
+  <span class="o">}</span>
+<span class="o">]</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>Do not interrupt the execution of the script and go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
+<ul>
+<li><strong>Test Endpoint</strong>: <code>kafka://kafka-broker-qa.apps.example.com:9092/user-registration</code> simply,</li>
+<li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API.</li>
+</ul>
+<p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
+<p><img src="/images/avro-kafla-test-sucsess-raw.png" alt="Avro Kafka Test Success Raw"></p>
+<p>You can see here that we just have the string representation of the binary message that was sent. Using <code>RAW</code> encoding we cannot be sure that what we read has any sense regarding the semantic meaning of the API contract.</p>
+<p>If you want to play with this idea, start making change to the Avro schema used by the producer and add more properties of different types. As the schema referenced with the AsyncAPI contract is very basic we&rsquo;ll always be able to read.</p>
+<p>But start removing properties and just send single bytes, you&rsquo;ll see validation failure happened. In <code>RAW</code> mode, validation is very shallow: we cannot detect schema incompatibilities as we do not have the schema used for writing. So Microcks can just check, the binary Avro we can read with given schema and as long as you send more bytes than expected: it works :-(</p>
+<h2 id="wrap-up">Wrap-Up</h2>
+<p>In this guide we have seen how Microcks can also be used to simulate Avro messages on top of Kafka. We have also checked how it can connect to Schema Registry such as the one from Confluent in order to speed-up and make reliable the process of propagating Avro schema updates to API events consumers. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected Avro schema and the one effectively used by real-life producers.</p>
+<p>Take care: Microcks will detect if they send garbage!</p>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
+        
+<nav role="navigation">
+  <ul class="list pa0 nl2">
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started-tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED WITH TESTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              IMPORTING SERVICES &amp; APIS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/alternatives/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              COMPARISON TO ALTERNATIVES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/openapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              OPENAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/asyncapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ASYNCAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/soapui/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              SOAPUI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/mocks/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING EXPOSED MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING DYNAMIC MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXECUTING TESTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ADVANCED TOPICS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ORGANIZING REPOSITORY
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TEMPLATING MOCK RESPONSES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBE USING HELM
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBE USING OPERATOR
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH DOCKER-COMPOSE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ARCHITECTURE AND DEPLOYMENT OPTIONS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".automating">AUTOMATING</a>
+        <ul class="automating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/automating/service-account/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS SERVICE ACCOUNTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/jenkins/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INTEGRATING MICROCKS FROM JENKINS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/cli/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              CLI FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/tekton/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING MICROCKS FROM TEKTON
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/api/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS API
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".administrating">ADMINISTRATING</a>
+        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MANAGING USERS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/secrets/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXTERNAL SECRETS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/snapshots/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              REPOSITORY SNAPSHOTS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".guides">GUIDES</a>
+        <ul class="guides desktopmenu animated fadeIn list pl0 bg-light-gray db">
+          <li class="f6 fw4">
+            <a href="/documentation/guides/avro-messaging/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+              KAFKA, AVRO AND SCHEMA REGISTRY
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/resources/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".resources">RESOURCES</a>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/community/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".community">COMMUNITY</a>
+      </li>
+  </ul>
+</nav>
+
+      </div>
+    </div>
+
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/guides/avro-messaging/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “Kafka, Avro and Schema Registry”
+  </a> was last updated: February 12, 2021
+</h6>
+
+      <a href="edit/master/content/en/documentation/guides/avro-messaging.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">
+        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    <a href="https://microcksio.zulipchat.com" target="new">
+      <img src="/images/zulip.png" class="absolute-l bottom-2 dn db-l h4 right-2 mr2 mb2 z-999 br4"/>
+    </a>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//guides/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Guides
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>

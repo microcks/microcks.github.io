@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Custom dispatching rules | Microcks.io</title>
+    <title>Guides | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.74.3" />
@@ -18,6 +18,7 @@
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       
 
+    <link rel="alternate" type="application/rss&#43;xml" href="https://microcks.io/documentation/guides/index.xml">
     
     
       <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
@@ -43,27 +44,16 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Custom dispatching rules" />
-<meta property="og:description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
-However in some cases, this could not be enough and it will be useful to override these deduced values." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/advanced/dispatching/" />
-<meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-02-09T00:00:00+00:00" />
-<meta itemprop="name" content="Custom dispatching rules">
-<meta itemprop="description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
-However in some cases, this could not be enough and it will be useful to override these deduced values.">
-<meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1141">
-
-
-
-<meta itemprop="keywords" content="" />
+<meta property="og:title" content="Guides" />
+<meta property="og:description" content="Microcks.io" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/" />
+<meta property="og:updated_time" content="2021-02-12T00:00:00+00:00" />
+<meta itemprop="name" content="Guides">
+<meta itemprop="description" content="Microcks.io">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Custom dispatching rules"/>
-<meta name="twitter:description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
-However in some cases, this could not be enough and it will be useful to override these deduced values."/>
+<meta name="twitter:title" content="Guides"/>
+<meta name="twitter:description" content="Microcks.io"/>
 
 
       
@@ -212,189 +202,63 @@ var trackOutboundLink = function(id, url) {
     
     <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
       
-  <article class="w-100 ph3 pb5">
+
+<article class="w-100 ph3 pb5">
     <div class="flex-l">
-      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
-<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
-	
-		<p class="b">What's on this Page</p>
-  	<nav id="TableOfContents">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#the-need-for-custom-dispatching-rules">The need for custom dispatching rules</a></li>
-    <li><a href="#dispatching-rules-override">Dispatching rules override</a>
-      <ul>
-        <li><a href="#inferred-dispatchers">Inferred dispatchers</a></li>
-        <li><a href="#json-body-dispatcher">JSON BODY dispatcher</a></li>
-        <li><a href="#fallback-dispatcher">FALLBACK dispatcher</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-	
+        <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+            <div class="w-100 ph4 pb5 pb6-ns pt1 mt4">
+                <div class="w-100 w-80-l ph0 ph4-l">
+                    <article class="w-100 nested-copy-line-height nested-links nested-img">
+                        <h1 class="primary-color-dark f2">
+                            Guides
+                        </h1>
+                        <div class=" mid-gray f5 f4-l">
+                            <p>Here below all the documentation pages related to <strong>Guides</strong>.</p>
 
-	<div date-pref>
-		
-			<a href="https://microcks.io/documentation/using/advanced/organizing/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Organizing repository ">
-				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
-
-		
-			<a href="https://microcks.io/documentation/using/importers/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Importing Services &amp; APIs">
-			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
-	</div>
-
-</aside>
-</div>
-      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
-        <header class="flex-none w-100 bg-primary-color pv3 ph3">
-  
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Custom dispatching rules</h1>
-</header>
-
-<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
-  
-  
-</aside>
-
-
-
-<div class="prose" id="prose">
-
-<h2 id="introduction">Introduction</h2>
-<p>As explained into <a href="../mocks">Using exposed mocks</a>, Microcks is using <code>Dispatcher</code> and <code>Dispatching Rules</code> for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.</p>
-<p>However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules ;-) But you can realize that by overriding the <code>Dispatching Rules</code> after the first import of the API into the repository.</p>
-<h2 id="the-need-for-custom-dispatching-rules">The need for custom dispatching rules</h2>
-<p>Let&rsquo;s illustrate this with an example! Say we&rsquo;ve got this API allowing to record a new beer in our own catalog. We have this <code>POST</code> method that allows to create new beer resources and we want to make the difference between 2 cases: the <code>Accepted</code> and the <code>Not accepted</code> responses. So we have to start describing the 2 samples into our API contract. You&rsquo;ll notice in the capture below that:</p>
-<ul>
-<li><code>Dispatcher</code> and <code>Dispatching Rules</code> are empty. That means that you&rsquo;ll get the first found response when invoking the mock, no matter the request.</li>
-<li>We have used <a href="../templates/">Templating features</a> to make the response content more dynamic. So the <code>{{ }}</code> notation within response body.</li>
-</ul>
-<p><img src="/images/dispatcher-case.png" alt="dispatcher-case"></p>
-<h2 id="dispatching-rules-override">Dispatching rules override</h2>
-<p>Now just select <code>Edit Properties</code> of the operation from the 3-dots menu on the right of the opration name. You should be logged as a repository <code>manager</code> to have this option (see <a href="../administrating/users/">Users management</a> section of documentation if needed). The next screen allows you to override default operation properties, one of them being the <code>Dispatching Rules</code> like shown in the screen below.</p>
-<p><img src="/images/dispatcher-edit.png" alt="dispatcher-edit"></p>
-<blockquote>
-<p>The above rule can be simply read like this <em>&ldquo;From the incoming request, look for the value of the country field. If this field has the value &lsquo;Belgium&rsquo; then return the response called &lsquo;Accepted&rsquo; otherwise return the response called &lsquo;Not accepted&rsquo;.&quot;</em></p>
-</blockquote>
-<h3 id="inferred-dispatchers">Inferred dispatchers</h3>
-<p>A reminder on default, inferred dispatchers: you may find <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code>. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contraxct artifact.</p>
-<h3 id="json-body-dispatcher">JSON BODY dispatcher</h3>
-<p>The <code>JSON_BODY</code> dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right secion of the page that will provide examples and copy/paste shortcuts.</p>
-<p>The dispatching rules of <code>JSON_BODY</code> dispatcher are always expressed using a JSON payload with 3 properties:</p>
-<ul>
-<li><code>exp</code> is the expression to evaluate against the request body. It is indeed a <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> expression. We already use this expressiong language in <a href="../templates/#json-body-pointer-expression">Templating features</a>. From the evaluation of this expression, we&rsquo;ll get a value. Here <code>/country</code> denotes the <code>country</code> field of incoming request.</li>
-<li><code>op</code> is the operator to apply. Different operators are available like <code>equals</code>, <code>range</code>, <code>regexp</code>, <code>size</code> and <code>presence</code>,</li>
-<li><code>cases</code> are a number of cases where keys are values to compare to extracted value from incoming request.</li>
-</ul>
-<p>Depending on the operator applied, the <code>cases</code> may have different specification formats.</p>
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th> Cases syntax</th>
-<th> Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>equals</code></td>
-<td><code>&quot;&lt;value&gt;&quot;: &quot;&lt;response&gt;&quot;</code></td>
-<td>A case named <code>default</code> is used as default option</td>
-</tr>
-<tr>
-<td><code>range</code></td>
-<td><code>[&lt;min&gt;;&lt;max&gt;]: &quot;&lt;response&gt;&quot;</code></td>
-<td> Bracket side matter: <code>[</code> means incluse, <code>]</code> means exclusive for a left bracket. A case named <code>default</code> is used as default option</td>
-</tr>
-<tr>
-<td><code>size</code></td>
-<td><code>&quot;[&lt;min&gt;;&lt;max&gt;]&quot;: &quot;&lt;response&gt;&quot;</code></td>
-<td>Size of an array property. Brackets must be inclusive. A case named <code>default</code> is used as default option</td>
-</tr>
-<tr>
-<td><code>regexp</code></td>
-<td><code>&quot;&lt;posix regexp&gt;&quot;: &quot;&lt;response&gt;&quot;</code></td>
-<td>Regular expression applied to value. A case named <code>default</code> is used as default option</td>
-</tr>
-<tr>
-<td><code>regexp</code></td>
-<td><code>&quot;found&quot;: &quot;&lt;response&gt;&quot;</code></td>
-<td>Check the presence/absence of a property. 2 mandatory cases: <code>found</code> and <code>default</code></td>
-</tr>
-</tbody>
-</table>
-<p>Now that we have edited or dipsatching rule and save, we can check this rule is applied to our operation. This override of rule will be persisted into Microcks and will survive future discoveries and refreshed of this API version.</p>
-<p><img src="/images/dispatcher-updated.png" alt="dispatcher-updated"></p>
-<blockquote>
-<p>We recommend having an in-depth look at the exemple provided on the page to fully understand the power of different options.</p>
-</blockquote>
-<h4 id="test-our-new-rule">Test our new rule!</h4>
-<p>Given the templated responses and the above dispatching rule evaluting the body of incoming requests, we can now test our mock.</p>
-<p>Let start by creating a new beer coming from Belgium:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer <span class="se">\
-</span><span class="se"></span>    -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\
-</span><span class="se"></span>    -d <span class="s1">&#39;{&#34;name&#34;: &#34;Abbey Brune&#34;, &#34;country&#34;: &#34;Belgium&#34;, &#34;type&#34;: &#34;Brown ale&#34;, &#34;rating&#34;: 4.2, &#34;references&#34;: [ { &#34;referenceId&#34;: 1234 }, { &#34;referenceId&#34;: 5678 } ]}&#39;</span>  
-<span class="o">{</span>
-  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Abbey Brune&#34;</span>,
-  <span class="s2">&#34;country&#34;</span>: <span class="s2">&#34;Belgium&#34;</span>,
-  <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;Brown ale&#34;</span>,
-  <span class="s2">&#34;rating&#34;</span>: 4.2,
-  <span class="s2">&#34;references&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span> <span class="s2">&#34;referenceId&#34;</span>: <span class="m">1234</span> <span class="o">}</span>,
-    <span class="o">{</span> <span class="s2">&#34;referenceId&#34;</span>: <span class="m">5678</span> <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre></div><p>It is a success as the <code>country</code> has the <code>Belgium</code> value and the <code>Accepted</code> response is returned. Templates in this response are evaluated regarding request content.</p>
-<p>Now let&rsquo;s try with a German beer&hellip; You&rsquo;ll see that the <code>Not accepted</code> response is matched (look also at the return code) and adapted regarding incoming request:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer <span class="se">\
-</span><span class="se"></span>    -H <span class="s1">&#39;Content-type: application/json&#39;</span> <span class="se">\
-</span><span class="se"></span>    -d <span class="s1">&#39;{&#34;name&#34;: &#34;Spaten Oktoberfiest&#34;, &#34;country&#34;: &#34;Germany&#34;, &#34;type&#34;: &#34;Amber&#34;, &#34;rating&#34;: 2.8, &#34;references&#34;: []}&#39;</span>
-&lt; HTTP/1.1 <span class="m">406</span> 
-<span class="o">{</span>
-  <span class="s2">&#34;error&#34;</span>: <span class="s2">&#34;Not accepted&#34;</span>,
-  <span class="s2">&#34;message&#34;</span>: <span class="s2">&#34;Germany origin country is forbiden&#34;</span>
-<span class="o">}</span>
-</code></pre></div><h3 id="fallback-dispatcher">FALLBACK dispatcher</h3>
-<p>Another useful advanced dispatching strategy introduced in the <a href="../../../../blog/advanced-dispatching-constraints/">Advanced Dispatching and Constraints for mocks</a> blog post, is the <code>FALLBACK</code> strategy. As you may have guessed by its name, it behaves like a <code>try-catch</code> wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to a <code>fallback</code> response. This will allow you to define a default response event of the incoming requests does not match any dispatching criteria.</p>
-<p>The dispatching rules of <code>FALLBACK</code> dispatcher are expressed using a JSON payload with 3 properties:</p>
-<ul>
-<li><code>dispatcher</code> is the original dispatching strategy you want to be applied at first. Valid values are all the other dispatching strategies,</li>
-<li><code>dispatcherRules</code> are the rules you want the original dispatcher to apply when looking for a response,</li>
-<li><code>fallback</code> is simply the name of the response to use as the fallback if nothing is found on first try.</li>
-</ul>
-<p>Here&rsquo;s below the sample that was introduced in afore mentioned blog post. In case of unknown region requested as a query parameters on a Weather Forecast API, we&rsquo;ll fallback to an <code>unknown</code> response providing meaningful error message:</p>
-<p><img src="/images/blog/advanced-dispatching-constraints-final.png" alt="fallback-dispatcher"></p>
-<h4 id="test-our-new-rule-1">Test our new rule!</h4>
-<p>Just issue a Http request with an unmanaged region like below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl <span class="s1">&#39;https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&amp;apiKey=qwertyuiop&#39;</span> -k
-Region is unknown. Choose in north, west, east or south.%
-</code></pre></div>
-</div>
-
-        
-
-      </div>
-      <div class="order-0 w-20 dn db-l mt4 ph3">
+                        </div>
+                    </article>
+                
+                    
+                
+                    <div class="flex flex-wrap">
+                        
+                        <section class="flex-ns flex-wrap justify-between w-100">
+                            
+                                
+                                <div class="relative  weight-90">
+                                    <div class="bg-white mb2 pa3 pa4-l gray">
+                                        <h1 class="near-black f3">
+                                            <a href="/documentation/guides/avro-messaging/" class="link primary-color dim">Kafka, Avro and Schema Registry</a>
+                                        </h1>
+                                        <div class="lh-copy links">
+                                            
+                                                Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
+Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.
+                                            
+                                    
+                                            <a href="/documentation/guides/avro-messaging/" class="f6 mt2 db link primary-color dim">
+                                            Read More &raquo;
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            
+                        </section>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="order-0 w-20 dn db-l mt4 ph3">
         
 <nav role="navigation">
   <ul class="list pa0 nl2">
     
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".using">USING</a>
-        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray db">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
@@ -466,7 +330,7 @@ Region is unknown. Choose in north, west, east or south.%
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
             </a>
           </li>
@@ -572,31 +436,9 @@ Region is unknown. Choose in north, west, east or south.%
   </ul>
 </nav>
 
-      </div>
+        </div>
     </div>
-
-  </article>
-  
-
-  <div class="w-100 bg-light-gray">
-    <div class="mw7 pa4 center nested-lh-copy lh-copy">
-      <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/using/advanced/dispatching/" class="hide-child link primary-color">
-  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
-</span>
-    “Custom dispatching rules”
-  </a> was last updated: February 9, 2021
-</h6>
-
-      <a href="edit/master/content/en/documentation/using/advanced/dispatching.md" class="
-f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
-">Improve this page</a>
-
-      
-
-
-    </div>
-  </div>
+</article>
 
     </main>
 
