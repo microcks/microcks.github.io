@@ -55,7 +55,7 @@ Starting with the 1.2.0 release of Microcks, we support Avro as an encoding form
 Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.">
 <meta itemprop="datePublished" content="2021-02-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-12T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2181">
+<meta itemprop="wordCount" content="2182">
 
 
 
@@ -423,7 +423,7 @@ $ npm install
 <p>When using a Schema Registry with the <code>REGISTRY</code> encoding configured into Microcks, the following schema illustrates Microcks interactions with broker and registry. Here, we are not necessarily using the broker and registry Microcks is using for mocking but we are able to reuse <em>any Kafka broker</em> and <em>any Schema Registry</em> available within your organization - typically this will depend on the environment you want to launch tests upon.</p>
 <p><img src="/images/avro-kafka-testing.png" alt="Avro Kafka Testing"></p>
 <p>That said, imagine that you want to validate messages from a <strong>QA</strong> environment with dedicated broker and registry. Start by using our utility script to produce some messages on an <code>user-registration</code> arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Regsitry:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
 Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, using registry https://schema-registry-qa.apps.example.com
 <span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;ERROR&#34;</span>,<span class="s2">&#34;timestamp&#34;</span>:<span class="s2">&#34;2021-02-11T21:07:09.962Z&#34;</span>,<span class="s2">&#34;logger&#34;</span>:<span class="s2">&#34;kafkajs&#34;</span>,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;[Connection] Response Metadata(key: 3, version: 5)&#34;</span>,<span class="s2">&#34;broker&#34;</span>:<span class="s2">&#34;kafka-broker-qa.apps.example.com:9092&#34;</span>,<span class="s2">&#34;clientId&#34;</span>:<span class="s2">&#34;my-app&#34;</span>,<span class="s2">&#34;error&#34;</span>:<span class="s2">&#34;There is no leader for this topic-partition as we are in the middle of a leadership election&#34;</span>,<span class="s2">&#34;correlationId&#34;</span>:1,<span class="s2">&#34;size&#34;</span>:108<span class="o">}</span>
 <span class="o">[</span>
