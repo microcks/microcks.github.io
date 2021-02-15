@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>MQTT Mocking and Testing | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.74.3" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.70f1e95cd0ab6467786a5709486ad43175f1e9e24c3d881cace564dad5b3f6a7.css" integrity="sha256-cPHpXNCrZGd4alcJSGrUMXXx6eJMPYgcrOVk2tWz9qc=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.4b4ea946d55c8edd0ad8d55a64f2f2d0b544f6a9901fb543d3a503fd263fca1b.js" integrity="sha256-S06pRtVcjt0K2NVaZPLy0LVE9qmQH7VD06UD/SY/yhs=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="MQTT Mocking and Testing" />
+<meta property="og:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/mqtt-support/" />
+<meta property="article:published_time" content="2021-02-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-15T00:00:00+00:00" />
+<meta itemprop="name" content="MQTT Mocking and Testing">
+<meta itemprop="description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.">
+<meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1348">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MQTT Mocking and Testing"/>
+<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification."/>
+
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+  <article class="w-100 ph3 pb5">
+    <div class="flex-l">
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</a></li>
+    <li><a href="#2-use-mqtt-in-asyncapi">2. Use MQTT in AsyncAPI</a></li>
+    <li><a href="#3-validate-your-mocks">3. Validate your mocks</a></li>
+    <li><a href="#4-run-asyncapi-tests">4. Run AsyncAPI tests</a></li>
+    <li><a href="#wrap-up">Wrap-Up</a></li>
+  </ul>
+</nav>
+	
+
+	<div date-pref>
+		
+
+		
+			<a href="https://microcks.io/documentation/guides/avro-messaging/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Kafka, Avro and Schema Registry">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+	</div>
+
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">MQTT Mocking and Testing</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+<h2 id="overview">Overview</h2>
+<p>This guide is a walkthrough on how to use the <a href="https://mqtt.org/">Message Queuing Telemetry Transport (MQTT)</a> protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.</p>
+<p>Starting with the <code>1.2.0</code> release of Microcks, we support MQTT as a protocole binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
+<p>Let&rsquo;s start!</p>
+<h2 id="1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</h2>
+<p>First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquito</a> with MQTT protocol version <code>3.1.1</code>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
+<p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>MicrocksInstall<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">  </span><span class="k">features</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">async</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>mqtt-broker.app.example.com<span class="p">:</span><span class="m">1883</span><span class="w">
+</span><span class="w">        </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w">        </span><span class="k">password</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>mqtt</code> block:</p>
+<ul>
+<li><code>url</code> is the hostname + port where broker can be reached by Microcks,</li>
+<li><code>username</code> is simply the user to use for authenticating the connection,</li>
+<li><code>password</code> represents this user credentials.</li>
+</ul>
+<blockquote>
+<p>For now, Microcks does not support connecting to a broker secured using TLS. This is tracked in a <a href="https://github.com/microcks/microcks/issues/316">RFE here</a> and will be implemented in a near future.</p>
+</blockquote>
+<p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">features</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">async</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">    </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>mqtt-broker.app.example.com<span class="p">:</span><span class="m">1883</span><span class="w">
+</span><span class="w">      </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span><span class="w">      </span><span class="k">credentialsSource</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+</span></code></pre></div><p>Actual connection to the MQTT broker will only be made once Microcks will send mock messages to it. Let see below how to use MQTT binding with AsyncAPI.</p>
+<h2 id="2-use-mqtt-in-asyncapi">2. Use MQTT in AsyncAPI</h2>
+<p>As MQTT is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/streetlights-asyncapi.yaml">GitHub repository</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="k">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">          </span><span class="k">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>mqtt</code> non empty block within the operation <code>bindings</code>. Just define one or property (like <code>qos</code> for example) and Microcks will detect this binding has been specified.</p>
+<p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
+<p>In our example we have used references to a shared message structure that is also holding examples. We have defined 3 virtual devices that are sending their lumens measure and the corresponding date, still coming from our <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/streetlights-asyncapi.yaml">GitHub repository</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">defaultContentType</span><span class="p">:</span><span class="w"> </span>application/json<span class="w">
+</span><span class="w"></span><span class="k">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="k">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">          </span><span class="k">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">      </span><span class="k">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/lightMeasured&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">components</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">messages</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">lightMeasured</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="k">traits</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
+</span><span class="w">      </span><span class="k">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/lightMeasuredPayload&#39;</span><span class="w">
+</span><span class="w">      </span><span class="k">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="k">dev0</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Device<span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">            </span><span class="k">headers</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
+</span><span class="sd">              {&#34;my-app-header&#34;: 14}</span><span class="w">
+</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
+</span><span class="sd">              {&#34;streetlightId&#34;:&#34;dev0&#34;, &#34;lumens&#34;:1000, &#34;sentAt&#34;:&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;}</span><span class="w">
+</span><span class="w">        </span>- <span class="k">dev1</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Device<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">            </span><span class="k">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="k">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
+</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="k">streetlightId</span><span class="p">:</span><span class="w"> </span>dev1<span class="w">
+</span><span class="w">              </span><span class="k">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1100</span><span class="w">
+</span><span class="w">              </span><span class="k">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="k">dev2</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Device<span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">            </span><span class="k">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="k">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
+</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="k">streetlightId</span><span class="p">:</span><span class="w"> </span>dev2<span class="w">
+</span><span class="w">              </span><span class="k">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1200</span><span class="w">
+</span><span class="w">              </span><span class="k">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
+</span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
+<p>Now simply import your AsyncAPI file into Microcks either using a <strong>Direct upload</strong> import or by defining a <strong>Importer Job</strong>. Both methods are described in <a href="http://localhost:1313/documentation/documentation/using/importers">this page</a>.</p>
+<h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
+<p>Now it’s time to validate that mock publication of messages on the connected broker is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
+<p>For our <code>Streetlights API</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/mqttjs-client/consumer.js">in one GitHub repository</a>.</p>
+<p>Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
+$ <span class="nb">cd</span> api-tooling/async-clients/mqttjs-client
+$ npm install
+
+$ node consumer.js mqtt://mqtt-broker.app.example.com:1883 StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured microcks microcks
+Connecting to mqtt://localhost:1883 on topic StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured
+<span class="o">{</span>
+  <span class="s2">&#34;streetlightId&#34;</span>: <span class="s2">&#34;dev0&#34;</span>,
+  <span class="s2">&#34;lumens&#34;</span>: 1000,
+  <span class="s2">&#34;sentAt&#34;</span>: <span class="s2">&#34;2021-02-14T10:01:783Z&#34;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;streetlightId&#34;</span>: <span class="s2">&#34;dev1&#34;</span>,
+  <span class="s2">&#34;lumens&#34;</span>: 1100,
+  <span class="s2">&#34;sentAt&#34;</span>: <span class="s2">&#34;2021-02-14T10:01:784Z&#34;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;streetlightId&#34;</span>: <span class="s2">&#34;dev2&#34;</span>,
+  <span class="s2">&#34;lumens&#34;</span>: 1200,
+  <span class="s2">&#34;sentAt&#34;</span>: <span class="s2">&#34;2021-02-14T10:01:785Z&#34;</span>
+<span class="o">}</span>
+</code></pre></div><p>🎉 Fantastic! We are receiving the three different messages corresponding to the three defined devices each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>sentAt</code> property has a different value thanks to the templating notation.</p>
+<blockquote>
+<p>Note: this simple <code>consumer.js</code> script is also able to handled TLS connections to your MQTT broker. It was omitted here for sake of simplicity but you can also use commands like: <code>node consumer.js mqtts://artemis-my-acceptor-0-svc-rte-microcks.apps.example.com:443 StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured admin mypassword broker.crt</code></p>
+</blockquote>
+<h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
+<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Streetlights API</code> sample we used so far but feel free to adapt them for your own use.</p>
+<p>Imaging that you cant to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>mqttjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>streetlights-event-lighting-measured</code> topic:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
+Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
+<span class="o">{</span>
+  streetlightId: <span class="s1">&#39;devX&#39;</span>,
+  lumens: 900,
+  sentAt: <span class="s1">&#39;2021-02-15T09:06:42.744Z&#39;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+  streetlightId: <span class="s1">&#39;devX&#39;</span>,
+  lumens: 900,
+  sentAt: <span class="s1">&#39;2021-02-15T09:06:45.750Z&#39;</span>
+<span class="o">}</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>Do not interrupt the execution of the script for now.</p>
+<p>If the <strong>QA</strong> broker access is secured - let&rsquo;s say with credentials and custom certificates - we will first have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
+<blockquote>
+<p><strong>Administration</strong> and <strong>Secrets</strong> will only be available to people having the <code>administrator</code> role assigned. Please check <a href="../../administrating/secrets/users">this documentation</a> for details.</p>
+</blockquote>
+<p>The screenshot below illustrates the creation of such a secret for your <code>QA MQTT Broker</code> with username, credentials and custom certificates using the <a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM format</a>.</p>
+<p><img src="/images/mqtt-broker-secret.png" alt="MQTT Broker secret"></p>
+<p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
+<ul>
+<li><strong>Test Endpoint</strong>: <code>mqtt://mqtt-broker-qa.app.example.com:443/streetlights-event-lighting-measured</code> that is referencing the MQTT broker endpoint,</li>
+<li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API,</li>
+<li><strong>Timeout</strong>: Keep the default of 10 seconds,</li>
+<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA MQTT Broker</strong> you previously created.</li>
+</ul>
+<p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
+<p><img src="/images/mqtt-test-success.png" alt="MQTT Test success"></p>
+<p>This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be defined.</p>
+<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on line 35 and to remove comments from line 36. It&rsquo;s removing the <code>lumens</code> measure and adding an unexpected <code>location</code> property as shown below after having restarted the producer:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt
+Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
+<span class="o">{</span>
+  streetlightId: <span class="s1">&#39;devX&#39;</span>,
+  location: <span class="s1">&#39;47.8509682604982, 0.11136576784773598&#39;</span>,
+  sentAt: <span class="s1">&#39;2021-02-15T10:04:49.669Z&#39;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+  streetlightId: <span class="s1">&#39;devX&#39;</span>,
+  location: <span class="s1">&#39;47.8509682604982, 0.11136576784773598&#39;</span>,
+  sentAt: <span class="s1">&#39;2021-02-15T10:04:52.676Z&#39;</span>
+<span class="o">}</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
+<p><img src="/images/mqtt-test-failure.png" alt="MQTT Test failure"></p>
+<p>🎉 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
+<h2 id="wrap-up">Wrap-Up</h2>
+<p>In this guide we have seen how Microcks can also be used to send mock messages on a MQTT Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
+<p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a>!</p>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
+        
+<nav role="navigation">
+  <ul class="list pa0 nl2">
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started-tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED WITH TESTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              IMPORTING SERVICES &amp; APIS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/alternatives/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              COMPARISON TO ALTERNATIVES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/openapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              OPENAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/asyncapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ASYNCAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/soapui/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              SOAPUI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/mocks/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING EXPOSED MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING DYNAMIC MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXECUTING TESTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ADVANCED TOPICS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ORGANIZING REPOSITORY
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TEMPLATING MOCK RESPONSES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBE USING HELM
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBE USING OPERATOR
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH DOCKER-COMPOSE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ARCHITECTURE AND DEPLOYMENT OPTIONS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".automating">AUTOMATING</a>
+        <ul class="automating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/automating/service-account/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS SERVICE ACCOUNTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/jenkins/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INTEGRATING MICROCKS FROM JENKINS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/cli/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              CLI FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/tekton/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING MICROCKS FROM TEKTON
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/api/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS API
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".administrating">ADMINISTRATING</a>
+        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MANAGING USERS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/secrets/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXTERNAL SECRETS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/snapshots/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              REPOSITORY SNAPSHOTS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".guides">GUIDES</a>
+        <ul class="guides desktopmenu animated fadeIn list pl0 bg-light-gray db">
+          <li class="f6 fw4">
+            <a href="/documentation/guides/avro-messaging/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              KAFKA, AVRO AND SCHEMA REGISTRY
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/mqtt-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+              MQTT MOCKING AND TESTING
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/resources/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".resources">RESOURCES</a>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/community/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".community">COMMUNITY</a>
+      </li>
+  </ul>
+</nav>
+
+      </div>
+    </div>
+
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/guides/mqtt-support/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “MQTT Mocking and Testing”
+  </a> was last updated: February 15, 2021
+</h6>
+
+      <a href="edit/master/content/en/documentation/guides/mqtt-support.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">
+        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    <a href="https://microcksio.zulipchat.com" target="new">
+      <img src="/images/zulip.png" class="absolute-l bottom-2 dn db-l h4 right-2 mr2 mb2 z-999 br4"/>
+    </a>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//guides/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Guides
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>

@@ -6,10 +6,20 @@
     <description>Recent content in Guides on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MQTT Mocking and Testing</title>
+      <link>https://microcks.io/documentation/guides/mqtt-support/</link>
+      <pubDate>Sun, 14 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/guides/mqtt-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
+    </item>
     
     <item>
       <title>Kafka, Avro and Schema Registry</title>
