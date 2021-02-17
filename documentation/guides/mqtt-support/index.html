@@ -55,7 +55,7 @@ Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole bind
 Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.">
 <meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1348">
+<meta itemprop="wordCount" content="1349">
 
 
 
@@ -266,7 +266,7 @@ var trackOutboundLink = function(id, url) {
 <p>Starting with the <code>1.2.0</code> release of Microcks, we support MQTT as a protocole binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
 <p>Let&rsquo;s start!</p>
 <h2 id="1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</h2>
-<p>First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquito</a> with MQTT protocol version <code>3.1.1</code>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
+<p>First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquitto</a> with MQTT protocol version <code>3.1.1</code>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
 <p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
 </span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>MicrocksInstall<span class="w">
@@ -445,10 +445,10 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
 <p><img src="/images/mqtt-test-failure.png" alt="MQTT Test failure"></p>
-<p>🎉 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
+<p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
 <h2 id="wrap-up">Wrap-Up</h2>
 <p>In this guide we have seen how Microcks can also be used to send mock messages on a MQTT Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
-<p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a>!</p>
+<p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a> 🐙</p>
 
 </div>
 
