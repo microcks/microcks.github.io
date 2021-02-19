@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Managing Users | Microcks.io</title>
+    <title>Using Microcks from GitHub Actions | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.74.3" />
@@ -43,27 +43,27 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Managing Users" />
-<meta property="og:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm." />
+<meta property="og:title" content="Using Microcks from GitHub Actions" />
+<meta property="og:description" content="Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
+The test command of the CLI needs 3 arguments:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/administrating/users/" />
-<meta property="article:published_time" content="2019-11-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-09T00:00:00+00:00" />
-<meta itemprop="name" content="Managing Users">
-<meta itemprop="description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm.">
-<meta itemprop="datePublished" content="2019-11-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="683">
+<meta property="og:url" content="https://microcks.io/documentation/automating/github-actions/" />
+<meta property="article:published_time" content="2021-02-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-19T00:00:00+00:00" />
+<meta itemprop="name" content="Using Microcks from GitHub Actions">
+<meta itemprop="description" content="Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
+The test command of the CLI needs 3 arguments:">
+<meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="279">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Managing Users"/>
-<meta name="twitter:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm."/>
+<meta name="twitter:title" content="Using Microcks from GitHub Actions"/>
+<meta name="twitter:description" content="Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
+The test command of the CLI needs 3 arguments:"/>
 
 
       
@@ -220,27 +220,29 @@ var trackOutboundLink = function(id, url) {
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#authentication">Authentication</a>
+    <li><a href="#microcks-github-actions">Microcks GitHub Actions</a>
       <ul>
-        <li><a href="#technical-notes">Technical notes</a></li>
+        <li><a href="#what-is-it">What is it?</a></li>
+        <li><a href="#how-to-use-it">How to use it?</a></li>
       </ul>
     </li>
-    <li><a href="#authorization">Authorization</a>
-      <ul>
-        <li><a href="#technical-notes-1">Technical notes</a></li>
-      </ul>
-    </li>
-    <li><a href="#users-management">Users management</a></li>
   </ul>
 </nav>
 	
 
 	<div date-pref>
 		
+			<a href="https://microcks.io/documentation/automating/tekton/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Using Microcks from Tekton ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
 
 		
-			<a href="https://microcks.io/documentation/administrating/secrets/" class="dib f6 pr1 hover-bg-light-gray br-100" title="External Secrets">
+			<a href="https://microcks.io/documentation/automating/api/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Microcks API">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -255,7 +257,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Managing Users</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Using Microcks from GitHub Actions</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -267,55 +269,51 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
-<h2 id="introduction">Introduction</h2>
-<p>Since its inception, Microcks relies on a third party component named <a href="https://www.keycloak.org">Keycloak</a> for managing security related topics like users identification, users  authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a <a href="../../automating/service-account">dedicated page</a>.</p>
-<p>Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a <strong>realm</strong>. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm">realm</a>. We provide a sample of such a realm configuration that can be imported into your instance <a href="https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json">here</a>.</p>
-<p>Basically, Microcks own components only need the reference of the Keycloak instance endpoint - the URL with <code>/auth</code> suffix - into an environment variable called <code>KEYCLOAK_URL</code>.</p>
-<h2 id="authentication">Authentication</h2>
-<p>Authentication in Microcks is indeed delegated to the configured Keycloak instance using the <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#authorization-code-flow">OpenID Connect Authorization Code Flow</a>. The Keycloak instance can be used as the direct source of user&rsquo;s Identity or can be used as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker">a broker for one or more</a> configured Identity Providers.</p>
-<blockquote>
-<p>The default installation comes with <strong>no default identity provider</strong> so it&rsquo;s mandatory to configure at least: either some directly managed users (see <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-new-user">User Management</a>) <strong>OR</strong> one <a href="(https://www.keycloak.org/docs/latest/server_admin/index.html#_general-idp-config)">Identity Provider</a> attached to the realm Microcks is configured to use.</p>
-</blockquote>
-<h3 id="technical-notes">Technical notes</h3>
-<p>On the client side (ie. in the browser), Microcks is using a client application called <code>microcks-app-js</code> that is configured to perform redirect to the public endpoint URL of the microcks app.</p>
-<p>On the server side, Microcks is using a client application called <code>microcks-app</code> for checking and trusting JWT bearers provided by the frontend application API calls.</p>
-<p>All this parameters are set within the <code>application.properties</code> configuration file. This file is usually supplied as a <code>ConfigMap</code> into containerized environments.</p>
-<p>See an excerpt below:</p>
-<pre><code class="language-properties" data-lang="properties"># Keycloak configuration properties
-keycloak.auth-server-url=${KEYCLOAK_URL:http://localhost:8180/auth}
-keycloak.realm=microcks
-keycloak.resource=microcks-app
-keycloak.bearer-only=true
-keycloak.ssl-required=external
-</code></pre><h2 id="authorization">Authorization</h2>
-<p>Microcks realm typically defines 3 application roles that are defined as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#client-roles">client roles</a> on the Keycloak side. Theses roles are attached to the <code>microcks-app</code> client application.</p>
-<p>These roles are:</p>
+<h2 id="microcks-github-actions">Microcks GitHub Actions</h2>
+<h3 id="what-is-it">What is it?</h3>
+<p>The <a href="https://github.com/microcks/test-github-action">Microcks Test GitHub Action</a> is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the <a href="https://github.com/microcks/microcks-cli">Microcks CLI</a> and provides the same configuration capabilities.</p>
+<p>The <code>test</code> command of the CLI needs 3 arguments:</p>
 <ul>
-<li><code>user</code>: a regular authenticated user of the Microcks application. This is the default role that is automatically attached the first time a user succeed authenticating into the Microcks app,</li>
-<li><code>manager</code>: a user identified as having management roles on the Microcks repository content. Managers should be allowed of adding and removing Services mocks into the repository as well as configuring mocks operation properties. In a near future, this role should be scoped by a classifier allowing to organize services into coherent groups,</li>
-<li><code>admin</code>: a user identified as having administration role on the Microcks instance. Admin shoulb be able to manage users, configure external repositories secrets or realize backup/restore operations.</li>
+<li><code>&lt;apiName:apiVersion&gt;</code> : Service to test reference. Exemple: <code>'Beer Catalog API:0.9'</code></li>
+<li><code>&lt;testEndpoint&gt;</code> : URL where is deployed implementation to test</li>
+<li><code>&lt;runner&gt;</code> : Test strategy (one of: <code>HTTP</code>, <code>SOAP</code>, <code>SOAP_UI</code>, <code>POSTMAN</code>, <code>OPEN_API_SCHEMA</code>, <code>ASYNC_API_SCHEMA</code>)</li>
 </ul>
-<p>Whether a connected user has these roles is checked both on the client and the server sides using <a href="https://www.keycloak.org/docs/latest/securing_apps/index.html">Keycloak adapters</a>.</p>
-<h3 id="technical-notes-1">Technical notes</h3>
-<p>Whilst checks on the client side is disseminated into the pages code, endpoints authorization on the server side is centralized into the <code>application.properties</code> configuration file. This file is usually supplied as a <code>ConfigMap</code> into containerized environments.</p>
-<p>See an excerpt below:</p>
-<pre><code class="language-properties" data-lang="properties">keycloak.resource=microcks-app
-keycloak.use-resource-role-mappings=true
-
-# Keycloak access configuration properties
-keycloak.security-constraints[0].authRoles[0]=admin
-keycloak.security-constraints[0].authRoles[1]=manager
-keycloak.security-constraints[0].authRoles[2]=user
-keycloak.security-constraints[0].securityCollections[0].name=Insecure stuffs
-keycloak.security-constraints[0].securityCollections[0].patterns[0]=/api/services
-keycloak.security-constraints[0].securityCollections[0].patterns[1]=/api/services/count
-keycloak.security-constraints[0].securityCollections[0].patterns[2]=/api/jobs
-keycloak.security-constraints[0].securityCollections[0].patterns[3]=/api/jobs/count
-keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
-</code></pre><h2 id="users-management">Users management</h2>
-<p>Starting with Microcks version <code>0.8.0</code>, we add the ability to partially manage users directly from the Microcks GUI. &ldquo;Partially&rdquo; means that you are able to manage a user&rsquo;s roles within Microcks application but not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider.</p>
-<p>Users can only be managed by Microcks <code>admin</code> - we mean people having the <code>admin</code> role assigned. Users management is simply a thumbnail with the <code>Administration</code> page that is available from the vertical menu on the left once logged in as administrator. In order to be able to retrieve the list of users and operate changes, the user should also have <strong>manage-users</strong> and <strong>manage-clients</strong> role from <strong>realm-management</strong> Keycloak internal client. See <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_per_realm_admin_permissions">Keycloak documentation</a> for more on this point.</p>
-<p><img src="/images/users.png" alt="users"></p>
+<p>With a bunch of mandatory flags:</p>
+<ul>
+<li><code>--microcksURL</code> for the Microcks API endpoint,</li>
+<li><code>--keycloakClientId</code> for the Keycloak Realm Service Account ClientId,</li>
+<li><code>--keycloakClientSecret</code> for the Keycloak Realm Service Account ClientSecret.</li>
+</ul>
+<p>And some optional ones:</p>
+<ul>
+<li><code>--waitFor</code> for the time to wait for test to finish (int + one of: milli, sec, min). Default is <code>5sec</code>,</li>
+<li><code>--secretName='&lt;Secret Name&gt;'</code> is an optional flag specifying the name of a Secret to use for connecting endpoint,</li>
+<li><code>--operationsHeaders=&lt;JSON&gt;</code> allows to override some operations headers for the tests to launch.</li>
+</ul>
+<h3 id="how-to-use-it">How to use it?</h3>
+<p>Obviously we can find this action with <a href="https://github.com/marketplace?type=actions">GitHub Actions Marketplace</a> 😉</p>
+<p>You may add the Action to your Workflow directly from the GitHub UI.</p>
+<p><img src="/images/github-marketplace.png" alt="marketplace"></p>
+<h4 id="step-1---configure-the-github-action">Step 1 - Configure the GitHub action</h4>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">name</span><span class="p">:</span><span class="w"> </span>my-workflow<span class="w">
+</span><span class="w"></span><span class="k">on</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>push<span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">my-job</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">runs-on</span><span class="p">:</span><span class="w"> </span>ubuntu-latest<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w"> </span>Development<span class="w">
+</span><span class="w">    </span><span class="k">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="k">uses</span><span class="p">:</span><span class="w"> </span>microcks/test-github-action@v1<span class="w">
+</span><span class="w">        </span><span class="k">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="k">apiNameAndVersion</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;API Pastry - 2.0:2.0.0&#39;</span><span class="w">
+</span><span class="w">          </span><span class="k">testEndpoint</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;http://my-api-pastry.apps.cluster.example.com&#39;</span><span class="w">
+</span><span class="w">          </span><span class="k">runner</span><span class="p">:</span><span class="w"> </span>OPEN_API_SCHEMA<span class="w">
+</span><span class="w">          </span><span class="k">microcksURL</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://microcks.apps.acme.com/api/&#39;</span><span class="w">
+</span><span class="w">          </span><span class="k">keycloakClientId</span><span class="p">:</span><span class="w">  </span>${{<span class="w"> </span>secrets.MICROCKS_SERVICE_ACCOUNT<span class="w"> </span>}}<span class="w">
+</span><span class="w">          </span><span class="k">keycloakClientSecret</span><span class="p">:</span><span class="w">  </span>${{<span class="w"> </span>secrets.MICROCKS_SERVICE_ACCOUNT_CREDENTIALS<span class="w"> </span>}}<span class="w">
+</span><span class="w">          </span><span class="k">waitFor</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;10sec&#39;</span><span class="w">
+</span></code></pre></div><h4 id="step-2---configure-the-secrets">Step 2 - Configure the Secrets</h4>
+<p>As you probably saw just above, we do think it&rsquo;s a best practice to use GitHub Secrets (general or tied to <code>Environment</code> like in the example) to hold the Keycloak credentials (client Id and Secret). See below the Secrets configuration we&rsquo;ve used for the example:</p>
+<p><img src="/images/github-secrets.png" alt="secret configuration"></p>
 
 </div>
 
@@ -436,8 +434,8 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
       </li>
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".automating">AUTOMATING</a>
-        <ul class="automating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".automating">AUTOMATING</a>
+        <ul class="automating desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/automating/service-account/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               MICROCKS SERVICE ACCOUNTS
@@ -459,7 +457,7 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/automating/github-actions/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/automating/github-actions/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               USING MICROCKS FROM GITHUB ACTIONS
             </a>
           </li>
@@ -472,10 +470,10 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
       </li>
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".administrating">ADMINISTRATING</a>
-        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray db">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".administrating">ADMINISTRATING</a>
+        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
           <li class="f6 fw4">
-            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               MANAGING USERS
             </a>
           </li>
@@ -527,14 +525,14 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/administrating/users/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/automating/github-actions/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Managing Users”
-  </a> was last updated: October 9, 2020
+    “Using Microcks from GitHub Actions”
+  </a> was last updated: February 19, 2021
 </h6>
 
-      <a href="edit/master/content/en/documentation/administrating/users.md" class="
+      <a href="edit/master/content/en/documentation/automating/github-actions.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 

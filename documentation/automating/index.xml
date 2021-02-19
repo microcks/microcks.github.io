@@ -6,7 +6,7 @@
     <description>Recent content in Automating on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/automating/index.xml" rel="self" type="application/rss+xml" />
     
@@ -51,6 +51,16 @@ where [command] can be one of the following:
       <guid>https://microcks.io/documentation/automating/tekton/</guid>
       <description>Microcks Tekton The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines. Microcks makes use of its CLI undercover and provides some Tasks and exemple Pipelines with the /tekton folder of this repository. It also makes usage of Microcks Service Account so it&amp;rsquo;s defintely worth the read ;-)
 Tekton Task The microcks-test-task.yaml resource holds a sample of a Tekton Task for testing with Microcks. You may remove default values for parameters or put your own here.</description>
+    </item>
+    
+    <item>
+      <title>Using Microcks from GitHub Actions</title>
+      <link>https://microcks.io/documentation/automating/github-actions/</link>
+      <pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/automating/github-actions/</guid>
+      <description>Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
+The test command of the CLI needs 3 arguments:</description>
     </item>
     
     <item>
