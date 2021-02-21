@@ -6,10 +6,20 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Microcks 1.2.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.2.0-release/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.2.0-release/</guid>
+      <description>We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
+In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community.</description>
+    </item>
     
     <item>
       <title>Advanced Dispatching and Constraints for mocks</title>
