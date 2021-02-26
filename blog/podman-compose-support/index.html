@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Microcks 1.2.0 release 🚀 | Microcks.io</title>
+    <title>Podman Compose support in Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.74.3" />
@@ -43,31 +43,31 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Microcks 1.2.0 release 🚀" />
-<meta property="og:description" content="We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
-In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community." />
+<meta property="og:title" content="Podman Compose support in Microcks" />
+<meta property="og:description" content="While Docker is still the #1 option for software packaging and installation on the developer laptop, Podman is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put alias podman=docker and you would be good to go, they said 😉
+Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/blog/microcks-1.2.0-release/" />
-<meta property="article:published_time" content="2021-02-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-02-21T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/blog/podman-compose-support/" />
+<meta property="article:published_time" content="2021-02-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-26T00:00:00+00:00" />
 
-      <meta name="og:image" content="https://microcks.io/images/blog/microcks-1.2.0-avro-mqtt.png"></meta>
-      <meta itemprop="name" content="Microcks 1.2.0 release 🚀">
-<meta itemprop="description" content="We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
-In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community.">
-<meta itemprop="datePublished" content="2021-02-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-02-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="989">
+      <meta name="og:image" content="https://microcks.io/images/blog/podman-compose-support.png"></meta>
+      <meta itemprop="name" content="Podman Compose support in Microcks">
+<meta itemprop="description" content="While Docker is still the #1 option for software packaging and installation on the developer laptop, Podman is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put alias podman=docker and you would be good to go, they said 😉
+Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community!">
+<meta itemprop="datePublished" content="2021-02-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="485">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Microcks 1.2.0 release 🚀"/>
-<meta name="twitter:description" content="We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
-In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community."/>
+<meta name="twitter:title" content="Podman Compose support in Microcks"/>
+<meta name="twitter:description" content="While Docker is still the #1 option for software packaging and installation on the developer laptop, Podman is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put alias podman=docker and you would be good to go, they said 😉
+Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community!"/>
 
-      <meta name="twitter:image" content="https://microcks.io/images/blog/microcks-1.2.0-avro-mqtt.png"></meta>
+      <meta name="twitter:image" content="https://microcks.io/images/blog/podman-compose-support.png"></meta>
       
 
       
@@ -219,17 +219,17 @@ var trackOutboundLink = function(id, url) {
 
 <section class="cf ph4 pv3 pv3-ns bg-white">
   <div class="w-60 w-70-m w-90-xs center tc tc-ns pv3">
-    <h1 class="primary-color-dark">Microcks 1.2.0 release 🚀</h1>
+    <h1 class="primary-color-dark">Podman Compose support in Microcks</h1>
   </div>
   <div class="w-60-l w-70-m w-90-xs center">
     <div class="flex-ns flex-wrap">
       <div class="w-10 w-40-xs">
-        <img src="/images/blog/bio/lbroudoux.jpeg" alt="Microcks 1.2.0 release 🚀" class="br4" style="width: 48px">  
+        <img src="/images/blog/bio/nmasse_itix.jpeg" alt="Podman Compose support in Microcks" class="br4" style="width: 48px">  
       </div>
       <div class="w-40 w-70-xs">
         <div class="f6 pv2" style="vertical-align: super;">
-          <b>Laurent Broudoux</b> (<a href="https://twitter.com/lbroudoux" class="home-link">@lbroudoux</a>)
-          <br/> MicrocksIO founder - on Feb 21, 2021
+          <b>Nicolas Massé</b> (<a href="https://twitter.com/nmasse_itix" class="home-link">@nmasse_itix</a>)
+          <br/> Open Source geek - on Feb 26, 2021
         </div>
       </div>
       <div class="w-50 w-90-xs tr">
@@ -237,7 +237,7 @@ var trackOutboundLink = function(id, url) {
 
 
 
-<a class="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.2.0-release%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmicrocks.io%2fblog%2fpodman-compose-support%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
     </div>
@@ -245,7 +245,7 @@ var trackOutboundLink = function(id, url) {
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://twitter.com/share?url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.2.0-release%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://twitter.com/share?url=https%3a%2f%2fmicrocks.io%2fblog%2fpodman-compose-support%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
     </div>
@@ -253,7 +253,7 @@ var trackOutboundLink = function(id, url) {
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.2.0-release%2f&amp;title=Microcks%201.2.0%20release%20%f0%9f%9a%80" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmicrocks.io%2fblog%2fpodman-compose-support%2f&amp;title=Podman%20Compose%20support%20in%20Microcks" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
     </div>
@@ -261,7 +261,7 @@ var trackOutboundLink = function(id, url) {
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.2.0-release%2f&amp;resubmit=true&amp;title=Microcks%201.2.0%20release%20%f0%9f%9a%80" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fmicrocks.io%2fblog%2fpodman-compose-support%2f&amp;resubmit=true&amp;title=Podman%20Compose%20support%20in%20Microcks" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
     </div>
@@ -272,60 +272,45 @@ var trackOutboundLink = function(id, url) {
   </div>
   <div class="flex-ns flex-wrap">
     <div class="w-60-l w-70-m w-90-xs center">
-      <div class="prose pv3 f4" id="prose"><p>We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.</p>
-<p>In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community. Three major things came as requests and feedback that made the key theme for this release:</p>
-<ul>
-<li>People are finding <a href="https://kafka.apache.org/">Apache Kafka</a> everywhere and tightly coupled with <a href="https://avro.apache.org/docs/current/">Apache Avro</a>. As a result, we have added that feature!</li>
-<li>Also, people want to use Microcks for the Internet of Things world and need another protocol binding. Hence, we have added <a href="https://mqtt.org/">MQTT</a> support!</li>
-<li>Users are looking for advanced logic in their <a href="https://www.openapis.org/">OpenAPI</a> mocking. So, we implemented enhancements to have the smartest engine!</li>
-</ul>
-<p><img src="/images/blog/microcks-1.2.0-avro-mqtt.png" alt="microcks-avro-mqtt"></p>
-<p>As an Open Source project made for Enterprise usage, one major directive is ecosystem integration. You will see on this post that we take care of making Microcks working with many vendor’s products - could it be for registries, message brokers, or even Kubernetes distribution.</p>
-<p>Let’s do a review of what’s new on each one of our highlights without delay.</p>
-<h2 id="avro--schema-registry-support">Avro &amp; Schema Registry support</h2>
-<p>With this new release, Microcks is now supporting Apache Avro encoding for extra-small messages. Avro is a compact binary format that is largely used in the Big Data and <a href="https://hadoop.apache.org/">Apache Hadoop</a> ecosystems. It is also very popular on top of Apache Kafka as it allows to make reliable the exchange of messages through the use of Avro schemas.</p>
-<p>When Avro is used with Kafka, it is also common to have a registry for easily sharing schemas with consuming applications. Microcks can now integrate with your organization schema registries in order to:</p>
-<ul>
-<li>speed-up the process of propagating Avro schema updates to API events consumers,</li>
-<li>detect any drifting issues between the expected Avro schema and the one effectively used.</li>
-</ul>
-<p><img src="/images/blog/microcks-1.2.0-avro.png" alt="microcks-avro"></p>
+      <div class="prose pv3 f4" id="prose"><p>While <a href="https://docker.io">Docker</a> is still the #1 option for software packaging and installation on the developer laptop, <a href="https://podman.io">Podman</a> is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put <code>alias podman=docker</code> and you would be good to go, they said 😉</p>
+<p>Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community! It will allow Podman early and happy adopters - like me - to run Microcks on their laptop in the safest way.</p>
+<p><img src="/images/blog/podman-compose-support.png" alt="microcks-avro-mqtt"></p>
 <blockquote>
-<p>Microcks have been successfully tested with both <a href="https://github.com/confluentinc/schema-registry">Confluent Schema Registry</a> and <a href="https://www.apicur.io/registry/">Apicurio Service Registry</a>. You can find full documentation on this feature on our <a href="https://microcks.io/documentation/guides/avro-messaging/">Kafka, Avro and Schema Registry guide</a>.</p>
+<p>Starting as of version <code>1.2.0</code> of Microcks, we thus announce the Podman Compose support for quickly getting started with Microcks on your laptop. We still recommend using Kubernetes ☸️ for serious use-cases 😉</p>
 </blockquote>
-<h2 id="mqtt-support">MQTT support</h2>
-<p>The <a href="https://mqtt.org/">Message Queuing Telemetry Transport protocol</a> (MQTT) is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc. We receive some massive push from community users for adding MQTT support and are now happy to announce that version <code>3.1.1</code> of MQTT is the second supported messaging protocol on Microcks!</p>
-<p>Thanks to the excellent <a href="https://www.asyncapi.com/">AsyncAPI Specification</a> and its support in Microcks, you are now able to design your API and produce mocks with multi-binding support! You define your API once, and the Microcks tooling will take care of publishing mocks and testing messages using one or both protocols.</p>
-<p><img src="/images/blog/microcks-1.2.0-mqtt.png" alt="microcks-mqtt"></p>
-<blockquote>
-<p>Microcks have been successfully tested with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquitto</a>. Check out full documentation on MQTT Mocking and Testing <a href="https://microcks.io/documentation/guides/mqtt-support/">here</a></p>
-</blockquote>
-<h2 id="openapi-enhancements">OpenAPI enhancements</h2>
-<p>Aside from the major new features around Avro and MQTT support, we also deliver significant enhancements on the <a href="https://www.openapis.org/">OpenAPI</a> mocking and testing.</p>
-<p>We have added a lot of new templating functions that will allow Microcks to generate dynamic meaningful mock responses. You can now easily use <code>randomFullName()</code>, <code>randomStreetAddress()</code> or <code>randomEmail()</code> functions in your examples to have smart and always different mocks. Moreover, we introduced notation compatibility with <a href="https://learning.postman.com/docs/writing-scripts/script-references/variables-list/">Postman Dynamic variables</a> so that you can reuse your existing Postman Collection without any change.</p>
-<p>We have also added a new <code>FALLBACK</code> dispatcher that helps to define default responses and advanced behavior for your mocks.</p>
-<blockquote>
-<p>Thanks a lot to our community users 🙏 - <a href="https://github.com/gkleij">@gkleij</a>, <a href="https://github.com/robvalk">@robvalk</a> and <a href="https://github.com/ChristianHauwert">@ChristianHauwert</a> - that suggested enhancements and helped to validate them. Check our documentation on Template functions <a href="https://microcks.io/documentation/using/advanced/templates/#function-expressions">here</a> and have a look at our blog post introducing <a href="https://microcks.io/blog/advanced-dispatching-constraints/">Fallback and advanced dispatching</a>.</p>
-</blockquote>
-<h3 id="get-started-with-a-streamlined-installation-experience">Get started with a streamlined installation experience</h3>
-<p>Developer experience is of great importance for us and we worked to make it even simpler to get started with Microcks. <a href="../../documentation/installing/docker-compose">Docker-compose based install</a> has been drastically improved and does not require any configuration for you to start up! Installation procedures now all contain default users so that you can start playing immediately.</p>
-<p><a href="../../documentation/installing/operator">Kubernetes Operator install</a> has also been simplified by providing one-liner installation (well actually, it’s two lines 😉):</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
-$ curl https://microcks.io/operator/minikube-minimal.yaml -s <span class="p">|</span> sed <span class="s1">&#39;s/KUBE_APPS_URL/&#39;</span><span class="k">$(</span>minikube ip<span class="k">)</span><span class="s1">&#39;.nip.io/g&#39;</span> <span class="p">|</span> kubectl apply -n microcks -f -
-</code></pre></div><p>While at first look it looks simpler, the installation has been enhanced to adapt to any Kube configuration and advanced users will now have the ability to specify resource utilization for the different components.</p>
-<blockquote>
-<p>Thanks a lot to our community users 🙏 - <a href="https://github.com/hguerrero">@hguerrero</a>,<a href="https://github.com/dicolasi">@dicolasi</a> and <a href="https://github.com/abinet">@abinet</a>  - who pushed for simplification and helped us tracking, fixing and validating all these issues. Please check our new Getting Started videos available on <a href="https://microcks.io">Home Page</a> or through our <a href="https://www.youtube.com/channel/UCKlmXpav-DnliniEJ5FM52Q">YouTube channel</a>.</p>
-</blockquote>
-<h2 id="whats-coming-next">What’s coming next?</h2>
-<p>In just a little more than three months since the <a href="https://microcks.io/blog/microcks-1.1.0-release/">previous <code>1.1.0</code> release</a>, we have been able to do a lot thanks to your ideas and help. Kudos for being so supportive and pushing Microcks up!</p>
-<p>We have many plans for the coming months but will be very happy to prioritize depending on community feedback. On top of our head we are planning to work on:</p>
-<ul>
-<li>protocol binding addition for Async API (<a href="https://www.amqp.org/">AMQP</a> seems a good candidate at the moment),</li>
-<li>community sharing of mocks and tests for regulatory or industrial standards,</li>
-<li>more metrics and analytics to govern your APIs with Microcks.</li>
-</ul>
-<p>Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our <a href="https://microcksio.zulipchat.com/">Zulip chat</a> 🐙 , simply send some love through <a href="%5Bhttps://github.com/microcks/microcks">GitHub stars</a> ⭐️ or follow us on <a href="%5Bhttps://twitter.com/microcksio">Twitter</a>.</p>
-<p>Thanks for reading and supporting us! Stay safe and healthy. ❤️</p>
+<h2 id="give-it-a-try">Give it a try!</h2>
+<p>As explained in the <a href="../../documentation/installing/podman-compose">Installing with podman-compose doc</a>, you should first ensure that you have <a href="https://podman.io/getting-started/installation">Podman</a> and <a href="https://github.com/containers/podman-compose">Podman Compose</a> packages installed.</p>
+<p>Then it&rsquo;s just a matter of cloning the repository, navigating to correct folder and running our supporting script that runs Podman in <strong>rootless</strong> mode:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks.git
+$ <span class="nb">cd</span> microcks/install/podman-compose
+$ ./run-microcks.sh
+Running rootless containers...
+Discovered host IP address: 192.168.3.102
+
+Starting Microcks using podman-compose ...
+------------------------------------------
+Stop it with:  podman-compose -f microcks.yml --transform_policy<span class="o">=</span>identity stop
+Re-launch it with:  podman-compose -f microcks.yml --transform_policy<span class="o">=</span>identity start
+Clean everything with:  podman-compose -f microcks.yml --transform_policy<span class="o">=</span>identity down
+------------------------------------------
+Go to https://localhost:8080 - first login with admin/123
+Having issues? Check you have changed microcks.yml to your platform
+
+using podman version: podman version 2.1.1
+podman run <span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>🎉 This will start the required containers and setup an simple environment for your usage.</p>
+<p>Open a new browser tab and point to the <code>http://localhost:8080</code> endpoint. This will redirect you to the <a href="https://www.keycloak.org/">Keycloak</a> Single Sign On page for login. Use the following default credentials (<strong>admin</strong>/<strong>123</strong>) to login into the application and start using Microcks.</p>
+<p>Want to see what&rsquo;s running? Check the running containers with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ podman ps
+CONTAINER ID  IMAGE                                             COMMAND               CREATED         STATUS             PORTS                     NAMES
+68faf7825db1  quay.io/microcks/microcks:latest                                        <span class="m">8</span> seconds ago   Up <span class="m">7</span> seconds ago   0.0.0.0:8080-&gt;8080/tcp    microcks
+71af3326ba9d  docker.io/jboss/keycloak:10.0.1                   -b 0.0.0.0 -Dkeyc...  <span class="m">9</span> seconds ago   Up <span class="m">9</span> seconds ago   0.0.0.0:8180-&gt;8080/tcp    microcks-keycloak
+5f5ee84c76fd  quay.io/microcks/microcks-postman-runtime:latest  node app.js           <span class="m">10</span> seconds ago  Up <span class="m">10</span> seconds ago  0.0.0.0:3000-&gt;3000/tcp    microcks-postman-runtime
+d2e8d1066c48  docker.io/library/mongo:3.4.23                    mongod                <span class="m">11</span> seconds ago  Up <span class="m">11</span> seconds ago  0.0.0.0:27017-&gt;27017/tcp  microcks-mongo
+</code></pre></div><h2 id="want-to-have-more">Want to have more?</h2>
+<p>Podman adopt a very different architecture from Docker: it involves no daemon at all and can run as root (<strong>rootfull</strong> mode) or as a regular user (<strong>rootless</strong> mode).</p>
+<p>While the <strong>rootless</strong> mode looks very appealing it does not come as a free lunch and involves some network or file system restrictions. For the Podman support in Microcks, we aimed to support both <strong>rootless</strong> and <strong>rootfull</strong> mode and instructions to run in <strong>rootfull</strong> mode are <a href="../../documentation/installing/podman-compose/#rootless-or-rootfull">also available</a>.</p>
+<p>If your a Podman user and hapy with it (or if you struggle making it working 😉) come and say hi! on our <a href="https://microcksio.zulipchat.com/">Zulip chat</a> 🐙</p>
 </div>
       
       

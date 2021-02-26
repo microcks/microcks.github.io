@@ -6,7 +6,7 @@
     <description>Recent content in Installing on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,6 +29,16 @@
       <guid>https://microcks.io/documentation/installing/operator/</guid>
       <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
 At time of writing, Microcks only define one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.</description>
+    </item>
+    
+    <item>
+      <title>Installing with podman-compose</title>
+      <link>https://microcks.io/documentation/installing/podman-compose/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/installing/podman-compose/</guid>
+      <description>Podman Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33+ and should be OK on CentOS Stream 8+ and RHEL 8+ distributions too.
+Usage To get started, make sure you have first the Podman and the Podman Compose packages installed on your system.</description>
     </item>
     
     <item>

@@ -6,10 +6,20 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Podman Compose support in Microcks</title>
+      <link>https://microcks.io/blog/podman-compose-support/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/podman-compose-support/</guid>
+      <description>While Docker is still the #1 option for software packaging and installation on the developer laptop, Podman is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put alias podman=docker and you would be good to go, they said 😉
+Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community!</description>
+    </item>
     
     <item>
       <title>Microcks 1.2.0 release 🚀</title>
