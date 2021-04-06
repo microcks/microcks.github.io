@@ -164,12 +164,27 @@
   
   <url>
     <loc>https://microcks.io/categories/blog/</loc>
-    <lastmod>2021-02-26T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://microcks.io/categories/</loc>
-    <lastmod>2021-02-26T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/</loc>
+    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/simulating-cloudevents-with-asyncapi/</loc>
+    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -180,16 +195,6 @@
   <url>
     <loc>https://microcks.io/documentation/installing/</loc>
     <lastmod>2021-02-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/blog/</loc>
-    <lastmod>2021-02-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>

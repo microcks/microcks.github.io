@@ -6,10 +6,20 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Simulating CloudEvents with AsyncAPI and Microcks</title>
+      <link>https://microcks.io/blog/simulating-cloudevents-with-asyncapi/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/simulating-cloudevents-with-asyncapi/</guid>
+      <description>TL;DR: CloudEvents and AsyncAPI are complementary specifications that help define your Event Driven Architecture. Microcks allows simulation of CloudEvent to speed-up and ensure autonomy of development teams.
+  The rise of Event Driven Architecture (EDA) is a necessary evolution step towards cloud-native applications. Events are the ultimate weapon to decouple your microservices within your architecture. They are bringing great benefits like space and time decoupling, better resiliency and elasticity.</description>
+    </item>
     
     <item>
       <title>Podman Compose support in Microcks</title>
