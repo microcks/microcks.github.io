@@ -55,7 +55,7 @@ If you have not do it in previous step, you will need to load one of Microcks sa
 If you have not do it in previous step, you will need to load one of Microcks samples that is the Pastry API.">
 <meta itemprop="datePublished" content="2020-10-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-10-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="970">
+<meta itemprop="wordCount" content="969">
 
 
 
@@ -315,11 +315,11 @@ __  ____  __  _____   ___  __ ____  ______
 <h2 id="launching-a-test">Launching a test</h2>
 <p>Our component implementing the API now running, it&rsquo;s time to launch some tests to check if it is actually compliant with the API Contract. This is what we call <strong>Contract Testing</strong>. You can launch and run tests from the UI or from the <a href="../automating/cli/"><code>microcks-cli</code></a> tool.</p>
 <h3 id="from-the-ui">From the UI</h3>
-<p>You may already have see it but there&rsquo;s a <b>NEW TEST&hellip;</b> button on the right hand size of the page detailing the <strong>API Pastry</strong> service. Hitting it leads you to the following form where you will be able to specify an target URL for test, as well as a Runner - a testing strategy for your new launch:</p>
+<p>You may already have see it but there&rsquo;s a <b>NEW TEST&hellip;</b> button on the right hand size of the page detailing the <strong>API Pastry</strong> service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:</p>
 <p><img src="/images/sample-test-form.png" alt="sample-test-form"></p>
-<p>Just copy/paste here the endpoint URL where your <code>quarkus-api-pastry</code> deployment can be reached - either the Kubernetes Ingress URL or the local docker-compose one. Then select the <code>OPEN_API_SCHEMA</code> test strategy (read here for more on <a href="./using/tests/#test-runner">tests runners</a>). And finally, hit the <strong>Launch test !</strong> button. This lead you to the following screen when you will wait for tests to run and finalize (green check marks should appear after some seconds).</p>
+<p>Just copy/paste the endpoint URL where your <code>quarkus-api-pastry</code> deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one. Then select the <code>OPEN_API_SCHEMA</code> test strategy (read here for more on <a href="../using/tests/#test-runner">tests runners</a>). And finally, hit the <strong>Launch test !</strong> button. This lead you to the following screen when you will wait for tests to run and finalize (green check marks should appear after some seconds).</p>
 <p><img src="/images/sample-test-launch.png" alt="sample-test-launch"></p>
-<p>Following the <strong>Full results</strong> link in the above sreen will lead you to a screen where you&rsquo;ll have access to all the test details and request/responses content exchnaged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments !</p>
+<p>Following the <strong>Full results</strong> link in the above sreen will lead you to a screen where you&rsquo;ll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments !</p>
 <p><img src="/images/sample-test-result.png" alt="sample-test-result"></p>
 <h3 id="from-the-cli">From the CLI</h3>
 <p>Microcks is also providing the <a href="../automating/cli/"><code>microcks-cli</code></a> tool that can be used to automate the testing. Binary releases for Linux, MacOS or Windows platform are available on the GitHub <a href="https://github.com/microcks/microcks-cli/releases">releases page</a>. Just download the binary corresponding to your system and put the binary into the <code>PATH</code> somewhere.</p>
