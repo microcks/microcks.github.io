@@ -17,8 +17,8 @@
       <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/</guid>
-      <description>Fresh Releases Microcks core 1.2.0 on 21 Feb 2021 We are delighted to announce the 1.2.0 release of Microcks! Here are below the main highlights of this release:
- The support of Apache Avro as Event-driven APIs message encoding, as well as various schema registries. See our Kafka, Avro and Schema Registry guide The support of MQTT protocol for mocking and testing Event-driven APIs that may be related to the Internet of Things (IoT), New template functions for bringing rich dynamic mocking responses, New FALLBACK dispatcher for smarter routing.</description>
+      <description>Fresh Releases Microcks core 1.2.1 on 06 May 2021 We are very glad to announce today the 1.2.1 release of Microcks! This is mainly an “Enhancement release” pushing further the features we introduced within the previous 1.2.0. Here are the main changes and enhancements of this release:
+ The support of OpenAPI v3.1 specification, The support of Apache Kafka headers through AsyncAPI mocking, The support of MQTT parametrized channels through AsyncAPI mocking, Enhancement of testing experience through Secrets for authentication, tests timeouts, tests replays and expression languages in request, SOAP 1.</description>
     </item>
     
     <item>
