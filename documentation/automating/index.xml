@@ -26,8 +26,8 @@
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/automating/jenkins/</guid>
-      <description>Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
-Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.</description>
+      <description>Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find in its own GitHub repository. This plugin allows your Jenkins builds and jobs to import API specifications into Microcks and to launch tests runner for validating the Service or API you just deployed. See this page on Tests for more informations on running tests with Microcks.
+Using this plugin, it is really easy to keep Microcks in-sync withe your API specifications and integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline.</description>
     </item>
     
     <item>
@@ -36,11 +36,10 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/automating/cli/</guid>
-      <description>Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
-The CLI makes usage of Microcks Service Account so it&amp;rsquo;s defintely worth the read ;-)
+      <description>Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
+The CLI makes usage of Microcks Service Account so it&amp;rsquo;s defintely worth the read 😉
 Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:
- version to check this CLI version, help to display usage informations, test to launch new test on Microcks server.</description>
+where [command] can be one of the following:</description>
     </item>
     
     <item>

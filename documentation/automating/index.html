@@ -48,7 +48,7 @@
 <meta property="og:description" content="Microcks.io" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/" />
-<meta property="og:updated_time" content="2021-06-28T00:00:00+00:00" />
+<meta property="og:updated_time" content="2021-06-30T00:00:00+00:00" />
 <meta itemprop="name" content="Automating">
 <meta itemprop="description" content="Microcks.io">
 <meta name="twitter:card" content="summary"/>
@@ -249,8 +249,8 @@ var trackOutboundLink = function(id, url) {
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find here: microcks-jenkins-plugin. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See this page on Tests for more informations on running tests with Microcks.
-Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.
+                                                Microcks Jenkins plugin Microcks provides a Jenkins plugin that you may find in its own GitHub repository. This plugin allows your Jenkins builds and jobs to import API specifications into Microcks and to launch tests runner for validating the Service or API you just deployed. See this page on Tests for more informations on running tests with Microcks.
+Using this plugin, it is really easy to keep Microcks in-sync withe your API specifications and integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline.
                                             
                                     
                                             <a href="/documentation/automating/jenkins/" class="f6 mt2 db link primary-color dim">
@@ -267,11 +267,10 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
-The CLI makes usage of Microcks Service Account so it&rsquo;s defintely worth the read ;-)
+                                                Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
+The CLI makes usage of Microcks Service Account so it&rsquo;s defintely worth the read 😉
 Usage instructions Usage is simply microcks-cli [command]
 where [command] can be one of the following:
- version to check this CLI version, help to display usage informations, test to launch new test on Microcks server.
                                             
                                     
                                             <a href="/documentation/automating/cli/" class="f6 mt2 db link primary-color dim">
