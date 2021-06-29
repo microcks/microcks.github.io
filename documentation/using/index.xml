@@ -6,10 +6,19 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>gRPC usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/grpc/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/grpc/</guid>
+      <description>Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&amp;rsquo;s a perfect fit for Microcks Service | API model and features 😉</description>
+    </item>
     
     <item>
       <title>AsyncAPI usage for Microcks</title>
@@ -17,7 +26,7 @@
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/asyncapi/</guid>
-      <description>Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !</description>
+      <description>Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!</description>
     </item>
     
     <item>
@@ -128,7 +137,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
       <guid>https://microcks.io/documentation/using/soapui/</guid>
       <description>Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&amp;rsquo;ll need to follow the steps below:
- Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.</description>
+ Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.</description>
     </item>
     
     <item>
@@ -137,7 +146,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/mocks/</guid>
-      <description>Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+      <description>Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
 First, let&amp;rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :</description>
     </item>
     

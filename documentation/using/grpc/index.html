@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Importing Services &amp; APIs | Microcks.io</title>
+    <title>gRPC usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.74.3" />
@@ -43,27 +43,24 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Importing Services &amp; APIs" />
-<meta property="og:description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.
-Supported formats As previously introduced, Microcks &ldquo;turns out your API contract into live mocks in seconds&rdquo; - the noticeable part of these sentence being API contract." />
+<meta property="og:title" content="gRPC usage for Microcks" />
+<meta property="og:description" content="Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/importers/" />
-<meta property="article:published_time" content="2020-02-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-30T00:00:00+00:00" />
-<meta itemprop="name" content="Importing Services &amp; APIs">
-<meta itemprop="description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.
-Supported formats As previously introduced, Microcks &ldquo;turns out your API contract into live mocks in seconds&rdquo; - the noticeable part of these sentence being API contract.">
-<meta itemprop="datePublished" content="2020-02-26T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1462">
+<meta property="og:url" content="https://microcks.io/documentation/using/grpc/" />
+<meta property="article:published_time" content="2021-06-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-29T00:00:00+00:00" />
+<meta itemprop="name" content="gRPC usage for Microcks">
+<meta itemprop="description" content="Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉">
+<meta itemprop="datePublished" content="2021-06-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="865">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Importing Services &amp; APIs"/>
-<meta name="twitter:description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.
-Supported formats As previously introduced, Microcks &ldquo;turns out your API contract into live mocks in seconds&rdquo; - the noticeable part of these sentence being API contract."/>
+<meta name="twitter:title" content="gRPC usage for Microcks"/>
+<meta name="twitter:description" content="Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉"/>
 
 
       
@@ -220,34 +217,29 @@ var trackOutboundLink = function(id, url) {
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#supported-formats">Supported formats</a></li>
-    <li><a href="#multi-artifacts-support">Multi-artifacts support</a></li>
-    <li><a href="#direct-upload">Direct upload</a></li>
-    <li><a href="#scheduled-import">Scheduled import</a>
+    <li><a href="#overview">Overview</a>
       <ul>
-        <li><a href="#creating-a-new-scheduled-import">Creating a new scheduled import</a></li>
-        <li><a href="#configure-scheduling-interval">Configure scheduling interval</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#conventions">Conventions</a></li>
       </ul>
     </li>
-    <li><a href="#errors-management">Errors management</a></li>
+    <li><a href="#illustration">Illustration</a>
+      <ul>
+        <li><a href="#specifying-service-structure">Specifying Service structure</a></li>
+        <li><a href="#specifying-service-examples">Specifying Service examples</a></li>
+        <li><a href="#importing-artifacts">Importing artifacts</a></li>
+        <li><a href="#defining-dispatch-rules">Defining dispatch rules</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 	
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/using/advanced/dispatching/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Custom dispatching rules ">
-				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 
 		
-			<a href="https://microcks.io/documentation/using/advanced/templates/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Templating mock responses">
+			<a href="https://microcks.io/documentation/using/asyncapi/" class="dib f6 pr1 hover-bg-light-gray br-100" title="AsyncAPI usage for Microcks">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -262,7 +254,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Importing Services &amp; APIs</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">gRPC usage for Microcks</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -274,85 +266,78 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
-<h2 id="introduction">Introduction</h2>
-<p>Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this <a href="../../getting-started/#loading-samples">Getting Started</a> section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.</p>
-<h2 id="supported-formats">Supported formats</h2>
-<p>As previously introduced, Microcks <em>&ldquo;turns out your API contract into live mocks in seconds&rdquo;</em> - the noticeable part of these sentence being <strong>API contract</strong>. The cool things here is that is does not require you to produce another document: it is able to reuse existing <strong>artifacts</strong> that you may gather Microcks with. In order to be usable by Microcks, such artifacts should hold syntactical contracts but also full samples on how your Service is expected to work - and this is only possible by embedding complete pairs of requests and responses.</p>
-<p>Microcks supports the following editing tools and export/import formats as <strong>artifacts</strong> formats:</p>
-<p><img src="/images/artifacts-formats.png" alt="artifacts-formats"></p>
-<p>We provide built-in parsers and importers for the following formats:</p>
+<h2 id="overview">Overview</h2>
+<h3 id="introduction">Introduction</h3>
+<p>In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉</p>
+<p>Starting with version <code>1.3.0</code>, Microcks is supporting gRPC mocking and testing thanks to the new <a href="../importers/#multi-artifacts-support">multi-artifacts support</a> feature. In order to use gRPC in Microcks, you will need 2 artifacts for each Service definition:</p>
 <ul>
-<li><a href="https://www.soapui.org/soapui-projects/soapui-projects.html">SoapUI projects</a> files starting with the version 5.1 or SoapUI. See our <a href="../soapui/">documentation</a> on some conventions you should follow for this project structure,</li>
-<li><a href="https://learning.postman.com/docs/postman/collections/data-formats/">Postman collections</a> files with v1.0 or v2.x file format. See our <a href="../postman/">documentation</a> on some conventions you should follow for this collection structure,</li>
-<li><a href="https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api">Apicurio Studio</a> direct integration when working on OpenAPI 3.x API specifications,</li>
-<li><a href="http://spec.openapis.org/oas/v3.0.3">OpenAPI v3.x</a> files whether using the YAML of JSON format. See our <a href="../openapi/">documentation</a> on some conventions you should follow for this specification,</li>
-<li><a href="https://www.asyncapi.com/docs/specifications/2.0.0">AsyncAPI v2.x</a> files whether using the YAML or JSON format. See our <a href="../asyncapi/">documentation</a> on some conventions you should follow for this specification,</li>
-<li><a href="https://grpc.io/docs/what-is-grpc/introduction/">gRPC / Protocol buffers v3</a> <code>.proto</code>files. See our <a href="../grpc/">documentation</a> on some conventions you should follow for this specification,</li>
+<li>A gRPC / Protocol Buffers file definition that holds the Service metadata and operations definitions,</li>
+<li>A Postman Collection file that holds the mock examples (requests and responses) for the different operations of the gRPC Service.</li>
 </ul>
-<blockquote>
-<p>People very often ask <em>&ldquo;Why the Swagger format - aka OpenApi 2.0 - isn&rsquo;t supported by Microcks?&quot;</em>. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they&rsquo;re only doing this using schema information with random generated values&hellip;</p>
-</blockquote>
-<p>If you own a bunch of Swagger specifications, you won&rsquo;t be able to directly import them into Microcks - see the above note on the reason why. Thus, you will need to have an extra step and use a wrapper tool (Postman or SoapUI) for adding complete requests / responses pairs that will be used as the basis of your API real-life mocks.</p>
-<p><img src="/images/artifacts-swagger-adaptations.png" alt="artifacts-swagger-adaptations"></p>
-<blockquote>
-<p>Please notice that the same issue and workaround may apply to some others API specification formats like <a href="https://www.w3.org/Submission/wadl/">WADL</a> or <a href="https://raml.org/">RAML</a>. They&rsquo;ve got really good importers for Postman or SoapUI that offers you a very easy way to complete your syntactic specification with some real life samples that can make the genesis for useful mocks ;-)</p>
-</blockquote>
-<h2 id="multi-artifacts-support">Multi-artifacts support</h2>
-<blockquote>
-<p>From Microcks release 1.3.0, we introduced a new feature called <strong>multi-artifacts support</strong>.</p>
-</blockquote>
-<p>Since origin, Microcks was following the <em>1 artifact == 1 API mock definition</em> principle. However we did get feedback from the community and now are convinced that this approach can be too restrictive sometimes. A use-case that is emerging is that some people may have a single OpenAPI file containing only base/simple examples but are managing complementary/advanced examples using for example a Postman Collection.</p>
-<p>This base use-case is extended to implement some variations:</p>
+<h3 id="conventions">Conventions</h3>
+<p>In order to be correctly imported and understood by Microcks, your gRPC and Postman files should follow a little set of reasonable conventions and best practices.</p>
 <ul>
-<li>Different Postman Collections for different lifecycle environments, maintained in coordination with reference datasets,</li>
-<li>Different Postman Collections for different API providers implementing a shared industrial standard (think of IoT Fiware implementation but for different industry vertical),</li>
-<li>Different Postman Collections for different API consumers that will allow realizing consumer-driven contract testing.</li>
-</ul>
-<p>So from <code>1.3.0</code>, Microcks is now able to have multiple artifacts (1 <code>primary</code> and some <code>secondary</code>) mapping to 1 API mock definition. The <code>primary</code> one will bring Service and operation metadata as well as examples. The <code>secondary</code> ones will only enrich existing operations with new non-conflicting request/responses and event samples.</p>
-<p><img src="/images/artifacts-merging.png" alt="artifacts-merging"></p>
-<p>If not explicitly identified as <code>primary</code> or <code>secondary</code>, the default is to consider an imported artifact as the primary one.</p>
-<h2 id="direct-upload">Direct upload</h2>
-<p>The first way of adding new Services or APIs mocks to your Microcks instance is by realizing a direct upload of the artifact. From the left vertical navigation bar, just select the <strong>Importers</strong> menu entry and then choose <code>Upload</code>. You&rsquo;ll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.</p>
-<blockquote>
-<p>From Microcks release 1.3.0, you can also specify if this artifact should be considered as <code>primary</code> or <code>secondary</code> per the <a href="#multi-artifacts-support">multi-artifacts support</a>.</p>
-</blockquote>
-<p><img src="/images/artifacts-upload.png" alt="artifacts-upload"></p>
-<p>Hit the <code>Upload</code> green button. Upload and then artifact import should then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the <strong>APIs | Services</strong> repository.</p>
-<p>While this method is very convenient for quick test, we&rsquo;ll have to re-import your artifact file on every new change&hellip;</p>
-<h2 id="scheduled-import">Scheduled import</h2>
-<p>Another way of adding new Services or APIs mocks is by scheduling an <strong>Importer Job</strong> into Microcks. Actually we see it as the best way to achieve continuous, iterative and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you&rsquo;ll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present into your artifact.</p>
-<p><img src="/images/artifacts-scheduling.png" alt="artifacts-scheduling"></p>
-<blockquote>
-<p>Though we think that Git repository (or version control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.</p>
-</blockquote>
-<p>Still from the left vertical navigation bar, just select the <strong>Importers</strong> menu entry and then see the list of already existing importers.</p>
-<p>Once created, importer jobs can be managed, activated or forced through this screen. You&rsquo;ll see colored marker for each job line:</p>
+<li>
+<p>As of today Microcks only supports <code>proto3</code> syntax as it is now the default and encouraged version from gRPC community,</p>
+</li>
+<li>
+<p>gRPC does not has the notion of Service version. In Microcks, this notion is critical and we will use the package information in <code>Protofile</code> to compute a version.</p>
 <ul>
-<li><code>Scanned</code> means that the job is actually scheduled for next importation run. Otherwise <code>Inactive</code>  will be displayed.</li>
-<li><code>Imported</code> means that the job has been successfully imported on previous run. Otherwise <code>Last import errors</code> will be displayed with a popup showing the last error,</li>
-<li><code>Services</code> is a shortcut to access the services definitions discovered by this job.</li>
+<li>For package name containing containing more than 2 paths levels, we&rsquo;ll extract the last one as being the version. So <code>package io.github.microcks.grpc.hello.v1;</code> will produce version <code>v1</code></li>
+<li>We&rsquo;ll keep unchanged simplest package named, so <code>package com.acme;</code> will produce version <code>com.acme</code> that is not very unique 😞.</li>
+<li>So be sure to follow <a href="https://docs.microsoft.com/en-us/aspnet/core/grpc/versioning?view=aspnetcore-5.0#version-number-services">gRPC versioning best practices</a>!</li>
 </ul>
-<p>Using the 3-dotted menu, you can easily enable/disable of force the job.</p>
-<p><img src="/images/importer-status.png" alt="importer-status"></p>
-<h3 id="creating-a-new-scheduled-import">Creating a new scheduled import</h3>
-<p>You may declare a new Importer job hitting the <code>Create</code> button.</p>
-<p>A wizard modal then appears as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.</p>
-<blockquote>
-<p>From Microcks release 1.3.0, you can also specify if this artifact should be considered as <code>primary</code> or <code>secondary</code> per the <a href="#multi-artifacts-support">multi-artifacts support</a>.</p>
-</blockquote>
-<p><img src="/images/importer-step1.png" alt="importer-step1"></p>
-<p>Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validation as well as manage an authentication process through the usage of a <strong>Secret</strong>. See more on Secrets <a href="../../administrating/secrets">here</a>.</p>
-<p><img src="/images/importer-step2.png" alt="importer-step3"></p>
-<p>Finally the review displays a summary before effective creation of the Importer Job.</p>
-<p><img src="/images/importer-step3.png" alt="importer-step3"></p>
-<p>On first time creation the Job is automatically <code>Scanned</code> and <code>Imported</code>.</p>
-<h3 id="configure-scheduling-interval">Configure scheduling interval</h3>
-<p>Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the <code>services.update.interval</code> property into the <code>application.properties</code> configuration file that takes the value of <code>SERVICES_UPDATE_INTERVAL</code> environment variable. The value should be set to a valid <a href="https://en.wikipedia.org/wiki/Cron#CRON_expression">CRON expression</a> ; default is every 2 hours.</p>
-<pre><code class="language-properties" data-lang="properties">services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
-</code></pre><h2 id="errors-management">Errors management</h2>
-<p>As import can be scheduled and take some <em>little</em> time, it is done asynchronously regarding the human interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.</p>
-<p>Some of the error messages will be reported through the <code>Last import errors</code> status but some not&hellip; We try making the logged information clearer regarding this type of errors but we incite you to have a look at the <strong>Trouble shooting</strong> section of each specific importer documentation if the discovered services information do not match with your expectations.</p>
-<p>We hope releasing in near future some kind of <code>linter</code> that may help with analyzing your artifact to check compliance with recommended practices and conventions.</p>
+</li>
+<li>
+<p>Your Postman collection description will need to have a name that matches the gRPC service name and a custom property <code>version</code> that matches the above computed version,</p>
+</li>
+<li>
+<p>Your Postman collection will need to organize examples into requests having the same name and url as the gRPC methods,</p>
+</li>
+<li>
+<p>Your Postman collection will hold examples defined in JSON as JSON is a textual format easier to use than binary Protobuf 😅</p>
+</li>
+</ul>
+<p>We recommend having a look at our sample gRPC for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/hello-v1.proto">HelloService</a> as well as the <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService.collection.json">companion Postman collection</a> to fully understand and see those conventions in action.</p>
+<h2 id="illustration">Illustration</h2>
+<p>Let&rsquo;s dive in details of our sample <code>HelloService</code> gRPC service.</p>
+<h3 id="specifying-service-structure">Specifying Service structure</h3>
+<p>This is a fairly trivial gRPC Service that just greet new comers. You can see below the definition found in <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/hello-v1.proto">hello-v1.proto</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-proto" data-lang="proto"><span class="n">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="kn">package</span> <span class="nn">io</span><span class="o">.</span><span class="n">github.microcks.grpc.hello.v1</span><span class="p">;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">java_multiple_files</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="kd">message</span> <span class="nc">HelloRequest</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>    <span class="kt">string</span> <span class="n">firstname</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span>    <span class="kt">string</span> <span class="n">lastname</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="kd">message</span> <span class="nc">HelloResponse</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>    <span class="kt">string</span> <span class="n">greeting</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="kd">service</span> <span class="n">HelloService</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>    <span class="k">rpc</span> <span class="n">greeting</span><span class="p">(</span><span class="n">HelloRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">HelloResponse</span><span class="p">);</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span></code></pre></div><p>Considering the <code>package</code> of this proto file, when imported into Microcks, it will discover the <code>HelloService</code> with version <code>v1</code> and the unique operation <code>greeting</code>.</p>
+<h3 id="specifying-service-examples">Specifying Service examples</h3>
+<p>Specification of examples is done using a Postman Collection as examples cannot be attached to main <code>Profofile</code> and thanks to Microcks <code>1.3.0</code> <a href="../importers/#multi-artifacts-support">multi-artifacts support</a> feature.</p>
+<p>Using Postman, just create a new Collection - using the same name as gRPC Service and adding the custom property <code>version</code> at the beginning of description like illustrated below:</p>
+<p><img src="/images/grpc-postman-collection.png" alt="grpc-postman-collection"></p>
+<p>You can now start organizing and creating requests that are matching with the gRPC service method name. For our example, we&rsquo;re specifying the <code>greeting</code> request for the <code>greeting</code> gRPC method.</p>
+<p><img src="/images/grpc-postman-operations.png" alt="grpc-postman-operations"></p>
+<p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it supposed to represent. Example url should also match with the name of the gRPC method; here we have a simple <code>http:///greeting</code>.</p>
+<p>As JSON / Protobuf translation is bi-directional, you&rsquo;ll define examples using simple JSON for request body and for response body as well. Below is a basic example but <a href="../advanced/templates/">Templating expressions and functions</a> are obviously supported:</p>
+<p><img src="/images/grpc-postman-example.png" alt="grpc-postman-example"></p>
+<p>Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
+<h3 id="importing-artifacts">Importing artifacts</h3>
+<p>Both artifacts should be imported into Microcks either through <a href="../importers/#direct-upload">direct upload</a> or <a href="/..importers/#scheduled-import">scheduled import</a>. The important thing to notice is that the gRPC Protofile artifact represents the <code>main</code> or <code>primary</code> artifact for this service definition and that the Postman Collection represents a <code>secondary</code> artifact. You have to mention it when importing it otherwise your gRPC definition will be overwritten!</p>
+<h3 id="defining-dispatch-rules">Defining dispatch rules</h3>
+<p>The final step for assembling data coming from gRPC Protofile and Postman Collection is to define how to dispatch requests. As explained into <a href="../mocks">Using exposed mocks</a>, Microcks is using <code>Dispatcher</code> and <code>Dispatching Rules</code> for finding an appropriate response to return when receiving a mock request. For gRPC, we can typically use a <code>JSON_BODY</code> dispatcher as explained into <a href="../advanced/dispatching/#json-body-dispatcher">Custom dispatching rules</a>.</p>
+<p>As of today you should use the Microcks web console to edit the <code>greeting</code> operation properties and change the dispatcher and its rules as shown below. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the <code>firstname</code> property of the incoming message.</p>
+<p><img src="/images/grpc-dispatch-rule.png" alt="grpc-dispatch-rule"></p>
 
 </div>
 
@@ -379,7 +364,7 @@ var trackOutboundLink = function(id, url) {
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               IMPORTING SERVICES &amp; APIS
             </a>
           </li>
@@ -404,7 +389,7 @@ var trackOutboundLink = function(id, url) {
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               GRPC USAGE FOR MICROCKS
             </a>
           </li>
@@ -574,14 +559,14 @@ var trackOutboundLink = function(id, url) {
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/using/importers/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/using/grpc/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Importing Services &amp; APIs”
-  </a> was last updated: June 30, 2021
+    “gRPC usage for Microcks”
+  </a> was last updated: June 29, 2021
 </h6>
 
-      <a href="edit/master/content/en/documentation/using/importers.md" class="
+      <a href="edit/master/content/en/documentation/using/grpc.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 

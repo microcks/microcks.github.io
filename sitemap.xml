@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/documentation/using/grpc/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/installing/podman-compose/</loc>
     <lastmod>2021-02-25T00:00:00+00:00</lastmod>
   </url>
@@ -59,7 +64,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/using/asyncapi/</loc>
-    <lastmod>2021-02-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/using/importers/</loc>
-    <lastmod>2020-08-04T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -159,7 +164,22 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/api/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -183,18 +203,8 @@
   </url>
   
   <url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://microcks.io/blog/simulating-cloudevents-with-asyncapi/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2021-04-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -214,7 +224,7 @@
   
   <url>
     <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -265,11 +275,6 @@
   <url>
     <loc>https://microcks.io/blog/microcks-1.0.0-release/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2021-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

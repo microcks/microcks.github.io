@@ -48,7 +48,7 @@
 <meta property="og:description" content="Microcks.io" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/using/" />
-<meta property="og:updated_time" content="2021-02-09T00:00:00+00:00" />
+<meta property="og:updated_time" content="2021-06-30T00:00:00+00:00" />
 <meta itemprop="name" content="Using">
 <meta itemprop="description" content="Microcks.io">
 <meta name="twitter:card" content="summary"/>
@@ -228,11 +228,28 @@ var trackOutboundLink = function(id, url) {
                                 <div class="relative  weight-90">
                                     <div class="bg-white mb2 pa3 pa4-l gray">
                                         <h1 class="near-black f3">
+                                            <a href="/documentation/using/grpc/" class="link primary-color dim">gRPC usage for Microcks</a>
+                                        </h1>
+                                        <div class="lh-copy links">
+                                            
+                                                Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉
+                                            
+                                    
+                                            <a href="/documentation/using/grpc/" class="f6 mt2 db link primary-color dim">
+                                            Read More &raquo;
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="relative  weight-90">
+                                    <div class="bg-white mb2 pa3 pa4-l gray">
+                                        <h1 class="near-black f3">
                                             <a href="/documentation/using/asyncapi/" class="link primary-color dim">AsyncAPI usage for Microcks</a>
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too ;-) !
+                                                Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!
                                             
                                     
                                             <a href="/documentation/using/asyncapi/" class="f6 mt2 db link primary-color dim">
@@ -431,7 +448,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
                                             
                                                 Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:
- Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.
+ Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.
                                             
                                     
                                             <a href="/documentation/using/soapui/" class="f6 mt2 db link primary-color dim">
@@ -448,7 +465,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+                                                Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
 First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :
                                             
                                     
@@ -508,6 +525,11 @@ First, let&rsquo;s have a look at the summary page presenting an API or Service 
           <li class="f6 fw4">
             <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRPC USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">

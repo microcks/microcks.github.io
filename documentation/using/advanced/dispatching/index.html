@@ -273,7 +273,7 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="introduction">Introduction</h2>
-<p>As explained into <a href="../mocks">Using exposed mocks</a>, Microcks is using <code>Dispatcher</code> and <code>Dispatching Rules</code> for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.</p>
+<p>As explained into <a href="../../mocks">Using exposed mocks</a>, Microcks is using <code>Dispatcher</code> and <code>Dispatching Rules</code> for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.</p>
 <p>However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules ;-) But you can realize that by overriding the <code>Dispatching Rules</code> after the first import of the API into the repository.</p>
 <h2 id="the-need-for-custom-dispatching-rules">The need for custom dispatching rules</h2>
 <p>Let&rsquo;s illustrate this with an example! Say we&rsquo;ve got this API allowing to record a new beer in our own catalog. We have this <code>POST</code> method that allows to create new beer resources and we want to make the difference between 2 cases: the <code>Accepted</code> and the <code>Not accepted</code> responses. So we have to start describing the 2 samples into our API contract. You&rsquo;ll notice in the capture below that:</p>
@@ -428,6 +428,11 @@ Region is unknown. Choose in north, west, east or south.%
           <li class="f6 fw4">
             <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRPC USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">

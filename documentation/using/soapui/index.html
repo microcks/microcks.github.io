@@ -46,7 +46,7 @@
 <meta property="og:title" content="SoapUI usage for Microcks" />
 <meta property="og:description" content="Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:
- Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository." />
+ Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/soapui/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
@@ -54,10 +54,10 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <meta itemprop="name" content="SoapUI usage for Microcks">
 <meta itemprop="description" content="Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:
- Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.">
+ Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="984">
+<meta itemprop="wordCount" content="983">
 
 
 
@@ -66,7 +66,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <meta name="twitter:title" content="SoapUI usage for Microcks"/>
 <meta name="twitter:description" content="Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:
- Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionnally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository."/>
+ Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository."/>
 
 
       
@@ -230,7 +230,7 @@ var trackOutboundLink = function(id, url) {
         <li><a href="#conventions">Conventions</a></li>
       </ul>
     </li>
-    <li><a href="#project-initialisation">Project initialisation</a></li>
+    <li><a href="#project-initialization">Project initialization</a></li>
     <li><a href="#defining-test-requests">Defining Test Requests</a></li>
     <li><a href="#defining-mock-responses">Defining Mock Responses</a></li>
     <li><a href="#defining-dispatch-rules">Defining dispatch rules</a>
@@ -290,7 +290,7 @@ var trackOutboundLink = function(id, url) {
 <p>In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:</p>
 <ul>
 <li>Initialize a SoapUI project that will hold the repository,</li>
-<li>Create sample Tests Requests (and optionnally the associated tests assertions),</li>
+<li>Create sample Tests Requests (and optionally the associated tests assertions),</li>
 <li>Create sample Mocks Responses,</li>
 <li>Define dispatching rules that describe how requests and responses are associated together,</li>
 <li>Save the project into your SCM repository.</li>
@@ -305,7 +305,7 @@ var trackOutboundLink = function(id, url) {
 <li>The name of matching rules should be something like <code>&quot;&lt;sample_id&gt;&quot;</code>. For example: <code>&quot;Karla&quot;</code>,</li>
 </ul>
 <p>We recommend having a look at our sample SoapUI projects for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml">SOAP WebServices</a> and for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml">REST APIs</a> to fully understand and see in action those conventions.</p>
-<h2 id="project-initialisation">Project initialisation</h2>
+<h2 id="project-initialization">Project initialization</h2>
 <p>Project initialization is as simple as creating a new <em>Empty Project</em> in SoapUI. The Tests Request you will need to define later will be defined through a <em>SoapUI TestSuite</em> ; the Mock Responses you will need to define later will be defined through a <em>SoapUI ServiceMock</em>. So when using a &ldquo;contract first&rdquo; approach for Services - approach that is required for SOAP WebServices in SoapUI - it is a better choice to directly create those items through the wizard when choosing the <em>Add WSDL</em> or <em>Add WADL</em> actions once project has been created.</p>
 <p>The screenshot below shows how to add a WSDL to an existing empty project :</p>
 <p><img src="/images/soapui-add-wsdl.png" alt="soapui-add-wsdl"></p>
@@ -336,10 +336,10 @@ var trackOutboundLink = function(id, url) {
 <p>Below the exemple of using the name find in incoming request to find a matching response.</p>
 <p><img src="/images/soapui-querymatch.png" alt="soapui-querymatch"></p>
 <h3 id="using-a-groovy-script">Using a Groovy script</h3>
-<p>Another mean of defining matching rules is using a Groovy script. Such a script allows to define much more logic for finding a response for an incoming requests. With scripts you can use request payload but also have access to query string, http headers and so on&hellip; Groovy script are very powerful when dealing with REST services in SoapUI !</p>
+<p>Another mean of defining matching rules is using a Groovy script. Such a script allows to define much more logic for finding a response for an incoming requests. With scripts you can use request payload but also have access to query string, http headers and so on&hellip; Groovy script are very powerful when dealing with REST services in SoapUI!</p>
 <p><img src="/images/soapui-script.png" alt="soapui-script"></p>
 <h2 id="save-soapui-project">Save SoapUI project</h2>
-<p>Finally, you just have to save the whole project as a SoapUI XML project file. Just put the result JSON file into your favourite Source Configuration Management tool for an easy integration with Microcks.</p>
+<p>Finally, you just have to save the whole project as a SoapUI XML project file. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
 <blockquote>
 <p>Do not forget to add the <code>version</code> custom property on your <em>MockService</em> object, otherwise Microcks will not be able to successfully import your SoapUI project</p>
 </blockquote>
@@ -391,6 +391,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRPC USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">

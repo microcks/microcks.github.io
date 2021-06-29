@@ -71,7 +71,7 @@ The test command of the CLI needs 3 arguments:</description>
       <guid>https://microcks.io/documentation/automating/api/</guid>
       <description>Microcks own&amp;rsquo;s API As a tool focused on APIs, Microcks also offers its own API that allows you to query its datastore and control the import jobs and configuration objects. You may use this API from your automation tool to dynamically launch new tests, register new mocks or globally control your Microcks server configuration.
 The Swagger-UI below allows you to browse and discover the various API endpoints.
-iframe{width:100%}   iFrameResize({ log : false, checkOrigin : false, sizeWidth : false, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;</description>
+Previous releases of the API definitions can be found in the GitHub repository.</description>
     </item>
     
   </channel>
