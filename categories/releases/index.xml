@@ -6,7 +6,7 @@
     <description>Recent content in releases on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jun 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://microcks.io/categories/releases/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,11 @@
     <item>
       <title>News about Microcks</title>
       <link>https://microcks.io/news/</link>
-      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/</guid>
-      <description>Fresh Releases Microcks core 1.2.1 on 06 May 2021 We are very glad to announce today the 1.2.1 release of Microcks! This is mainly an “Enhancement release” pushing further the features we introduced within the previous 1.2.0. Here are the main changes and enhancements of this release:
- The support of OpenAPI v3.1 specification, The support of Apache Kafka headers through AsyncAPI mocking, The support of MQTT parametrized channels through AsyncAPI mocking, Enhancement of testing experience through Secrets for authentication, tests timeouts, tests replays and expression languages in request, SOAP 1.</description>
+      <description>Fresh Releases Microcks core 1.3.0 on 30 Jun 2021 We are so proud and happy to share this new 1.3.0 and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. Here are the main changes and enhancements of this release:
+ The support of AsyncAPI v2.</description>
     </item>
     
     <item>
@@ -27,9 +27,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/history/</guid>
-      <description>Older Releases Microcks core 0.8.0 on 27 Nov 2019 We just release version 0.8.0 of Microcks core! This release holds something like 40 issues fix!
-Among some other stuffs, we now have:
- Support for media type negociation on REST mocks, Support of CORS policy for REST mocks, Support of PATCH and OPTIONS operations on REST mocks, Multi-format support for OpenAPI v3 examples, Addition of users management from the Microcks UI, Addition of custom JSON body dispatcher, Many UI improvements like embedded help, about modal and easier importer creation flow, Fix of HTTPS with custom certificates support for accessing private repositories.</description>
+      <description>Older Releases Microcks core 1.1.0 on 10 Nov 2020 We are thrilled to announce the Microcks release 1.1.0! Here are below the major points of this release:
+ The support of Apache Kafka for testing Event-driven APIs through AsyncAPI schema validation, Some OpenAPI and SOAP mocking enhancements regarding tricky edge cases, A Getting Started with Tests quick start guide, The move from Gitter chat rooms in favor of Zulip for community discussions and support.</description>
     </item>
     
   </channel>

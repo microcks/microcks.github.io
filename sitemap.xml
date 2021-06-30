@@ -168,7 +168,22 @@
   </url>
   
   <url>
-    <loc>https://microcks.io/documentation/</loc>
+    <loc>https://microcks.io/categories/blog/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/categories/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/microcks-1.3.0-release/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/blog/</loc>
     <lastmod>2021-06-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,27 +193,27 @@
   </url>
   
   <url>
+    <loc>https://microcks.io/news/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/categories/releases/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://microcks.io/documentation/using/</loc>
     <lastmod>2021-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://microcks.io/categories/blog/</loc>
-    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/categories/</loc>
-    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://microcks.io/blog/microcks-1.2.1-release/</loc>
-    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/blog/</loc>
     <lastmod>2021-05-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -254,16 +269,6 @@
   
   <url>
     <loc>https://microcks.io/blog/microcks-1.1.0-release/</loc>
-    <lastmod>2020-11-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/news/</loc>
-    <lastmod>2020-11-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://microcks.io/categories/releases/</loc>
     <lastmod>2020-11-09T00:00:00+00:00</lastmod>
   </url>
   
