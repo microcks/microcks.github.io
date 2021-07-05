@@ -17,8 +17,8 @@
       <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/getting-started-tests/</guid>
-      <description>Getting started (continue) with Tests Now that you have finished the Getting started, you should have a Microcks installation up-and-running and filled with some samples coming from the Microcks repository. The goal of this page is to introduce you how you can use Microcks to realize Contract Testing for your API, either manually from the UI or in an automated way using the CLI tooling.
-If you have not do it in previous step, you will need to load one of Microcks samples that is the Pastry API.</description>
+      <description>Getting started (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve Contract Testing for your API, either manually from the UI or in an automated way using the CLI tooling.
+If you have not done it in the previous step, you will need to load one of Microcks samples: the Pastry API.</description>
     </item>
     
     <item>
