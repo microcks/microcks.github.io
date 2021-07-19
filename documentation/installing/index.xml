@@ -17,8 +17,8 @@
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/kubernetes/</guid>
-      <description>Instructions One easy way if installing Microcks is to do it via a Helm Chart. Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.</description>
+      <description>Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+ Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.</description>
     </item>
     
     <item>
@@ -27,8 +27,8 @@
       <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/operator/</guid>
-      <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
-At time of writing, Microcks only define one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.</description>
+      <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At the time of writing, Microcks only defines one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.</description>
     </item>
     
     <item>
@@ -37,8 +37,8 @@ At time of writing, Microcks only define one customer resource that is called th
       <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/podman-compose/</guid>
-      <description>Podman Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33+ and should be OK on CentOS Stream 8+ and RHEL 8+ distributions too.
-Usage To get started, make sure you have first the Podman and the Podman Compose packages installed on your system.</description>
+      <description>Podman Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33+ and should be OK on CentOS Stream 8+ and RHEL 8+ distributions too.
+Usage To get started, make sure you first have the Podman and the Podman Compose packages installed on your system.</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ Usage To get started, make sure you have first the Podman and the Podman Compose
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/docker-compose/</guid>
-      <description>Docker Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer.
+      <description>Docker Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer.
 Usage To get started, make sure you have Docker installed on your system.
 In your terminal issue the following commands:
   Clone this repository.
@@ -61,9 +61,9 @@ cd microcks/install/docker-compose   Spin up the containers</description>
       <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/installing/deployment-options/</guid>
-      <description>Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
-High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
- The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.</description>
+      <description>Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
+High-level Architecture In its simplest form, Microcks architecture is made of 4 components which are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.</description>
     </item>
     
   </channel>

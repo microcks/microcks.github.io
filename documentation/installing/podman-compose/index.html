@@ -44,15 +44,15 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Installing with podman-compose" />
-<meta property="og:description" content="Podman Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33&#43; and should be OK on CentOS Stream 8&#43; and RHEL 8&#43; distributions too.
-Usage To get started, make sure you have first the Podman and the Podman Compose packages installed on your system." />
+<meta property="og:description" content="Podman Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33&#43; and should be OK on CentOS Stream 8&#43; and RHEL 8&#43; distributions too.
+Usage To get started, make sure you first have the Podman and the Podman Compose packages installed on your system." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/podman-compose/" />
 <meta property="article:published_time" content="2021-02-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-02-25T00:00:00+00:00" />
 <meta itemprop="name" content="Installing with podman-compose">
-<meta itemprop="description" content="Podman Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33&#43; and should be OK on CentOS Stream 8&#43; and RHEL 8&#43; distributions too.
-Usage To get started, make sure you have first the Podman and the Podman Compose packages installed on your system.">
+<meta itemprop="description" content="Podman Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33&#43; and should be OK on CentOS Stream 8&#43; and RHEL 8&#43; distributions too.
+Usage To get started, make sure you first have the Podman and the Podman Compose packages installed on your system.">
 <meta itemprop="datePublished" content="2021-02-25T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-25T00:00:00+00:00" />
 <meta itemprop="wordCount" content="388">
@@ -62,8 +62,8 @@ Usage To get started, make sure you have first the Podman and the Podman Compose
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing with podman-compose"/>
-<meta name="twitter:description" content="Podman Compose is a tool for easily test and run multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33&#43; and should be OK on CentOS Stream 8&#43; and RHEL 8&#43; distributions too.
-Usage To get started, make sure you have first the Podman and the Podman Compose packages installed on your system."/>
+<meta name="twitter:description" content="Podman Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33&#43; and should be OK on CentOS Stream 8&#43; and RHEL 8&#43; distributions too.
+Usage To get started, make sure you first have the Podman and the Podman Compose packages installed on your system."/>
 
 
       
@@ -266,9 +266,9 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h1 id="heading"></h1>
-<p><a href="https://github.com/containers/podman-compose">Podman Compose</a> is a tool for easily test and run multi-container applications. <a href="https://microcks.io/">Microcks</a> offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman <code>2.1.1</code> onto <a href="https://getfedora.org/">Fedora 33+</a> and should be OK on <a href="https://www.centos.org/centos-stream/">CentOS Stream 8+</a> and <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">RHEL 8+</a> distributions too.</p>
+<p><a href="https://github.com/containers/podman-compose">Podman Compose</a> is a tool for easily testing and running multi-container applications. <a href="https://microcks.io/">Microcks</a> offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman <code>2.1.1</code> onto <a href="https://getfedora.org/">Fedora 33+</a> and should be OK on <a href="https://www.centos.org/centos-stream/">CentOS Stream 8+</a> and <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">RHEL 8+</a> distributions too.</p>
 <h2 id="usage">Usage</h2>
-<p>To get started, make sure you have first the <a href="https://podman.io/getting-started/installation">Podman</a> and the <a href="https://github.com/containers/podman-compose">Podman Compose</a> packages installed on your system.</p>
+<p>To get started, make sure you first have the <a href="https://podman.io/getting-started/installation">Podman</a> and the <a href="https://github.com/containers/podman-compose">Podman Compose</a> packages installed on your system.</p>
 <p>Then, in your terminal issue the following commands:</p>
 <ol>
 <li>
@@ -284,7 +284,7 @@ var trackOutboundLink = function(id, url) {
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ ./run-microcks.sh
 Running rootless containers...
 Discovered host IP address: 192.168.3.102
-
+   
 Starting Microcks using podman-compose ...
 ------------------------------------------
 Stop it with:  podman-compose -f microcks.yml --transform_policy<span class="o">=</span>identity stop
@@ -293,7 +293,7 @@ Clean everything with:  podman-compose -f microcks.yml --transform_policy<span c
 ------------------------------------------
 Go to https://localhost:8080 - first login with admin/123
 Having issues? Check you have changed microcks.yml to your platform
-
+   
 using podman version: podman version 2.1.1
 podman run <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div></li>
@@ -314,7 +314,7 @@ podman run <span class="o">[</span>...<span class="o">]</span>
 <li>the overlay storage is done in userspace with <code>fuse</code> (which is slower than the traditional <code>overlayfs</code> mount)</li>
 </ul>
 <p>So, unless you need high performances or a specific network setup, you can use the <strong>rootless</strong> mode.</p>
-<p>For the Podman support in Microcks, we aimed to support both <strong>rootless</strong> and <strong>rootfull</strong> mode.</p>
+<p>For the Podman support in Microcks, we aim to support both <strong>rootless</strong> and <strong>rootfull</strong> mode.</p>
 <p>If you&rsquo;d like to give a try to the <strong>rootfull</strong> mode, you&rsquo;ll have to enable the <code>dnsalias</code> plugin in the default <code>podman</code> network:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sudo podman network rm podman
 sudo podman network create --subnet 10.88.0.0/16 podman

@@ -44,26 +44,26 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Installing on Kube using Operator" />
-<meta property="og:description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
-At time of writing, Microcks only define one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy." />
+<meta property="og:description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At the time of writing, Microcks only defines one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/operator/" />
 <meta property="article:published_time" content="2020-02-11T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-04-28T00:00:00+00:00" />
 <meta itemprop="name" content="Installing on Kube using Operator">
-<meta itemprop="description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
-At time of writing, Microcks only define one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.">
+<meta itemprop="description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At the time of writing, Microcks only defines one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.">
 <meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-04-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="980">
+<meta itemprop="wordCount" content="984">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing on Kube using Operator"/>
-<meta name="twitter:description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
-At time of writing, Microcks only define one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy."/>
+<meta name="twitter:description" content="Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
+At the time of writing, Microcks only defines one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy."/>
 
 
       
@@ -276,8 +276,8 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="overview">Overview</h2>
-<p>Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific <code>Custom Resources</code> defining their domain of expertise. Microcks provide an Operator that was developed using the <a href="https://github.com/operator-framework/operator-sdk">Operator Framework SDK</a> and that is distributed through <a href="https://operatorhub.io/operator/microcks">OperatorHub.io</a>.</p>
-<p>At time of writing, Microcks only define one customer resource that is called the <code>MicrocksInstall</code>: a description of the instance configuration you want to deploy. The properties of this custom resource are briefly described below.</p>
+<p>Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific <code>Custom Resources</code> defining their domain of expertise. Microcks provide an Operator that was developed using the <a href="https://github.com/operator-framework/operator-sdk">Operator Framework SDK</a> and that is distributed through <a href="https://operatorhub.io/operator/microcks">OperatorHub.io</a>.</p>
+<p>At the time of writing, Microcks only defines one customer resource that is called the <code>MicrocksInstall</code>: a description of the instance configuration you want to deploy. The properties of this custom resource are briefly described below.</p>
 <p>Depending on your needs and usage of Operators, they can be easily deployed and managed using the <a href="https://github.com/operator-framework/operator-lifecycle-manager">Operator Lifecycle Manager</a>, an add-on that you may install into your Kubernetes cluster to track subscription and upgrades of operators. We describe both installation methods below: with or without Operator Lifecycle Manager (OLM).</p>
 <h2 id="minikube-quick-start">Minikube Quick Start</h2>
 <p>This assumes that you have the latest version of the <code>minikube</code> binary, which you can get <a href="https://kubernetes.io/docs/setup/minikube/#installation">here</a>.</p>
@@ -333,7 +333,7 @@ microcks-postman-runtime-75f74d6779-9gjrn         1/1     Running   <span class=
 
 <h3 id="post-installation-operations">Post-installation operations</h3>
 <p>Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>.</p>
-<p>Before starting playing with Microcks, you&rsquo;ll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.</p>
+<p>Before starting playing with Microcks, you&rsquo;ll have to connect to the Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.</p>
 <blockquote>
 <p>Starting with Microcks <code>1.2.0</code> release, the installation process now creates default users with the different roles available. So you can directly login using <code>user</code>, <code>manager</code> or <code>admin</code> username with <code>microcks123</code> password.</p>
 </blockquote>
@@ -374,7 +374,7 @@ microcks-postman-runtime-75f74d6779-9gjrn         1/1     Running   <span class=
 </span><span class="w">    </span><span class="k">persistent</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span><span class="k">volumeSize</span><span class="p">:</span><span class="w"> </span>2Gi<span class="w">
 </span><span class="w">    </span><span class="k">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></code></pre></div><p>We recommend having a look at <a href="https://github.com/microcks/microcks-ansible-operator">operator documentation</a> for full understanding of CR.</p>
+</span></code></pre></div><p>We recommend having a look at the <a href="https://github.com/microcks/microcks-ansible-operator">operator documentation</a> for full understanding of CR.</p>
 <h2 id="on-any-kube-distribution-without-olm">On any Kube distribution without OLM</h2>
 <p>For development or on bare OpenShift and Kubernetes clusters, without Operator Lifecycle Management (OLM).</p>
 <p>Start cloning this repos and then, optionally, create a new project:</p>
@@ -396,7 +396,7 @@ NAME                                        READY     STATUS    RESTARTS   AGE
 microcks-ansible-operator-f58b97548-qj26l   1/1       Running   <span class="m">0</span>          3m
 </code></pre></div><p>Now just create a <code>MicrocksInstall</code> CR!</p>
 <h2 id="on-openshift-4-with-olm">On OpenShift 4 with OLM</h2>
-<p>As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also expose the post-installation steps required for creating user and connecting to the app.</p>
+<p>As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also exposes the post-installation steps required for creating user and connecting to the app.</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/P2RFDxL0xsA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>

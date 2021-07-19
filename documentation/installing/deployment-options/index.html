@@ -44,29 +44,29 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Architecture and deployment options" />
-<meta property="og:description" content="Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
-High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
- The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration." />
+<meta property="og:description" content="Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
+High-level Architecture In its simplest form, Microcks architecture is made of 4 components which are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/deployment-options/" />
 <meta property="article:published_time" content="2020-12-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-12-15T00:00:00+00:00" />
 <meta itemprop="name" content="Architecture and deployment options">
-<meta itemprop="description" content="Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
-High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
- The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.">
+<meta itemprop="description" content="Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
+High-level Architecture In its simplest form, Microcks architecture is made of 4 components which are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.">
 <meta itemprop="datePublished" content="2020-12-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="905">
+<meta itemprop="wordCount" content="902">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architecture and deployment options"/>
-<meta name="twitter:description" content="Introduction Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
-High-level Architecture As its simplest form, Microcks architecture is made of 4 components that are:
- The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as repository of API | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allow the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration."/>
+<meta name="twitter:description" content="Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
+High-level Architecture In its simplest form, Microcks architecture is made of 4 components which are:
+ The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration."/>
 
 
       
@@ -272,21 +272,21 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="introduction">Introduction</h2>
-<p>Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.</p>
+<p>Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.</p>
 <h2 id="high-level-architecture">High-level Architecture</h2>
-<p>As its simplest form, Microcks architecture is made of 4 components that are:</p>
+<p>In its simplest form, Microcks architecture is made of 4 components which are:</p>
 <ul>
 <li>The Microcks main web application (also called <code>webapp</code>) that holds the UI resources as well as API endpoints,</li>
-<li>Its associated MongoDB database for holding your data such as repository of <strong>API | Services</strong> and <strong>Tests</strong>,</li>
-<li>A Microcks Postman runtime (<code>microcks-postman-runtime</code>) that allow the execution of Postman Collection tests and calls back Microcks for storing results,</li>
+<li>Its associated MongoDB database for holding your data such as the repository of <strong>APIs | Services</strong> and <strong>Tests</strong>,</li>
+<li>A Microcks Postman runtime (<code>microcks-postman-runtime</code>) that allows the execution of Postman Collection tests and calls back Microcks for storing results,</li>
 <li>A <a href="https://keycloak.org">Keycloak</a> instance that holds the authentication mechanisms and identity provider integration.</li>
 </ul>
-<p>The schema below illustrates this architecture and the relations between components. You&rsquo;ll see that users are accessing the main <code>webapp</code> either from their browser to see the console or from the <a href="../../automating/cli">CLI</a> or any other application using the API endpoints.</p>
+<p>The schema below illustrates this architecture and the relations between components. You&rsquo;ll see that users access the main <code>webapp</code> either from their browser to see the console or from the <a href="../../automating/cli">CLI</a> or any other application using the API endpoints.</p>
 <img src="/images/architecture-simple.png" class="img-responsive"/>
 <blockquote>
 <p>For sake of simplicity we do not represent here the PostgreSQL (or other database) thay may be associated with Keycloak.</p>
 </blockquote>
-<p>Your can deploy this simple architecture whatever the installation method you pick: from <a href="../docker-compose">Docker Compose</a> to fully featured <a href="../operator">Operator</a>.</p>
+<p>You can deploy this simple architecture whatever installation method you pick: from <a href="../docker-compose">Docker Compose</a> to fully featured <a href="../operator">Operator</a>.</p>
 <h3 id="architecture-for-async-api">Architecture for Async API</h3>
 <p>Since the <a href="../../../blog/microcks-1.0.0-release">1.0.0 release</a> when we introduced asynchronous API support, there&rsquo;s a much complete form of architecture that takes place when you enabled the asynchronous API feature.</p>
 <p>To support this, we rely on 2 additional components:</p>
@@ -311,15 +311,15 @@ var trackOutboundLink = function(id, url) {
 <p>Helm Chart or Operator? I would say it depends&hellip; 😉 Operator will handle more complex lifecycle and update procedures as weel as tuning operations in the future. While Helm Chart will remain easier for simple &ldquo;throwable&rdquo; setup.</p>
 </blockquote>
 <h3 id="partially-managed-by-microcks">Partially managed by Microcks</h3>
-<p>Aside this all-in-one approache, you may also use boths installation method to pick the components you want Microcks to install and the other existing one you may want Microcks to connect to. You will have the following options:</p>
+<p>Besides this all-in-one approach, you may also use both installation methods to pick the components you want Microcks to install and the other existing ones you may want Microcks to connect to. You will have the following options:</p>
 <ul>
 <li>Do not deploy a MongoDB database and reuse an existing one. For that, put the <code>mongodb.install</code> flag to <code>false</code> and specify a <code>mongodb.url</code>, a <code>mongodb.database</code> as well as credentials and that&rsquo;s it!</li>
-<li>Do not deploy a Keycloak instance and reuse an existing one. For that, put the <code>keycloak.install</code> flag to <code>false</code> and specify a <code>keycloak.url</code> and a <code>keycloak.realm</code> and that&rsquo;s it! Optionally you may want to specify a <code>keycloak.privateUrl</code> so that security token trusintg will be done without hopping through a publicly reachable URL.</li>
-<li>Do not deploy a Kafka nstance and reuse an existing one. For that, put the <code>kafka.install</code> flag to <code>false</code> and specify a <code>kafka.url</code> and that&rsquo;s it!</li>
+<li>Do not deploy a Keycloak instance and reuse an existing one. For that, put the <code>keycloak.install</code> flag to <code>false</code> and specify a <code>keycloak.url</code> and a <code>keycloak.realm</code> and that&rsquo;s it! Optionally, you may want to specify a <code>keycloak.privateUrl</code> so that security token trusting will be done without hopping through a publicly reachable URL.</li>
+<li>Do not deploy a Kafka instance and reuse an existing one. For that, put the <code>kafka.install</code> flag to <code>false</code> and specify a <code>kafka.url</code> and that&rsquo;s it!</li>
 </ul>
 <img src="/images/deployment-partially-managed.png" class="img-responsive"/>
 <blockquote>
-<p>Reusing already deployed components may allow you to lower operational costs if you&rsquo;re using shared instances. It can also allow you to use managed services that may be provided by your favorite cloud vendor.</p>
+<p>Reusing already deployed components may allow you to lower operational costs if you&rsquo;re using shared instances. It can also allow you to use managed services that may be provided by your favourite cloud vendor.</p>
 </blockquote>
 <h3 id="the-kafka-broker-of-your-choice">The Kafka broker of your choice</h3>
 <p>Whilst it may seem obvious to certain people, it can be useful to recall that Microcks-Kafka interactions are not tied to a particular Kafka vendor.</p>

@@ -44,38 +44,38 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Getting started" />
-<meta property="og:description" content="Quickstart The easiest way to get started is using Docker Compose to start the minimal requirements. Make sure you have Docker installed on your system.
+<meta property="og:description" content="Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements. Make sure you have Docker installed on your system.
 In your terminal issue the following commands:
   Clone this repository.
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers
-docker-compose up -d   This will start the required containers and setup an simple environment for your usage." />
+docker-compose up -d   This will start the necessary containers and setup a simple environment for you to use." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/getting-started/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="name" content="Getting started">
-<meta itemprop="description" content="Quickstart The easiest way to get started is using Docker Compose to start the minimal requirements. Make sure you have Docker installed on your system.
+<meta itemprop="description" content="Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements. Make sure you have Docker installed on your system.
 In your terminal issue the following commands:
   Clone this repository.
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers
-docker-compose up -d   This will start the required containers and setup an simple environment for your usage.">
+docker-compose up -d   This will start the necessary containers and setup a simple environment for you to use.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="827">
+<meta itemprop="wordCount" content="826">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started"/>
-<meta name="twitter:description" content="Quickstart The easiest way to get started is using Docker Compose to start the minimal requirements. Make sure you have Docker installed on your system.
+<meta name="twitter:description" content="Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements. Make sure you have Docker installed on your system.
 In your terminal issue the following commands:
   Clone this repository.
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers
-docker-compose up -d   This will start the required containers and setup an simple environment for your usage."/>
+docker-compose up -d   This will start the necessary containers and setup a simple environment for you to use."/>
 
 
       
@@ -285,7 +285,7 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="quickstart">Quickstart</h2>
-<p>The easiest way to get started is using <a href="https://docs.docker.com/compose/">Docker Compose</a> to start the minimal requirements. Make sure you have <a href="https://docs.docker.com/get-docker/">Docker installed</a> on your system.</p>
+<p>The easiest way to get started is using <a href="https://docs.docker.com/compose/">Docker Compose</a> to start with minimal requirements. Make sure you have <a href="https://docs.docker.com/get-docker/">Docker installed</a> on your system.</p>
 <p>In your terminal issue the following commands:</p>
 <ol>
 <li>
@@ -301,18 +301,18 @@ var trackOutboundLink = function(id, url) {
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker-compose up -d
 </code></pre></div></li>
 </ol>
-<p>This will start the required containers and setup an simple environment for your usage.</p>
+<p>This will start the necessary containers and setup a simple environment for you to use.</p>
 <p>Open a new browser tab and point to the <code>http://localhost:8080</code> endpoint. This will redirect you to the <a href="https://www.keycloak.org/">Keycloak</a> Single Sign On page for login. Use the following default credentials to login into the application:</p>
 <ul>
 <li><strong>Username:</strong> admin</li>
 <li><strong>Password:</strong> microcks123</li>
 </ul>
 <h2 id="using-microcks">Using Microcks</h2>
-<p>Now you are ready to use Microcks for deploying your own services and API mocks! Before that let&rsquo;s have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with 2 main entry points : <b>Services</b> and <b>Jobs</b>.</p>
+<p>Now you are ready to use Microcks for deploying your own services and API mocks! Before that let&rsquo;s have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with two main entry points : <b>APIs | Services</b> and <b>Importers</b>.</p>
 <img src="/images/home-screen.png" class="img-responsive"/>
-<p>As you may have guessed, <b>API | Services</b> is about browsing your [micro]-services and API repository, discovering and accessing documentation, mocks and tests. <b>Importers</b> is another concept dedicated on how to fill this repository: it allows to define Jobs periodically scan your Git or Subversion repository for checking new definition files that will be parsed and integrated as part of your [micro]-services and API repository. Indeed <b>Importers</b> help discover new or modified <b>Services</b>. Before creating your own service definition files, let load some samples into Microcks for a test ride.</p>
+<p>As you may have guessed, <b>APIs | Services</b> is for browsing your [micro]-services and API repository, discovering and accessing documentation, mocks, and tests. <b>Importers</b> will help you to populate your repository, allowing you to define Jobs that periodically scan your Git or Subversion repositories for new definition files, parse them and integrate them into your [micro]-services and API repository. Indeed <b>Importers</b> help you discover both new and modified <b>Services</b>. Before using your own service definition files, let&rsquo;s load some samples into Microcks for a test ride!</p>
 <h3 id="loading-samples">Loading samples</h3>
-<p>We provide different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. The fourth one is an OpenAPI v3 specification file and present the advantages of holding both the contract specification and the examples. The Last one is an AsyncAPI v2 specification file - <a href="https://www.asyncapi.com/">AsyncAPI</a> being a new specification format dedicated to asychronous and event-oriented APIs. Using the <b>Importers</b> entry point from home screen or left navigation bar, use the Importers management page to add 5 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:</p>
+<p>We provide different samples that illustrate different ways of creating service definitions. The first two are definition files created using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. The fourth one is an OpenAPI v3 specification file and presents the advantages of holding both the contract specification and request/response examples. The last one is an AsyncAPI v2 specification file - <a href="https://www.asyncapi.com/">AsyncAPI</a> being a new specification format dedicated to asychronous and event-oriented APIs. Using the <b>Importers</b> entry point from home screen or left navigation bar, use the Importers management page to add 5 new jobs. For each, you will be asked a name and a repository URL. Use the information below:</p>
 <ul>
 <li>Hello SOAP Service : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml</code></li>
 <li>Hello REST API : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml</code></li>
@@ -320,13 +320,13 @@ var trackOutboundLink = function(id, url) {
 <li>Pastry API : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml</code></li>
 <li>User signed-up API : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml</code></li>
 </ul>
-<p>Now that you have created your Jobs, they are automatically <code>Activated</code> (this make them eligible to a periodically check) and to <code>Imported</code> (this make a forced refresh right now). After some moments and a page refresh, you should see the status of Jobs changed like in screenshot below:</p>
+<p>Now that you have created your Jobs, they are automatically <code>Activated</code> (this make them eligible to a periodically check) and <code>Imported</code> (this causes an immediate forced refresh).  After some moments and a page refresh, you should see the status of Jobs changed as in screenshot below:</p>
 <img src="/images/sample-jobs.png" class="img-responsive"/>
 <h3 id="viewing-services">Viewing services</h3>
-<p>Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 5 new services with basic informations on version and operations/resources handled by this services.</p>
+<p>Once sample jobs have been loaded, new services have been discovered and added to your repository, you can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 5 new services with basic information on version and operations/resources handled by these services.</p>
 <p><img src="/images/sample-services.png" alt="sample-services"></p>
 <h3 id="viewing-details">Viewing details</h3>
-<p>Now choosing the <b>Petstore API</b> REST API, you&rsquo;ll be able to access details, documentation and request/response samples for each operation/resource in the screen below. One important information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below show request/response couples and a detailed URL with the HTTP verb showing how to invoke this mock.</p>
+<p>Now choosing the <b>Petstore API</b> REST API, you&rsquo;ll be able to access the details, documentation and request/response samples for each operation/resource in the screen below. One important bit of information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below shows request/response pairs and a detailed URL with the HTTP verb showing how to invoke this mock.</p>
 <p><img src="/images/sample-details.png" alt="sample-details"></p>
 <p>Using this URL, you can call the exposed mock for <b>Petstore API</b> using the following curl command:</p>
 <pre><code>$ curl &quot;http://microcks.192.168.64.7.nip.io/rest/Petstore+API/1.0/pet/findByStatus?status=available&amp;user_key=70f735676ec46351c6699c4bb767878a&quot;
@@ -337,10 +337,10 @@ var trackOutboundLink = function(id, url) {
 <p>If you require a more complex installation, Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.</p>
 <h3 id="installing-with-kubernetes-operator">Installing with Kubernetes Operator</h3>
 <p>We provide an Operator that is distributed through <a href="https://operatorhub.io/operator/microcks">OperatorHub.io</a> for easy install and management of Microcks as a Kubernetes-native application.</p>
-<p>Have a look on this <a href="/documentation/installing/operator">page</a> for more informations.</p>
+<p>Have a look on this <a href="/documentation/installing/operator">page</a> for more information.</p>
 <h3 id="installing-on-kubernetes-with-helm">Installing on Kubernetes with Helm</h3>
 <p>We provide a Helm 3 <code>Chart</code> for using with <a href="https://helm.sh/">Helm</a> Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.</p>
-<p>Have a look on this <a href="/documentation/installing/kubernetes">page</a> for more informations.</p>
+<p>Have a look on this <a href="/documentation/installing/kubernetes">page</a> for more information.</p>
 <h3 id="installing-using-docker-compose">Installing using Docker Compose</h3>
 <p>Docker Compose is really easy for a laptop or single demonstration server. You&rsquo;ll find instructions on how to use Docker Compose for installation <a href="/documentation/installing/docker-compose">here</a>.</p>
 <h3 id="quick-installation-in-azure">Quick installation in Azure</h3>
@@ -348,12 +348,12 @@ var trackOutboundLink = function(id, url) {
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>Now that you have basic information on how to setup and use Microcks, you can go further with:</p>
 <ul>
-<li>Pursuing your tour with the <a href="/documentation/getting-started-tests">Getting started with Tests</a>,</li>
-<li>Understanding how Microcks <a href="/documentation/using/alternatives">compare to alternatives</a>,</li>
+<li>Continuing your tour with <a href="/documentation/getting-started-tests">Getting started with Tests</a>,</li>
+<li>Understanding how Microcks <a href="/documentation/using/alternatives">compares with alternatives</a>,</li>
 <li>Creating your definition files using <a href="/documentation/using/openapi">OpenAPI</a>, <a href="/documentation/using/asyncapi">AsyncAPI</a>, <a href="/documentation/using/soapui">SoapUI</a> or <a href="/documentation/using/postman">Postman</a>,</li>
 <li>Using <a href="/documentation/using/mocks">exposed mocks</a> and using variables,</li>
 <li>Executing your <a href="/documentation/using/tests">tests on endpoints</a> where your services and API are deployed,</li>
-<li>Using <a href="(/documentation/using/advanced)">advanced features</a> of Microcks and admin stuffs.</li>
+<li>Using <a href="(/documentation/using/advanced)">advanced features</a> of Microcks and admin stuff.</li>
 </ul>
 
 </div>

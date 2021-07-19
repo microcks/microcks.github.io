@@ -44,26 +44,26 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Installing on Kube using Helm" />
-<meta property="og:description" content="Instructions One easy way if installing Microcks is to do it via a Helm Chart. Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider." />
+<meta property="og:description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+ Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/kubernetes/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-02-09T00:00:00+00:00" />
 <meta itemprop="name" content="Installing on Kube using Helm">
-<meta itemprop="description" content="Instructions One easy way if installing Microcks is to do it via a Helm Chart. Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.">
+<meta itemprop="description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+ Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="400">
+<meta itemprop="wordCount" content="401">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing on Kube using Helm"/>
-<meta name="twitter:description" content="Instructions One easy way if installing Microcks is to do it via a Helm Chart. Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider."/>
+<meta name="twitter:description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+ Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider."/>
 
 
       
@@ -259,14 +259,14 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="instructions">Instructions</h2>
-<p>One easy way if installing Microcks is to do it via a <a href="https://helm.sh/">Helm Chart</a>. Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:</p>
+<p>One easy way of installing Microcks is via a <a href="https://helm.sh/">Helm Chart</a>. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:</p>
 <ul>
 <li>Lightweight Minikube on your laptop, see <a href="https://github.com/kubernetes/minikube">Minikube project page</a>,</li>
-<li>Google Cloud Engine account in the cloud, see how to start a <a href="https://console.cloud.google.com/freetrial">Free trial</a>,</li>
+<li>A Google Cloud Engine account in the cloud, see how to start a <a href="https://console.cloud.google.com/freetrial">Free trial</a>,</li>
 <li>Any other Kubernetes distribution provider.</li>
 </ul>
 <h2 id="helm-3">Helm 3</h2>
-<p>Helm 3 chart has been tested from Kubernetes 1.17 and is now available on our own repository. This allow to install Microcks with just 3 commands:</p>
+<p>Helm 3 chart has been tested from Kubernetes 1.17 and is now available on our own repository. This allows you to install Microcks with just 3 commands:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ helm repo add microcks https://microcks.io/helm
 
 $ kubectl create namespace microcks
@@ -275,24 +275,24 @@ $ helm install microcks microcks/microcks —-version 1.1.0 --namespace microcks
 </code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.</p>
 <img src="/images/running-pods-k8s.png" class="img-responsive"/>
 <p>Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>.</p>
-<p>Before starting playing with Microcks, you&rsquo;ll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.</p>
+<p>Before starting to play with Microcks, you&rsquo;ll have to connect to the Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.</p>
 <blockquote>
 <p>Starting with Microcks <code>1.2.0</code> release, the installation process now creates default users with the different roles available. So you can directly login using <code>user</code>, <code>manager</code> or <code>admin</code> username with <code>microcks123</code> password.</p>
 </blockquote>
 <p>For full instructions and deployment options, we recommend reading the <a href="https://github.com/microcks/microcks/blob/master/install/kubernetes/README.md">README</a> on GitHub repository.</p>
 <h2 id="minikube-setup">Minikube setup</h2>
-<p>The video below shows an install using the Helm chart on Minikube and also expose the post-installation steps required for creating user and connecting to the app (required before the <code>1.2.0</code> release):</p>
+<p>The video below shows an install using the Helm chart on Minikube and also shows the post-installation steps required for creating users and connecting to the app (required before the <code>1.2.0</code> release):</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/u7SP1bQ8_FE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>When using Minikube, depending on what you&rsquo;ve already deployed, default configuration may be little bit slow and induce timeout on readiness probes. We usually setup the following configuration for successful deployments:</p>
+<p>When using Minikube, depending on what you&rsquo;ve already deployed, the default configuration may be little bit slow and induce timeout on readiness probes. We usually setup the following configuration for successful deployments:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">minikube config <span class="nb">set</span> cpus <span class="m">4</span>
 minikube config <span class="nb">set</span> memory <span class="m">6144</span>
 minikube delete
 minikube start
-</code></pre></div><p>Also, if you need typically need to access the Kafka broker from the outside of Kube, you&rsquo;ll need to enable the <code>SSL Passthrough</code> on Nginx ingress controller. Here&rsquo;s below the command that is used in above video:</p>
+</code></pre></div><p>Also, if you typically need to access the Kafka broker from the outside of Kube, you&rsquo;ll need to enable the <code>SSL Passthrough</code> on Nginx ingress controller. Here below is the command that is used in above video:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl patch -n kube-system deployment/ingress-nginx-controller --type<span class="o">=</span><span class="s1">&#39;json&#39;</span> <span class="se">\
 </span><span class="se"></span>    -p <span class="s1">&#39;[{&#34;op&#34;:&#34;add&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/args/-&#34;,&#34;value&#34;:&#34;--enable-ssl-passthrough&#34;}]&#39;</span>
 </code></pre></div>

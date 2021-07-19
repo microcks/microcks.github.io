@@ -55,8 +55,8 @@ However in some cases, this could not be enough and it will be useful to overrid
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/importers/</guid>
-      <description>Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&amp;rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will drive you through the complete explanations of supported formats and import mechanisms present into Microcks.
-Supported formats As previously introduced, Microcks &amp;ldquo;turns out your API contract into live mocks in seconds&amp;rdquo; - the noticeable part of these sentence being API contract.</description>
+      <description>Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&amp;rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will take you through a complete explanation of supported formats and the import mechanisms present in Microcks.
+Supported formats As previously introduced, Microcks &amp;ldquo;turns your API contract into live mocks in seconds&amp;rdquo; - the noticeable part of this sentence being API contract.</description>
     </item>
     
     <item>
