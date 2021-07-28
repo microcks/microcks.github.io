@@ -44,26 +44,26 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Using exposed mocks" />
-<meta property="og:description" content="Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
-First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :" />
+<meta property="og:description" content="Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/mocks/" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="name" content="Using exposed mocks">
-<meta itemprop="description" content="Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
-First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :">
+<meta itemprop="description" content="Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="807">
+<meta itemprop="wordCount" content="800">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Using exposed mocks"/>
-<meta name="twitter:description" content="Using exposed mocks Getting infos on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discover how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
-First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :"/>
+<meta name="twitter:description" content="Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :"/>
 
 
       
@@ -222,7 +222,7 @@ var trackOutboundLink = function(id, url) {
   <ul>
     <li><a href="#using-exposed-mocks">Using exposed mocks</a>
       <ul>
-        <li><a href="#getting-infos-on-microservices-mocks">Getting infos on microservices mocks</a></li>
+        <li><a href="#getting-info-on-microservices-mocks">Getting info on microservices mocks</a></li>
         <li><a href="#invoking-microservices-mocks">Invoking microservices mocks</a></li>
         <li><a href="#common-invocation-params">Common invocation params</a></li>
       </ul>
@@ -263,28 +263,28 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="using-exposed-mocks">Using exposed mocks</h2>
-<h3 id="getting-infos-on-microservices-mocks">Getting infos on microservices mocks</h3>
-<p>Well, now that you have <a href="/documentation/getting-staretd">installed</a> Microcks, created your own API/Service repository using <a href="../openapi/">OpenAPI</a>, <a href="../asyncapi/">AsyncAPI</a>, <a href="../soapui/">SoapUI</a> or <a href="../postman/">Postman</a> and discover how to <a href="/documentation/getting-started">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.</p>
-<p>First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :</p>
+<h3 id="getting-info-on-microservices-mocks">Getting info on microservices mocks</h3>
+<p>Well, now that you have <a href="/documentation/getting-started">installed</a> Microcks, created your own API/Service repository using <a href="../openapi/">OpenAPI</a>, <a href="../asyncapi/">AsyncAPI</a>, <a href="../soapui/">SoapUI</a> or <a href="../postman/">Postman</a> and discovered how to <a href="/documentation/getting-started">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.</p>
+<p>First, let&rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :</p>
 <ul>
-<li><code>Properties</code> section show basic information on API/Service : its name, its version, its style (REST or SOAP) and you&rsquo;ll also got access to statistics regarding the utilization of the mocks of this API. SOAP style Service also contains extra information like the global <code>XML Namespace</code> used by the Service and the embedded <code>WSDL contract</code> if any was provided,</li>
-<li><code>Tests trend</code> section shows a little histogram representing the latest tests trend on this API/Service. It provides an access to test history and for launching a new test on an API/Service implementation. More on this topic in the [](./tests/&ldquo;&gt;Tests documentation</a>,</li>
-<li><code>Operations</code> section concentrates informations on the different operations managed by this API or Service. More on that topic below.</li>
+<li><code>Properties</code> section shows basic information on the API/Service : its name, its version, its style (REST or SOAP) and you&rsquo;ll also get access to statistics such as the utilization of this API&rsquo;s mocks. SOAP style Services also contain extra information like the global <code>XML Namespace</code> used by the Service and the embedded <code>WSDL contract</code> if any was provided,</li>
+<li><code>Tests trend</code> section shows a little histogram representing the latest tests trend on this API/Service. It provides access to the test history and allows a new test on an API/Service implementation to be launched. More on this topic in the <a href="/documentation/using/tests">Tests</a> documentation</a>,</li>
+<li><code>Operations</code> section concentrates on the different operations managed by this API or Service. More on that topic below.</li>
 </ul>
 <p><img src="/images/mock-rest-summary.png" alt="mock-rest-summary"></p>
 <p>Here&rsquo;s an example of summary page for a SOAP Service mock :</p>
 <p><img src="/images/mock-soap-summary.png" alt="mock-soap-summary"></p>
-<p>Let&rsquo;s now focus on the <code>Operations</code> section of this page. A click on the operation name, unveil its details. Within an Operation panel, you will get generic information on this operation as well as visualization of typical request/response pairs examples (payload content and headers). 2 major informations should be isolated here are :</p>
+<p>Let&rsquo;s now focus on the <code>Operations</code> section of this page. A click on the operation name unveils its details. Within an Operation panel, you will get generic information on this operation as well as visualization of typical request/response pair examples (payload content and headers). Two major highlights should be pointed out here :</p>
 <ul>
-<li>The <code>Mocks URL</code>: this is the URL fragment to which are exposed the mocks for this Operation of the API/Service. This fragment should be appended to your Microcks server URL to form a invokable URL. For example: <code>http://microcks-microcks.192.168.99.100.nip.io/rest/Test+API/0.0.1/order/:id</code>. When this URL contains variables part, this part is instanciated within each example panel,</li>
-<li>The <code>Dispatcher</code> and <code>Dispatching Rules</code> used by this operation. These elements are used by Microcks for finding an appropriate response to return receiving a mock request. It tells the user of the mocks what should be the immutable elements of his requests wether they may be located into the URL, the query string or the body payload. Microcks supports many dispatcher implementations whose names are rather self-explanatory. You may find: <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code></li>
+<li>The <code>Mocks URL</code>: this is the URL that exposes the mocks for this Operation of the API/Service. For example: <code>http://microcks-microcks.192.168.99.100.nip.io/rest/Test+API/0.0.1/order/:id</code>. When this URL contains variables part, this part is instantiated within each example panel,</li>
+<li>The <code>Dispatcher</code> and <code>Dispatching Rules</code> used by this operation. These elements are used by Microcks for finding an appropriate response to return when receiving a mock request. It tells the user of the mocks what should be the immutable elements of their request whether they may be located in the URL, the query string or the body payload. Microcks supports many dispatcher implementations whose names are rather self-explanatory. You may find: <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code></li>
 </ul>
 <p><img src="/images/mock-details.png" alt="mock-details"></p>
-<p>In the REST API mock example above, you can guess that the <code>:id</code> part of the Mock URL is used as the only criterion for finding accurate response when invoking mock. In the SOAP API mock example below, we use a much more elaborated dispatcher that is called <code>QUERY_MATCH</code> and uses the companion XPath expression provided as <code>Dispatching Rules</code> to extract from request payload the criterion for finding matching response.</p>
+<p>In the REST API mock example above, you will guess that the <code>:id</code> part of the Mock URL is used as the only criterion for finding a specific response when invoking the mock. In the SOAP API mock example below, we use a much more elaborate dispatcher called <code>QUERY_MATCH</code> and use the companion XPath expression provided as <code>Dispatching Rules</code> to extract from the request payload the criterion for finding the matching response.</p>
 <p><img src="/images/mock-soap-details.png" alt="mock-soap-details"></p>
 <h3 id="invoking-microservices-mocks">Invoking microservices mocks</h3>
-<p>Invoking Mocks is now pretty easy if you have read the upper section! Just use Microcks for searching the API/Service you want to use and explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instanciated URI fragment for different request/response pairs, append the fragment to the Microcks server url and that&rsquo;s it!</p>
-<p>As a rule of thumb, here is how the URL fragment for mocks are built and exposed within Microcks :</p>
+<p>Invoking Mocks is now pretty easy if you have read the section above! Just use Microcks for searching the API/Service you want to use and then explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instantiated URI for each example request/response pair, copy the URI to your favorite http client and you&rsquo;re ready to go!</p>
+<p>As a rule of thumb, here is how the URL fragments for mocks are built and exposed within Microcks :</p>
 <ul>
 <li>Mocks for REST API mocks are exposed on <code>/rest</code> sub-context. Mock for SOAP API mocks are exposed on <code>/soap</code> sub-context,</li>
 <li>Name of API/Service is then added as path element of URL. Special characters of name are encoded within URL part,</li>
@@ -341,18 +341,18 @@ var trackOutboundLink = function(id, url) {
 <tr>
 <td><strong>validate</strong></td>
 <td>boolean</td>
-<td>In case of a SOAP microservice with defined WSDL/XSD contract, the mock may realize a validation of XML payload send by consumer if this parameter is set to true.</td>
+<td>In case of a SOAP microservice with a defined WSDL/XSD contract, the mock will perform a validation of the XML payload sent by consumer if this parameter is set to true.</td>
 <td>Default is <strong>false</strong></td>
 </tr>
 <tr>
 <td><strong>delay</strong></td>
 <td>positive integer</td>
-<td>Set a response delay to simulate slow responding systems and check behavior of the service consumer being under tests. Note: this is an execution simulation response time: validation time and network latency are not taken into account</td>
+<td>Set a response delay to simulate slow responding systems and to check the behavior of the service consumer under test. Note: this is an execution simulation response time: validation time and network latency are not taken into account</td>
 <td>Default is <strong>0</strong>. Use for example 1000, to have a 1 second delay on mock invocation</td>
 </tr>
 </tbody>
 </table>
-<p>This parameters may be used in addition of the Mock URL displayed on microservice informations page and should be append to the query URL. You may end up with URLs such as : <code>http://microcks.example.com/soap/HelloService/1.0/sayHello/?delay=250&amp;validate=true</code></p>
+<p>These parameters may be used in addition of the Mock URL displayed on the microservice&rsquo;s information page and should be append to the query URL. You will end up with URLs such as : <code>http://microcks.example.com/soap/HelloService/1.0/sayHello/?delay=250&amp;validate=true</code></p>
 
 </div>
 
