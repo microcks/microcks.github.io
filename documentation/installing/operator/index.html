@@ -55,7 +55,7 @@ At the time of writing, Microcks only defines one customer resource that is call
 At the time of writing, Microcks only defines one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.">
 <meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-04-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="984">
+<meta itemprop="wordCount" content="985">
 
 
 
@@ -288,7 +288,7 @@ $ minikube addons <span class="nb">enable</span> ingress
 </blockquote>
 <p>Next we create a Kubernetes namespace and deploy the latest version of the Microcks Operator:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create namespace microcks
-kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
+$ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
 </code></pre></div><p>From this point, you have the choice of deploying:</p>
 <ul>
 <li>Either, a minimal Microcks instance that will allow you to mock and test REST APIs and SOAP WebServices as well as import AsyncAPI. However it will not allow you to play with AsyncAPI mocking features,</li>
