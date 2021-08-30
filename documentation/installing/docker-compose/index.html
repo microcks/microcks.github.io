@@ -63,7 +63,7 @@ git clone https://github.com/microcks/microcks.git   Change to the install folde
 cd microcks/install/docker-compose   Spin up the containers">
 <meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="286">
+<meta itemprop="wordCount" content="304">
 
 
 
@@ -318,7 +318,8 @@ Creating microcks-postman-runtime ... <span class="k">done</span>
 Creating microcks                 ... <span class="k">done</span>
 Creating microcks-kafka           ... <span class="k">done</span>
 Creating microcks-async-minion    ... <span class="k">done</span>
-</code></pre></div><p>If you&rsquo;re feeling lucky regarding your machine, you can even add the <a href="https://github.com/obsidiandynamics/kafdrop">Kafdrop</a> utility to visualize and troubleshoot Kafka messages with this command:</p>
+</code></pre></div><p>You may want to check our <a href="../../../blog/async-features-with-docker-compose">blog post</a> for a detailed walkthrough on starting Async features on docker-compose.</p>
+<p>If you&rsquo;re feeling lucky regarding your machine, you can even add the <a href="https://github.com/obsidiandynamics/kafdrop">Kafdrop</a> utility to visualize and troubleshoot Kafka messages with this command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
 </code></pre></div>
 </div>
