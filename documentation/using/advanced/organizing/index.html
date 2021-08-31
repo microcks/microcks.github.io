@@ -44,26 +44,26 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Organizing repository" />
-<meta property="og:description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services." />
+<meta property="og:description" content="Introduction You can manage labels upon APIs &amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/advanced/organizing/" />
 <meta property="article:published_time" content="2020-03-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-03-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-31T00:00:00+00:00" />
 <meta itemprop="name" content="Organizing repository">
-<meta itemprop="description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services.">
+<meta itemprop="description" content="Introduction You can manage labels upon APIs &amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services.">
 <meta itemprop="datePublished" content="2020-03-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-03-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="562">
+<meta itemprop="dateModified" content="2021-08-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="824">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Organizing repository"/>
-<meta name="twitter:description" content="Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services."/>
+<meta name="twitter:description" content="Introduction You can manage labels upon APIs &amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services."/>
 
 
       
@@ -223,6 +223,7 @@ var trackOutboundLink = function(id, url) {
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#applying-labels">Applying labels</a></li>
     <li><a href="#master-level-filter">Master level filter</a></li>
+    <li><a href="#rbac-security-segmentation">RBAC security segmentation</a></li>
   </ul>
 </nav>
 	
@@ -267,11 +268,9 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="introduction">Introduction</h2>
-<p>From <code>0.9.0</code> release, we introduce the ability to manage <code>labels</code> upon APIs &amp; Services present into your Microcks repository.</p>
-<p>Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services. Labels are intended to be used to
-specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services. Labels can be attached at creation time and subsequently added and modified at any time. Each APIs &amp; Services can have a set of key/value labels defined and each key must be unique for a given object.</p>
-<p>Labels are a very flexible way to map your own organizational structures onto APIs &amp; Services with loose coupling. Some example labels
-that may suit your classification needs:</p>
+<p>You can manage <code>labels</code> upon APIs &amp; Services present into your Microcks repository.</p>
+<p>Generally speaking, labels are key/value pairs that are attached to objects, such as <strong>APIs &amp; Services</strong> or <strong>Importer Jobs</strong>. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services. Labels can be attached at creation time and subsequently added and modified at any time. Each APIs &amp; Services can have a set of key/value labels defined and each key must be unique for a given object.</p>
+<p>Labels are a very flexible way to map your own organizational structures onto APIs &amp; Services with loose coupling. Some example labels that may suit your classification needs:</p>
 <ul>
 <li><code>domain</code> may represent the business or application domain this API belongs to. Example values: <code>customer</code>, <code>finance</code>, <code>sales</code>, <code>shipping</code>&hellip;</li>
 <li><code>status</code> may represent the status of the API in the lifecycle. Example values: <code>wip</code>, <code>preview</code>, <code>GA</code>, <code>deprecated</code>, <code>retired</code>&hellip;</li>
@@ -324,12 +323,45 @@ that may suit your classification needs:</p>
 </tr>
 </tbody>
 </table>
-<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-filter</code> and having the results shown in the cepture on the top of this page. You&rsquo;ll see that we use <code>domain</code> as the main label and that we only display <code>domain</code> and <code>status</code> labels on the Services list page:</p>
+<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-filter</code> and having the results shown in the capture on the top of this page. You&rsquo;ll see that we use <code>domain</code> as the main label and that we only display <code>domain</code> and <code>status</code> labels on the Services list page:</p>
 <pre><code class="language-properties" data-lang="properties">features.feature.repository-filter.enabled=true
 features.feature.repository-filter.label-key=domain
 features.feature.repository-filter.label-label=Domain
 features.feature.repository-filter.label-list=domain,status
-</code></pre>
+</code></pre><blockquote>
+<p>Note: when configured through <code>MicrocksInstall</code> Kubernetes CRD or Helm Chart values, we use a Camel Case notation for this properties. They are named: <code>repositoryFilter</code> with sub-keys <code>labelKey</code>, <code>labelLabel</code> and <code>labelList</code>.</p>
+</blockquote>
+<h2 id="rbac-security-segmentation">RBAC security segmentation</h2>
+<p>From <code>1.4.0</code> release, we introduce the ability to segment the repository management depending on the <code>master</code> label that has been configured.</p>
+<p>As an example, if you defined the <code>domain</code> label as the master with <code>customer</code>, <code>finance</code> and <code>sales</code> values, you&rsquo;ll be able to define users with the <code>manager</code> role <strong>only</strong> for the APIs &amp; Services that have been labeled accordingly. Sarah may be defined as a <code>manager</code> for <code>domain=customer</code> and <code>domain=finance</code> services, while John may be defined as the <code>manager</code> for <code>domain=sales</code> APIs &amp; services.</p>
+<p>See the documentation on <a href="../../../administrating/users/#authorization">Authorization</a> and <a href="../../../administrating/users/#users-management">Users management</a> for more informations on how to manage this role attributions.</p>
+<p>We rely on the <code>features.properties</code> configuration file found on the server side. Depending on how you install Microcks - through Operator or Helm Chart or Docker-Compose - these properties are made available directly into a <code>MicrocksInstall</code> custom resource or a <code>ConfigMap</code> or a regular file.</p>
+<p>The feature to activate for that is simply called <code>repository-filter</code>. It has the following sub-properties:</p>
+<table>
+<thead>
+<tr>
+<th>Sub-Property</th>
+<th> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>enabled</code></td>
+<td> A boolean flag that turns on the feature. <code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>artifact-import-allowed-roles</code></td>
+<td> A comma separated list of roles that you may restrict import of artifacts to.</td>
+</tr>
+</tbody>
+</table>
+<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-tenancy</code>:</p>
+<pre><code class="language-properties" data-lang="properties">features.feature.repository-tenancy.enabled=true
+features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager
+</code></pre><blockquote>
+<p>Note: when configured through <code>MicrocksInstall</code> Kubernetes CRD or Helm Chart values, we use a Camel Case notation for this properties. They are named: <code>repositoryTenancy</code> with sub-key <code>artifactImportAllowedRoles</code>.</p>
+</blockquote>
+
 </div>
 
         
@@ -554,7 +586,7 @@ features.feature.repository-filter.label-list=domain,status
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Organizing repository”
-  </a> was last updated: March 22, 2020
+  </a> was last updated: August 31, 2021
 </h6>
 
       <a href="edit/master/content/en/documentation/using/advanced/organizing.md" class="

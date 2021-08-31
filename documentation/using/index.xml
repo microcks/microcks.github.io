@@ -35,8 +35,8 @@
       <pubDate>Sun, 22 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/advanced/organizing/</guid>
-      <description>Introduction From 0.9.0 release, we introduce the ability to manage labels upon APIs &amp;amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp;amp; Services. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp;amp; Services.</description>
+      <description>Introduction You can manage labels upon APIs &amp;amp; Services present into your Microcks repository.
+Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp;amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp;amp; Services.</description>
     </item>
     
     <item>
