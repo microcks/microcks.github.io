@@ -12,7 +12,7 @@
     <title>AsyncAPI usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -46,19 +46,15 @@
 <meta property="og:title" content="AsyncAPI usage for Microcks" />
 <meta property="og:description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/asyncapi/" />
+<meta property="og:url" content="https://microcks.io/documentation/using/asyncapi/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-08-01T00:00:00+00:00" />
+
 <meta itemprop="name" content="AsyncAPI usage for Microcks">
-<meta itemprop="description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!">
-<meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!"><meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="787">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="956">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AsyncAPI usage for Microcks"/>
 <meta name="twitter:description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!"/>
 
@@ -230,6 +226,7 @@ var trackOutboundLink = function(id, url) {
       </ul>
     </li>
     <li><a href="#importing-asyncapi-specification">Importing AsyncAPI specification</a></li>
+    <li><a href="#using-asyncapi-extensions">Using AsyncAPI extensions</a></li>
   </ul>
 </nav>
 	
@@ -296,81 +293,106 @@ var trackOutboundLink = function(id, url) {
 <p>We will illustrate how Microcks is using OpenAPI specification through a <code>User signed-up API</code> sample that is inspired by one of AsyncAPI tutorial. The specification file in YAML format can be found <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml">here</a>. This is a single <code>SUBSCRIBE</code> operation API that defines the format of events that are published when a User signed-up an application.</p>
 <h3 id="specifying-samples-messages">Specifying samples messages</h3>
 <p>Sample messages are defined within your specification document, simply using the <code>examples</code> attribute like marked below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">channels</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">user/signedup</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>The<span class="w"> </span>topic<span class="w"> </span>on<span class="w"> </span>which<span class="w"> </span>user<span class="w"> </span>signed<span class="w"> </span>up<span class="w"> </span>events<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>consumed<span class="w">
-</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Receive<span class="w"> </span>informations<span class="w"> </span>about<span class="w"> </span>user<span class="w"> </span>signed<span class="w"> </span>up<span class="w">
-</span><span class="w">      </span><span class="k">operationId</span><span class="p">:</span><span class="w"> </span>receivedUserSIgnedUp<span class="w">
-</span><span class="w">      </span><span class="k">message</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>An<span class="w"> </span>event<span class="w"> </span>describing<span class="w"> </span>that<span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>just<span class="w"> </span>signed<span class="w"> </span>up.<span class="w">
-</span><span class="w">        </span><span class="k">traits</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span>- <span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
-</span><span class="w">        </span><span class="k">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">        </span><span class="k">examples</span><span class="p">:</span><span class="w"> </span><span class="c"># &lt;= Where we&#39;ll define sample messages for this operation</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">The topic on which user signed up events may be consumed</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Receive informations about user signed up</span><span class="w">
+</span><span class="w">      </span><span class="nt">operationId</span><span class="p">:</span><span class="w"> </span><span class="l">receivedUserSIgnedUp</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">An event describing that a user just signed up.</span><span class="w">
+</span><span class="w">        </span><span class="nt">traits</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">        </span><span class="nt">examples</span><span class="p">:</span><span class="w"> </span><span class="c"># &lt;= Where we&#39;ll define sample messages for this operation</span><span class="w">
 </span></code></pre></div><p>Examples will be an array of example objects, starting with a <strong>key</strong> that Microcks will simply use as the example name. They may include a <code>summary</code> attribute to provide a short description.</p>
 <h4 id="payload">Payload</h4>
 <h5 id="using-asyncapi-210">Using AsyncAPI 2.1.0</h5>
 <p>Payload is expressed into the mandatory <code>payload</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>laurent<span class="w">
-</span><span class="w">    </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Laurent<span class="w"> </span>user<span class="w">
-</span><span class="w">    </span><span class="k">payload</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">      {&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: 41}</span><span class="w">
-</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span><span class="k">john</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>John<span class="w"> </span>Doe<span class="w"> </span>user<span class="w">
-</span><span class="w">    </span><span class="k">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">sendAt</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">fullName</span><span class="p">:</span><span class="w"> </span>John<span class="w"> </span>Doe<span class="w">
-</span><span class="w">      </span><span class="k">email</span><span class="p">:</span><span class="w"> </span>john@microcks.io<span class="w">
-</span><span class="w">      </span><span class="k">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">laurent</span><span class="w">
+</span><span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Laurent user</span><span class="w">
+</span><span class="w">    </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">      </span><span class="w">      </span>{<span class="nt">&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: </span><span class="m">41</span>}<span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nt">john</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for John Doe user</span><span class="w">
+</span><span class="w">    </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">sendAt</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">fullName</span><span class="p">:</span><span class="w"> </span><span class="l">John Doe</span><span class="w">
+</span><span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">john@microcks.io</span><span class="w">
+</span><span class="w">      </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
 </span></code></pre></div><h5 id="using-asyncapi-200">Using AsyncAPI 2.0.0</h5>
 <p>Payload is expressed into the mandatory <code>payload</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="k">laurent</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Laurent<span class="w"> </span>user<span class="w">
-</span><span class="w">      </span><span class="k">payload</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">        {&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: 41}</span><span class="w">
-</span><span class="w">  </span>- <span class="k">john</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>John<span class="w"> </span>Doe<span class="w"> </span>user<span class="w">
-</span><span class="w">      </span><span class="k">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
-</span><span class="w">        </span><span class="k">sendAt</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
-</span><span class="w">        </span><span class="k">fullName</span><span class="p">:</span><span class="w"> </span>John<span class="w"> </span>Doe<span class="w">
-</span><span class="w">        </span><span class="k">email</span><span class="p">:</span><span class="w"> </span>john@microcks.io<span class="w">
-</span><span class="w">        </span><span class="k">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">laurent</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Laurent user</span><span class="w">
+</span><span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">        </span><span class="w">        </span>{<span class="nt">&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: </span><span class="m">41</span>}<span class="w">
+</span><span class="w">  </span>- <span class="nt">john</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for John Doe user</span><span class="w">
+</span><span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">sendAt</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">fullName</span><span class="p">:</span><span class="w"> </span><span class="l">John Doe</span><span class="w">
+</span><span class="w">        </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">john@microcks.io</span><span class="w">
+</span><span class="w">        </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
 </span></code></pre></div><blockquote>
 <p>You can see here that we&rsquo;re using specific <code>{{ }}</code> notation that involves the generation of dynamic content. You can find description of the <code>now()</code> and <code>randomString()</code> functions into <a href="../advanced/templates/#function-expressions">Function Expressions</a> documentation.</p>
 </blockquote>
 <h4 id="headers">Headers</h4>
 <h5 id="using-asyncapi-210-1">Using AsyncAPI 2.1.0</h5>
 <p>Headers are expressed into the optional <code>headers</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>laurent<span class="w">
-</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">    </span><span class="k">headers</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">      {&#34;my-app-header&#34;: 23}</span><span class="w">
-</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>john<span class="w">
-</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">    </span><span class="k">headers</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">24</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">laurent</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">headers</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">      </span><span class="w">      </span>{<span class="nt">&#34;my-app-header&#34;: </span><span class="m">23</span>}<span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">john</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">24</span><span class="w">
 </span></code></pre></div><h5 id="using-asyncapi-200-1">Using AsyncAPI 2.0.0</h5>
 <p>Headers are expressed into the optional <code>headers</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="k">laurent</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">      </span><span class="k">headers</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">        {&#34;my-app-header&#34;: 23}</span><span class="w">
-</span><span class="w">  </span>- <span class="k">john</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">      </span><span class="k">headers</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">24</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">laurent</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">headers</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">        </span><span class="w">        </span>{<span class="nt">&#34;my-app-header&#34;: </span><span class="m">23</span>}<span class="w">
+</span><span class="w">  </span>- <span class="nt">john</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">24</span><span class="w">
 </span></code></pre></div><h2 id="importing-asyncapi-specification">Importing AsyncAPI specification</h2>
 <p>When you&rsquo;re happy with your API design and example definitions just put the result YAML or JSON file into your favorite Source Configuration Management tool, grab the URL of the file corresponding to the branch you want to use and add it as a regular Job import into Microcks. On import, Microcks should detect that it&rsquo;s an AsyncAPI specification file and choose the correct importer.</p>
 <p>Using the above <code>User signed-up API</code> example, you should get the following results:</p>
 <p><img src="/images/asyncapi-mocks.png" alt="asyncapi-mocks"></p>
+<h2 id="using-asyncapi-extensions">Using AsyncAPI extensions</h2>
+<p>Starting with version <code>1.4.0</code>, Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.</p>
+<p>At the <code>info</code> level of your AsyncAPI document, you can add labels specifications that will be used in <a href="../advanced/organizing">organizing the Microcks repository</a>. See below illustration and the use of <code>x-microcks</code> extension:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
+</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">1.0.0</span><span class="w">
+</span><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">This service is in charge of processing user signups</span><span class="w">
+</span><span class="w">  </span><span class="nt">x-microcks</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">authentication</span><span class="w">
+</span><span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l">GA</span><span class="w">
+</span><span class="w">      </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l">Team B</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><p>At the <code>operation</code> level of your AsyncAPI document, we could add frequency that is the interval of time in seconds between 2 publications of mock messages.. Let&rsquo;s give an example for OpenAPI using the <code>x-microcks-operation</code> extension:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">x-microcks-operation</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">frequency</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/UserSignedUp&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><p>Once <code>labels</code> and <code>frequency</code> are defined that way, they will overwrite the different customizations you may have done through UI or API during the next import of the AsyncAPI document.</p>
 
 </div>
 
@@ -464,6 +486,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

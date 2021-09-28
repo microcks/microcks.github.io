@@ -12,7 +12,7 @@
     <title>Advanced Dispatching and Constraints for mocks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -47,22 +47,18 @@
 <meta property="og:description" content="The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently went again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have any overall example showing how to use them!
 So I setup this new example based on a real life use-case our community users have submitted." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/blog/advanced-dispatching-constraints/" />
+<meta property="og:url" content="https://microcks.io/blog/advanced-dispatching-constraints/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-01-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-01-28T00:00:00+00:00" />
+
 
       <meta name="og:image" content="https://microcks.io/images/blog/advanced-dispatching-constraints.jpg"></meta>
       <meta itemprop="name" content="Advanced Dispatching and Constraints for mocks">
 <meta itemprop="description" content="The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently went again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have any overall example showing how to use them!
-So I setup this new example based on a real life use-case our community users have submitted.">
-<meta itemprop="datePublished" content="2021-01-28T00:00:00+00:00" />
+So I setup this new example based on a real life use-case our community users have submitted."><meta itemprop="datePublished" content="2021-01-28T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-01-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1446">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1449">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Advanced Dispatching and Constraints for mocks"/>
 <meta name="twitter:description" content="The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently went again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have any overall example showing how to use them!
 So I setup this new example based on a real life use-case our community users have submitted."/>
@@ -305,7 +301,7 @@ var trackOutboundLink = function(id, url) {
 <li>It has discovered 5 request/response sample pairs (see <a href="https://microcks.io/documentation/using/openapi/#conventions">OpenAPI Usage Conventions</a> for detailed explanations). Each request is holding an example <strong>Mock URL</strong> for invoking it.</li>
 </ul>
 <p>As soon as it has been imported, new mock endpoints are available and you can start playing around with the mocks like illustrated with below commands:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>east -k -s <span class="p">|</span> jq .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>east -k -s <span class="p">|</span> jq .
 <span class="o">{</span>
   <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;east&#34;</span>,
   <span class="s2">&#34;temp&#34;</span>: -6.6,
@@ -326,12 +322,12 @@ $ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast
 <p>Once on the properties edition for the <code>GET /forecast</code> operation, add a new constraint like illustrated below:</p>
 <p><img src="/images/blog/advanced-dispatching-constraints-add-constraint.png" alt="advanced-dispatching-constraints-add-constraint"></p>
 <p>Do not forget to hit the <strong>Save</strong> button and then you can re-try calling a mock endpoint:</p>
-<pre><code>$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k       
+<pre tabindex="0"><code>$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k       
 Parameter apiKey is required. Check parameter constraints.% 
 </code></pre><p>🎉 Perfect! Our constraint now applies correctly. Getting back on the API summary page and looking at the operation details, you&rsquo;ll see that a new <strong>Parameter Constraints</strong> block has appeared explaining the constraint:</p>
 <p><img src="/images/blog/advanced-dispatching-constraints-constraint-added.png" alt="advanced-dispatching-constraints-constraint-added"></p>
 <p>So far so good but now let&rsquo;s try adding the <code>apiKey</code> parameter to our requests:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>east<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>east<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
 <span class="o">{</span>
   <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;north&#34;</span>,
   <span class="s2">&#34;temp&#34;</span>: -1.5,
@@ -357,7 +353,7 @@ $ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast
 <p>Obviously we choose the second option and get back to the <strong>Edit Properties</strong> page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispathing properties. We&rsquo;ll simply tell Microcks to keep the current dispatcher but we&rsquo;ll adapt the rules to only let <code>region</code> as the sole dispatching criterion:</p>
 <p><img src="/images/blog/advanced-dispatching-constraints-adapt-rules.png" alt="advanced-dispatching-constraints-adapt-rules"></p>
 <p>Once saved, you will be able to test again the different mock URLs for the four regions and you&rsquo;ll see that now you&rsquo;re getting the response associated with each requested region:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>west<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>west<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k -s <span class="p">|</span> jq .
 <span class="o">{</span>
   <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;west&#34;</span>,
   <span class="s2">&#34;temp&#34;</span>: 12.2,
@@ -373,7 +369,7 @@ $ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast
   <span class="s2">&#34;visibility&#34;</span>: <span class="m">1500</span>
 <span class="o">}</span>
 </code></pre></div><p>🎉 Excellent! We solved our routing issue. But let&rsquo;s try now with an unknown <code>center</code> region:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>center<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -s <span class="p">|</span> jq .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>center<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -s <span class="p">|</span> jq .
 <span class="o">{</span>
   <span class="s2">&#34;region&#34;</span>: <span class="s2">&#34;north&#34;</span>,
   <span class="s2">&#34;temp&#34;</span>: -1.5,
@@ -389,7 +385,7 @@ $ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast
 <p>The <code>FALLBACK</code> dispatcher behaves kinda like a <code>try-catch</code> wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to the <code>fallback</code> response. Configure this dispatcher as shown below: picking the <code>unknown</code> response as the one representing our fallback.</p>
 <p><img src="/images/blog/advanced-dispatching-constraints-adapt-dispatcher.png" alt="advanced-dispatching-constraints-adapt-dispatcher"></p>
 <p>Hit the <strong>Save</strong> button and test again the previous curl command, you&rsquo;ll see that you&rsquo;re now receving the <code>404</code> response called <code>unknown</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>center<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span class="se">\?</span>region<span class="se">\=</span>center<span class="se">\&amp;</span>apiKey<span class="se">\=</span>qwertyuiop -k
 Region is unknown. Choose in north, west, east or south.%
 </code></pre></div><p>🎉 TADAM! Now when getting back the API summary page and checking the <code>GET /forecast</code> operation details, you&rsquo;ll see that dispatcher and dispatchin rules have been updated to display your new configuration:</p>
 <p><img src="/images/blog/advanced-dispatching-constraints-final.png" alt="advanced-dispatching-constraints-final"></p>
@@ -397,16 +393,16 @@ Region is unknown. Choose in north, west, east or south.%
 <p>In this blog post, we walked through a <em>near real-life</em> sample explaining Microcks default dispatching engine as well as advanced customizations available. We saw that default configuration deduced only from the OpenAPI specification is a great start but does not allow to handle more advanced scenario where we need little smartness. Microcks is proposing advanced constructs for <a href="https://microcks.io/documentation/using/advanced/#operation-parameters-constraints">Parameters Constraints</a> and <a href="https://microcks.io/documentation/using/advanced/dispatching/">Dispatching Rules</a>: we only scratched the surface here!</p>
 <p>You may think that setting up these configuration may be cumbersome but remember that you&rsquo;ll only have to do it once! Microcks will keep your customizations upon subsequent imports - as long as you keep the same operation name of course 😉</p>
 <p>As a primer on what&rsquo;s coming next on Microcks, we plan to integrate some <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#specificationExtensions">OpenAPI Specifications Extensions</a> so that these customizations could live directly within the specification file:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">paths</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">/forecast</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">get</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">operationId</span><span class="p">:</span><span class="w"> </span>GetForecast<span class="w">
-</span><span class="w">      </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Get<span class="w"> </span>forecast<span class="w"> </span>for<span class="w"> </span>region<span class="w">
-</span><span class="w">      </span><span class="k">x-microcks-dispatcher</span><span class="p">:</span><span class="w"> </span>FALLBACK<span class="w">
-</span><span class="w">      </span><span class="k">x-microcks-dispatcherRules</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">dispatcher</span><span class="p">:</span><span class="w"> </span>URI_PARAMS<span class="w">
-</span><span class="w">        </span><span class="k">dispatcherRules</span><span class="p">:</span><span class="w"> </span>region<span class="w">
-</span><span class="w">        </span><span class="k">fallback</span><span class="p">:</span><span class="w"> </span>unknown<span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">/forecast</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">get</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">operationId</span><span class="p">:</span><span class="w"> </span><span class="l">GetForecast</span><span class="w">
+</span><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Get forecast for region</span><span class="w">
+</span><span class="w">      </span><span class="nt">x-microcks-dispatcher</span><span class="p">:</span><span class="w"> </span><span class="l">FALLBACK</span><span class="w">
+</span><span class="w">      </span><span class="nt">x-microcks-dispatcherRules</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">dispatcher</span><span class="p">:</span><span class="w"> </span><span class="l">URI_PARAMS</span><span class="w">
+</span><span class="w">        </span><span class="nt">dispatcherRules</span><span class="p">:</span><span class="w"> </span><span class="l">region</span><span class="w">
+</span><span class="w">        </span><span class="nt">fallback</span><span class="p">:</span><span class="w"> </span><span class="l">unknown</span><span class="w">
 </span></code></pre></div><p>If interested in this feature, do not hesitate commenting or voting for the <a href="https://github.com/microcks/microcks/issues/311">GitHub issue</a>!</p>
 <p>Take care and stay tuned. ❤️</p>
 </div>

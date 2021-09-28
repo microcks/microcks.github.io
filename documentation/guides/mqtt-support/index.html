@@ -12,7 +12,7 @@
     <title>MQTT Mocking and Testing | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -47,20 +47,16 @@
 <meta property="og:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
 Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/guides/mqtt-support/" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/mqtt-support/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2021-02-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-02-15T00:00:00+00:00" />
+
 <meta itemprop="name" content="MQTT Mocking and Testing">
 <meta itemprop="description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
-Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.">
-<meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
+Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1349">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1354">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MQTT Mocking and Testing"/>
 <meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
 Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification."/>
@@ -268,20 +264,20 @@ var trackOutboundLink = function(id, url) {
 <h2 id="1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</h2>
 <p>First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquitto</a> with MQTT protocol version <code>3.1.1</code>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
 <p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>microcks.github.io/v1alpha1<span class="w">
-</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>MicrocksInstall<span class="w">
-</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
-</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">  </span><span class="k">features</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">async</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">      </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>mqtt-broker.app.example.com<span class="p">:</span><span class="m">1883</span><span class="w">
-</span><span class="w">        </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
-</span><span class="w">        </span><span class="k">password</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">  </span><span class="nt">features</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">async</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-broker.app.example.com:1883</span><span class="w">
+</span><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
 </span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>mqtt</code> block:</p>
 <ul>
 <li><code>url</code> is the hostname + port where broker can be reached by Microcks,</li>
@@ -292,86 +288,86 @@ var trackOutboundLink = function(id, url) {
 <p>For now, Microcks does not support connecting to a broker secured using TLS. This is tracked in a <a href="https://github.com/microcks/microcks/issues/316">RFE here</a> and will be implemented in a near future.</p>
 </blockquote>
 <p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="k">features</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">async</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">    </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>mqtt-broker.app.example.com<span class="p">:</span><span class="m">1883</span><span class="w">
-</span><span class="w">      </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
-</span><span class="w">      </span><span class="k">credentialsSource</span><span class="p">:</span><span class="w"> </span>microcks<span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">features</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">async</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-broker.app.example.com:1883</span><span class="w">
+</span><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span><span class="w">      </span><span class="nt">credentialsSource</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
 </span></code></pre></div><p>Actual connection to the MQTT broker will only be made once Microcks will send mock messages to it. Let see below how to use MQTT binding with AsyncAPI.</p>
 <h2 id="2-use-mqtt-in-asyncapi">2. Use MQTT in AsyncAPI</h2>
 <p>As MQTT is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/streetlights-asyncapi.yaml">GitHub repository</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
-</span><span class="w"></span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="k">channels</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">      </span><span class="k">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">          </span><span class="k">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">          </span><span class="nt">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>mqtt</code> non empty block within the operation <code>bindings</code>. Just define one or property (like <code>qos</code> for example) and Microcks will detect this binding has been specified.</p>
 <p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
 <p>In our example we have used references to a shared message structure that is also holding examples. We have defined 3 virtual devices that are sending their lumens measure and the corresponding date, still coming from our <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/streetlights-asyncapi.yaml">GitHub repository</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
-</span><span class="w"></span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="k">defaultContentType</span><span class="p">:</span><span class="w"> </span>application/json<span class="w">
-</span><span class="w"></span><span class="k">channels</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">    </span><span class="k">subscribe</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">      </span><span class="k">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">          </span><span class="k">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">      </span><span class="k">message</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/lightMeasured&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">components</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">messages</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">lightMeasured</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span>...<span class="p">]</span><span class="w">
-</span><span class="w">      </span><span class="k">traits</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- <span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/lightMeasuredPayload&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- <span class="k">dev0</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Device<span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">            </span><span class="k">headers</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">              {&#34;my-app-header&#34;: 14}</span><span class="w">
-</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">              {&#34;streetlightId&#34;:&#34;dev0&#34;, &#34;lumens&#34;:1000, &#34;sentAt&#34;:&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;}</span><span class="w">
-</span><span class="w">        </span>- <span class="k">dev1</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Device<span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">            </span><span class="k">headers</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="k">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
-</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="k">streetlightId</span><span class="p">:</span><span class="w"> </span>dev1<span class="w">
-</span><span class="w">              </span><span class="k">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1100</span><span class="w">
-</span><span class="w">              </span><span class="k">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
-</span><span class="w">        </span>- <span class="k">dev2</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Example<span class="w"> </span>for<span class="w"> </span>Device<span class="w"> </span><span class="m">2</span><span class="w">
-</span><span class="w">            </span><span class="k">headers</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="k">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
-</span><span class="w">            </span><span class="k">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="k">streetlightId</span><span class="p">:</span><span class="w"> </span>dev2<span class="w">
-</span><span class="w">              </span><span class="k">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1200</span><span class="w">
-</span><span class="w">              </span><span class="k">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">defaultContentType</span><span class="p">:</span><span class="w"> </span><span class="l">application/json</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">          </span><span class="nt">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/lightMeasured&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">components</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">messages</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">lightMeasured</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">traits</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/lightMeasuredPayload&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">dev0</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Device 0</span><span class="w">
+</span><span class="w">            </span><span class="nt">headers</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">              </span><span class="w">              </span>{<span class="nt">&#34;my-app-header&#34;: </span><span class="m">14</span>}<span class="w">
+</span><span class="w">            </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">              </span><span class="w">              </span>{<span class="s2">&#34;streetlightId&#34;</span><span class="p">:</span><span class="s2">&#34;dev0&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;lumens&#34;</span><span class="p">:</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sentAt&#34;</span><span class="p">:</span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span>}<span class="w">
+</span><span class="w">        </span>- <span class="nt">dev1</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Device 1</span><span class="w">
+</span><span class="w">            </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
+</span><span class="w">            </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">streetlightId</span><span class="p">:</span><span class="w"> </span><span class="l">dev1</span><span class="w">
+</span><span class="w">              </span><span class="nt">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1100</span><span class="w">
+</span><span class="w">              </span><span class="nt">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">dev2</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Device 2</span><span class="w">
+</span><span class="w">            </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
+</span><span class="w">            </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">streetlightId</span><span class="p">:</span><span class="w"> </span><span class="l">dev2</span><span class="w">
+</span><span class="w">              </span><span class="nt">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1200</span><span class="w">
+</span><span class="w">              </span><span class="nt">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
 </span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
 <p>Now simply import your AsyncAPI file into Microcks either using a <strong>Direct upload</strong> import or by defining a <strong>Importer Job</strong>. Both methods are described in <a href="http://localhost:1313/documentation/documentation/using/importers">this page</a>.</p>
 <h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
 <p>Now it’s time to validate that mock publication of messages on the connected broker is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
 <p>For our <code>Streetlights API</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/mqttjs-client/consumer.js">in one GitHub repository</a>.</p>
 <p>Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
 $ <span class="nb">cd</span> api-tooling/async-clients/mqttjs-client
 $ npm install
 
@@ -399,7 +395,7 @@ Connecting to mqtt://localhost:1883 on topic StreetlightsAPI_1.0.0_smartylightin
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
 <p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Streetlights API</code> sample we used so far but feel free to adapt them for your own use.</p>
 <p>Imaging that you cant to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>mqttjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>streetlights-event-lighting-measured</code> topic:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
 Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
 <span class="o">{</span>
   streetlightId: <span class="s1">&#39;devX&#39;</span>,
@@ -430,7 +426,7 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 <p><img src="/images/mqtt-test-success.png" alt="MQTT Test success"></p>
 <p>This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be defined.</p>
 <p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on line 35 and to remove comments from line 36. It&rsquo;s removing the <code>lumens</code> measure and adding an unexpected <code>location</code> property as shown below after having restarted the producer:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt
 Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
 <span class="o">{</span>
   streetlightId: <span class="s1">&#39;devX&#39;</span>,
@@ -542,6 +538,11 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

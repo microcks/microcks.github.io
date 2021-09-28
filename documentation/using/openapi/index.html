@@ -12,7 +12,7 @@
     <title>OpenAPI usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -44,26 +44,22 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="OpenAPI usage for Microcks" />
-<meta property="og:description" content="Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks has recently evolved to provide direct support for OpenAPI 3.0.
-With this new feature, you&rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy." />
+<meta property="og:description" content="Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks provides direct support for OpenAPI 3.0 and 3.1.
+With this feature, you are able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/openapi/" />
+<meta property="og:url" content="https://microcks.io/documentation/using/openapi/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-08-04T00:00:00+00:00" />
+
 <meta itemprop="name" content="OpenAPI usage for Microcks">
-<meta itemprop="description" content="Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks has recently evolved to provide direct support for OpenAPI 3.0.
-With this new feature, you&rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy.">
-<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="description" content="Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks provides direct support for OpenAPI 3.0 and 3.1.
+With this feature, you are able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="591">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="813">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OpenAPI usage for Microcks"/>
-<meta name="twitter:description" content="Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks has recently evolved to provide direct support for OpenAPI 3.0.
-With this new feature, you&rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy."/>
+<meta name="twitter:description" content="Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks provides direct support for OpenAPI 3.0 and 3.1.
+With this feature, you are able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy."/>
 
 
       
@@ -234,6 +230,7 @@ var trackOutboundLink = function(id, url) {
       </ul>
     </li>
     <li><a href="#importing-openapi-specification">Importing OpenAPI specification</a></li>
+    <li><a href="#using-openapi-extensions">Using OpenAPI extensions</a></li>
   </ul>
 </nav>
 	
@@ -279,12 +276,12 @@ var trackOutboundLink = function(id, url) {
 
 <h2 id="overview">Overview</h2>
 <h3 id="introduction">Introduction</h3>
-<p>As <a href="https://www.openapis.org/">OpenAPI</a> emerges as an Open standard and provides way of defining <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject">Example Objects</a>, Microcks has recently evolved to provide direct support for OpenAPI 3.0.</p>
-<p>With this new feature, you&rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during <a href="../tests">tests</a> when using the <code>OPEN_API_SCHEMA</code> strategy.</p>
+<p>As <a href="https://www.openapis.org/">OpenAPI</a> emerges as an Open standard and provides way of defining <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject">Example Objects</a>, Microcks provides direct support for OpenAPI 3.0 and 3.1.</p>
+<p>With this feature, you are able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during <a href="../tests">tests</a> when using the <code>OPEN_API_SCHEMA</code> strategy.</p>
 <h3 id="conventions">Conventions</h3>
 <p>With OpenAPI <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject">Example Objects</a>, you are now able to define named example fragments within your OpenAPI specification in YAML or JSON format. In order to produce working mocks, Microcks will need complete request/response samples. So to gather and aggregate fragments into something coherent, the importer will take care of collecting fragments having the same name and re-assemble them into comprehensive request/response pair.</p>
 <h2 id="illustration">Illustration</h2>
-<p>We will illustrate how Microcks is using OpenAPI specification through a <code>Car API</code> sample. The specification file in YAML format can be found <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml">here</a>. This API specification was designed using <a href="https://apicur.io">Apicurio</a>, a design studio that supports OpenAPI standards. It is a really simple API that allows registering cars to an owner, listing cars for this owner and adding passenger to a car.</p>
+<p>We will illustrate how Microcks uses OpenAPI specification through a <code>Car API</code> sample. The specification file in YAML format can be found <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml">here</a>. This API specification was designed using <a href="https://apicur.io">Apicurio</a>, a design studio that supports OpenAPI standards. It is a really simple API that allows registering cars to an owner, listing cars for this owner and adding passenger to a car.</p>
 <p>Within this sample specification, we have defined 2 mocks - one for the registering operation and another for the listing cars operation:</p>
 <ul>
 <li>The <code>POST /owner/{owner}/car</code> operation defines a sample called <code>laurent_307</code> where we&rsquo;ll register a Peugeot 307 for Laurent,</li>
@@ -294,69 +291,114 @@ var trackOutboundLink = function(id, url) {
 <p>Specifying request params encompasses path params, query params and header params. Within our 2 samples, we have to define the <code>owner</code> path param and using our convention introduced above, we have to define it 2 times - one for <code>laurent_307</code> mock and another for <code>laurent_cars</code> mock.</p>
 <h4 id="path-parameters">Path parameters</h4>
 <p>This is done within the <code>parameters</code> part of corresponding API <code>path</code>, on <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L83">line 83</a> of our file. Snippet is represented below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">parameters</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>owner<span class="w">
-</span><span class="w">    </span><span class="k">in</span><span class="p">:</span><span class="w"> </span>path<span class="w">
-</span><span class="w">    </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>Owner<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>cars<span class="w">
-</span><span class="w">    </span><span class="k">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="k">schema</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">format</span><span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">      </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>string<span class="w">
-</span><span class="w">    </span><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">laurent_cars</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Value<span class="w"> </span>for<span class="w"> </span>laurent<span class="w"> </span>related<span class="w"> </span>examples<span class="w">
-</span><span class="w">        </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>laurent<span class="w">
-</span><span class="w">      </span><span class="k">laurent_307</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/examples/param_laurent&#39;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">owner</span><span class="w">
+</span><span class="w">    </span><span class="nt">in</span><span class="p">:</span><span class="w"> </span><span class="l">path</span><span class="w">
+</span><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Owner of the cars</span><span class="w">
+</span><span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="nt">schema</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span><span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">laurent_cars</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Value for laurent related examples</span><span class="w">
+</span><span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">laurent</span><span class="w">
+</span><span class="w">      </span><span class="nt">laurent_307</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/examples/param_laurent&#39;</span><span class="w">
 </span></code></pre></div><p>One thing to notice here is that Microcks importer supports the use of references like <code>'#/components/examples/param_laurent'</code> to avoid duplication of complex values.</p>
 <h4 id="query-parameters">Query parameters</h4>
 <p>Query parameters are specified using parameters defined under the <code>verb</code> of the specification as you may find on <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L20">line 20</a>. Snippet is represented below for the <code>laurent_cars</code> mock:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">- <span class="k">name</span><span class="p">:</span><span class="w"> </span>limit<span class="w">
-</span><span class="w">  </span><span class="k">in</span><span class="p">:</span><span class="w"> </span>query<span class="w">
-</span><span class="w">  </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>result<span class="w"> </span>in<span class="w"> </span>page<span class="w">
-</span><span class="w">  </span><span class="k">required</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">  </span><span class="k">schema</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>integer<span class="w">
-</span><span class="w">  </span><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">laurent_cars</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">value</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">limit</span><span class="w">
+</span><span class="w">  </span><span class="nt">in</span><span class="p">:</span><span class="w"> </span><span class="l">query</span><span class="w">
+</span><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Number of result in page</span><span class="w">
+</span><span class="w">  </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">integer</span><span class="w">
+</span><span class="w">  </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">laurent_cars</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
 </span></code></pre></div><h3 id="specifying-request-payload">Specifying request payload</h3>
 <p>Request payload is used within our <code>laurent_307</code> sample. It is specified under the <code>requestBody</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L55">line 55</a>. Request payload may refer to OpenAPI schema definitions like in the snippet below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">requestBody</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>Car<span class="w"> </span>body<span class="w">
-</span><span class="w">  </span><span class="k">content</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">application/json</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">schema</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/Car&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">laurent_307</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">summary</span><span class="p">:</span><span class="w"> </span>Creation<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>valid<span class="w"> </span>car<span class="w">
-</span><span class="w">          </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>Should<span class="w"> </span>return<span class="w"> </span><span class="m">201</span><span class="w">
-</span><span class="w">          </span><span class="k">value</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{&#34;name&#34;: &#34;307&#34;, &#34;model&#34;: &#34;Peugeot 307&#34;, &#34;year&#34;: 2003}&#39;</span><span class="w">
-</span><span class="w">  </span><span class="k">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">requestBody</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Car body</span><span class="w">
+</span><span class="w">  </span><span class="nt">content</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">application/json</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">schema</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/Car&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">laurent_307</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Creation of a valid car</span><span class="w">
+</span><span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Should return 201</span><span class="w">
+</span><span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{&#34;name&#34;: &#34;307&#34;, &#34;model&#34;: &#34;Peugeot 307&#34;, &#34;year&#34;: 2003}&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></code></pre></div><h3 id="specifying-response-payload">Specifying response payload</h3>
 <p>Response payload is used within our <code>laurent_cars</code> sample. It is defined under the <code>Http status</code> of the specification as you may find starting on <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40">line 40</a>. Response payload may refer to OpenAPI schema definitions like in the snippet below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">responses</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">200</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">description</span><span class="p">:</span><span class="w"> </span>Success<span class="w">
-</span><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">application/json</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">schema</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>array<span class="w">
-</span><span class="w">          </span><span class="k">items</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="k">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/Car&#39;</span><span class="w">
-</span><span class="w">        </span><span class="k">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">laurent_cars</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="k">value</span><span class="p">:</span><span class="w"> </span>|<span class="sd">-
-</span><span class="sd">              [</span><span class="w">
-</span><span class="w">                  </span>{<span class="k">&#34;name&#34;: &#34;307&#34;, &#34;model&#34;: &#34;Peugeot 307&#34;, &#34;year&#34;: </span><span class="m">2003</span>}<span class="p">,</span><span class="w">
-</span><span class="w">                  </span>{<span class="k">&#34;name&#34;: &#34;jean-pierre&#34;, &#34;model&#34;: &#34;Peugeot Traveller&#34;, &#34;year&#34;: </span><span class="m">2017</span>}<span class="w">
-</span><span class="w">              </span><span class="p">]</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">responses</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">200</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Success</span><span class="w">
+</span><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">application/json</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">schema</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">array</span><span class="w">
+</span><span class="w">          </span><span class="nt">items</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/Car&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">laurent_cars</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">              [
+</span><span class="sd">                  {&#34;name&#34;: &#34;307&#34;, &#34;model&#34;: &#34;Peugeot 307&#34;, &#34;year&#34;: 2003},
+</span><span class="sd">                  {&#34;name&#34;: &#34;jean-pierre&#34;, &#34;model&#34;: &#34;Peugeot Traveller&#34;, &#34;year&#34;: 2017}
+</span><span class="sd">              ]</span><span class="w">              
 </span></code></pre></div><p>And yes&hellip; I&rsquo;ve called one of my car jean-pierre&hellip; ;-)</p>
 <h2 id="importing-openapi-specification">Importing OpenAPI specification</h2>
 <p>When you&rsquo;re happy with your API design and example definitions just put the result YAML or JSON file into your favorite Source Configuration Management tool, grab the URL of the file corresponding to the branch you want to use and add it as a regular Job import into Microcks. On import, Microcks should detect that it&rsquo;s an OpenAPI specification file and choose the correct importer.</p>
 <p>Using the above <code>Car API</code> example, you should get the following results:</p>
 <p><img src="/images/openapi-mocks.png" alt="openapi-mocks"></p>
+<h2 id="using-openapi-extensions">Using OpenAPI extensions</h2>
+<p>Starting with version <code>1.4.0</code>, Microcks proposes custom OpenAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from OpenAPI document.</p>
+<p>At the <code>info</code> level of your OpenAPI document, you can add labels specifications that will be used in <a href="../advanced/organizing">organizing the Microcks repository</a>. See below illustration and the use of <code>x-microcks</code> extension:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">openapi</span><span class="p">:</span><span class="w"> </span><span class="m">3.1.0</span><span class="w">
+</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">OpenAPI Car API</span><span class="w">
+</span><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Sample OpenAPI API using cars</span><span class="w">
+</span><span class="w">  </span><span class="nt">contact</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Laurent Broudoux</span><span class="w">
+</span><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/lbroudoux</span><span class="w">
+</span><span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">MIT License</span><span class="w">
+</span><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">https://opensource.org/licenses/MIT</span><span class="w">
+</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">1.1.0</span><span class="w">
+</span><span class="w">  </span><span class="nt">x-microcks</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">car</span><span class="w">
+</span><span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l">beta</span><span class="w">
+</span><span class="w">      </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l">Team A</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><p>At the <code>operation</code> level of your OpenAPI document, we could add delay/frequency and dispatcher specifications. These one will be used to <a href="../advanced/dispatching">customize the dispatching rules</a> to your API mocks. Let&rsquo;s give an example for OpenAPI using the <code>x-microcks-operation</code> extension:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">post</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Add a car to current owner</span><span class="w">
+</span><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Add a car to current owner description</span><span class="w">
+</span><span class="w">  </span><span class="nt">operationId</span><span class="p">:</span><span class="w"> </span><span class="l">addCarOp</span><span class="w">
+</span><span class="w">  </span><span class="nt">x-microcks-operation</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="m">100</span><span class="w">
+</span><span class="w">    </span><span class="nt">dispatcher</span><span class="p">:</span><span class="w"> </span><span class="l">SCRIPT</span><span class="w">
+</span><span class="w">    </span><span class="nt">dispatcherRules</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">      def path = mockRequest.getRequest().getRequestURI();
+</span><span class="sd">      if (!path.contains(&#34;/laurent/car&#34;)) {
+</span><span class="sd">        return &#34;Not Accepted&#34;
+</span><span class="sd">      }
+</span><span class="sd">      def jsonSlurper = new groovy.json.JsonSlurper();
+</span><span class="sd">      def car = jsonSlurper.parseText(mockRequest.getRequestContent());
+</span><span class="sd">      if (car.name == null) {
+</span><span class="sd">        return &#34;Not Accepted&#34;
+</span><span class="sd">      }
+</span><span class="sd">      return &#34;Accepted&#34;</span><span class="w">      
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><blockquote>
+<p>Note that we can use multi-line notation in YAML but we will have to escape everything and put <code>\</code> before double-quotes and <code>\n</code> characters if specified using JSON.</p>
+</blockquote>
+<p>Once <code>labels</code> and dispatching rules are defined that way, they will overwrite the different customizations you may have done through UI or API during the next import of the OpenAPI document.</p>
 
 </div>
 
@@ -450,6 +492,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

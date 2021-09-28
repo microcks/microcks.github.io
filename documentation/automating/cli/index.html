@@ -12,7 +12,7 @@
     <title>CLI for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -49,22 +49,18 @@ The CLI makes usage of Microcks Service Account so it&rsquo;s definitely worth t
 Usage instructions Usage is simply microcks-cli [command]
 where [command] can be one of the following:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/automating/cli/" />
+<meta property="og:url" content="https://microcks.io/documentation/automating/cli/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-06-30T00:00:00+00:00" />
+
 <meta itemprop="name" content="CLI for Microcks">
 <meta itemprop="description" content="Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&rsquo;s definitely worth the read 😉
 Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:">
-<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+where [command] can be one of the following:"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-06-30T00:00:00+00:00" />
 <meta itemprop="wordCount" content="292">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CLI for Microcks"/>
 <meta name="twitter:description" content="Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&rsquo;s definitely worth the read 😉
@@ -296,13 +292,13 @@ var trackOutboundLink = function(id, url) {
 </ul>
 <h3 id="test-command">Test command</h3>
 <p>The <code>test</code> command has a bunch of arguments and flags so that you can use it that way:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ microcks-cli <span class="nb">test</span> &lt;apiName:apiVersion&gt; &lt;testEndpoint&gt; &lt;runner&gt; <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ microcks-cli <span class="nb">test</span> &lt;apiName:apiVersion&gt; &lt;testEndpoint&gt; &lt;runner&gt; <span class="se">\
 </span><span class="se"></span>	--microcksURL<span class="o">=</span>&lt;&gt; --waitFor<span class="o">=</span>5sec <span class="se">\
 </span><span class="se"></span>	--keycloakClientId<span class="o">=</span>&lt;&gt; --keycloakClientSecret<span class="o">=</span>&lt;&gt;
 </code></pre></div><p>Check <a href="https://github.com/microcks/microcks-cli/blob/master/README.md">README.md</a> for full instructions on arguments and flags.</p>
 <h3 id="import-command">Import command</h3>
 <p>The <code>import</code> command has one argument and common flags with <code>test</code> command. You can use it that way:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ microcks-cli import &lt;specificationFile1<span class="o">[</span>:primary<span class="o">]</span>,specificationFile2<span class="o">[</span>:primary<span class="o">]</span>&gt; <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ microcks-cli import &lt;specificationFile1<span class="o">[</span>:primary<span class="o">]</span>,specificationFile2<span class="o">[</span>:primary<span class="o">]</span>&gt; <span class="se">\
 </span><span class="se"></span>	--microcksURL<span class="o">=</span>&lt;&gt; <span class="se">\
 </span><span class="se"></span>	--keycloakClientId<span class="o">=</span>&lt;&gt; --keycloakClientSecret<span class="o">=</span>&lt;&gt;
 </code></pre></div><p>Check <a href="https://github.com/microcks/microcks-cli/blob/master/README.md">README.md</a> for full instructions on arguments and flags.</p>
@@ -312,7 +308,7 @@ var trackOutboundLink = function(id, url) {
 <h3 id="container-image">Container image</h3>
 <p>The <code>microcks-cli</code> is now available as a container image. So that you&rsquo;d be able to easily use it from a GitLab CI or a <a href="../tekton">Tekton pipeline</a>. The hosting repository is now on Quay.io <a href="https://quay.io/repository/microcks/microcks-cli?tab=info">here</a>.</p>
 <p>Below a sample on how using the image without getting the CLI binary:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli <span class="nb">test</span> <span class="s1">&#39;Beer Catalog API:0.9&#39;</span> <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli <span class="nb">test</span> <span class="s1">&#39;Beer Catalog API:0.9&#39;</span> <span class="se">\
 </span><span class="se"></span>    http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/ POSTMAN <span class="se">\
 </span><span class="se"></span>    --microcksURL<span class="o">=</span>http://microcks.apps.144.76.24.92.nip.io/api/ <span class="se">\
 </span><span class="se"></span>    --keycloakClientId<span class="o">=</span>microcks-serviceaccount <span class="se">\ </span>--keycloakClientSecret<span class="o">=</span>7deb71e8-8c80-4376-95ad-00a399ee3ca1 --waitFor<span class="o">=</span>8sec <span class="se">\
@@ -410,6 +406,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

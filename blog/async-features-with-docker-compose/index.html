@@ -12,7 +12,7 @@
     <title>Async Features with Docker Compose | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -47,22 +47,18 @@
 <meta property="og:description" content="For some weeks now, many users from the Microcks community were asking for playing with AsyncAPI related features without having to setup a Minikube or a full Kubernetes instance. And Docker-Compose is the perfect match for that! We were at first reluctant as it is an additional configuration to support&hellip; but developers experience FTW! 💪
 This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks master branch." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/blog/async-features-with-docker-compose/" />
+<meta property="og:url" content="https://microcks.io/blog/async-features-with-docker-compose/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-08-30T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-08-30T00:00:00+00:00" />
+
 
       <meta name="og:image" content="https://microcks.io/images/blog/async-features-with-docker-compose.png"></meta>
       <meta itemprop="name" content="Async Features with Docker Compose">
 <meta itemprop="description" content="For some weeks now, many users from the Microcks community were asking for playing with AsyncAPI related features without having to setup a Minikube or a full Kubernetes instance. And Docker-Compose is the perfect match for that! We were at first reluctant as it is an additional configuration to support&hellip; but developers experience FTW! 💪
-This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks master branch.">
-<meta itemprop="datePublished" content="2021-08-30T00:00:00+00:00" />
+This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks master branch."><meta itemprop="datePublished" content="2021-08-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-30T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1401">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Async Features with Docker Compose"/>
 <meta name="twitter:description" content="For some weeks now, many users from the Microcks community were asking for playing with AsyncAPI related features without having to setup a Minikube or a full Kubernetes instance. And Docker-Compose is the perfect match for that! We were at first reluctant as it is an additional configuration to support&hellip; but developers experience FTW! 💪
 This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks master branch."/>
@@ -278,10 +274,10 @@ var trackOutboundLink = function(id, url) {
 <p>So all you need from now is <code>docker</code> and <code>docker-compose</code> on your machine. Ready? Let&rsquo;s go!</p>
 <h2 id="start-up-microcks-with-async-features">Start-up Microcks with Async features</h2>
 <p>Go to a temporary folder and remove previously downloaded <code>latest</code> images in case you made any other attempt to use Microcks in the past:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">cd</span> ~/Development/temp
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">cd</span> ~/Development/temp
 $ docker rmi quay.io/microcks/microcks:latest quay.io/microcks/microcks-async-minion:latest quay.io/microcks/microcks-postman-runtime:latest
 </code></pre></div><p>Then, clone a fresh copy of Microcks Git repository:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/microcks
 Cloning into <span class="s1">&#39;microcks&#39;</span>...
 remote: Enumerating objects: 10546, <span class="k">done</span>.
 remote: Counting objects: 100% <span class="o">(</span>1802/1802<span class="o">)</span>, <span class="k">done</span>.
@@ -290,7 +286,7 @@ remote: Total <span class="m">10546</span> <span class="o">(</span>delta 810<spa
 Receiving objects: 100% <span class="o">(</span>10546/10546<span class="o">)</span>, 2.68 MiB <span class="p">|</span> 23.28 MiB/s, <span class="k">done</span>.
 Resolving deltas: 100% <span class="o">(</span>5347/5347<span class="o">)</span>, <span class="k">done</span>.
 </code></pre></div><p>Go to the <code>docker-compose</code> installation folder and launch docker-compose with <code>async-addon</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">cd</span> microcks/install/docker-compose
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">cd</span> microcks/install/docker-compose
 $ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 Creating network <span class="s2">&#34;docker-compose_default&#34;</span> with the default driver
 Pulling postman <span class="o">(</span>quay.io/microcks/microcks-postman-runtime:latest<span class="o">)</span>...
@@ -337,7 +333,7 @@ Creating microcks-async-minion    ... <span class="k">done</span>
 <p>Note that as are we&rsquo;re using <code>latest</code> tagged images here, the <code>sha256</code> of this ones may vary.</p>
 </blockquote>
 <p>After some minutes, check everything is running. Microcks app is bound on <code>localhost:8080</code>, Keycloak is bound on <code>localhost:18080</code>and Kafka broker is bound on <code>localhost:9092</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker ps
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker ps
 CONTAINER ID   IMAGE                                              COMMAND                  CREATED              STATUS              PORTS                                                                                                      NAMES
 3779d9672ea1   quay.io/microcks/microcks-async-minion:latest      <span class="s2">&#34;/deployments/run-ja…&#34;</span>   About a minute ago   Up <span class="m">38</span> seconds       8080/tcp                                                                                                   microcks-async-minion
 c2d7f3e10215   quay.io/microcks/microcks:latest                   <span class="s2">&#34;/deployments/run-ja…&#34;</span>   About a minute ago   Up About a minute   0.0.0.0:8080-&gt;8080/tcp, :::8080-&gt;8080/tcp, 8778/tcp, 0.0.0.0:9090-&gt;9090/tcp, :::9090-&gt;9090/tcp, 9779/tcp   microcks
@@ -354,7 +350,7 @@ ebb420d41691   strimzi/kafka:0.17.0-kafka-2.4.0                   <span class="s
 <p>You should have following result:</p>
 <p><img src="/images/blog/async-features-with-docker-compose-importers.png" alt="async-features-with-docker-compose-importers"></p>
 <p>Check the relevant logs on <code>microcks</code> container:</p>
-<pre><code>$ docker logs c2d7f3e10215
+<pre tabindex="0"><code>$ docker logs c2d7f3e10215
 ...
 12:49:09.245 DEBUG 1 --- [080-exec-9] io.github.microcks.web.JobController     : Creating new job: io.github.microcks.domain.ImportJob@2c6712c7
 12:49:09.404 DEBUG 1 --- [080-exec-6] io.github.microcks.web.JobController     : Getting job list for page 0 and size 20
@@ -379,7 +375,7 @@ ebb420d41691   strimzi/kafka:0.17.0-kafka-2.4.0                   <span class="s
 </code></pre><p>As stated in the logs, a new API <strong>User signed-up API, 0.1.1</strong> has been discovered and is now available within Microcks repository. You can check this browsing the <strong>API | Services</strong> and discover your API details:</p>
 <p><img src="/images/blog/async-features-with-docker-compose-asyncapi.png" alt="async-features-with-docker-compose-asyncapi"></p>
 <p>From now, you should start having messages on the Kafka broker. Check the relevant logs on <code>microcks-async-minion</code> container:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker logs 3779d9672ea1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker logs 3779d9672ea1
 2021-08-30 12:49:11,234 INFO  <span class="o">[</span>io.git.mic.min.asy.AsyncMockDefinitionUpdater<span class="o">]</span> <span class="o">(</span>vert.x-eventloop-thread-0<span class="o">)</span> Received a new change event <span class="o">[</span>CREATED<span class="o">]</span> <span class="k">for</span> <span class="s1">&#39;612ca95fb327764983693ef1&#39;</span>, at <span class="m">1630327750357</span>
 2021-08-30 12:49:11,236 INFO  <span class="o">[</span>io.git.mic.min.asy.AsyncMockDefinitionUpdater<span class="o">]</span> <span class="o">(</span>vert.x-eventloop-thread-0<span class="o">)</span> Found <span class="s1">&#39;SUBSCRIBE user/signedup&#39;</span> as a candidate <span class="k">for</span> async message mocking
 2021-08-30 12:49:11,267 INFO  <span class="o">[</span>io.git.mic.min.asy.SchemaRegistry<span class="o">]</span> <span class="o">(</span>vert.x-eventloop-thread-0<span class="o">)</span> Updating schema registry <span class="k">for</span> <span class="s1">&#39;User signed-up API - 0.1.1&#39;</span> with <span class="m">1</span> entries
@@ -391,7 +387,7 @@ ebb420d41691   strimzi/kafka:0.17.0-kafka-2.4.0                   <span class="s
 2021-08-30 12:49:15,424 INFO  <span class="o">[</span>io.git.mic.min.asy.pro.KafkaProducerManager<span class="o">]</span> <span class="o">(</span>QuarkusQuartzScheduler_Worker-2<span class="o">)</span> Publishing on topic <span class="o">{</span>UsersignedupAPI-0.1.1-user-signedup<span class="o">}</span>, message: <span class="o">{</span><span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;G5c5UerJHQP2JLKlBQiJS8eudx6KmFGN&#34;</span>, <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1630327755424&#34;</span>, <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>, <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>, <span class="s2">&#34;age&#34;</span>: 41<span class="o">}</span> 
 2021-08-30 12:49:15,426 INFO  <span class="o">[</span>io.git.mic.min.asy.pro.KafkaProducerManager<span class="o">]</span> <span class="o">(</span>QuarkusQuartzScheduler_Worker-2<span class="o">)</span> Publishing on topic <span class="o">{</span>UsersignedupAPI-0.1.1-user-signedup<span class="o">}</span>, message: <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;u6BZ8l1u1LZG3hQH7TtJdWzQDXzq5z54&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1630327755426&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:36<span class="o">}</span>
 </code></pre></div><p>Check the Kafka topic for messages, directly from your machine shell using <code>kafkacat</code> utility and <code>9092</code> advertised port:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kafkacat -b localhost:9092 -t UsersignedupAPI-0.1.1-user-signedup -o end
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kafkacat -b localhost:9092 -t UsersignedupAPI-0.1.1-user-signedup -o end
 % Auto-selecting Consumer mode <span class="o">(</span>use -P or -C to override<span class="o">)</span>
 % Reached end of topic UsersignedupAPI-0.1.1-user-signedup <span class="o">[</span>0<span class="o">]</span> at offset <span class="m">356</span>
 <span class="o">{</span><span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;vcGIcN5mwytIFqtdaEljCRfDrDHg0u3u&#34;</span>, <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1630327965424&#34;</span>, <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>, <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>, <span class="s2">&#34;age&#34;</span>: 41<span class="o">}</span>
@@ -401,7 +397,7 @@ ebb420d41691   strimzi/kafka:0.17.0-kafka-2.4.0                   <span class="s
 <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;pzKlqOwucJnO6nVqmOrh7AAT9SFuoflD&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1630327968429&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:36<span class="o">}</span>
 </code></pre></div><p>Yes! 😉</p>
 <p>You can also connect to the running <code>microcks-kafka</code> container to use the built-in Kafka tools. This time, you access the broker using the <code>kafka:19092</code> address:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker <span class="nb">exec</span> -it 7e1f2d2c5305 /bin/sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker <span class="nb">exec</span> -it 7e1f2d2c5305 /bin/sh
 sh-4.2$ <span class="nb">cd</span> bin/
 sh-4.2$ ./kafka-topics.sh --bootstrap-server kafka:19092 --list
 UsersignedupAPI-0.1.1-user-signedup
@@ -420,7 +416,7 @@ sh-4.2$ <span class="nb">exit</span>
 </code></pre></div><p>That&rsquo;s it! 🎉</p>
 <h2 id="removing-everything">Removing everything</h2>
 <p>Happy with your Microcks discovery? You can turn off everything and free resources executing this command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml down
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml down
 Stopping microcks-async-minion    ... <span class="k">done</span>
 Stopping microcks                 ... <span class="k">done</span>
 Stopping microcks-kafka           ... <span class="k">done</span>

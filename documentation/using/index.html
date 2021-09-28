@@ -12,7 +12,7 @@
     <title>Using | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/rss&#43;xml" href="https://microcks.io/documentation/using/index.xml">
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -48,10 +48,9 @@
 <meta property="og:description" content="Microcks.io" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/using/" />
-<meta property="og:updated_time" content="2021-08-31T00:00:00+00:00" />
+
 <meta itemprop="name" content="Using">
-<meta itemprop="description" content="Microcks.io">
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Microcks.io"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Using"/>
 <meta name="twitter:description" content="Microcks.io"/>
 
@@ -224,6 +223,24 @@ var trackOutboundLink = function(id, url) {
                         
                         <section class="flex-ns flex-wrap justify-between w-100">
                             
+                                
+                                <div class="relative  weight-90">
+                                    <div class="bg-white mb2 pa3 pa4-l gray">
+                                        <h1 class="near-black f3">
+                                            <a href="/documentation/using/advanced/metadata/" class="link primary-color dim">Microcks APIMetadata</a>
+                                        </h1>
+                                        <div class="lh-copy links">
+                                            
+                                                Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by manager within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced OpenAPI extensions and AsyncAPI extensions starting with Microcks 1.4.0 release.
+But sometimes you don&rsquo;t want to add some x-microcks extensions attributes into AsyncAPI / OpenAPI document OR you&rsquo;d need to specify these metadata and properties for some other artifact types like Protobuf + Postman collection for GRPC mocking for instance 😉.
+                                            
+                                    
+                                            <a href="/documentation/using/advanced/metadata/" class="f6 mt2 db link primary-color dim">
+                                            Read More &raquo;
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <div class="relative  weight-90">
                                     <div class="bg-white mb2 pa3 pa4-l gray">
@@ -410,8 +427,8 @@ From the page displaying basic information on your microservice mocks, you have 
                                         </h1>
                                         <div class="lh-copy links">
                                             
-                                                Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks has recently evolved to provide direct support for OpenAPI 3.0.
-With this new feature, you&rsquo;ll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy.
+                                                Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks provides direct support for OpenAPI 3.0 and 3.1.
+With this feature, you are able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy.
                                             
                                     
                                             <a href="/documentation/using/openapi/" class="f6 mt2 db link primary-color dim">
@@ -570,6 +587,11 @@ First, let&rsquo;s have a look at the summary page presenting an API or Service 
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

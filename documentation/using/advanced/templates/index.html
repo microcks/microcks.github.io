@@ -12,7 +12,7 @@
     <title>Templating mock responses | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -48,21 +48,17 @@
 Those use-case encompass:
  random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s &#43; an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/advanced/templates/" />
+<meta property="og:url" content="https://microcks.io/documentation/using/advanced/templates/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-02-11T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-02-11T00:00:00+00:00" />
+
 <meta itemprop="name" content="Templating mock responses">
 <meta itemprop="description" content="Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
 Those use-case encompass:
- random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s &#43; an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0.">
-<meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
+ random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s &#43; an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0."><meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1652">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Templating mock responses"/>
 <meta name="twitter:description" content="Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
 Those use-case encompass:
@@ -302,7 +298,7 @@ var trackOutboundLink = function(id, url) {
 <p><img src="/images/template-intro.png" alt="template-intro"></p>
 <p>You&rsquo;ll notice that response payload is expressed using some templating mustaches (<code>{{</code> and <code>}}</code>) that indicates here that Microcks should recognize the delimited expression and replace it with new values.</p>
 <p>When invoked twice with different params at different dates, here are the results:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;World&#34;}&#39;</span> -s <span class="p">|</span> jq .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <span class="s1">&#39;Content-type: application/json&#39;</span> -d <span class="s1">&#39;{&#34;name&#34;: &#34;World&#34;}&#39;</span> -s <span class="p">|</span> jq .
 <span class="o">{</span>
   <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;pQnDIytzeYJFLxaQg56yObw0WTpYNBMjPYu7FLBoNSGF6ZJsTcHov5ZmaiWG8Gt8&#34;</span>,
   <span class="s2">&#34;date&#34;</span>: <span class="s2">&#34;10/02/2020&#34;</span>,
@@ -335,7 +331,7 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <li><code>headers</code> is a map of string:string representing the request headers.</li>
 </ul>
 <p>Now let&rsquo;s imagine the following request coming onto a Microcks endpoint for <code>Hello API</code> version <code>1.0</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+API/1.0/hello/microcksd?locale<span class="o">=</span>US -H <span class="s1">&#39;trace: azertyuiop&#39;</span> -d <span class="s1">&#39;rocks&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl -XGET http://microcks.example.com/rest/Hello+API/1.0/hello/microcksd?locale<span class="o">=</span>US -H <span class="s1">&#39;trace: azertyuiop&#39;</span> -d <span class="s1">&#39;rocks&#39;</span>
 </code></pre></div><p>Here&rsquo;s how the different expressions will be evaluated:</p>
 <table>
 <thead>
@@ -366,7 +362,7 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <h3 id="json-body-pointer-expression">JSON body Pointer expression</h3>
 <p>In the case where request payload body can be interpreted as JSON, Microcks has also the capability of defining template expressions that will analyse this structured content and pick some elements for rendering.</p>
 <p>Imagine our API deal with library and may receive this kind of request body payload:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&#34;library&#34;</span><span class="p">:</span> <span class="s2">&#34;My Personal Library&#34;</span><span class="p">,</span>
   <span class="nt">&#34;books&#34;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="nt">&#34;title&#34;</span><span class="p">:</span><span class="s2">&#34;Title 1&#34;</span><span class="p">,</span> <span class="nt">&#34;author&#34;</span><span class="p">:</span><span class="s2">&#34;Jane Doe&#34;</span> <span class="p">},</span>
@@ -398,7 +394,7 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <h3 id="xml-body-xpath-expression">XML body XPath expression</h3>
 <p>In the case where request payload body can be interpreted as XML, Microcks has also the capability of defining template expressions too!</p>
 <p>Imagine our API deal with library and may receive this kind of request body payload:</p>
-<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;library&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;library&gt;</span>
   <span class="nt">&lt;name&gt;</span>My Personal Library<span class="nt">&lt;/name&gt;</span>
   <span class="nt">&lt;books&gt;</span>
     <span class="nt">&lt;book&gt;&lt;title&gt;</span>Title 1<span class="nt">&lt;/title&gt;&lt;author&gt;</span>Jane Doe<span class="nt">&lt;/author&gt;&lt;/book&gt;</span>
@@ -433,7 +429,7 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 </tbody>
 </table>
 <p>In the case you&rsquo;re dealing with namespaced XML or SOAP request, Microcks does not support namespaced for now but the relaxed <code>local-name()</code> XPath expression allowed you to workaround this limitation. If we get a namespaced version of our XML payload:</p>
-<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ns:library</span> <span class="na">xmlns:ns=</span><span class="s">&#34;https://microcks.io&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ns:library</span> <span class="na">xmlns:ns=</span><span class="s">&#34;https://microcks.io&#34;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ns:name&gt;</span>My Personal Library<span class="nt">&lt;/ns:name&gt;</span>
   <span class="nt">&lt;ns:books&gt;</span>
     <span class="nt">&lt;ns:book&gt;&lt;ns:title&gt;</span>Title 1<span class="nt">&lt;/ns:title&gt;&lt;ns:author&gt;</span>Jane Doe<span class="nt">&lt;/ns:author&gt;&lt;/ns:book&gt;</span>
@@ -465,92 +461,92 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <p>The <code>now()</code> function allows to generate current date. It can also be invoked using the <code>timestamp()</code> alias.</p>
 <p>Invoked with no argument, it&rsquo;s a simple mong timestamp since EPOCH beginning. This function can also be invoked with one argument being the pattern to use for rendering current&rsquo;s date as string. The Java <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">date and time patterns</a> are use as referenced.</p>
 <p>It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates ;-) Here&rsquo;s some examples below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">now</span><span class="p">()</span> <span class="c1">// 1581425292309
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">now</span><span class="p">()</span> <span class="c1">// 1581425292309
 </span><span class="c1"></span><span class="nx">now</span><span class="p">(</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span> <span class="nx">HH</span><span class="o">:</span><span class="nx">mm</span><span class="o">:</span><span class="nx">ss</span><span class="p">)</span> <span class="c1">// 11/02/2020 13:48:12
 </span><span class="c1"></span><span class="nx">now</span><span class="p">(</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span><span class="p">,</span> <span class="mi">1</span><span class="nx">M</span><span class="p">)</span> <span class="c1">// 11/03/2020
 </span><span class="c1"></span><span class="nx">$now</span>  <span class="c1">// 1581425292309
 </span><span class="c1"></span><span class="nx">$timestamp</span>  <span class="c1">// 1581425292309
 </span></code></pre></div><h4 id="uuid-generator">UUID generator</h4>
 <p>The <code>uuid()</code> function allows to simply generate a UUID compliant with RFC 4122 (see <a href="https://www.cryptosys.net/pki/uuid-rfc4122.html)">https://www.cryptosys.net/pki/uuid-rfc4122.html)</a>. It can also be invoked using the <code>guid()</code> or <code>randomUUID()</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">uuid</span><span class="p">()</span> <span class="c1">// 3F897E85-62CE-4B2C-A957-FCF0CCE649FD
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">uuid</span><span class="p">()</span> <span class="c1">// 3F897E85-62CE-4B2C-A957-FCF0CCE649FD
 </span><span class="c1"></span><span class="nx">guid</span><span class="p">()</span> <span class="c1">// 3a721b7f-7dc9-4c45-9777-516942b98e0d
 </span><span class="c1"></span><span class="nx">$randomUUID</span> <span class="c1">// 6929bb52-3ab2-448a-9796-d6480ecad36b
 </span></code></pre></div><h4 id="random-integer-generator">Random Integer generator</h4>
 <p>The <code>randomInt()</code> function allows to generate a random integer.</p>
 <p>When called with no argument, the value span between -65635 and 65635. You can specify an argument to force the generation of a positive integer that is less or equals this argument.</p>
 <p>Finally, it can be invoked with a second argument thus defining a range for the integer to be generated. Here&rsquo;s some examples below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomInt</span><span class="p">()</span> <span class="c1">// -5239
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomInt</span><span class="p">()</span> <span class="c1">// -5239
 </span><span class="c1"></span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1">// 27
 </span><span class="c1"></span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1">// 43
 </span></code></pre></div><h4 id="random-string-generator">Random String generator</h4>
 <p>The <code>randomString()</code> function simply generates a random alphanumeric string. The default length when called by no argument is 32 charracters. One can specify a integer argument to force string length to desired lentgh. Here&rsquo;s some examples below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomString</span><span class="p">()</span> <span class="c1">// kYM8nSjEdLfgKOGG1dfacro2IUmuuan
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomString</span><span class="p">()</span> <span class="c1">// kYM8nSjEdLfgKOGG1dfacro2IUmuuan
 </span><span class="c1"></span><span class="nx">randomString</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span> <span class="c1">// VclBAQiNAybe0B5IrXjGqOChQNDFdoTguf5jWn2tqRNfptWSYFy7yxdpxoNIGOpC
 </span></code></pre></div><h4 id="random-boolean-generator">Random Boolean generator</h4>
 <p>The <code>randomBoolean()</code> function simply generates a random boolean. Here&rsquo;s some examples below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomBoolean</span><span class="p">()</span> <span class="c1">// true
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomBoolean</span><span class="p">()</span> <span class="c1">// true
 </span><span class="c1"></span><span class="nx">$randomBoolean</span>  <span class="c1">// false
 </span></code></pre></div><h3 id="names-related-functions">Names related functions</h3>
 <p>The names related functions are using the <a href="https://github.com/DiUS/java-faker">Faker library</a> to generate fake data from a library of common names and related.</p>
 <h4 id="first-name-generator">First name generator</h4>
 <p>The <code>randomFirstName()</code> function allows to generate random person first name.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomFirstName</span><span class="p">()</span> <span class="c1">// Samantha
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomFirstName</span><span class="p">()</span> <span class="c1">// Samantha
 </span><span class="c1"></span><span class="nx">$randomFirstName</span>  <span class="c1">// Chandler
 </span></code></pre></div><h4 id="last-name-generator">Last name generator</h4>
 <p>The <code>randomLastName()</code> function allows to generate random person last name.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomLastName</span><span class="p">()</span> <span class="c1">// Schneider
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomLastName</span><span class="p">()</span> <span class="c1">// Schneider
 </span><span class="c1"></span><span class="nx">$randomLastName</span>  <span class="c1">// Williams
 </span></code></pre></div><h4 id="full-name-generator">Full name generator</h4>
 <p>The <code>randomFullName()</code> function allows to generate random person full name.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomFullName</span><span class="p">()</span> <span class="c1">// Sylvan Fay
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomFullName</span><span class="p">()</span> <span class="c1">// Sylvan Fay
 </span><span class="c1"></span><span class="nx">$randomFullName</span>  <span class="c1">// Jonathon Kunze
 </span></code></pre></div><h4 id="name-prefix-generator">Name prefix generator</h4>
 <p>The <code>randomNamePrefix()</code> function allows to generate random person name prefix.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomNamePrefix</span><span class="p">()</span> <span class="c1">// Ms.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomNamePrefix</span><span class="p">()</span> <span class="c1">// Ms.
 </span><span class="c1"></span><span class="nx">$randomNamePrefix</span>  <span class="c1">// Dr.
 </span></code></pre></div><h4 id="name-suffix-generator">Name suffix generator</h4>
 <p>The <code>randomNameSuffix()</code> function allows to generate random person name prefix.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomNameSuffix</span><span class="p">()</span> <span class="c1">// MD
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomNameSuffix</span><span class="p">()</span> <span class="c1">// MD
 </span><span class="c1"></span><span class="nx">$randomNameSuffix</span>  <span class="c1">// DDS
 </span></code></pre></div><h3 id="phone-address-and-location-related-functions">Phone, Address and Location related functions</h3>
 <p>The address related functions are using the <a href="https://github.com/DiUS/java-faker">Faker library</a> to generate fake data from a library of common address and related.</p>
 <h4 id="phone-number-generator">Phone number generator</h4>
 <p>The <code>randomPhoneNumber()</code> function allows to generate random 10-digit phone numbers.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomPhoneNumber</span><span class="p">()</span> <span class="c1">// 494-261-3424
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomPhoneNumber</span><span class="p">()</span> <span class="c1">// 494-261-3424
 </span><span class="c1"></span><span class="nx">$randomPhoneNumber</span>  <span class="c1">// 662-302-7817
 </span></code></pre></div><h4 id="city-generator">City generator</h4>
 <p>The <code>randomCity()</code> function allows to generate random city name.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomCity</span><span class="p">()</span> <span class="c1">// Paris
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomCity</span><span class="p">()</span> <span class="c1">// Paris
 </span><span class="c1"></span><span class="nx">$randomCity</span>  <span class="c1">// Boston
 </span></code></pre></div><h4 id="street-name-generator">Street Name generator</h4>
 <p>The <code>randomStreetName()</code> function allows to generate random street name.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomStreetName</span><span class="p">()</span> <span class="c1">// General Street
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomStreetName</span><span class="p">()</span> <span class="c1">// General Street
 </span><span class="c1"></span><span class="nx">$randomStreetName</span>  <span class="c1">// Kendrick Springs
 </span></code></pre></div><h4 id="street-address-generator">Street Address generator</h4>
 <p>The <code>randomStreetAddress()</code> function allows to generate random street address.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomStreetAddress</span><span class="p">()</span> <span class="c1">// 5742 Harvey Streets
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomStreetAddress</span><span class="p">()</span> <span class="c1">// 5742 Harvey Streets
 </span><span class="c1"></span><span class="nx">$randomStreetAddress</span>  <span class="c1">// 47906 Wilmer Orchard
 </span></code></pre></div><h4 id="country-generator">Country generator</h4>
 <p>The <code>randomCountry()</code> function allows to generate random country name.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomCountry</span><span class="p">()</span> <span class="c1">// Kazakhstan
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomCountry</span><span class="p">()</span> <span class="c1">// Kazakhstan
 </span><span class="c1"></span><span class="nx">$randomCountry</span>  <span class="c1">// Austria
 </span></code></pre></div><h4 id="country-code-generator">Country code generator</h4>
 <p>The <code>randomCountryCode()</code> function allows to generate random 2-letter country code (ISO 3166-1 alpha-2).</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomCountryCode</span><span class="p">()</span> <span class="c1">// CV
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomCountryCode</span><span class="p">()</span> <span class="c1">// CV
 </span><span class="c1"></span><span class="nx">$randomCountryCode</span>  <span class="c1">// MD
 </span></code></pre></div><h4 id="latitude-generator">Latitude generator</h4>
 <p>The <code>randomLatitude()</code> function allows to generate random latitude coordinate.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomLatitude</span><span class="p">()</span> <span class="c1">// 27.3644
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomLatitude</span><span class="p">()</span> <span class="c1">// 27.3644
 </span><span class="c1"></span><span class="nx">$randomLatitude</span>  <span class="c1">// 55.2099
 </span></code></pre></div><h4 id="longitude-generator">Longitude generator</h4>
 <p>The <code>randomLongitude()</code> function allows to generate random longitude coordinate.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomLongitude</span><span class="p">()</span> <span class="c1">// 40.6609
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomLongitude</span><span class="p">()</span> <span class="c1">// 40.6609
 </span><span class="c1"></span><span class="nx">$randomLongitude</span>  <span class="c1">// 171.7139
 </span></code></pre></div><h3 id="domains-emails-and-usernames-related-functions">Domains, Emails and Usernames related functions</h3>
 <p>The address related functions are using the <a href="https://github.com/DiUS/java-faker">Faker library</a> to generate fake data from a library of common domains, emails and related.</p>
 <h4 id="email-generator">Email generator</h4>
 <p>The <code>randomEmail()</code> function allows to generate random email address.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomEmail</span><span class="p">()</span> <span class="c1">// ruthe42@hotmail.com
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomEmail</span><span class="p">()</span> <span class="c1">// ruthe42@hotmail.com
 </span><span class="c1"></span><span class="nx">$randomEmail</span>  <span class="c1">// iva.kovacek61@hotmail.com
 </span></code></pre></div>
 </div>
@@ -645,6 +641,11 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

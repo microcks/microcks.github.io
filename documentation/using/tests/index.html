@@ -12,7 +12,7 @@
     <title>Executing tests | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -47,20 +47,16 @@
 <meta property="og:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/tests/" />
+<meta property="og:url" content="https://microcks.io/documentation/using/tests/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
+
 <meta itemprop="name" content="Executing tests">
 <meta itemprop="description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.">
-<meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="814">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Executing tests"/>
 <meta name="twitter:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."/>
@@ -288,12 +284,12 @@ var trackOutboundLink = function(id, url) {
 <p>The <strong>Test Endpoint</strong> is simply a URI where a deployed component is providing API specification endpoint. In the testing literature, this is usually defined as the URI of the <a href="https://en.wikipedia.org/wiki/System_under_test">System Under Test</a>.</p>
 <h4 id="http-based-apis">HTTP based APIs</h4>
 <p>For HTTP based APIs (REST or SOAP), this is a simple URL that should respect following pattern:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">http<span class="o">[</span>s<span class="o">]</span>://<span class="o">{</span>service.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>service.path<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">http<span class="o">[</span>s<span class="o">]</span>://<span class="o">{</span>service.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>service.path<span class="o">}</span>
 </code></pre></div><h4 id="event-based-apis">Event based APIs</h4>
 <p>For Event based API through <a href="../asyncapi">Async API</a> testing, pattern is depending on the protocole binding you&rsquo;d like to test.</p>
 <h5 id="kafka">Kafka</h5>
 <p>Kafka Test Endpoint have the following form with optional parameters placed just after a <code>?</code> and separated using <code>&amp;</code> character:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">kafka://<span class="o">{</span>kafka.broker.url:port<span class="o">}</span>/<span class="o">{</span>kafka.topic.name<span class="o">}[</span>?param1<span class="o">=</span>value1<span class="p">&amp;</span><span class="nv">param2</span><span class="o">=</span>value2<span class="o">]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">kafka://<span class="o">{</span>kafka.broker.url:port<span class="o">}</span>/<span class="o">{</span>kafka.topic.name<span class="o">}[</span>?param1<span class="o">=</span>value1<span class="p">&amp;</span><span class="nv">param2</span><span class="o">=</span>value2<span class="o">]</span>
 </code></pre></div><table>
 <thead>
 <tr>
@@ -319,10 +315,10 @@ var trackOutboundLink = function(id, url) {
 <p>As an example, you may have this kind of Test Endpoint value: <code>kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&amp;registryUsername=fred:letmein&amp;registryAuthCredSource=USER_INFO</code></p>
 <h5 id="mqtt">MQTT</h5>
 <p>MQTT Test Endpoint have the following form with no optional parameters:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">mqtt://<span class="o">{</span>mqtt.broker.url:port<span class="o">}</span>/<span class="o">{</span>mqtt.topic.name<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mqtt://<span class="o">{</span>mqtt.broker.url:port<span class="o">}</span>/<span class="o">{</span>mqtt.topic.name<span class="o">}</span>
 </code></pre></div><h5 id="websocket">WebSocket</h5>
 <p>WebSocket Test Endpoint have the following form with no optional parameters:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">ws://<span class="o">{</span>ws.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>channel.name<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ws://<span class="o">{</span>ws.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>channel.name<span class="o">}</span>
 </code></pre></div><h3 id="test-runner">Test Runner</h3>
 <p>As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as <strong>Test Runners</strong>. Here are the default Test Runners available within Microcks:</p>
 <table>
@@ -473,6 +469,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               CUSTOM DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
             </a>
           </li>
         </ul>

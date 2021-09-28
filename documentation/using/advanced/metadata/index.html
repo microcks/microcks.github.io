@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>blog | Microcks.io</title>
+    <title>Microcks APIMetadata | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.88.1" />
@@ -18,7 +18,6 @@
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       
 
-    <link rel="alternate" type="application/rss&#43;xml" href="https://microcks.io/categories/blog/index.xml">
     
     
       <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
@@ -44,15 +43,23 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="blog" />
-<meta property="og:description" content="Microcks.io" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://microcks.io/categories/blog/" />
+<meta property="og:title" content="Microcks APIMetadata" />
+<meta property="og:description" content="Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by manager within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced OpenAPI extensions and AsyncAPI extensions starting with Microcks 1.4.0 release.
+But sometimes you don&rsquo;t want to add some x-microcks extensions attributes into AsyncAPI / OpenAPI document OR you&rsquo;d need to specify these metadata and properties for some other artifact types like Protobuf &#43; Postman collection for GRPC mocking for instance 😉." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/using/advanced/metadata/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2021-09-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-28T00:00:00+00:00" />
 
-<meta itemprop="name" content="blog">
-<meta itemprop="description" content="Microcks.io"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="blog"/>
-<meta name="twitter:description" content="Microcks.io"/>
+<meta itemprop="name" content="Microcks APIMetadata">
+<meta itemprop="description" content="Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by manager within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced OpenAPI extensions and AsyncAPI extensions starting with Microcks 1.4.0 release.
+But sometimes you don&rsquo;t want to add some x-microcks extensions attributes into AsyncAPI / OpenAPI document OR you&rsquo;d need to specify these metadata and properties for some other artifact types like Protobuf &#43; Postman collection for GRPC mocking for instance 😉."><meta itemprop="datePublished" content="2021-09-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="461">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Microcks APIMetadata"/>
+<meta name="twitter:description" content="Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by manager within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced OpenAPI extensions and AsyncAPI extensions starting with Microcks 1.4.0 release.
+But sometimes you don&rsquo;t want to add some x-microcks extensions attributes into AsyncAPI / OpenAPI document OR you&rsquo;d need to specify these metadata and properties for some other artifact types like Protobuf &#43; Postman collection for GRPC mocking for instance 😉."/>
 
 
       
@@ -201,22 +208,109 @@ var trackOutboundLink = function(id, url) {
     
     <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
       
-  
-  
+  <article class="w-100 ph3 pb5">
+    <div class="flex-l">
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#apimetadata-format">APIMetadata format</a></li>
+    <li><a href="#importing-apimetadata-specification">Importing APIMetadata specification</a></li>
+  </ul>
+</nav>
+	
 
-  <div class="w-100 ph4 pb5 pb6-ns pt1 mt4">
-  
+	<div date-pref>
+		
 
-  <div class="flex">
-    <div class="dn db-l w-20">
+		
+			<a href="https://microcks.io/documentation/using/grpc/" class="dib f6 pr1 hover-bg-light-gray br-100" title="gRPC usage for Microcks">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+	</div>
+
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Microcks APIMetadata</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+<h2 id="introduction">Introduction</h2>
+<p>Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by <code>manager</code> within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced <a href="../../openapi/#using-openapi-extensions">OpenAPI extensions</a> and <a href="../../asyncapi/#using-asyncapi-extensions">AsyncAPI extensions</a> starting with Microcks <code>1.4.0</code> release.</p>
+<p>But sometimes you don&rsquo;t want to add some <code>x-microcks</code> extensions attributes into AsyncAPI / OpenAPI document <strong>OR</strong> you&rsquo;d need to specify these metadata and properties for some other artifact types like <a href="../../grpc">Protobuf</a> + <a href="../../postman">Postman collection</a> for GRPC mocking for instance 😉.</p>
+<p>Hence we propose defining these metadata and properties into a standalone document called an <code>APIMetadata</code> ; document that can imported as a <code>secondary</code> artifact thanks to the <a href="../../importers/#multi-artifacts-support">multi-artifacts support</a> now in Microcks.</p>
+<blockquote>
+<p>For the later gRPC use-case, it means that the <a href="../../grpc/#defining-dispatch-rules">Defining dispatch rules</a> step can be done automatically by importing another artifact that lives right next your files in Git repo.</p>
+</blockquote>
+<h2 id="apimetadata-format">APIMetadata format</h2>
+<p>Let start with an example! Here&rsquo;s below an illustration of what could such an <code>APIMetadata</code> document for one API. If you&rsquo;re a reader of the Microcks Blog, you&rsquo;ll notice this sample API with custom dispatching rules was introduced into the <a href="https://microcks.io/blog/advanced-dispatching-constraints/">Advanced Dispatching and Constraints for mocks</a> post.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">mocks.microcks.io/v1alpha1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">APIMetadata</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">WeatherForecast API</span><span class="w">
+</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">1.1.0</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">weather</span><span class="w">
+</span><span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l">GA</span><span class="w">
+</span><span class="w">    </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l">Team C</span><span class="w">
+</span><span class="w"></span><span class="nt">operations</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="s1">&#39;GET /forecast/{region}&#39;</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="m">100</span><span class="w">
+</span><span class="w">    </span><span class="nt">dispatcher</span><span class="p">:</span><span class="w"> </span><span class="l">FALLBACK</span><span class="w">
+</span><span class="w">    </span><span class="nt">dispatcherRules</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">      {
+</span><span class="sd">        &#34;dispatcher&#34;: &#34;URI_PARTS&#34;,
+</span><span class="sd">        &#34;dispatcherRules&#34;: &#34;region&#34;,
+</span><span class="sd">        &#34;fallback&#34;: &#34;Unknown&#34;
+</span><span class="sd">      }</span><span class="w">      
+</span></code></pre></div><p>This example is pretty straightforward to understand and explain:</p>
+<ul>
+<li>This document is related to the <code>WeatherForecast API</code> in version <code>1.1.0</code>. That means that this API version should already exist into your repository, otherwise the document will be ignored,</li>
+<li>This document specifies additional <code>labels</code> used for <a href="../advanced/organizing">organizing the Microcks repository</a>. This labels will be added to existing ones,</li>
+<li>This document specifies a default <code>delay</code> as well as custom dispatching informations for our <code>GET</code> operation. The name of operation should perfectly match the name of an existing operation - whether defined through OpenAPI, AsyncAPI, Postman Collection, SoapUI Project or Protobuf definition - otherwise it will be ignored.</li>
+</ul>
+<blockquote>
+<p>Note that we can use multi-line notation in YAML but we will have to escape everything and put <code>\</code> before double-quotes and <code>\n</code> characters if specified using JSON.</p>
+</blockquote>
+<p>The semantic of those attributes are exactly the same that the one introduced into <a href="../../openapi/#using-openapi-extensions">OpenAPI extensions</a> and <a href="../../asyncapi/#using-asyncapi-extensions">AsyncAPI extensions</a>.</p>
+<h2 id="importing-apimetadata-specification">Importing APIMetadata specification</h2>
+<p>When you&rsquo;re happy with your API Metadata just put the result YAML or JSON file into your favorite Source Configuration Management tool, grab the URL of the file corresponding to the branch you want to use and add it as a regular Job import into Microcks. On import, Microcks should detect that it&rsquo;s an <code>APIMetadata</code> specification file and choose the correct importer.</p>
+<p>Using a <code>Hello GRPC metadata</code> example <a href="https://raw.githubusercontent.com/microcks/microcks/master/webapp/src/test/resources/io/github/microcks/util/metadata/hello-grpc-v1-metadata.yml">here</a>, you should get the following screen. Do not forget to tick the <strong>Secondary Artifact</strong> checkbox!</p>
+<p><img src="/images/metadata-import.png" alt="import-metadata"></p>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
         
 <nav role="navigation">
   <ul class="list pa0 nl2">
     
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
-        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
@@ -298,7 +392,7 @@ var trackOutboundLink = function(id, url) {
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               MICROCKS APIMETADATA
             </a>
           </li>
@@ -419,423 +513,31 @@ var trackOutboundLink = function(id, url) {
   </ul>
 </nav>
 
-    </div>
-
-    <div class="w-100 w-80-l ph0 ph4-l">
-      <article class="w-100 nested-copy-line-height nested-links nested-img">
-        <h1 class="primary-color-dark f2">
-          Category: blog
-        </h1>
-        <div class=" mid-gray f5 f4-l">
-          
-        </div>
-      </article>
-
-      
-
-      <div class="flex flex-wrap">
-        
-        <section class="flex-ns flex-wrap justify-between w-100">
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/async-features-with-docker-compose/" class="link primary-color dim">Async Features with Docker Compose</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          For some weeks now, many users from the Microcks community were asking for playing with AsyncAPI related features without having to setup a Minikube or a full Kubernetes instance. And Docker-Compose is the perfect match for that! We were at first reluctant as it is an additional configuration to support&hellip; but developers experience FTW! 💪
-This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks master branch.
-      
-
-        <a href="/blog/async-features-with-docker-compose/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/microcks-1.3.0-release/" class="link primary-color dim">Microcks 1.3.0 release 🚀</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          We are so proud and happy to share this new major and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum.
-Nothing could have been done without all your feedback and contributions 👏
-So why is this release so special? First, We always stay on our principles and we are still applying our mantra for supporting ALL kinds of APIs and being community driven.
-      
-
-        <a href="/blog/microcks-1.3.0-release/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/microcks-1.2.1-release/" class="link primary-color dim">Microcks 1.2.1 release 🚀</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          We are very glad to announce today the 1.2.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This is mainly an “Enhancement release” pushing further the features we introduced within the previous 1.2.0 release.
-With this release, we are still applying our mantra for supporting ALL kinds of APIs and being community driven. Want some keywords on what’s in this 1.2.1 release? We’ve been working on OpenAPI v3.
-      
-
-        <a href="/blog/microcks-1.2.1-release/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/simulating-cloudevents-with-asyncapi/" class="link primary-color dim">Simulating CloudEvents with AsyncAPI and Microcks</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          TL;DR: CloudEvents and AsyncAPI are complementary specifications that help define your Event Driven Architecture. Microcks allows simulation of CloudEvent to speed-up and ensure autonomy of development teams.
-  The rise of Event Driven Architecture (EDA) is a necessary evolution step towards cloud-native applications. Events are the ultimate weapon to decouple your microservices within your architecture. They are bringing great benefits like space and time decoupling, better resiliency and elasticity.
-      
-
-        <a href="/blog/simulating-cloudevents-with-asyncapi/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/podman-compose-support/" class="link primary-color dim">Podman Compose support in Microcks</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          While Docker is still the #1 option for software packaging and installation on the developer laptop, Podman is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put alias podman=docker and you would be good to go, they said 😉
-Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community!
-      
-
-        <a href="/blog/podman-compose-support/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/microcks-1.2.0-release/" class="link primary-color dim">Microcks 1.2.0 release 🚀</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
-In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community.
-      
-
-        <a href="/blog/microcks-1.2.0-release/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/advanced-dispatching-constraints/" class="link primary-color dim">Advanced Dispatching and Constraints for mocks</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently went again through the documentation answering questions on our Zulip chat, I realized that all the pieces were present but we did not have any overall example showing how to use them!
-So I setup this new example based on a real life use-case our community users have submitted.
-      
-
-        <a href="/blog/advanced-dispatching-constraints/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/continuous-testing-all-your-apis/" class="link primary-color dim">Continuous Testing of ALL your APIs</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          We talk a lot about asynchronous API lately at Microcks! We added many new innovative features taking advantage of the AsyncAPI specification. These are nice additions but we do not want them to hide the foundational essence of Microcks: offering you a consistent approach whatever the type of API. See our Why Microcks ? post for a refresher.
-With this post we want to demonstrate how traditional REST API and event-based API can be used together and how Microcks can leverage your OpenAPI and AsyncAPI assets to ease the testing of scenarios involving both of them.
-      
-
-        <a href="/blog/continuous-testing-all-your-apis/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/integrating-in-apicurio-keycloak/" class="link primary-color dim">Integrating Microcks into Apicurio Keycloak</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          Microcks is an amazing tool that helps developers mock their APIs seamlessly using OpenAPI specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
-Apicurio Studio is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time.
-      
-
-        <a href="/blog/integrating-in-apicurio-keycloak/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/apache-kafka-mocking-testing/" class="link primary-color dim">Apache Kafka Mocking and Testing</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          We see Apache Kafka being more and more commonly used as an event backbone in new organizations everyday. This is irrefutable. And while there are challenges adopting new frameworks and paradigms for the apps using Kafka, there is also a critical need to govern events and speed-up delivery. To improve time-to-market, organizations need to be able to develop without waiting for the whole system to be up and running ; and they will need to validate that the components talking with Kafka will send or receive correct messages.
-      
-
-        <a href="/blog/apache-kafka-mocking-testing/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/microcks-1.1.0-release/" class="link primary-color dim">Microcks 1.1.0 release 🚀</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          We are very thrilled to announce today Microcks 1.1.0 release — the Open source Kubernetes-native tool for API Mocking and Testing. What a ride it has been over the last months since 1.0.0 release and our announcement of AsyncAPI support !
-We received a huge amount of positive feedback from our community including many newcomers. So we took the time to come back and explain where we are coming from and what is our project purpose: see the &ldquo;Why Microcks ?
-      
-
-        <a href="/blog/microcks-1.1.0-release/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/why-microcks/" class="link primary-color dim">Why Microcks?</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of Microcks 1.0.0, being our first General Availability (GA) version. With it we deliver the promise of providing an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era — whatever the type of services or API.
-As we have received massive supportive feedback since August, we consider it a great opportunity to take some time to come back to the reasons why we started Microcks, especially for the newcomers.
-      
-
-        <a href="/blog/why-microcks/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/microcks-1.0.0-release/" class="link primary-color dim">Microcks 1.0.0 release 🚀</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          Today is a very special day as we launch Microcks 1.0.0 and as it materializes a vision we had 18 months ago when starting investing more time on what was just a fun side-project at that time. That vision was about building one simple, scalable and consolidating tool for all the Enterprise services mocking and testing needs — whatever the type of services or API: green-field or legacy. Today, Microcks is the only Open source Kubernetes native tool for API Mocking and Testing supporting REST APIs, SOAP WebServices and now asynchronous / event-driven APIs!
-      
-
-        <a href="/blog/microcks-1.0.0-release/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/install-microcks-on-aws/" class="link primary-color dim">Install Microcks on AWS for a test drive 🧪</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of official setup documentation.
-This will give you a Microcks installation on an AWS EC2 instance running Ubuntu 18.
-      
-
-        <a href="/blog/install-microcks-on-aws/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-            <div class="relative  weight-0">
-
-  <div class="bg-white mb2 pa3 pa4-l gray">
-    
-
-    <h1 class="near-black f3">
-      <a href="/blog/microcks-0.9.0-release/" class="link primary-color dim">Microcks 0.9.0 release 🚀</a>
-    </h1>
-
-    <div class="lh-copy links">
-      
-          I am delighted to announce Microcks release 0.9.0 — the Open source Kubernetes native tool for API Mocking and Testing. This new version introduces a tremendous amount of enhancements and new features.
-Big thanks to our growing community for all the work done, the raised issues and the collected feedback during the last 5 months to make it possible.
-This release was the preparation to become more Enterprise-grade, and we are glad that Microcks is in production in more and more medium to large organisations.
-      
-
-        <a href="/blog/microcks-0.9.0-release/" class="f6 mt2 db link primary-color dim">
-          Read More &raquo;
-        </a>
-
-    </div>
-
-
-  </div>
-</div>
-
-          
-        </section>
       </div>
-
     </div>
 
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/using/advanced/metadata/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “Microcks APIMetadata”
+  </a> was last updated: September 28, 2021
+</h6>
+
+      <a href="edit/master/content/en/documentation/using/advanced/metadata.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
   </div>
-
-</div>
-
 
     </main>
 

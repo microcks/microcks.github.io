@@ -12,7 +12,7 @@
     <title>Microcks 1.2.0 release 🚀 | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -47,22 +47,18 @@
 <meta property="og:description" content="We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
 In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/blog/microcks-1.2.0-release/" />
+<meta property="og:url" content="https://microcks.io/blog/microcks-1.2.0-release/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-02-21T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-02-21T00:00:00+00:00" />
+
 
       <meta name="og:image" content="https://microcks.io/images/blog/microcks-1.2.0-avro-mqtt.png"></meta>
       <meta itemprop="name" content="Microcks 1.2.0 release 🚀">
 <meta itemprop="description" content="We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
-In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community.">
-<meta itemprop="datePublished" content="2021-02-21T00:00:00+00:00" />
+In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community."><meta itemprop="datePublished" content="2021-02-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-21T00:00:00+00:00" />
 <meta itemprop="wordCount" content="989">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Microcks 1.2.0 release 🚀"/>
 <meta name="twitter:description" content="We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
 In this release, we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community."/>
@@ -310,7 +306,7 @@ var trackOutboundLink = function(id, url) {
 <h3 id="get-started-with-a-streamlined-installation-experience">Get started with a streamlined installation experience</h3>
 <p>Developer experience is of great importance for us and we worked to make it even simpler to get started with Microcks. <a href="../../documentation/installing/docker-compose">Docker-compose based install</a> has been drastically improved and does not require any configuration for you to start up! Installation procedures now all contain default users so that you can start playing immediately.</p>
 <p><a href="../../documentation/installing/operator">Kubernetes Operator install</a> has also been simplified by providing one-liner installation (well actually, it’s two lines 😉):</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
 $ curl https://microcks.io/operator/minikube-minimal.yaml -s <span class="p">|</span> sed <span class="s1">&#39;s/KUBE_APPS_URL/&#39;</span><span class="k">$(</span>minikube ip<span class="k">)</span><span class="s1">&#39;.nip.io/g&#39;</span> <span class="p">|</span> kubectl apply -n microcks -f -
 </code></pre></div><p>While at first look it looks simpler, the installation has been enhanced to adapt to any Kube configuration and advanced users will now have the ability to specify resource utilization for the different components.</p>
 <blockquote>

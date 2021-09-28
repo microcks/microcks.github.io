@@ -12,7 +12,7 @@
     <title>Integrating Microcks into Apicurio Keycloak | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.74.3" />
+     <meta name="generator" content="Hugo 0.88.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.846a6453da8cf5e5d6f76c7f94c8d1bd80d0c550a2095f7eece03e71dd8a7ca1.css" integrity="sha256-hGpkU9qM9eXW92x/lMjRvYDQxVCiCV9&#43;7OA&#43;cd2KfKE=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.c045ca7498e5fbe13a157d28487a4de0ae431d5d3e327ce5a42662d088f749bf.css" integrity="sha256-wEXKdJjl&#43;&#43;E6FX0oSHpN4K5DHV0&#43;MnzlpCZi0Ij3Sb8=" crossorigin="anonymous"> 
           
     
 
@@ -47,22 +47,18 @@
 <meta property="og:description" content="Microcks is an amazing tool that helps developers mock their APIs seamlessly using OpenAPI specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
 Apicurio Studio is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/blog/integrating-in-apicurio-keycloak/" />
+<meta property="og:url" content="https://microcks.io/blog/integrating-in-apicurio-keycloak/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2020-11-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-11-20T00:00:00+00:00" />
+
 
       <meta name="og:image" content="https://microcks.io/images/blog/integrating-microcks-in-apicurio-keycloak.png"></meta>
       <meta itemprop="name" content="Integrating Microcks into Apicurio Keycloak">
 <meta itemprop="description" content="Microcks is an amazing tool that helps developers mock their APIs seamlessly using OpenAPI specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
-Apicurio Studio is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time.">
-<meta itemprop="datePublished" content="2020-11-20T00:00:00+00:00" />
+Apicurio Studio is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time."><meta itemprop="datePublished" content="2020-11-20T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-11-20T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1039">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Integrating Microcks into Apicurio Keycloak"/>
 <meta name="twitter:description" content="Microcks is an amazing tool that helps developers mock their APIs seamlessly using OpenAPI specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
 Apicurio Studio is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time."/>
@@ -286,11 +282,11 @@ var trackOutboundLink = function(id, url) {
 <ul>
 <li>
 <p>Clone the Apicurio repository in a convenient location</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">git clone https://github.com/Apicurio/apicurio-studio.git
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">git clone https://github.com/Apicurio/apicurio-studio.git
 </code></pre></div></li>
 <li>
 <p>Cd to the directory to enter the Apicurio docker-compose installation workspace. Its now time to make a few edits</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> apicurio-studio/distro/docker-compose
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> apicurio-studio/distro/docker-compose
 </code></pre></div></li>
 </ul>
 <h2 id="setting-up-the-correct-realm-configuration-in-keycloak">Setting up the correct realm configuration in Keycloak</h2>
@@ -298,19 +294,19 @@ var trackOutboundLink = function(id, url) {
 <ul>
 <li>
 <p>Replace the Keycloak realm configuration with the correct one from Microcks repository. Start by changing to the config directory.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> config/keycloak
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> config/keycloak
 </code></pre></div></li>
 <li>
 <p>Download the copy of the correct Keycloak realm file from Microcks repository.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">wget https://raw.githubusercontent.com/microcks/microcks/master/install/keycloak-microcks-realm-full.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">wget https://raw.githubusercontent.com/microcks/microcks/master/install/keycloak-microcks-realm-full.json
 </code></pre></div></li>
 <li>
 <p>Rename the existing Microcks realm file to something different.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">mv microcks-realm.json microcks-realm.json.bkup
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mv microcks-realm.json microcks-realm.json.bkup
 </code></pre></div></li>
 <li>
 <p>Rename the realm file you downloaded above to <code>microcks-realm.json</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">mv keycloak-microcks-realm-full.json microcks-realm.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mv keycloak-microcks-realm-full.json microcks-realm.json
 </code></pre></div></li>
 </ul>
 <p>These steps will ensure that you have the correct realm configuration to start the installation. Once done, follow the remaining instructions as-is in the Apicurio docker-compose readme here <a href="https://github.com/Apicurio/apicurio-studio/blob/master/distro/docker-compose/Readme.md">https://github.com/Apicurio/apicurio-studio/blob/master/distro/docker-compose/Readme.md</a></p>
@@ -360,17 +356,17 @@ var trackOutboundLink = function(id, url) {
 <ul>
 <li>
 <p>Stop your docker-compose installation of Apicurio.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f <span class="s2">&#34;&lt;name of the compose files&gt;&#34;</span> down
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f <span class="s2">&#34;&lt;name of the compose files&gt;&#34;</span> down
 </code></pre></div></li>
 <li>
 <p>Download the application.properties file into you Apicurio&rsquo;s docker-compose config folder as shown below</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> docker-compose/config
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> docker-compose/config
 wget https://raw.githubusercontent.com/microcks/microcks/master/install/docker-compose/config/application.properties
 wget https://raw.githubusercontent.com/microcks/microcks/master/install/docker-compose/config/logback.xml
 </code></pre></div></li>
 <li>
 <p>Comment &lsquo;all&rsquo; the lines in application.properties except the following lines and change them as shown below:</p>
-<pre><code class="language-properties" data-lang="properties">security.require-ssl=false
+<pre tabindex="0"><code class="language-properties" data-lang="properties">security.require-ssl=false
 keycloak.ssl-required=false
 </code></pre></li>
 <li>
