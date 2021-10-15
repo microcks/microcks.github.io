@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>Microcks 1.4.1 release 🚀 | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.88.1" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.a42f770a563de5f4c7aa7d9babef2ebb3b19a040c7f605dbe8b506de79650df9.css" integrity="sha256-pC93ClY95fTHqn2bq&#43;8uuzsZoEDH9gXb6LUG3nllDfk=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.1caa725adf6b3c0d83460e78ce17051642a329cbe9222b7eccefa8def7cd7559.js" integrity="sha256-HKpyWt9rPA2DRg54zhcFFkKjKcvpIit&#43;zO&#43;o3vfNdVk=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Microcks 1.4.1 release 🚀" />
+<meta property="og:description" content="We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This release is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience.
+You’ll see that we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community: the number of people that suggested, contributed or helped amplify Microcks reach in communities is huge!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/blog/microcks-1.4.1-release/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-10-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-15T00:00:00+00:00" />
+
+
+      <meta name="og:image" content="https://microcks.io/images/blog/microcks-1.4.1-feature.png"></meta>
+      <meta itemprop="name" content="Microcks 1.4.1 release 🚀">
+<meta itemprop="description" content="We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This release is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience.
+You’ll see that we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community: the number of people that suggested, contributed or helped amplify Microcks reach in communities is huge!"><meta itemprop="datePublished" content="2021-10-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-10-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1310">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Microcks 1.4.1 release 🚀"/>
+<meta name="twitter:description" content="We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This release is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience.
+You’ll see that we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community: the number of people that suggested, contributed or helped amplify Microcks reach in communities is huge!"/>
+
+      <meta name="twitter:image" content="https://microcks.io/images/blog/microcks-1.4.1-feature.png"></meta>
+      
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+
+<section class="cf ph4 pv3 pv3-ns bg-white">
+  <div class="w-60 w-70-m w-90-xs center tc tc-ns pv3">
+    <h1 class="primary-color-dark">Microcks 1.4.1 release 🚀</h1>
+  </div>
+  <div class="w-60-l w-70-m w-90-xs center">
+    <div class="flex-ns flex-wrap">
+      <div class="w-10 w-40-xs">
+        <img src="/images/blog/bio/lbroudoux.jpeg" alt="Microcks 1.4.1 release 🚀" class="br4" style="width: 48px">  
+      </div>
+      <div class="w-40 w-70-xs">
+        <div class="f6 pv2" style="vertical-align: super;">
+          <b>Laurent Broudoux</b> (<a href="https://twitter.com/lbroudoux" class="home-link">@lbroudoux</a>)
+          <br/> MicrocksIO founder - on Oct 15, 2021
+        </div>
+      </div>
+      <div class="w-50 w-90-xs tr">
+        
+
+
+
+<a class="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.4.1-release%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/share?url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.4.1-release%2f&amp;text=Microcks%201.4.1%20release%20%f0%9f%9a%80&amp;via=MicrocksIO" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.4.1-release%2f&amp;title=Microcks%201.4.1%20release%20%f0%9f%9a%80" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.4.1-release%2f&amp;resubmit=true&amp;title=Microcks%201.4.1%20release%20%f0%9f%9a%80" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex-ns flex-wrap">
+    <div class="w-60-l w-70-m w-90-xs center">
+      <div class="prose pv3 f4" id="prose"><p>We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This release is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience.</p>
+<p>You’ll see that we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community: the number of people that suggested, contributed or helped amplify Microcks reach in communities is huge!</p>
+<p>Kudos to our community users and partners for supporting and pushing us to this momentum 👏See greetings below.</p>
+<p><img src="/images/blog/microcks-1.4.1-feature.png" alt="microcks-feature"></p>
+<p>Let’s do a review of what’s new on each one of our highlights without delay.</p>
+<blockquote>
+<p>And yes… we screwed things up on the <code>1.4.0</code> release… so we directly jump to <code>1.4.1</code> instead 😉</p>
+</blockquote>
+<h2 id="repository-multi-tenancy">Repository multi-tenancy</h2>
+<p>Starting with this release, we introduce the ability to segment your APIs &amp; Services repository in Microcks. This feature was critical for some heavy users of Microcks that use it for managing dozens or even hundreds of APIs within their global organization - and we’re very happy to have them on-board to validate the design and implementation early before the release date. Thanks to <a href="https://github.com/romg66">Romain Gil</a> and <a href="https://github.com/nmatelot">Nicolas Matelot</a> 🙏</p>
+<p>Repository multi-tenancy should be explicitly opted-in and will leverage the labels you assign to APIs &amp; Services. As an example, if you define the <code>domain</code> label as the primary label with <code>customer</code>, <code>finance</code> and <code>sales</code> values, you’ll be able to define users with the manager role <strong>only</strong> for the APIs &amp; Services that have been labeled accordingly. Sarah may be defined as a manager for <code>domain=customer</code> and <code>domain=finance</code> services, while John may be defined as the manager for <code>domain=sales</code> APIs &amp; services.</p>
+<p>For each and every tenant, Microcks takes care of creating and managing dedicated groups. The Microcks administrator will then be able to assign users to groups easily like illustrated below:</p>
+<p><img src="/images/users-group-management.png" alt="group-management"></p>
+<blockquote>
+<p>How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on <a href="https://microcks.io/documentation/using/advanced/organizing/#rbac-security-segmentation">activation</a> and user <a href="https://microcks.io/documentation/administrating/users/#group-membership">groups management</a>.</p>
+</blockquote>
+<h3 id="scaling-labels-using-new-apimetadata">Scaling labels using new APIMetadata</h3>
+<p>You may have understood that <code>labels</code> are an important part in multi-tenancy support but also more generally in repository organization even in a single-tenant configuration. Hence we wanted to make things easier for you to set, update and manage labels at scale. We introduced a new <code>APIMetadata</code> descriptor that allows you to specify:</p>
+<ul>
+<li>labels for your API and also,</li>
+<li>operations mocking properties.</li>
+</ul>
+<p>This descriptor can live in your Git repository, close to your specification artifacts so that it follows the “Git as the source of truth” principle! Microcks will be able to import it repeatedly to track changes due to API lifecycle, classification, ownership or mocking behaviour. Here’s below the anatomy of such a descriptor configuring labels and operations properties automatically:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">mocks.microcks.io/v1alpha1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">APIMetadata</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">WeatherForecast API</span><span class="w">
+</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">1.1.0</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">weather</span><span class="w">
+</span><span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l">GA</span><span class="w">
+</span><span class="w">    </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l">Team C</span><span class="w">
+</span><span class="w"></span><span class="nt">operations</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="s1">&#39;GET /forecast/{region}&#39;</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="m">50</span><span class="w">
+</span></code></pre></div><blockquote>
+<p>For more information on that feature, checkout the <a href="https://microcks.io/documentation/using/advanced/metadata/">APIMetadata documentation</a>. You can also embed such metadata directly into your <a href="https://www.openapis.org/">OpenAPI</a> or <a href="https://asyncapi.com">AsyncAPI</a> specification file. Please pursue your reading to the “OpenAPI &amp; AsyncAPI Specification support” section <code>😉</code></p>
+</blockquote>
+<h2 id="developer--installation-experiences">Developer &amp; Installation eXperiences</h2>
+<p>As mentioned in the introduction, Developer eXperience was a focus on <code>1.4.1</code> and associated with installation enhancements it makes a big theme for this release!</p>
+<p>The important addition of this feature is the Docker-compose support for <a href="https://asyncapi.com">AsyncAPI</a> mocking and testing! It was a long time request not having to go through a Minikube or Kube cluster installation to use AsyncAPI in Microcks. Starting Microcks with AsyncAPI support and embedded Kafka broker is now as easy as:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+</code></pre></div><blockquote>
+<p>Thanks a lot to <a href="https://github.com/tillias">Ilia Ternovykh</a> 🙏 for having baked this new capability. It has been fully detailed in the <a href="https://microcks.io/blog/async-features-with-docker-compose/">Async Features with Docker Compose</a> blog post if you want to give it a try!</p>
+</blockquote>
+<p>Aside from this new feature, come a lot of enhancements and capabilities suggested by the community. The most noticeable one are:</p>
+<ul>
+<li>Connecting to a secured <a href="https://microcks.io/documentation/installing/deployment-options/#the-kafka-broker-of-your-choice">external Kafka broker</a> (using TLS, MTLS or SCRAM) for producing mock messages,</li>
+<li>NodePort ServiceType for Helm Chart install (in alternative to regular Ingress), thanks to <a href="https://github.com/john873950">john873950</a> 🙏 contrib,</li>
+<li>Resources values override for Keycloak and MongoDB, thanks to <a href="https://github.com/john873950">john873950</a> 🙏 contrib,</li>
+<li>Configuration of storage classes for Keycloak and MongoDB, thanks to <a href="https://github.com/ALMARRI">Mohammad Almarri</a> 🙏 suggestion.</li>
+</ul>
+<h2 id="openapi--asyncapi-specification-support">OpenAPI &amp; AsyncAPI specification support</h2>
+<p>As our corner stones, we can’t release a new Microcks version without enhancing the support of these two specifications!</p>
+<p>The major novelty in this release is the introduction of Microcks specific OpenAPI and AsyncAPI extensions as provided by both specifications. These extensions come in the form of <code>x-microcks</code> and <code>x-microcks-operation</code> attributes that you may insert into your specification document.</p>
+<p>As an example below, <code>x-microcks</code> can be used at the information level to specify labels to set on your AsyncAPI (or OpenAPI) once imported into Microcks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
+</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">1.0.0</span><span class="w">
+</span><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">This service is in charge of processing user signups</span><span class="w">
+</span><span class="w">  </span><span class="nt">x-microcks</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">authentication</span><span class="w">
+</span><span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l">GA</span><span class="w">
+</span><span class="w">      </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l">Team B</span><span class="w">
+</span></code></pre></div><p>You can also insert a <code>x-microcks-operation</code> property at the operation level (or AsyncAPI) to force some response delay or dispatching rules like below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">openapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.1.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">post</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Add a car to current owner</span><span class="w">
+</span><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Add a car to current owner description</span><span class="w">
+</span><span class="w">      </span><span class="nt">operationId</span><span class="p">:</span><span class="w"> </span><span class="l">addCarOp</span><span class="w">
+</span><span class="w">      </span><span class="nt">x-microcks-operation</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="m">100</span><span class="w">
+</span><span class="w">        </span><span class="nt">dispatcher</span><span class="p">:</span><span class="w"> </span><span class="l">SCRIPT</span><span class="w">
+</span><span class="w">        </span><span class="nt">dispatcherRules</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">          def path = mockRequest.getRequest().getRequestURI();
+</span><span class="sd">          if (!path.contains(&#34;/laurent/car&#34;)) {
+</span><span class="sd">            return &#34;Not Accepted&#34;
+</span><span class="sd">          }
+</span><span class="sd">          def jsonSlurper = new groovy.json.JsonSlurper();
+</span><span class="sd">          def car = jsonSlurper.parseText(mockRequest.getRequestContent());
+</span><span class="sd">          if (car.name == null) {
+</span><span class="sd">            return &#34;Missing Name&#34;
+</span><span class="sd">          }
+</span><span class="sd">          return &#34;Accepted&#34;</span><span class="w">          
+</span></code></pre></div><blockquote>
+<p>Want to learn more about these extensions? Check our updated <a href="https://microcks.io/documentation/using/openapi/#using-openapi-extensions">OpenAPI support</a> and <a href="https://microcks.io/documentation/using/asyncapi/#using-asyncapi-extensions">AsyncAPI support</a> documentation. If embedding our extension into your spec doesn’t please you, you can still use the new <code>APIMetadata</code> document like explained in the “Repository organization” section 😇</p>
+</blockquote>
+<p>And of course we produced a number of fixes or enhancements thanks to user feedback that deal with edge cases of these specifications. Let mentioned:</p>
+<ul>
+<li>One Liner OpenAPI JSON file support,</li>
+<li>Fix OpenAPI to JSON Schema structures conversion for <code>anyOf</code>, <code>oneOf</code> or <code>allOf</code>, discovered by <a href="https://github.com/essential-randomness">Ms. Boba</a> 🙏,</li>
+<li>Messages polymorphism using <code>oneOf</code>, <code>anyOf</code> or <code>allOf</code> constructions, detected by <a href="https://github.com/ivanboytsov">ivanboytsov</a>  🙏.</li>
+</ul>
+<h2 id="community-support">Community support</h2>
+<p>Community contributions do not come only from feature requests, bug issues and open discussions. What a pleasure to see people relaying our messages, integrating Microcks in demonstration, inviting us to events or even talking about Microcks!</p>
+<p>We’d like to thank the following awesome people:</p>
+<ul>
+<li><a href="https://github.com/TamimiGitHub">Tamimi Ahmad</a> 🙏 that invited us to talk about Microcks at the <a href="https://solace.com/event/solace-community-lightning-talks-2-0/">Solace Community Lightning Talk</a> where we had the opportunity to demonstrate our work. Recording is available on <a href="https://www.youtube.com/watch?v=dMnk-jCkBOo">YouTube</a>,</li>
+<li>The <a href="https://solace.community/">Solace Dev Community</a>  and <a href="https://github.com/TamimiGitHub">Tamimi Ahmad</a> 🙏for working on a joint demonstration with their PubSub+ Event Portal product. The demo has been played 2 times during Solace Office Hours at Kafka Summit Americas - recording is available on <a href="https://kafkasummit.io/virtual-exhibitor/?v0326b739525aaf6a5900c153ea6485e67109462e8db159b156161fc07c7e3d8016769932b4c0398e64b5ea52edb3d1c5=8CE57701960DC72CFEEC2914486E877EC8E915BB1B8FF22FD4AF4DB0EA864B2A38BC29BDAE9AB1040E3570683DD40382">KafkaSummit.io</a> 😉</li>
+<li><a href="https://www.cloudnord.fr/programme2021">Cloud Nord</a> 🙏 team for inviting us to talk at their latest event. Recording to come very soon but for french folks only!</li>
+<li><a href="https://github.com/hguerrero">Hugo Guerrero</a> 🙏for having two talks on Kafka Summit APAC and Americas 2021! Be sure to watch the replay of its <a href="https://kafkasummit.io/session-virtual/?v26dd132ae80017cdaf764437c30ebe6f10c1b1eeaab01165e44366654b368dfaeab6baf7e386a642ecb238989334530e=E64EFD7272E5F3345043B3D69A4D2BBAF2C9E410AC7D32BAC53CCA4ECB3CFD7412D76A6F755F2261D4D4E5CA294B3EAA">Automated Apache Kafka Mocking and Testing with AsyncAPI</a>. Congrats mate! 💪</li>
+</ul>
+<h2 id="whats-coming-next">What’s coming next?</h2>
+<p>As usual, we will be very happy to prioritize depending on community feedback : you can check and collaborate via our list of <a href="https://github.com/microcks/microcks/issues">issues on GitHub</a>. We’ll probably also setup some more Twitter polls to get your ideas about:</p>
+<ul>
+<li>protocol addition (<a href="https://www.amqp.org/">AMQP</a> and <a href="https://graphql.org/">GraphQL</a> seem to be good candidates at the moment - see <a href="https://github.com/microcks/microcks/issues/402">#402</a> and <a href="https://github.com/microcks/microcks/issues/401">#401</a>),</li>
+<li>even easier on-boarding experience for new users (see issue <a href="https://github.com/microcks/microcks/issues/484">#484</a>),</li>
+<li>community sharing of mocks and tests for regulatory or industrial standards (see this <a href="https://github.com/microcks/hub.microcks.io">repository</a>),</li>
+<li>more metrics and analytics to govern your APIs with Microcks.</li>
+</ul>
+<p>Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our <a href="https://microcksio.zulipchat.com/">Zulip chat</a> 🐙, simply send some love through <a href="https://github.com/microcks/microcks">GitHub stars</a> ⭐️ or follow us on <a href="https://twitter.com/microcksio">Twitter</a> and <a href="https://www.linkedin.com/company/microcks/">LinkedIn</a>.</p>
+<p>Thanks for reading and supporting us! Stay safe and healthy. ❤️</p>
+</div>
+      
+      
+      <div class="pv4">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "microcks-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">
+        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    <a href="https://microcksio.zulipchat.com" target="new">
+      <img src="/images/zulip.png" class="absolute-l bottom-2 dn db-l h4 right-2 mr2 mb2 z-999 br4"/>
+    </a>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//guides/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Guides
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>

@@ -6,7 +6,17 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.4.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.4.1-release/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.4.1-release/</guid>
+      <description>We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This release is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience.
+You’ll see that we put a lot of effort (and love ❤️) into listening and implementing feedback and ideas from our community: the number of people that suggested, contributed or helped amplify Microcks reach in communities is huge!</description>
+    </item>
+    
     <item>
       <title>Async Features with Docker Compose</title>
       <link>https://microcks.io/blog/async-features-with-docker-compose/</link>
