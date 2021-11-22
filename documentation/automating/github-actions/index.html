@@ -44,22 +44,22 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Using Microcks from GitHub Actions" />
-<meta property="og:description" content="Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
-The test command of the CLI needs 3 arguments:" />
+<meta property="og:description" content="Microcks GitHub Actions What is it? Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your GitHub workflows:
+  The Microcks Import GitHub Action is a GitHub Action you may use in your Workflow to import a bunch of API artifacts in a Microcks installs. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails," />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/github-actions/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2021-02-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-22T00:00:00+00:00" />
 
 <meta itemprop="name" content="Using Microcks from GitHub Actions">
-<meta itemprop="description" content="Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
-The test command of the CLI needs 3 arguments:"><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="283">
+<meta itemprop="description" content="Microcks GitHub Actions What is it? Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your GitHub workflows:
+  The Microcks Import GitHub Action is a GitHub Action you may use in your Workflow to import a bunch of API artifacts in a Microcks installs. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails,"><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-11-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="484">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Using Microcks from GitHub Actions"/>
-<meta name="twitter:description" content="Microcks GitHub Actions What is it? The Microcks Test GitHub Action is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the Microcks CLI and provides the same configuration capabilities.
-The test command of the CLI needs 3 arguments:"/>
+<meta name="twitter:description" content="Microcks GitHub Actions What is it? Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your GitHub workflows:
+  The Microcks Import GitHub Action is a GitHub Action you may use in your Workflow to import a bunch of API artifacts in a Microcks installs. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails,"/>
 
 
       
@@ -220,7 +220,9 @@ var trackOutboundLink = function(id, url) {
     <li><a href="#microcks-github-actions">Microcks GitHub Actions</a>
       <ul>
         <li><a href="#what-is-it">What is it?</a></li>
-        <li><a href="#how-to-use-it">How to use it?</a></li>
+        <li><a href="#how-to-use-them">How to use them?</a></li>
+        <li><a href="#import-github-action">Import GitHub action</a></li>
+        <li><a href="#test-github-action">Test GitHub action</a></li>
       </ul>
     </li>
   </ul>
@@ -268,18 +270,54 @@ var trackOutboundLink = function(id, url) {
 
 <h2 id="microcks-github-actions">Microcks GitHub Actions</h2>
 <h3 id="what-is-it">What is it?</h3>
-<p>The <a href="https://github.com/microcks/test-github-action">Microcks Test GitHub Action</a> is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails. This action is basically a wrapper around the <a href="https://github.com/microcks/microcks-cli">Microcks CLI</a> and provides the same configuration capabilities.</p>
-<p>The <code>test</code> command of the CLI needs 3 arguments:</p>
+<p>Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your GitHub workflows:</p>
+<ul>
+<li>
+<p>The <a href="https://github.com/microcks/import-github-action">Microcks Import GitHub Action</a> is a GitHub Action you may use in your Workflow to import a bunch of API artifacts in a Microcks installs. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails,</p>
+</li>
+<li>
+<p>The <a href="https://github.com/microcks/test-github-action">Microcks Test GitHub Action</a> is a GitHub Action you may use in your Workflow to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is compliant with API contract in Microcks) the workflow is pursuing, if not it fails.</p>
+</li>
+</ul>
+<p>Those 2 actions are basically a wrapper around the <a href="https://github.com/microcks/microcks-cli">Microcks CLI</a> and provides the same configuration capabilities. Especially, they&rsquo;re sharing the same mandatory configuration parameters that are</p>
+<ul>
+<li><code>microcksURL</code> for the Microcks API endpoint,</li>
+<li><code>keycloakClientId</code> for the Keycloak Realm Service Account ClientId,</li>
+<li><code>keycloakClientSecret</code> for the Keycloak Realm Service Account ClientSecret.</li>
+</ul>
+<h3 id="how-to-use-them">How to use them?</h3>
+<p>Obviously we can find this action with <a href="https://github.com/marketplace?type=actions&amp;query=microcks+">GitHub Actions Marketplace</a> 😉</p>
+<p>You may add one of the Action to your Workflow directly from the GitHub UI.</p>
+<p><img src="/images/github-marketplace.png" alt="marketplace"></p>
+<h3 id="import-github-action">Import GitHub action</h3>
+<p>The <code>import</code> action, based on the CLI command, has just one argument that specifies a comma separated list of file paths:</p>
+<ul>
+<li><code>&lt;specificationFile1[:primary],specificationFile2[:primary]&gt;</code> : The file paths with an optional flag telling if it should be imported as <code>primary</code> or not. See <a href="../using/importers/#multi-artifacts-support">Multi-artifacts support</a> doc. Default is <code>true</code> so it is considered as primary.</li>
+</ul>
+<h4 id="step-1---configure-the-gh-action">Step 1 - Configure the GH action</h4>
+<p>Here&rsquo;s an example below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-workflow</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">push]</span><span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">my-job</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l">Development</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">microcks/import-github-action@v1</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">specificationFiles</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;samples/weather-forecast-openapi.yml:true,samples/weather-forecast-postman.json:false&#39;</span><span class="w">
+</span><span class="w">          </span><span class="nt">microcksURL</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://microcks.apps.acme.com/api/&#39;</span><span class="w">
+</span><span class="w">          </span><span class="nt">keycloakClientId</span><span class="p">:</span><span class="w">  </span><span class="l">${{ secrets.MICROCKS_SERVICE_ACCOUNT }}</span><span class="w">
+</span><span class="w">          </span><span class="nt">keycloakClientSecret</span><span class="p">:</span><span class="w">  </span><span class="l">${{ secrets.MICROCKS_SERVICE_ACCOUNT_CREDENTIALS }}</span><span class="w">
+</span></code></pre></div><h4 id="step-2---configure-the-secrets">Step 2 - Configure the Secrets</h4>
+<p>As you probably saw just above, we do think it&rsquo;s a best practice to use GitHub Secrets (general or tied to <code>Environment</code> like in the example) to hold the Keycloak credentials (client Id and Secret). See below the Secrets configuration we&rsquo;ve used for the example:</p>
+<p><img src="/images/github-secrets.png" alt="secret configuration"></p>
+<h3 id="test-github-action">Test GitHub action</h3>
+<p>The <code>test</code> action, based on the CLI command, needs 3 arguments:</p>
 <ul>
 <li><code>&lt;apiName:apiVersion&gt;</code> : Service to test reference. Exemple: <code>'Beer Catalog API:0.9'</code></li>
 <li><code>&lt;testEndpoint&gt;</code> : URL where is deployed implementation to test</li>
 <li><code>&lt;runner&gt;</code> : Test strategy (one of: <code>HTTP</code>, <code>SOAP</code>, <code>SOAP_UI</code>, <code>POSTMAN</code>, <code>OPEN_API_SCHEMA</code>, <code>ASYNC_API_SCHEMA</code>)</li>
-</ul>
-<p>With a bunch of mandatory flags:</p>
-<ul>
-<li><code>--microcksURL</code> for the Microcks API endpoint,</li>
-<li><code>--keycloakClientId</code> for the Keycloak Realm Service Account ClientId,</li>
-<li><code>--keycloakClientSecret</code> for the Keycloak Realm Service Account ClientSecret.</li>
 </ul>
 <p>And some optional ones:</p>
 <ul>
@@ -287,11 +325,8 @@ var trackOutboundLink = function(id, url) {
 <li><code>--secretName='&lt;Secret Name&gt;'</code> is an optional flag specifying the name of a Secret to use for connecting endpoint,</li>
 <li><code>--operationsHeaders=&lt;JSON&gt;</code> allows to override some operations headers for the tests to launch.</li>
 </ul>
-<h3 id="how-to-use-it">How to use it?</h3>
-<p>Obviously we can find this action with <a href="https://github.com/marketplace?type=actions">GitHub Actions Marketplace</a> 😉</p>
-<p>You may add the Action to your Workflow directly from the GitHub UI.</p>
-<p><img src="/images/github-marketplace.png" alt="marketplace"></p>
-<h4 id="step-1---configure-the-github-action">Step 1 - Configure the GitHub action</h4>
+<h4 id="step-1---configure-the-gh-action-1">Step 1 - Configure the GH action</h4>
+<p>Here&rsquo;s an example below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-workflow</span><span class="w">
 </span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">push]</span><span class="w">
 </span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
@@ -308,7 +343,7 @@ var trackOutboundLink = function(id, url) {
 </span><span class="w">          </span><span class="nt">keycloakClientId</span><span class="p">:</span><span class="w">  </span><span class="l">${{ secrets.MICROCKS_SERVICE_ACCOUNT }}</span><span class="w">
 </span><span class="w">          </span><span class="nt">keycloakClientSecret</span><span class="p">:</span><span class="w">  </span><span class="l">${{ secrets.MICROCKS_SERVICE_ACCOUNT_CREDENTIALS }}</span><span class="w">
 </span><span class="w">          </span><span class="nt">waitFor</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;10sec&#39;</span><span class="w">
-</span></code></pre></div><h4 id="step-2---configure-the-secrets">Step 2 - Configure the Secrets</h4>
+</span></code></pre></div><h4 id="step-2---configure-the-secrets-1">Step 2 - Configure the Secrets</h4>
 <p>As you probably saw just above, we do think it&rsquo;s a best practice to use GitHub Secrets (general or tied to <code>Environment</code> like in the example) to hold the Keycloak credentials (client Id and Secret). See below the Secrets configuration we&rsquo;ve used for the example:</p>
 <p><img src="/images/github-secrets.png" alt="secret configuration"></p>
 
@@ -541,7 +576,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Using Microcks from GitHub Actions”
-  </a> was last updated: June 30, 2021
+  </a> was last updated: November 22, 2021
 </h6>
 
       <a href="edit/master/content/en/documentation/automating/github-actions.md" class="
