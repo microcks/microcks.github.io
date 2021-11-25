@@ -49,13 +49,13 @@ If you have not done it in the previous step, you will need to load one of Micro
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/getting-started-tests/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-10-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-25T00:00:00+00:00" />
 
 <meta itemprop="name" content="Getting started with Tests">
 <meta itemprop="description" content="Getting started (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve Contract Testing for your API, either manually from the UI or in an automated way using the CLI tooling.
 If you have not done it in the previous step, you will need to load one of Microcks samples: the Pastry API."><meta itemprop="datePublished" content="2020-10-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="965">
+<meta itemprop="dateModified" content="2021-11-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1042">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started with Tests"/>
 <meta name="twitter:description" content="Getting started (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve Contract Testing for your API, either manually from the UI or in an automated way using the CLI tooling.
@@ -275,7 +275,7 @@ var trackOutboundLink = function(id, url) {
 <ul>
 <li>Simple <code>GET</code> operation mocking and testing,</li>
 <li><code>Path parameters</code> matching and testing,</li>
-<li><a href="./using/advanced/#content-negocation-in-rest-mocks">Content negociation</a> matching and testing.</li>
+<li><a href="./using/advanced/#content-negocation-in-rest-mocks">Content negotiation</a> matching and testing.</li>
 </ul>
 <p>Now that we have the sample API registered in Microcks, we can deploy an implementation of this API contract. This will be our <a href="https://en.wikipedia.org/wiki/System_under_test">System Under Test</a>.</p>
 <h2 id="deploying-the-api-pastry-implementation">Deploying the API Pastry implementation</h2>
@@ -308,15 +308,18 @@ __  ____  __  _____   ___  __ ____  ______
 2020-10-19 14:49:37,134 INFO  <span class="o">[</span>io.quarkus<span class="o">]</span> <span class="o">(</span>main<span class="o">)</span> quarkus-api-pastry 1.0.0-SNAPSHOT native <span class="o">(</span>powered by Quarkus 1.7.1.Final<span class="o">)</span> started in 0.104s. Listening on: http://0.0.0.0:8282
 2020-10-19 14:49:37,135 INFO  <span class="o">[</span>io.quarkus<span class="o">]</span> <span class="o">(</span>main<span class="o">)</span> Profile prod activated. 
 2020-10-19 14:49:37,135 INFO  <span class="o">[</span>io.quarkus<span class="o">]</span> <span class="o">(</span>main<span class="o">)</span> Installed features: <span class="o">[</span>cdi, resteasy, resteasy-jaxb, resteasy-jsonb<span class="o">]</span>
-</code></pre></div><p>Depending on you system, the application endpoint will be reachable at <code>http://docker.for.mac.localhost:8282</code> or <code>http://docker.for.win.localhost:8282</code> or <code>http://localhost:8282</code>.</p>
+</code></pre></div><p>Depending on you system and docker version, the application endpoint will be reachable at <code>http://docker.for.mac.localhost:8282</code> or <code>http://docker.for.win.localhost:8282</code> or <code>http://localhost:8282</code> from you host network. However you&rsquo;ll have to use <code>http://host.docker.internal:8282</code> as the test endpoint when launching a step in next step.</p>
+<blockquote>
+<p>If you still encounter issues joining this container from Microcks main one, you may use the command <code>docker run -i --name pastry --network=docker-compose_default --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest</code> to force the implementation to join the network that was created by the Microcks docker-compose. After that, you&rsquo;ll have to use <code>http://pastry:8282</code> as the test endpoint.</p>
+</blockquote>
 <h2 id="launching-a-test">Launching a test</h2>
 <p>Now that our component implementing the API is running, it&rsquo;s time to launch some tests to check if it is actually compliant with the API Contract. This is what we call <strong>Contract Testing</strong>. You can launch and run tests from the UI or from the <a href="../automating/cli/"><code>microcks-cli</code></a> tool.</p>
 <h3 id="from-the-ui">From the UI</h3>
-<p>You may already have seen it but there&rsquo;s a <b>NEW TEST&hellip;</b> button on the right hand side of the page detailing the <strong>API Pastry</strong> service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:</p>
+<p>You may already have seen it but there&rsquo;s a <strong>NEW TEST&hellip;</strong> button on the right hand side of the page detailing the <strong>API Pastry</strong> service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:</p>
 <p><img src="/images/sample-test-form.png" alt="sample-test-form"></p>
 <p>Just copy/paste the endpoint URL where your <code>quarkus-api-pastry</code> deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one. Then select the <code>OPEN_API_SCHEMA</code> test strategy (read here for more on <a href="../using/tests/#test-runner">tests runners</a>). And finally, hit the <strong>Launch test !</strong> button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).</p>
 <p><img src="/images/sample-test-launch.png" alt="sample-test-launch"></p>
-<p>Following the <strong>Full results</strong> link in the above sreen will lead you to a screen where you&rsquo;ll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!</p>
+<p>Following the <strong>Full results</strong> link in the above screen will lead you to a screen where you&rsquo;ll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!</p>
 <p><img src="/images/sample-test-result.png" alt="sample-test-result"></p>
 <h3 id="from-the-cli">From the CLI</h3>
 <p>Microcks also provides the <a href="../automating/cli/"><code>microcks-cli</code></a> tool that can be used to automate the testing. Binary releases for Linux, MacOS or Windows platform are available on the GitHub <a href="https://github.com/microcks/microcks-cli/releases">releases page</a>. Just download the binary corresponding to your system and put the binary into the <code>PATH</code> somewhere.</p>
@@ -572,10 +575,10 @@ MicrocksClient got status <span class="k">for</span> <span class="nb">test</span
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Getting started with Tests”
-  </a> was last updated: October 19, 2020
+  </a> was last updated: November 25, 2021
 </h6>
 
-      <a href="edit/master/content/en/documentation/getting-started-tests.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/getting-started-tests.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 
