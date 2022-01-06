@@ -286,7 +286,7 @@ var trackOutboundLink = function(id, url) {
 <p>As of today Microcks only supports <code>proto3</code> syntax as it is now the default and encouraged version from gRPC community,</p>
 </li>
 <li>
-<p>gRPC does not has the notion of Service version. In Microcks, this notion is critical and we will use the package information in <code>Protofile</code> to compute a version.</p>
+<p>gRPC doesn&rsquo;t have the notion of Service version. In Microcks, this notion is critical and we will use the package information in <code>Protofile</code> to compute a version.</p>
 <ul>
 <li>For package name containing containing more than 2 paths levels, we&rsquo;ll extract the last one as being the version. So <code>package io.github.microcks.grpc.hello.v1;</code> will produce version <code>v1</code></li>
 <li>We&rsquo;ll keep unchanged simplest package named, so <code>package com.acme;</code> will produce version <code>com.acme</code> that is not very unique 😞.</li>
@@ -333,7 +333,7 @@ var trackOutboundLink = function(id, url) {
 <p><img src="/images/grpc-postman-collection.png" alt="grpc-postman-collection"></p>
 <p>You can now start organizing and creating requests that are matching with the gRPC service method name. For our example, we&rsquo;re specifying the <code>greeting</code> request for the <code>greeting</code> gRPC method.</p>
 <p><img src="/images/grpc-postman-operations.png" alt="grpc-postman-operations"></p>
-<p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it supposed to represent. Example url should also match with the name of the gRPC method; here we have a simple <code>http:///greeting</code>.</p>
+<p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it is supposed to represent. Example url should also match with the name of the gRPC method; here we have a simple <code>http:///greeting</code>.</p>
 <p>As JSON / Protobuf translation is bi-directional, you&rsquo;ll define examples using simple JSON for request body and for response body as well. Below is a basic example but <a href="../advanced/templates/">Templating expressions and functions</a> are obviously supported:</p>
 <p><img src="/images/grpc-postman-example.png" alt="grpc-postman-example"></p>
 <p>Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
@@ -399,6 +399,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               GRPC USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRAPHQL USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">
@@ -617,7 +622,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

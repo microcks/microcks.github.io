@@ -55,7 +55,7 @@ However in some cases, this could not be enough and it will be useful to overrid
 <meta itemprop="description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values."><meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1141">
+<meta itemprop="wordCount" content="1142">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Custom dispatching rules"/>
 <meta name="twitter:description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
@@ -286,12 +286,12 @@ var trackOutboundLink = function(id, url) {
 <p>The above rule can be simply read like this <em>&ldquo;From the incoming request, look for the value of the country field. If this field has the value &lsquo;Belgium&rsquo; then return the response called &lsquo;Accepted&rsquo; otherwise return the response called &lsquo;Not accepted&rsquo;.&quot;</em></p>
 </blockquote>
 <h3 id="inferred-dispatchers">Inferred dispatchers</h3>
-<p>A reminder on default, inferred dispatchers: you may find <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code>. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contraxct artifact.</p>
+<p>A reminder on default, inferred dispatchers: you may find <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code>, <code>QUERY_ARGS</code> or <code>SCRIPT</code>. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contract artifact.</p>
 <h3 id="json-body-dispatcher">JSON BODY dispatcher</h3>
-<p>The <code>JSON_BODY</code> dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right secion of the page that will provide examples and copy/paste shortcuts.</p>
+<p>The <code>JSON_BODY</code> dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right section of the page that will provide examples and copy/paste shortcuts.</p>
 <p>The dispatching rules of <code>JSON_BODY</code> dispatcher are always expressed using a JSON payload with 3 properties:</p>
 <ul>
-<li><code>exp</code> is the expression to evaluate against the request body. It is indeed a <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> expression. We already use this expressiong language in <a href="../templates/#json-body-pointer-expression">Templating features</a>. From the evaluation of this expression, we&rsquo;ll get a value. Here <code>/country</code> denotes the <code>country</code> field of incoming request.</li>
+<li><code>exp</code> is the expression to evaluate against the request body. It is indeed a <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> expression. We already use this expression language in <a href="../templates/#json-body-pointer-expression">Templating features</a>. From the evaluation of this expression, we&rsquo;ll get a value. Here <code>/country</code> denotes the <code>country</code> field of incoming request.</li>
 <li><code>op</code> is the operator to apply. Different operators are available like <code>equals</code>, <code>range</code>, <code>regexp</code>, <code>size</code> and <code>presence</code>,</li>
 <li><code>cases</code> are a number of cases where keys are values to compare to extracted value from incoming request.</li>
 </ul>
@@ -430,6 +430,11 @@ Region is unknown. Choose in north, west, east or south.%
           <li class="f6 fw4">
             <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GRPC USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRAPHQL USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">
@@ -648,7 +653,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

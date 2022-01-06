@@ -23,6 +23,9 @@
     <loc>https://microcks.io/documentation/automating/jenkins/</loc>
     <lastmod>2021-11-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://microcks.io/documentation/using/graphql/</loc>
+    <lastmod>2022-01-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://microcks.io/documentation/using/advanced/metadata/</loc>
     <lastmod>2021-09-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -69,7 +72,7 @@
     <lastmod>2019-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/tests/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/dynamic/</loc>
     <lastmod>2019-09-02T00:00:00+00:00</lastmod>
@@ -90,7 +93,7 @@
     <lastmod>2019-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/mocks/</loc>
-    <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/deployment-options/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
@@ -102,7 +105,16 @@
     <lastmod>2021-11-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/api/</loc>
-    <lastmod>2021-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/categories/blog/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
@@ -115,15 +127,6 @@
   </url><url>
     <loc>https://microcks.io/blog/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2021-09-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/async-features-with-docker-compose/</loc>
     <lastmod>2021-08-30T00:00:00+00:00</lastmod>
@@ -153,7 +156,7 @@
     <lastmod>2021-02-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2021-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/</loc>
     <lastmod>2021-02-15T00:00:00+00:00</lastmod>

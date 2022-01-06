@@ -45,21 +45,21 @@
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Executing tests" />
 <meta property="og:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process." />
+From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/tests/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-06T00:00:00+00:00" />
 
 <meta itemprop="name" content="Executing tests">
 <meta itemprop="description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-09-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="814">
+From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-01-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="840">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Executing tests"/>
 <meta name="twitter:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."/>
+From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."/>
 
 
       
@@ -273,7 +273,7 @@ var trackOutboundLink = function(id, url) {
 
 <h2 id="running-tests">Running tests</h2>
 <p>Microcks offers mocks but can also be used for <strong>Contract testing</strong> of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!</p>
-<p>From the page displaying basic information on your <a href="../mocks/#mocks-info">microservice mocks</a>, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <b>NEW TEST&hellip;</b> button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:</p>
+<p>From the page displaying basic information on your <a href="../mocks/#mocks-info">API or Service mocks</a>, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <strong>NEW TEST&hellip;</strong> button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:</p>
 <p><img src="/images/test-form.png" alt="test-form"></p>
 <blockquote>
 <p>While it is convenient to launch test <code>on demand</code> manually, it may be interesting to consider launching new tests automatically when a new deployment of the application occurs for example&hellip; Microcks allows you such automation by offering API for ease of integration. See <a href="../../automating/api/">here</a> for more details).</p>
@@ -344,27 +344,32 @@ var trackOutboundLink = function(id, url) {
 <tr>
 <td><code>SOAP_UI</code></td>
 <td>REST and SOAP</td>
-<td>When the microservice mock repository is defined using <a href="../soapui">SoapUI</a>: ensures that assertions put into Test cases are checked valid. Report failures.</td>
+<td>When the API artifact is defined using <a href="../soapui">SoapUI</a>: ensures that assertions put into Test cases are checked valid. Report failures.</td>
 </tr>
 <tr>
 <td><code>POSTMAN</code></td>
 <td>REST</td>
-<td>When the microservice mock repository is defined using <a href="../postman">Postman</a>: executes test scripts as specified within Postman. Report failures.</td>
+<td>When the API artifact is defined using <a href="../postman">Postman</a>: executes test scripts as specified within Postman. Report failures.</td>
 </tr>
 <tr>
 <td><code>OPEN_API_SCHEMA</code></td>
 <td>REST</td>
-<td>When the microservice mock repository is defined using <a href="../openapi">Open API</a>: it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.</td>
+<td>When the API artifact is defined using <a href="../openapi">Open API</a>: it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.</td>
 </tr>
 <tr>
 <td><code>ASYNC_API_SCHEMA</code></td>
 <td>EVENT</td>
-<td>When the microservice mock repository is defined using <a href="../asyncapi">Async API</a>: it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.</td>
+<td>When the API artifact is defined using <a href="../asyncapi">Async API</a>: it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.</td>
 </tr>
 <tr>
 <td><code>GRPC_PROTOBUF</code></td>
 <td>GRPC</td>
-<td>When the microservice mock repository is defined using <a href="../grpc">gRPC</a>: it executes example requests and check that results payload is compliant with Protocol Buffer schema specified into gRPC proto file.</td>
+<td>When the API artifact is defined using <a href="../grpc">gRPC</a>: it executes example requests and check that results payload is compliant with Protocol Buffer schema specified into gRPC proto file.</td>
+</tr>
+<tr>
+<td><code>GRAPHQL_SCHEMA</code></td>
+<td>GRAPHQL</td>
+<td>When the API is of type <a href="../graphql">GraphQL</a>: it executes example requests and check that results payload is compliant with the GraphQL Schema of the API.</td>
 </tr>
 </tbody>
 </table>
@@ -373,7 +378,7 @@ var trackOutboundLink = function(id, url) {
 <h3 id="secret">Secret</h3>
 <p>Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse <a href="../administrating/secrets">External Secrets</a> that has been made available in the Microcks installation by the administrator.</p>
 <h2 id="getting-tests-history-and-details">Getting tests history and details</h2>
-<p>Tests history for an API/Service is easily accessible from the microservice <a href="../mocks/#mocks-info">summary page</a>. Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.</p>
+<p>Tests history for an API/Service is easily accessible from the API | Service <a href="../mocks/#mocks-info">summary page</a>. Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.</p>
 <p><img src="/images/test-history.png" alt="test-history"></p>
 <p>Specific test details can be visualized : Microcks also records the request and response pairs exchanged with the tested endpoint so that you&rsquo;ll be able to access payload content as well as header. Failures are tracked and violated assertions messages displayed as shown in the screenshot below :</p>
 <p><img src="/images/test-details.png" alt="test-details"></p>
@@ -430,6 +435,11 @@ var trackOutboundLink = function(id, url) {
           <li class="f6 fw4">
             <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GRPC USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRAPHQL USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">
@@ -607,7 +617,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Executing tests”
-  </a> was last updated: September 2, 2019
+  </a> was last updated: January 6, 2022
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/tests.md" class="
@@ -648,7 +658,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

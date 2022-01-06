@@ -6,7 +6,16 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GraphQL usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/graphql/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/graphql/</guid>
+      <description>Overview Introduction GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. So that&amp;rsquo;s a perfect fit for Microcks Service | API model and features 😉</description>
+    </item>
+    
     <item>
       <title>Microcks APIMetadata</title>
       <link>https://microcks.io/documentation/using/advanced/metadata/</link>
@@ -103,7 +112,7 @@ So suppose you have defined 2 representations for the same example of a GET /pas
       
       <guid>https://microcks.io/documentation/using/tests/</guid>
       <description>Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your microservice mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.</description>
+From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.</description>
     </item>
     
     <item>
@@ -152,7 +161,7 @@ Steps for creating a repository In order to create a tests and mocks repository 
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/mocks/</guid>
-      <description>Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
+      <description>Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, gRPC, GraphQL, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
 First, let&amp;rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :</description>
     </item>
     

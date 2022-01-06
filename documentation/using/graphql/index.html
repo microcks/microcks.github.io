@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title>Community | Microcks.io</title>
+    <title>GraphQL usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.88.1" />
@@ -18,7 +18,6 @@
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       
 
-    <link rel="alternate" type="application/rss&#43;xml" href="https://microcks.io/community/index.xml">
     
     
       <link rel="stylesheet" href="/output/css/app.min.a42f770a563de5f4c7aa7d9babef2ebb3b19a040c7f605dbe8b506de79650df9.css" integrity="sha256-pC93ClY95fTHqn2bq&#43;8uuzsZoEDH9gXb6LUG3nllDfk=" crossorigin="anonymous"> 
@@ -44,15 +43,20 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Community" />
-<meta property="og:description" content="Microcks.io" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://microcks.io/community/" />
+<meta property="og:title" content="GraphQL usage for Microcks" />
+<meta property="og:description" content="Overview Introduction GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/using/graphql/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2022-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-05T00:00:00+00:00" />
 
-<meta itemprop="name" content="Community">
-<meta itemprop="description" content="Microcks.io"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Community"/>
-<meta name="twitter:description" content="Microcks.io"/>
+<meta itemprop="name" content="GraphQL usage for Microcks">
+<meta itemprop="description" content="Overview Introduction GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉"><meta itemprop="datePublished" content="2022-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-01-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1046">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GraphQL usage for Microcks"/>
+<meta name="twitter:description" content="Overview Introduction GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉"/>
 
 
       
@@ -202,23 +206,174 @@ var trackOutboundLink = function(id, url) {
     
     <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
       
-  
-  
-  
+  <article class="w-100 ph3 pb5">
+    <div class="flex-l">
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#conventions">Conventions</a></li>
+      </ul>
+    </li>
+    <li><a href="#illustration">Illustration</a>
+      <ul>
+        <li><a href="#specifying-api-structure">Specifying API structure</a></li>
+        <li><a href="#specifying-api-examples">Specifying API examples</a></li>
+        <li><a href="#importing-artifacts">Importing artifacts</a></li>
+        <li><a href="#defining-dispatch-rules">Defining dispatch rules</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	
 
-  <div class="w-100 ph4 pb5 pb6-ns pt1 mt4">
-  
+	<div date-pref>
+		
 
-  <div class="flex">
-    <div class="dn db-l w-20">
+		
+			<a href="https://microcks.io/documentation/using/advanced/metadata/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Microcks APIMetadata">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+	</div>
+
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">GraphQL usage for Microcks</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+<h2 id="overview">Overview</h2>
+<h3 id="introduction">Introduction</h3>
+<p>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. So that&rsquo;s a perfect fit for Microcks Service | API model and features 😉</p>
+<p>Starting with version <code>1.5.0</code>, Microcks is supporting GraphQL mocking and testing thanks to the new <a href="../importers/#multi-artifacts-support">multi-artifacts support</a> feature. In order to use GraphQL in Microcks, you will need 2 artifacts for each API definition:</p>
+<ul>
+<li>A <a href="https://graphql.org/learn/schema/">GraphQL IDL Schema</a> definition that holds the API metadata and operations definitions,</li>
+<li>A Postman Collection file that holds the mock examples (requests and responses) for the different operations of the GraphQL API.</li>
+</ul>
+<h3 id="conventions">Conventions</h3>
+<p>In order to be correctly imported and understood by Microcks, your GraphQL IDL and Postman files should follow a little set of reasonable conventions and best practices.</p>
+<ul>
+<li>GraphQL Schema doesn&rsquo;t have the notion of API name or version. In Microcks, this notion is critical and we thus we will need to have a specific comment notation to get this information. You&rsquo;ll need to add a comment line starting with <code>microcksId:</code> in your schema file and then referring the <code>&lt;API name&gt;:&lt;API version&gt;</code>. See an example below:</li>
+</ul>
+<pre tabindex="0"><code># microcksId: Movie Graph API : 1.0
+schema {
+    query: Query
+    mutation: Mutation
+}
+[...]
+</code></pre><ul>
+<li>Your Postman collection description will need to have a name that matches the GraphQL API name and a custom property <code>version</code> that matches the above referenced version,</li>
+<li>Your Postman collection will need to organize examples into requests having the same name and url as the GraphQL queries or mutations,</li>
+<li>Your Postman collection will then simply hold examples defined in JSON, defining the value for all different fields of a response. Microcks will later apply field selection as required in GraphQL.</li>
+</ul>
+<p>We recommend having a look at our sample GraphQL API for the <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/films.graphql">Movie Graph API</a> as well as the <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/films-postman.json">companion Postman collection</a> to fully understand and see those conventions in action.</p>
+<h2 id="illustration">Illustration</h2>
+<p>Let&rsquo;s dive in details of our sample <code>Movie Graph</code> API.</p>
+<h3 id="specifying-api-structure">Specifying API structure</h3>
+<p>This is a fairly basic GraphQL API that is inspired by the famous <code>Film</code>samples you find on <a href="https://graphql.org">Graphql.org</a>. You can see below the definition using Schema IDL below found in <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/film-1.0.graphql">film-1.0.graphql</a> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-graphql" data-lang="graphql"><span class="c"># microcksId: Movie Graph API : 1.0</span><span class="w">
+</span><span class="w"></span><span class="kd">schema</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="kd">query</span><span class="p">:</span><span class="w"> </span><span class="nc">Query</span><span class="w">
+</span><span class="w">    </span><span class="nc">mutation</span><span class="p">:</span><span class="w"> </span><span class="nc">Mutation</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="kd">type</span><span class="w"> </span><span class="nc">Film</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="py">id</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">!</span><span class="w">
+</span><span class="w">    </span><span class="py">title</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">!</span><span class="w">
+</span><span class="w">    </span><span class="py">episodeID</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">!</span><span class="w">
+</span><span class="w">    </span><span class="py">director</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">!</span><span class="w">
+</span><span class="w">    </span><span class="py">starCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">!</span><span class="w">
+</span><span class="w">    </span><span class="py">rating</span><span class="p">:</span><span class="w"> </span><span class="nc">Float</span><span class="p">!</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">type</span><span class="w"> </span><span class="nc">FilmsConnection</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="py">totalCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">!</span><span class="w">
+</span><span class="w">    </span><span class="py">films</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nc">Film</span><span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">input</span><span class="w"> </span><span class="nc">Review</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="py">comment</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w">
+</span><span class="w">    </span><span class="py">rating</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">type</span><span class="w"> </span><span class="nc">Query</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="py">allFilms</span><span class="p">:</span><span class="w"> </span><span class="nc">FilmsConnection</span><span class="w">
+</span><span class="w">    </span><span class="py">film</span><span class="p">(</span><span class="py">id</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">Film</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">type</span><span class="w"> </span><span class="nc">Mutation</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="py">addStar</span><span class="p">(</span><span class="py">filmId</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">Film</span><span class="w">
+</span><span class="w">    </span><span class="py">addReview</span><span class="p">(</span><span class="py">filmId</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="py">review</span><span class="p">:</span><span class="w"> </span><span class="nc">Review</span><span class="p">):</span><span class="w"> </span><span class="nc">Film</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>Considering the first comment line of this file, when imported into Microcks, it will discover the <code>Movie Graph API</code> with version <code>1.0.0</code> and four operations that are: <code>allFilms</code>, <code>film</code>, <code>addStar</code> and <code>addReview</code>.</p>
+<h3 id="specifying-api-examples">Specifying API examples</h3>
+<p>Specification of examples is done using a Postman Collection as examples cannot be attached to main <code>GraphQL Schema</code> and thanks to Microcks <code>1.3.0</code> <a href="../importers/#multi-artifacts-support">multi-artifacts support</a> feature.</p>
+<p>Using Postman, just create a new Collection - using the same name as GraphQL API and adding the custom property <code>version</code> at the beginning of description like illustrated below:</p>
+<p><img src="/images/graphql-postman-collection.png" alt="graphql-postman-collection"></p>
+<p>You can now start organizing and creating requests that are matching with the GraphQL API queries or mutations operation name. For our example, we&rsquo;re specifying the four operations: <code>allFilms</code>, <code>film</code>, <code>addStar</code> and <code>addReview</code>.</p>
+<blockquote>
+<p>If you have imported or define you GraphQL Schema API into Postman, you can also directly create a Collection from it. In that case, Postman will auto-organize content using the <code>/queries</code> and <code>/mutations</code> folders like below. This is convenient but not required by Microcks.</p>
+</blockquote>
+<p><img src="/images/graphql-postman-operations.png" alt="graphql-postman-operations"></p>
+<p>The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the <a href="https://www.getpostman.com/docs/postman/collections/examples">Postman documentation</a>. You&rsquo;ll give each example a meaningful name regarding the use-case it is supposed to represent. Example url must also match the name of the GraphQL operation method; here we have a simple <code>{{url}}</code> because the url at the upper request level but this one must have the <code>http://allFilms</code> value.</p>
+<p>You&rsquo;ll define examples using simple JSON for request body and for response body as well. Below is a basic example but <a href="../advanced/templates/">Templating expressions and functions</a> are obviously supported:</p>
+<p><img src="/images/graphql-postman-example.png" alt="graphql-postman-example"></p>
+<blockquote>
+<p>One particular things of GraphQL is that it allows API consumers to select the fields they want to have in response. Microcks GraphQL mocks are smart enough to realize that filtering but you should take care to define every possible fields value in your Collection examples. Otherwise, missing fields could not be retrieved by consumers.</p>
+</blockquote>
+<h3 id="importing-artifacts">Importing artifacts</h3>
+<p>Both artifacts should be imported into Microcks either through <a href="../importers/#direct-upload">direct upload</a> or <a href="/..importers/#scheduled-import">scheduled import</a>. The important thing to notice is that the GraphQL Schema artifact represents the <code>main</code> or <code>primary</code> artifact for this service definition and that the Postman Collection represents a <code>secondary</code> artifact. You have to mention it when importing it otherwise your GraphQL API definition will be overwritten!</p>
+<h3 id="defining-dispatch-rules">Defining dispatch rules</h3>
+<p>In order to be able to find response associated to incoming request, Microcks is using the concept of <code>dispatcher</code>. Default <code>dispatcher</code> and associated <code>dispatcherRules</code> for an operation is generally inferred by Microcks at import time but can be later overwritten.</p>
+<p>GraphQL API mocks in Microcks support 5 different types of <code>dispatcher</code>. The first two can be directly inferred by Microcks during the import of GraphQL Schema:</p>
+<ul>
+<li><code>empty</code> dispatcher means that Microcks will pick the first available response of operation. It is deduced for queries with no arguments like the <code>allFilms</code> operation,</li>
+<li><code>QUERY_ARGS</code> dispatcher is deduced for queries or mutations presentation simple <a href="https://graphql.org/learn/schema/#scalar-types">scalar typed</a> arguments like for example the <code>film</code> query that allows finding by identifier.</li>
+</ul>
+<p>Other dispatching strategies can then be set up with <code>dispatcher</code> and <code>dispatherRules</code> customization:</p>
+<ul>
+<li><a href="../advanced/dispatching/#json-body-dispatcher"><code>JSON_BODY</code></a> dispatcher can be used for dispatching based on the content of <a href="https://graphql.org/learn/queries/#variables">GraphQL variables</a>. The JSON representing variables is injected as the reference body and is used for evaluation,</li>
+<li><code>SCRIPT</code> dispatcher can be used for dispatching based on the content of the complete HTTP Request body. Basically, you&rsquo;ll receive the whole <a href="https://graphql.org/learn/serving-over-http/#post-request">POST request</a> and have to return the name of response to return based on whatever criteria,</li>
+<li><a href="../advanced/dispatching/#fallback-dispatcher"><code>FALLBACK</code></a> dispatcher can finally be used in combination with any of the 4 other dispatcher to provide fallback behavior.</li>
+</ul>
+<blockquote>
+<p>You&rsquo;ll be able to directly import these dispatching rules from your Git repository as well, thanks to <a href="../advanced/metadata">API Metadata</a> documents! Look at the <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/films-metadata.json">companion API Metadata file</a> of our sample and try importing it at <code>secondary</code> artifact :wink:</p>
+</blockquote>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
         
 <nav role="navigation">
   <ul class="list pa0 nl2">
     
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
-        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
@@ -260,7 +415,7 @@ var trackOutboundLink = function(id, url) {
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               GRAPHQL USAGE FOR MICROCKS
             </a>
           </li>
@@ -426,46 +581,31 @@ var trackOutboundLink = function(id, url) {
   </ul>
 </nav>
 
+      </div>
     </div>
 
-    <div class="w-100 w-80-l ph0 ph4-l">
-      <article class="w-100 nested-copy-line-height nested-links nested-img">
-        <h1 class="primary-color-dark f2">
-          Community
-        </h1>
-        <div class=" mid-gray f5 f4-l">
-          <p>We ❤️community! Contributions and feedback in whatever form are always welcome, as long as they&rsquo;re constructive!</p>
-<p>Here are some important links:</p>
-<ul>
-<li><strong>Source code:</strong> <a href="https://github.com/microcks">GitHub organization</a></li>
-<li><strong>Twitter:</strong> <a href="https://twitter.com/microcksIO">MicrocksIO on Twitter</a></li>
-<li><strong>Chat:</strong> <a href="https://microcksio.zulipchat.com/">MicrocksIO chat on Zulip</a></li>
-</ul>
-<h3 id="zulip">Zulip</h3>
-<p>You can chat with the Microcks team and other users on The <a href="https://microcksio.zulipchat.com/">MicrocksIO chat</a> on Zulip IM. Use this channel to ask questions, request help from core team or experienced users.</p>
-<h3 id="github">GitHub</h3>
-<p>You can raise issues, ask for enhancements and track resolutions for Microcks main repository or for other plugins. Just have a look at our <a href="https://github.com/microcks">GitHub organization</a>.</p>
-<h3 id="twitter">Twitter</h3>
-<p>You can follow <a href="https://twitter.com/microcksIO">MicrocksIO on Twitter</a> to stay in touch or simply share your experience with Microcks tweeting about it using the <code>#microcks</code> hashtag.</p>
+  </article>
+  
 
-        </div>
-      </article>
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/using/graphql/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “GraphQL usage for Microcks”
+  </a> was last updated: January 5, 2022
+</h6>
+
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/graphql.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
 
       
 
-      <div class="flex flex-wrap">
-        
-        <section class="flex-ns flex-wrap justify-between w-100">
-          
-        </section>
-      </div>
 
     </div>
-
   </div>
-
-</div>
-
 
     </main>
 

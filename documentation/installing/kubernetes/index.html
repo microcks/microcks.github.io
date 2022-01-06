@@ -268,7 +268,7 @@ var trackOutboundLink = function(id, url) {
 
 $ kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks —-version 1.1.0 --namespace microcks --set microcks.url<span class="o">=</span>microcks.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io --set keycloak.url<span class="o">=</span>keycloak.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io
+$ helm install microcks microcks/microcks --version 1.1.0 --namespace microcks --set microcks.url<span class="o">=</span>microcks.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io --set keycloak.url<span class="o">=</span>keycloak.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io
 </code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.</p>
 <img src="/images/running-pods-k8s.png" class="img-responsive"/>
 <p>Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>.</p>
@@ -345,6 +345,11 @@ minikube start
           <li class="f6 fw4">
             <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GRPC USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRAPHQL USAGE FOR MICROCKS
             </a>
           </li>
           <li class="f6 fw4">
@@ -563,7 +568,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2021. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>
