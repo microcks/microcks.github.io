@@ -6,7 +6,16 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GraphQL features in Microcks: what to expect?</title>
+      <link>https://microcks.io/blog/graphql-features-what-to-expect/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/graphql-features-what-to-expect/</guid>
+      <description>In various 2021 reports, GraphQL has been spotted as one of the most exciting technologies to consider for APIs. It is a query language and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.</description>
+    </item>
+    
     <item>
       <title>Microcks 1.4.1 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.4.1-release/</link>

@@ -55,7 +55,7 @@ Supported formats As previously introduced, Microcks &ldquo;turns your API contr
 <meta itemprop="description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will take you through a complete explanation of supported formats and the import mechanisms present in Microcks.
 Supported formats As previously introduced, Microcks &ldquo;turns your API contract into live mocks in seconds&rdquo; - the noticeable part of this sentence being API contract."><meta itemprop="datePublished" content="2020-02-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-07-16T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1461">
+<meta itemprop="wordCount" content="1478">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Importing Services &amp; APIs"/>
 <meta name="twitter:description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will take you through a complete explanation of supported formats and the import mechanisms present in Microcks.
@@ -284,7 +284,8 @@ var trackOutboundLink = function(id, url) {
 <li><a href="https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api">Apicurio Studio</a> direct integration when working on OpenAPI 3.x API specifications,</li>
 <li><a href="http://spec.openapis.org/oas/v3.0.3">OpenAPI v3.x</a> files in either YAML or JSON format. See our <a href="../openapi/">documentation</a> on some conventions you should follow for this specification,</li>
 <li><a href="https://www.asyncapi.com/docs/specifications/2.0.0">AsyncAPI v2.x</a> files in either YAML or JSON format. See our <a href="../asyncapi/">documentation</a> on some conventions you should follow for this specification,</li>
-<li><a href="https://grpc.io/docs/what-is-grpc/introduction/">gRPC / Protocol buffers v3</a> <code>.proto</code>files. See our <a href="../grpc/">documentation</a> on some conventions you should follow for this specification.</li>
+<li><a href="https://grpc.io/docs/what-is-grpc/introduction/">gRPC / Protocol buffers v3</a> <code>.proto</code> files. See our <a href="../grpc/">documentation</a> on some conventions you should follow for this specification,</li>
+<li><a href="https://www.apollographql.com/docs/apollo-server/schema/schema/">GraphQL Schema</a> <code>.graphql</code> files. See our <a href="../graphql/">documentation</a> on some conventions you should follow for this specification.</li>
 </ul>
 <blockquote>
 <p>People very often ask <em>&ldquo;Why isn&rsquo;t the Swagger format - aka OpenApi 2.0 - supported by Microcks?&quot;</em>. This is because Swagger is incomplete for specifying mocks as it does not allow full specification of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seem to compose sample requests, they&rsquo;re only doing this using schema information with random generated values&hellip;</p>

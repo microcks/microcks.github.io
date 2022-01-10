@@ -107,25 +107,28 @@
     <loc>https://microcks.io/documentation/automating/api/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
+    <loc>https://microcks.io/categories/blog/</loc>
+    <lastmod>2022-01-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/categories/</loc>
+    <lastmod>2022-01-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/graphql-features-what-to-expect/</loc>
+    <lastmod>2022-01-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/</loc>
+    <lastmod>2022-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
+    <lastmod>2022-01-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/</loc>
     <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/</loc>
     <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/categories/blog/</loc>
-    <lastmod>2021-10-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/categories/</loc>
-    <lastmod>2021-10-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://microcks.io/blog/microcks-1.4.1-release/</loc>
-    <lastmod>2021-10-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/blog/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/async-features-with-docker-compose/</loc>
