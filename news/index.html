@@ -213,70 +213,39 @@ var trackOutboundLink = function(id, url) {
       <div class="prose" id="prose">
         <h2 id="fresh-releases">Fresh Releases</h2>
 <h3 id="microcks-core">Microcks core</h3>
-<h4 id="130-on-30-jun-2021">1.3.0 on 30 Jun 2021</h4>
-<p>We are so proud and happy to share this new <code>1.3.0</code> and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. Here are the main changes and enhancements of this release:</p>
+<h4 id="150-on-18-jan-2022">1.5.0 on 18 Jan 2022</h4>
+<p>We are excited to announce the <code>1.5.0</code> release of Microcks 🚀 Thanks to our supporters in the community that helped us push up a new release with significant features. This release puts again the focus on our vision of a unique tool with a consistent approach for <strong>ALL kinds of APIs</strong>.</p>
+<p>The major addition if the support of <a href="https://graphql.io/">GraphQL</a> thats makes Microcks the only tools able to simulate and realize contract-testing on REST, SOAP, gRPC, Events and GraphQL based APIs. Other enhancements are also worth to notice:</p>
 <ul>
-<li>The support of <a href="https://www.asyncapi.com/blog/release-notes-2.1.0">AsyncAPI v2.1</a> specification,</li>
-<li>The support of <a href="https://datatracker.ietf.org/doc/html/rfc6455">WebSocket</a> protocol mocking and testing,</li>
-<li>The support of Multi-artifacts mocks definition,</li>
-<li>The support of <a href="https://grpc.io/">gRPC</a> mocking and testing.</li>
+<li>A lighter developer experience with 50% reduction of footprint,</li>
+<li>A faster startup on Kubernetes,</li>
+<li>A lot of security updates and checks to ensure Microcks is not vulnerable to Log4Shell.</li>
 </ul>
-<p>Check out our <a href="https://microcks.io/blog/microcks-1.3.0-release/">release notes</a>!</p>
-<p>You can also check <a href="https://github.com/microcks/microcks/milestone/14?closed=1">GitHub milestone</a> for the full list of closed issues.</p>
-<h4 id="121-on-06-may-2021">1.2.1 on 06 May 2021</h4>
-<p>We are very glad to announce today the <strong>1.2.1</strong> release of Microcks! This is mainly an “Enhancement release” pushing further the features we introduced within the previous <code>1.2.0</code>. Here are the main changes and enhancements of this release:</p>
+<p>Check out our <a href="https://microcks.io/blog/microcks-1.5.0-release/">release notes</a>!</p>
+<p>You can also check <a href="https://github.com/microcks/microcks/milestone/17?closed=1">GitHub milestone</a> for the full list of closed issues.</p>
+<h4 id="141-on-15-oct-2021">1.4.1 on 15 Oct 2021</h4>
+<p>We are thrilled to announce the <code>1.4.1</code> release that is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience. Here are the highlighted changes of this release:</p>
 <ul>
-<li>The support of <a href="https://www.openapis.org/blog/2021/02/18/openapi-specification-3-1-released">OpenAPI v3.1</a> specification,</li>
-<li>The support of <a href="https://kafka.apache.org">Apache Kafka</a> headers through AsyncAPI mocking,</li>
-<li>The support of <a href="https://mqtt.org">MQTT</a> parametrized channels  through AsyncAPI mocking,</li>
-<li>Enhancement of testing experience through <a href="https://github.com/microcks/microcks/issues/366">Secrets for authentication</a>, <a href="https://github.com/microcks/microcks/issues/365">tests timeouts</a>, <a href="https://github.com/microcks/microcks/issues/368">tests replays</a> and <a href="https://github.com/microcks/microcks/issues/375">expression languages in request</a>,</li>
-<li>SOAP 1.2 full support in Microcks, fixing the <a href="https://github.com/microcks/microcks/pull/358">incoming version detection</a> and the <a href="https://github.com/microcks/microcks/issues/356">response content-type</a>.</li>
-<li>Podman Compose support for running Microcks on your laptop. See the <a href="https://microcks.io/documentation/installing/podman-compose/">Podman installation guide</a></li>
+<li>The ability to have <a href="../documentation/using/advanced/organizing/#rbac-security-segmentation">Repository multi-tenancy</a> for better management of large-scaled repositories,</li>
+<li>The introduction of <a href="../documentation/using/advanced/metadata/">APIMetadata</a> artifact for scaling labeling in Microcks,</li>
+<li>The support of all Async features on developer&rsquo;s laptop through <a href="../blog/async-features-with-docker-compose/">Docker-Compose</a>,</li>
+<li>The introduction of Microcks extensions for <a href="../documentation/using/openapi/#using-openapi-extensions">OpenAPI</a> and <a href="../documentation/using/asyncapi/#using-asyncapi-extensions">AsyncAPI</a> specifications,</li>
 </ul>
-<p>Check out our <a href="https://microcks.io/blog/microcks-1.2.1-release/">release notes</a>!</p>
-<p>You can also check <a href="https://github.com/microcks/microcks/milestone/13?closed=1">GitHub milestone</a> for the full list of closed issues.</p>
-<h4 id="120-on-21-feb-2021">1.2.0 on 21 Feb 2021</h4>
-<p>We are delighted to announce the <strong>1.2.0</strong> release of Microcks! Here are below the main highlights of this release:</p>
-<ul>
-<li>The support of <a href="https://avro.apache.org">Apache Avro</a> as Event-driven APIs message encoding, as well as various schema registries. See our <a href="https://microcks.io/documentation/guides/avro-messaging/">Kafka, Avro and Schema Registry guide</a></li>
-<li>The support of <a href="https://mqtt.org/">MQTT</a> protocol for mocking and testing Event-driven APIs that may be related to the Internet of Things (IoT),</li>
-<li>New <a href="https://microcks.io/documentation/using/advanced/templates/#function-expressions">template functions</a> for bringing rich dynamic mocking responses,</li>
-<li>New <code>FALLBACK</code> dispatcher for smarter routing. See the <a href="https://microcks.io/blog/advanced-dispatching-constraints/">Fallback and advanced dispatching</a> blog post.</li>
-</ul>
-<p>Check out our <a href="https://microcks.io/blog/microcks-1.2.0-release/">release notes</a>!</p>
-<p>You can also check <a href="https://github.com/microcks/microcks/milestone/12?closed=1">GitHub milestone</a> for the full list of closed issues.</p>
+<p>Check out our <a href="https://microcks.io/blog/microcks-1.4.1-release/">release notes</a>!</p>
+<p>You can also check GitHub milestones - <a href="https://github.com/microcks/microcks/milestone/15?closed=1">1.4.0</a> and <a href="https://github.com/microcks/microcks/milestone/16?closed=1">1.4.1</a> - for the full list of closed issues.</p>
 <p><a href="./history">Look at the History for older release notes</a></p>
 <h3 id="microcks-extensions">Microcks extensions</h3>
+<h4 id="microcks-github-actions-11-on-3-jan-2022">microcks github actions 1.1 on 3 Jan 2022</h4>
+<p><a href="https://github.com/microcks/test-github-action">Test Action</a> and <a href="https://github.com/microcks/import-github-action">Import Action</a> have been upgraded to <code>microcks-cli v0.5.0</code>.</p>
+<h4 id="microcks-jenkins-plugin-050-on-23-dec-2021">microcks-jenkins-plugin 0.5.0 on 23 Dec 2021</h4>
+<p>Please check <a href="https://github.com/microcks/microcks-jenkins-plugin/milestone/3?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
+<h4 id="microcks-cli-050-on-23-dec-2021">microcks-cli 0.5.0 on 23 Dec 2021</h4>
+<p>Have a look at <a href="https://github.com/microcks/microcks-cli/milestone/4?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
 <h4 id="microcks-jenkins-plugin-040-on-30-jun-2021">microcks-jenkins-plugin 0.4.0 on 30 Jun 2021</h4>
 <p>Please check <a href="https://github.com/microcks/microcks-jenkins-plugin/milestone/2?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
 <h4 id="microcks-cli-040-on-30-jun-2021">microcks-cli 0.4.0 on 30 Jun 2021</h4>
 <p>Have a look at <a href="https://github.com/microcks/microcks-cli/milestone/3?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
-<h4 id="microcks-jenkins-plugin-030-on-18-sep-2020">microcks-jenkins-plugin 0.3.0 on 18 Sep 2020</h4>
-<p>The <strong>0.3.0</strong> release mainly brings support for <code>AsyncAPI</code> testing feature but also some other enhancements:</p>
-<ul>
-<li>It adds the <code>ASYNC_API_SCHEMA</code> option for the <code>runner</code> argument of the <code>test</code>command,</li>
-<li>It adds the <code>Secret Name</code> parameter allowing to reference a Microcks secret holding authentication parameters for the tested endpoint,</li>
-<li>It aligns the configuration on CLI configuration, removing the <code>Keycloak URL</code> parameters. Making the config simpler,</li>
-<li>It makes the configuration more robust by taking care od adding an <code>/api</code> prefix on Microcks URL if missing,</li>
-<li>It fixes the persistence of some Build Step attributes when using the graphical editor.</li>
-</ul>
-<p>Please check <a href="https://github.com/microcks/microcks-jenkins-plugin/milestone/1?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
-<h4 id="microcks-cli-030-on-17-sep-2020">microcks-cli 0.3.0 on 17 Sep 2020</h4>
-<p>This <strong>0.3.0</strong> release brings support for <code>AsyncAPI</code> testing feature:</p>
-<ul>
-<li>It adds the <code>ASYNC_API_SCHEMA</code> option for the <code>runner</code> argument of the <code>test</code>command,</li>
-<li>It adds the <code>--secretName</code> feature flag for the <code>test</code> command allowing to reference a Microcks secret holding authentication parameters for the tested endpoint,</li>
-<li>Container image for <code>microcks-cli</code> is now hosted on <a href="https://quay.io/repository/microcks/microcks-cli?tab=tags">here</a> Quay.io</li>
-</ul>
-<p>Have a look at <a href="https://github.com/microcks/microcks-cli/milestone/2?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
-<h4 id="microcks-cli-020-on-14-aug-2019">microcks-cli 0.2.0 on 14 Aug 2019</h4>
-<p>This <strong>0.2.0</strong> release simplify CLI usage by removing unecessary <code>keycloakURL</code> parameter and add support for:</p>
-<ul>
-<li>Operation headers override,</li>
-<li>HTTPS with unsecure mode or custom certificates,</li>
-<li>Verbose flag for debugging.</li>
-</ul>
-<p>Please check <a href="https://github.com/microcks/microcks-cli/milestone/1?closed=1">GitHub milestone</a> for the list of enhancement and issues.</p>
+<p><a href="./history">Look at the History for older release notes</a></p>
 
       </div>
     </div>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>Microcks 1.5.0 release 🚀 | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.88.1" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.a42f770a563de5f4c7aa7d9babef2ebb3b19a040c7f605dbe8b506de79650df9.css" integrity="sha256-pC93ClY95fTHqn2bq&#43;8uuzsZoEDH9gXb6LUG3nllDfk=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.1caa725adf6b3c0d83460e78ce17051642a329cbe9222b7eccefa8def7cd7559.js" integrity="sha256-HKpyWt9rPA2DRg54zhcFFkKjKcvpIit&#43;zO&#43;o3vfNdVk=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Microcks 1.5.0 release 🚀" />
+<meta property="og:description" content="We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. Just three months have passed after the previous iteration, and our supporters in the community helped us push up a new release with significant features once again. Thanks a lot to all of them 👏
+In line with our mantra, this release is the evidence of our vision of a unique tool with a consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/blog/microcks-1.5.0-release/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-18T00:00:00+00:00" />
+
+
+      <meta name="og:image" content="https://microcks.io/images/blog/microcks-1.5.0-feature.png"></meta>
+      <meta itemprop="name" content="Microcks 1.5.0 release 🚀">
+<meta itemprop="description" content="We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. Just three months have passed after the previous iteration, and our supporters in the community helped us push up a new release with significant features once again. Thanks a lot to all of them 👏
+In line with our mantra, this release is the evidence of our vision of a unique tool with a consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs."><meta itemprop="datePublished" content="2022-01-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-01-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1626">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Microcks 1.5.0 release 🚀"/>
+<meta name="twitter:description" content="We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. Just three months have passed after the previous iteration, and our supporters in the community helped us push up a new release with significant features once again. Thanks a lot to all of them 👏
+In line with our mantra, this release is the evidence of our vision of a unique tool with a consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs."/>
+
+      <meta name="twitter:image" content="https://microcks.io/images/blog/microcks-1.5.0-feature.png"></meta>
+      
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+
+<section class="cf ph4 pv3 pv3-ns bg-white">
+  <div class="w-60 w-70-m w-90-xs center tc tc-ns pv3">
+    <h1 class="primary-color-dark">Microcks 1.5.0 release 🚀</h1>
+  </div>
+  <div class="w-60-l w-70-m w-90-xs center">
+    <div class="flex-ns flex-wrap">
+      <div class="w-10 w-40-xs">
+        <img src="/images/blog/bio/lbroudoux.jpeg" alt="Microcks 1.5.0 release 🚀" class="br4" style="width: 48px">  
+      </div>
+      <div class="w-40 w-70-xs">
+        <div class="f6 pv2" style="vertical-align: super;">
+          <b>Laurent Broudoux</b> (<a href="https://twitter.com/lbroudoux" class="home-link">@lbroudoux</a>)
+          <br/> MicrocksIO founder - on Jan 18, 2022
+        </div>
+      </div>
+      <div class="w-50 w-90-xs tr">
+        
+
+
+
+<a class="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.5.0-release%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/share?url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.5.0-release%2f&amp;text=Microcks%201.5.0%20release%20%f0%9f%9a%80&amp;via=MicrocksIO" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.5.0-release%2f&amp;title=Microcks%201.5.0%20release%20%f0%9f%9a%80" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fmicrocks.io%2fblog%2fmicrocks-1.5.0-release%2f&amp;resubmit=true&amp;title=Microcks%201.5.0%20release%20%f0%9f%9a%80" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex-ns flex-wrap">
+    <div class="w-60-l w-70-m w-90-xs center">
+      <div class="prose pv3 f4" id="prose"><p>We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. Just three months have passed after the previous iteration, and our supporters in the community helped us push up a new release with significant features once again. Thanks a lot to all of them 👏</p>
+<p>In line with <a href="https://microcks.io/blog/why-microcks/">our mantra</a>, this release is the evidence of our vision of a unique tool with a consistent approach for speeding up the delivery and governing the lifecycle of <strong>ALL kinds of APIs</strong>. As a result, in Microcks <code>1.5.0</code>, we now support <a href="https://graphql.org">GraphQL</a> API technology.</p>
+<p>Adding GraphQL allows Microcks to complete the picture and become the only and ultimate tool that supports all the different <strong>standards</strong> of APIs: REST, SOAP, gRPC, Graph, and Events based on various <strong>protocols</strong>. Moreover, we integrate with de-facto standards for API <strong>Dev Tooling</strong> and <strong>CI/CD</strong> pipelines - offering integration whatever your delivery process or tooling!</p>
+<p><img src="/images/blog/microcks-1.5.0-feature.png" alt="microcks-feature"></p>
+<p>We also love ❤️ and value the community, and we try to serve it by listening and implementing feedback and enhancement ideas. This new release carries a lot of them regarding better lightweight and faster bootstrap experience of Microcks for different use-cases.</p>
+<p>Let’s review what’s new on each one of our key highlights.</p>
+<h2 id="graphql-support">GraphQL support</h2>
+<p>Various reports on API, like <a href="https://www.postman.com/state-of-api/">Postman’s State of the API Report</a> in 2021, spotted GraphQL as one of the most exciting technologies to consider for APIs. GraphQL is an open-source data query language that is an excellent complement to REST APIs when it comes to offering flexibility to clients that can fetch exactly the data they need.</p>
+<p>At Microcks, we identified the importance of GraphQL and are sure it’s a perfect fit for Microcks model and features 😉.  It is also another opportunity to demonstrate one of the beauties of the great “<a href="https://microcks.io/blog/microcks-1.3.0-release/#endless-possibilities-with-multi-artifacts-support">Multi-artifacts support</a>” feature we introduced back in Microcks <code>1.3.0</code>. It allows us to unlock virtually any new protocols integration spotlessly and smoothly 💥</p>
+<p>We are big supporters of the <strong><a href="https://microcks.io/blog/why-microcks/">contract-first approach</a></strong> and rely on it. You will first need a GraphQL Schema - expressed using the <a href="https://graphql.org/learn/schema/">Schema Definition Language</a> - to import the operations’ definition of your API into Microcks. Because the schema doesn’t support the notion of examples - contrary to <a href="https://www.openapis.org/">OpenAPI</a> and <a href="https://asyncapi.com">AsyncAPI</a> specifications - you will need to rely on a <a href="https://www.postman.com/collection/">Postman Collection</a> that holds your mock dataset as examples.</p>
+<p><img src="/images/blog/microcks-1.5.0-graphql-artifacts.png" alt="microcks-graphql-artifacts"></p>
+<blockquote>
+<p>Check out our <a href="https://microcks.io/documentation/using/graphql/">GraphQL usage for Microcks</a> documentation that illustrates how GraphQL Schema specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will implement all the specificities of GraphQL fetching undercover.</p>
+</blockquote>
+<blockquote>
+<p>If you are a hands-on person and need a more detailed walkthrough of available features, we recommend you also read our “<a href="https://microcks.io/blog/graphql-features-what-to-expect/">GraphQL features in Microcks: what to expect?</a>” blog post. It illustrates the mocking and testing specificities we introduced to support GraphQL queries semantics.</p>
+</blockquote>
+<h2 id="better-and-lightweight-developer-experience">Better and lightweight developer experience</h2>
+<p>One significant advantage of Microcks is its versatility. Of course, it can be installed as an “always up-and-running” central instance shared with different teams, but we also notice many other different uses throughout the community feedback. People use it on their development laptops, as ephemeral instances popped by the CI/CD pipelines or other “Mock as a Service” automations. Unfortunately for these use cases, the deployment of Microcks - especially with the <a href="https://microcks.io/blog/async-features-with-docker-compose/">asynchronous features turned on</a> - gets a bit greedy with resources.</p>
+<p>For this reason, we decided to enhance things up and make the deployment of Microcks a breeze on developers’ laptops and constrained environments concerned by bootstrap time or resource consumption. Let’s see what we got with the previous <code>1.4.1</code> version of Microcks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+<span class="o">[</span>...<span class="o">]</span>
+
+$ docker stats --format <span class="s2">&#34;table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}&#34;</span>
+CONTAINER      NAME                       CPU %     MEM USAGE / LIMIT
+3687d032ecad   microcks-async-minion      1.82%     266.2MiB / 6.789GiB
+5ab9aaf5bed2   microcks                   0.67%     325.1MiB / 6.789GiB
+45e11517bac7   microcks-kafka             3.67%     404.1MiB / 6.789GiB
+cc5a005ea7ff   microcks-sso               4.31%     698.9MiB / 6.789GiB
+75dc0105b97d   microcks-db                0.95%     137.1MiB / 6.789GiB
+7f5da24afe45   microcks-zookeeper         0.53%     104.4MiB / 6.789GiB
+2b9b5479d734   microcks-postman-runtime   0.00%     41.52MiB / 6.789GiB
+</code></pre></div><p>All the popped-up containers (7!) were using a total of <code>1975 MiB</code> of memory. On our two-year-old MacBook Pro machine, the bootstrap time was about <code>40 seconds</code> to access the UI and <code>45 seconds</code> to have a first mock message published on a Kafka topic.</p>
+<p>We identified two potential enhancements to make this experience leaner. First, we made the infrastructure lighter by removing Keycloak in <em>developer mode</em>, where users typically want administrative privileges. Then, we made the async components lighter by replacing the <a href="https://strimzi.io">Strimzi Kafka</a> cluster with a <a href="https://vectorized.io/redpanda">Red Panda</a> broker that provides Kafka-compatible interfaces.</p>
+<p>Let now see the results using the new 1.5.0 <code>docker-compose-devmode.yml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose -f docker-compose-devmode.yml up -d
+<span class="o">[</span>...<span class="o">]</span>
+
+$ docker stats --format <span class="s2">&#34;table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}&#34;</span>
+CONTAINER      NAME                       CPU %     MEM USAGE / LIMIT
+832548c518d3   microcks-async-minion      2.06%     243.2MiB / 6.789GiB
+6641782436b5   microcks                   0.52%     311.8MiB / 6.789GiB
+2a95a07f1de8   microcks-postman-runtime   0.00%     38.16MiB / 6.789GiB
+f99c91ff63f5   microcks-kafka             24.74%    136.1MiB / 6.789GiB
+5dee5cea1a6c   microcks-db                0.78%     132.8MiB / 6.789GiB
+</code></pre></div><p>We now pop only five containers using a total of <code>860 MiB</code> of memory. On the same MacBook Pro machine, the bootstrap time is now about <code>12 seconds</code> to access the UI and <code>15 seconds</code> to have a first mock message published on a Kafka topic.</p>
+<blockquote>
+<p>Wow! We saved around <code>1 GiB</code> memory - more than <code>50%</code> less - and reduced the startup time by three on the same machine! Not too bad 😉 Of course, we’re open to any further enhancements in the future, and we hope this better experience will open up the doors to many new use-cases!</p>
+</blockquote>
+<h2 id="more-enhancements">More enhancements</h2>
+<h3 id="faster-startup-on-kubernetes">Faster startup on Kubernetes</h3>
+<p>With the latest version of Microcks, people experienced issues starting the main <a href="https://kubernetes.io/docs/concepts/workloads/pods/">pod</a> on Kubernetes in constrained environments. The container could take a long time booting up and cause Kubernetes to kill and restart the container many times. Depending on your cluster default resources allocation, it can take some time to have a healthy Microcks pod.</p>
+<p>We investigated those issues with the community and identified enhancement topics:</p>
+<ul>
+<li>The first ones were about the JVM ergonomics that haven’t been updated with the upgrade to Java 11. With new settings, the JVM is now fully aware that it runs in a container and in Kubernetes so that it can accurately auto-tune the various <code>-X</code> startup flags,</li>
+<li>The second one was defining a dedicated <code>startupProbe</code> in our Kubernetes manifest to avoid pod restarts on bootstrap without penalizing failure detections when the pod has started.</li>
+</ul>
+<blockquote>
+<p>These enhancements have been applied to both our <a href="https://microcks.io/documentation/installing/kubernetes/">Helm Chart</a> and <a href="https://microcks.io/documentation/installing/operator/">Operator</a> manifests. We noticed a speed-up of <code>30%</code> of the bootstrap time when we applied the enhanced version on our test clusters using the default resources constraints. The new probe avoids unintentional restarts in very constrained environments and, hence, Kubernetes scheduler saturation. We planned to publish a detailed blog post on our findings and results, so stay tuned 😉</p>
+</blockquote>
+<h3 id="security-updates">Security updates</h3>
+<p>Security is undoubtedly one of our primary concerns as we know organizations use Microcks in enterprise contexts. The first task on this topic was to ensure the Log4Shell CVEs do not impact Microcks. Microcks is not using log4j directly, but we wanted to ensure that any other transitive dependencies do not include and activate it. So we ran different test suites for the Log4Shell vulnerabilities and made sure it was a no-subject for us.</p>
+<p>This release also brings a lot of enhancements:</p>
+<ul>
+<li>We updated the Jackson Library to the newest release eliminating several CVEs. See issue <a href="https://github.com/microcks/microcks/issues/535">#53</a></li>
+<li>We updated the Spring Boot framework to the latest <code>2.6</code> release with numerous dependency upgrades. See issue <a href="https://github.com/microcks/microcks/issues/536">#536</a>,</li>
+<li>We updated base container images to remove any known vulnerabilities at the date. See issues <a href="https://github.com/microcks/microcks/issues/517">#517</a> and <a href="https://github.com/microcks/microcks/issues/518">#518</a>. You can also check our security scanning reports on <a href="https://quay.io/organization/microcks">Quay.io</a> 😇</li>
+</ul>
+<h3 id="performance-tweaks">Performance tweaks</h3>
+<p>As part of our investigations on Kubernetes startup time and frameworks upgrades, we also had an extensive work session checking the performance of Microcks. Moreover, community users report using Microcks to mock dependencies in performance testing scenarios. So they don’t want to point it out as a bottleneck!</p>
+<blockquote>
+<p>Thanks to <a href="https://github.com/miguelchicoespin">Miguel Chico Espin</a> 🙏 for helping us with performance figures. You can follow our discussion on issue <a href="https://github.com/microcks/microcks/issues/540">#540</a>. Miguel also suggested he was able to disable some analytics for better throughput. That’s what we did in <a href="https://github.com/microcks/microcks/issues/541">#541</a>. Finally, as performance tweaking without observability is like going blind, we added <a href="https://prometheus.io">Prometheus</a> metrics export to our components. See issue <a href="https://github.com/microcks/microcks/issues/411">#411</a>.</p>
+</blockquote>
+<h2 id="community">Community</h2>
+<p>Community contributions are essential to us and do not come only from feature requests, bug issues, and open discussions. What a pleasure to see people relaying our messages, integrating Microcks in a demonstration, inviting us to events, or even talking about Microcks!</p>
+<p>We’d like to thank the following awesome people:</p>
+<ul>
+<li><a href="https://github.com/john873950">john873950</a> 🙏 that contributed enhancements to our Helm Chart allowing us to add annotations or change Service type,</li>
+<li><a href="https://www.linkedin.com/in/madihar/">Madiha Rehman</a> 🙏 that found bugs regarding artifacts upload size and the use of special characters (see <a href="https://github.com/microcks/microcks/issues/525">#525</a>) in mock URLs (see <a href="https://github.com/microcks/microcks/issues/529">#529</a>),</li>
+<li><a href="https://conference.asyncapi.com/">AsyncAPI Conf</a> 🙏 team for inviting us to talk at their latest event about AsyncAPI (of course!), <a href="https://cloudevents.io">CloudEvents</a>, and Microcks. The recording is available on <a href="https://www.youtube.com/watch?v=3EeMHhbwyOQ&amp;t=19925s">YouTube</a>.</li>
+</ul>
+<h2 id="whats-coming-next">What’s coming next?</h2>
+<p>As usual, we will be eager to prioritize items accordingly to community feedback: you can check and collaborate via our list of <a href="https://github.com/microcks/microcks/issues">issues on GitHub</a>.</p>
+<p>Remember that we are an open community, and it means that you too can jump on board to make Microcks even greater! Come and say hi! on our <a href="https://microcksio.zulipchat.com/">Zulip chat</a> 🐙, simply send some love through <a href="https://github.com/microcks/microcks">GitHub stars</a> ⭐️ or follow us on <a href="https://twitter.com/microcksio">Twitter</a> and <a href="https://www.linkedin.com/company/microcks/">LinkedIn</a>.</p>
+<p>Thanks for reading and supporting us! May the beginning of 2022 keep you safe and healthy. ❤️</p>
+</div>
+      
+      
+      <div class="pv4">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "microcks-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">
+        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    <a href="https://microcksio.zulipchat.com" target="new">
+      <img src="/images/zulip.png" class="absolute-l bottom-2 dn db-l h4 right-2 mr2 mb2 z-999 br4"/>
+    </a>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//guides/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Guides
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>

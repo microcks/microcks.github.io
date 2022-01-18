@@ -6,7 +6,17 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.5.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.5.0-release/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.5.0-release/</guid>
+      <description>We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. Just three months have passed after the previous iteration, and our supporters in the community helped us push up a new release with significant features once again. Thanks a lot to all of them 👏
+In line with our mantra, this release is the evidence of our vision of a unique tool with a consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs.</description>
+    </item>
+    
     <item>
       <title>GraphQL features in Microcks: what to expect?</title>
       <link>https://microcks.io/blog/graphql-features-what-to-expect/</link>

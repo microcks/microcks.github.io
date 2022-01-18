@@ -6,15 +6,15 @@
     <description>Recent content in News about Microcks on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/news/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Historical Microcks release notes</title>
       <link>https://microcks.io/news/history/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/history/</guid>
-      <description>Older Releases Microcks core 1.1.0 on 10 Nov 2020 We are thrilled to announce the Microcks release 1.1.0! Here are below the major points of this release:
- The support of Apache Kafka for testing Event-driven APIs through AsyncAPI schema validation, Some OpenAPI and SOAP mocking enhancements regarding tricky edge cases, A Getting Started with Tests quick start guide, The move from Gitter chat rooms in favor of Zulip for community discussions and support.</description>
+      <description>Older Releases Microcks core 1.3.0 on 30 Jun 2021 We are so proud and happy to share this new 1.3.0 and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. Here are the main changes and enhancements of this release:
+ The support of AsyncAPI v2.</description>
     </item>
     
   </channel>
