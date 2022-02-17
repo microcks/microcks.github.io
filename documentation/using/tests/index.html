@@ -55,7 +55,7 @@ From the page displaying basic information on your API or Service mocks, you hav
 <meta itemprop="description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="840">
+<meta itemprop="wordCount" content="1009">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Executing tests"/>
 <meta name="twitter:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
@@ -317,7 +317,35 @@ var trackOutboundLink = function(id, url) {
 <h5 id="mqtt">MQTT</h5>
 <p>MQTT Test Endpoint have the following form with no optional parameters:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mqtt://<span class="o">{</span>mqtt.broker.url:port<span class="o">}</span>/<span class="o">{</span>mqtt.topic.name<span class="o">}</span>
-</code></pre></div><h5 id="websocket">WebSocket</h5>
+</code></pre></div><h5 id="amqp">AMQP</h5>
+<p>AMQP 0.9.1 Test Endpoint have the following form with optional parameters placed just after a <code>?</code> and separated using <code>&amp;</code> character:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">amqp://<span class="o">{</span>amqp.broker.url:port<span class="o">}</span>/<span class="o">[{</span>amqp.vhost<span class="o">}</span>/<span class="o">]{</span>amqp.destination.type<span class="o">}</span>/<span class="o">{</span>amqp.destination.name<span class="o">}[</span>?param1<span class="o">=</span>value1<span class="p">&amp;</span><span class="nv">param2</span><span class="o">=</span>value2<span class="o">]</span>
+</code></pre></div><p><code>amqp.destination.type</code> is used to specify if we shoulf connect to either a queue (use the <code>q</code> value) or an exchange speciyfing its type: <code>d</code> dor direct, <code>f</code> for fanout, <code>t</code> for topic, <code>h</code> for headers. Then you have to specify either the queue or exchange name in <code>amqp.detaintion.name</code>.</p>
+<p>Depending on the type of destination, you will need additional optional parameters as specified below:</p>
+<table>
+<thead>
+<tr>
+<th>Optional Params</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>routingKey</code></td>
+<td>Used to specify a routing key for direct or topic exchanges. If not specified the <code>*</code> wildcard is used.</td>
+</tr>
+<tr>
+<td><code>durable</code></td>
+<td>Flag telling if exchange to connect to is durable or not. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>h.{header}</code></td>
+<td>A bunch of headers where name starts with <code>h.</code> in order to deal with headers exchange. The <code>x-match</code> property is set to <code>any</code>to ghather the most message as possible.</td>
+</tr>
+</tbody>
+</table>
+<p>As an example, you may have this kind of Test Endpoint values: <code>amqp://rabbitmq.example.com:5672/h/my-exchange-headers?h.h1=h1&amp;h.h2=h2</code> or <code>amqp://rabbitmq.example.com:5672/my-vhost/t/my-exchange-topic?routingKey=foo</code></p>
+<h5 id="websocket">WebSocket</h5>
 <p>WebSocket Test Endpoint have the following form with no optional parameters:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ws://<span class="o">{</span>ws.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>channel.name<span class="o">}</span>
 </code></pre></div><h3 id="test-runner">Test Runner</h3>
