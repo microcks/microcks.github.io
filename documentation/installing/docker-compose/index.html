@@ -63,7 +63,7 @@ In your terminal issue the following commands:
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="304">
+<meta itemprop="wordCount" content="323">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing with docker-compose"/>
 <meta name="twitter:description" content="Docker Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer.
@@ -292,7 +292,7 @@ var trackOutboundLink = function(id, url) {
 </code></pre></div></li>
 <li>
 <p>Spin up the containers</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose up -d
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker compose up -d
 </code></pre></div></li>
 </ol>
 <p>This will start the required containers and setup a simple environment for you to use.</p>
@@ -302,10 +302,12 @@ var trackOutboundLink = function(id, url) {
 <li><strong>Password:</strong> microcks123</li>
 </ul>
 <p>You will be redirected to the main dashboard page. You can now start <a href="https://microcks.io/documentation/getting-started/#using-microcks">using Microcks</a>!</p>
-<h3 id="enabling-asynchronous-api-features">Enabling Asynchronous API features</h3>
+<p>A &ldquo;keycloakless&rdquo; version of docker compose is available thanks to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker compose -f docker-compose-devmode.yml up -d
+</code></pre></div><h3 id="enabling-asynchronous-api-features">Enabling Asynchronous API features</h3>
 <p>Support for Asynchronous API features of Microcks are not enabled by default into the <code>docker-compose.yml</code> file. If you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.</p>
 <p>In your terminal use the following command instead:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 </code></pre></div><p>Docker compose is now launching additional containers, namely <code>zookeeper</code>, <code>kafka</code> and the <code>microcks-async-minion</code>. The above command should produce the following output:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">Creating network <span class="s2">&#34;docker-compose_default&#34;</span> with the default driver
 Creating microcks-zookeeper       ... <span class="k">done</span>
@@ -317,7 +319,7 @@ Creating microcks-kafka           ... <span class="k">done</span>
 Creating microcks-async-minion    ... <span class="k">done</span>
 </code></pre></div><p>You may want to check our <a href="../../../blog/async-features-with-docker-compose">blog post</a> for a detailed walkthrough on starting Async features on docker-compose.</p>
 <p>If you&rsquo;re feeling lucky regarding your machine, you can even add the <a href="https://github.com/obsidiandynamics/kafdrop">Kafdrop</a> utility to visualize and troubleshoot Kafka messages with this command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
 </code></pre></div>
 </div>
 
