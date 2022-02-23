@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GraphQL usage for Microcks</title>
+      <title>GraphQL Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/graphql/</link>
       <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
       
@@ -27,7 +27,7 @@ But sometimes you don&amp;rsquo;t want to add some x-microcks extensions attribu
     </item>
     
     <item>
-      <title>gRPC usage for Microcks</title>
+      <title>gRPC Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/grpc/</link>
       <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
       
@@ -36,7 +36,7 @@ But sometimes you don&amp;rsquo;t want to add some x-microcks extensions attribu
     </item>
     
     <item>
-      <title>AsyncAPI usage for Microcks</title>
+      <title>AsyncAPI Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/asyncapi/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -125,7 +125,7 @@ From the page displaying basic information on your API or Service mocks, you hav
     </item>
     
     <item>
-      <title>OpenAPI usage for Microcks</title>
+      <title>OpenAPI Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/openapi/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -145,12 +145,12 @@ Steps for creating a repository In order to create a tests and mocks repository 
     </item>
     
     <item>
-      <title>SoapUI usage for Microcks</title>
+      <title>SoapUI Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/soapui/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/soapui/</guid>
-      <description>Overview Pre-requisites Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
+      <description>Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&amp;rsquo;ll need to follow the steps below:
  Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.</description>
     </item>
