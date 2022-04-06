@@ -23,6 +23,9 @@
     <loc>https://microcks.io/documentation/automating/jenkins/</loc>
     <lastmod>2021-11-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://microcks.io/documentation/using/swagger/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://microcks.io/documentation/guides/openapi-101/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -111,13 +114,16 @@
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/categories/blog/</loc>
     <lastmod>2022-01-18T00:00:00+00:00</lastmod>
@@ -142,9 +148,6 @@
   </url><url>
     <loc>https://microcks.io/blog/graphql-features-what-to-expect/</loc>
     <lastmod>2022-01-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2022-02-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.4.1-release/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
