@@ -6,7 +6,17 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.5.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.5.1-release/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.5.1-release/</guid>
+      <description>We are proud to announce the 1.5.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. We considered it a minor release this time as it “just” brought a new protocol binding and a lot of enhancements!
+Once again this release is an illustration of how community-driven the roadmap is: AMQP and Swagger v2 support as well as more enhancements came directly from user requests. So thanks a lot to those who helped push up a new release with significant features once again.</description>
+    </item>
+    
     <item>
       <title>Microcks 1.5.0 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.5.0-release/</link>

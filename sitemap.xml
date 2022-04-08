@@ -113,10 +113,28 @@
     <loc>https://microcks.io/documentation/automating/api/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <loc>https://microcks.io/categories/blog/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/categories/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/microcks-1.5.1-release/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/news/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/categories/releases/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/</loc>
     <lastmod>2022-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/</loc>
@@ -125,25 +143,10 @@
     <loc>https://microcks.io/documentation/guides/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/categories/blog/</loc>
-    <lastmod>2022-01-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/categories/</loc>
-    <lastmod>2022-01-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://microcks.io/news/history/</loc>
     <lastmod>2022-01-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.5.0-release/</loc>
-    <lastmod>2022-01-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/blog/</loc>
-    <lastmod>2022-01-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/news/</loc>
-    <lastmod>2022-01-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/categories/releases/</loc>
     <lastmod>2022-01-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/graphql-features-what-to-expect/</loc>
