@@ -57,7 +57,7 @@ Once again this release is an illustration of how community-driven the roadmap i
 <meta itemprop="description" content="We are proud to announce the 1.5.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. We considered it a minor release this time as it “just” brought a new protocol binding and a lot of enhancements!
 Once again this release is an illustration of how community-driven the roadmap is: AMQP and Swagger v2 support as well as more enhancements came directly from user requests. So thanks a lot to those who helped push up a new release with significant features once again."><meta itemprop="datePublished" content="2022-04-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1129">
+<meta itemprop="wordCount" content="1130">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Microcks 1.5.1 release 🚀"/>
 <meta name="twitter:description" content="We are proud to announce the 1.5.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. We considered it a minor release this time as it “just” brought a new protocol binding and a lot of enhancements!
@@ -277,7 +277,7 @@ var trackOutboundLink = function(id, url) {
 </blockquote>
 <p>Let’s do a review of what’s new on each one of our highlights without delay.</p>
 <h2 id="amqprabbitmq-you-asked-for-it-here-it-is">AMQP/RabbitMQ, you asked for it: here it is!</h2>
-<p>With tens of thousands of users, <a href="https://www.rabbitmq.com/">RabbitMQ</a> 🐇 is one of the most popular open source message brokers. It uses the AMQP - the Advanced Message Queuing Protocol - in version 0.9 (not to be confused with <a href="https://www.rabbitmq.com/specification.html">AMQP 1.0 protocol that is quite different</a>).</p>
+<p>With tens of thousands of users, <a href="https://www.rabbitmq.com/">RabbitMQ</a> 🐇 is one of the most popular open source message brokers. It uses AMQP - the Advanced Message Queuing Protocol - in version 0.9 (not to be confused with <a href="https://www.rabbitmq.com/specification.html">AMQP 1.0 protocol that is quite different</a>).</p>
 <p>At Microcks, we identified the importance of RabbitMQ as it appears in high priorities in previous community polls and is one choice technology in <a href="https://levelup.gitconnected.com/introduction-to-rabbitmq-with-nodejs-61e2aec0c52c">NodeJS</a> or <a href="https://spring.io/guides/gs/messaging-rabbitmq/">Java Spring communities</a> ☕</p>
 <p>As usual, we integrate with <a href="https://github.com/asyncapi/bindings/tree/master/amqp">AsyncAPI Bindings</a> directives that you include into your AsyncAPI document to seamlessly add the RabbitMQ support for your API:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">bindings</span><span class="p">:</span><span class="w">
@@ -312,7 +312,7 @@ var trackOutboundLink = function(id, url) {
 <p>We fixed this and got this little drawing below to summarize use-cases:</p>
 <p><img src="/images/blog/microcks-1.5.1-asyncapi.png" alt="microcks-asyncapi"></p>
 <blockquote>
-<p>We now made everything consistent whatever the protocol you’re using. Mocking can be used by API consumers for <code>SUBSCRIBE</code> as well as providers for <code>PUBLISH</code>. Testing can be used to validate API providers for <code>SUBSCRIBE</code> as well as consumers for <code>PUBLISH</code>. Thanks to <a href="https://github.com/Hassen-BENNOUR">Hassen Bennour</a> 🙏and tom (Zulip user) 🙏for testing it 🧪</p>
+<p>We now made everything consistent whatever the protocol you’re using. Mocking can be used by API consumers for <code>SUBSCRIBE</code> as well as providers for <code>PUBLISH</code>. Testing can be used to validate API providers for <code>SUBSCRIBE</code> as well as consumers for <code>PUBLISH</code>. Thanks to <a href="https://github.com/Hassen-BENNOUR">Hassen Bennour</a> 🙏 and tom (Zulip user) 🙏 for testing it 🧪</p>
 </blockquote>
 <h3 id="resolution-of-openapi-external-dependencies">Resolution of OpenAPI external dependencies</h3>
 <p>For unknown reasons, the resolution mechanism that was used on import time for AsyncAPI spec files was not available on OpenAPI support yet. However, referencing JSON Schema files from OpenAPI files is now a very common practice. We fixed this.</p>
