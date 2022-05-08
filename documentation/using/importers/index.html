@@ -12,7 +12,7 @@
     <title> Importing Services &amp; APIs | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.88.1" />
+     <meta name="generator" content="Hugo 0.90.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -55,7 +55,7 @@ Supported formats As previously introduced, Microcks &ldquo;turns your API contr
 <meta itemprop="description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will take you through a complete explanation of supported formats and the import mechanisms present in Microcks.
 Supported formats As previously introduced, Microcks &ldquo;turns your API contract into live mocks in seconds&rdquo; - the noticeable part of this sentence being API contract."><meta itemprop="datePublished" content="2020-02-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-07-16T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1478">
+<meta itemprop="wordCount" content="1567">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Importing Services &amp; APIs"/>
 <meta name="twitter:description" content="Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will take you through a complete explanation of supported formats and the import mechanisms present in Microcks.
@@ -309,6 +309,12 @@ var trackOutboundLink = function(id, url) {
 <p>So from <code>1.3.0</code>, Microcks is now able to have multiple artifacts (one <code>primary</code> and some <code>secondary</code>) mapping to one API mock definition. The <code>primary</code> one will bring Service and operation metadata as well as examples. The <code>secondary</code> ones will only enrich existing operations with new non-conflicting request/responses and event samples.</p>
 <p><img src="/images/artifacts-merging.png" alt="artifacts-merging"></p>
 <p>If not explicitly identified as <code>primary</code> or <code>secondary</code>, the default is to consider an imported artifact as the primary one.</p>
+<p>A typical setup with secondary artifact could allow you to test your own mocks to comply to your OAS:</p>
+<ol>
+<li>Import an OpenAPI Secification (OAS) as the main artifact</li>
+<li>Import a Postman Collection as a secondary artifact (this artifact will only contribute mocks/examples to the main artifact/spec - <em>Note: API name and version are the two attributes used as keys to merge primary and secondary artifacts</em>)</li>
+<li>Launch an <code>OPENAPI_SCHEMA</code> test on Microcks own endpoints. This allows to check that the request/responses comply to the OpenAPI schema of the OAS artifact.</li>
+</ol>
 <h2 id="direct-upload">Direct upload</h2>
 <p>The most simple way of adding new Services or APIs mocks to your Microcks instance is by directly uploading the artifact. From the left vertical navigation bar, just select the <strong>Importers</strong> menu entry and then choose <code>Upload</code>. You&rsquo;ll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.</p>
 <blockquote>

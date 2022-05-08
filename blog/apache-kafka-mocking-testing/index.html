@@ -12,7 +12,7 @@
     <title> Apache Kafka Mocking and Testing | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <meta name="generator" content="Hugo 0.88.1" />
+     <meta name="generator" content="Hugo 0.90.1" />
 
       
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -282,8 +282,8 @@ var trackOutboundLink = function(id, url) {
 <p>Just import your AsyncAPI specification and you’ll have incoming sample messages on the specified topic for the configured Kafka broker! Without writing a single line of code! You can then immediately start developing an app that will consume these messages.</p>
 </blockquote>
 <p>Imagine you have now developed a simple consumer that listens to this <code>UsersignedupAPI_0.1.1_user-signedup</code> topic and just displays the messages on the console. You will ended up with following results:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">//</span> <span class="err">At</span> <span class="err">startup</span> <span class="err">time...</span>
-<span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="c1">// At startup time...
+</span><span class="c1"></span><span class="p">{</span>
   <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;tSWj3wp68S5w2D78NFe6EcbLF6vsGKRJ&#34;</span><span class="p">,</span>
   <span class="nt">&#34;sendAt&#34;</span><span class="p">:</span> <span class="s2">&#34;1604659425835&#34;</span><span class="p">,</span>
   <span class="nt">&#34;fullName&#34;</span><span class="p">:</span> <span class="s2">&#34;Laurent Broudoux&#34;</span><span class="p">,</span>
@@ -297,8 +297,8 @@ var trackOutboundLink = function(id, url) {
   <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john@microcks.io&#34;</span><span class="p">,</span>
   <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">36</span>
 <span class="p">}</span>
-<span class="err">//</span> <span class="err">...then</span> <span class="mi">10</span> <span class="err">seconds</span> <span class="err">later...</span>
-<span class="p">{</span>
+<span class="c1">// ...then 10 seconds later...
+</span><span class="c1"></span><span class="p">{</span>
   <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;VV6OSh4LkGYgymjIJOoggJ1BSS89AvEK&#34;</span><span class="p">,</span>
   <span class="nt">&#34;sendAt&#34;</span><span class="p">:</span> <span class="s2">&#34;1604659435834&#34;</span><span class="p">,</span>
   <span class="nt">&#34;fullName&#34;</span><span class="p">:</span> <span class="s2">&#34;Laurent Broudoux&#34;</span><span class="p">,</span>
@@ -312,8 +312,8 @@ var trackOutboundLink = function(id, url) {
   <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john@microcks.io&#34;</span><span class="p">,</span>
   <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">36</span>
 <span class="p">}</span>
-<span class="err">//</span> <span class="err">...then</span> <span class="mi">10</span> <span class="err">seconds</span> <span class="err">later</span> <span class="err">(you</span> <span class="err">got</span> <span class="err">it</span> <span class="err">;-)...</span>
-<span class="p">{</span>
+<span class="c1">// ...then 10 seconds later (you got it ;-)...
+</span><span class="c1"></span><span class="p">{</span>
   <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;AnVrWCQyFzHQJyji3aqIe7rXC06sYQtX&#34;</span><span class="p">,</span>
   <span class="nt">&#34;sendAt&#34;</span><span class="p">:</span> <span class="s2">&#34;1604659445834&#34;</span><span class="p">,</span>
   <span class="nt">&#34;fullName&#34;</span><span class="p">:</span> <span class="s2">&#34;Laurent Broudoux&#34;</span><span class="p">,</span>
@@ -327,8 +327,8 @@ var trackOutboundLink = function(id, url) {
   <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john@microcks.io&#34;</span><span class="p">,</span>
   <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">36</span>
 <span class="p">}</span>
-<span class="err">//</span> <span class="err">...until</span> <span class="err">you</span> <span class="err">kill</span> <span class="err">your</span> <span class="err">consumer...</span>
-</code></pre></div><p>Thanks to Microcks <a href="https://microcks.io/documentation/using/advanced/templates/">message templating</a>, you see that you receive different message ids each and every time.</p>
+<span class="c1">// ...until you kill your consumer...
+</span></code></pre></div><p>Thanks to Microcks <a href="https://microcks.io/documentation/using/advanced/templates/">message templating</a>, you see that you receive different message ids each and every time.</p>
 <p>The new thing in the Microcks release <code>1.1.0</code> is the little green-and-red bar chart in the upper right corner of the screen capture. That’s where you can launch tests of your Kafka event-based API. Let’s see what it means.</p>
 <h2 id="testing-kafka-endpoints">Testing Kafka endpoints</h2>
 <p><img src="/images/blog/apache-kafka-mocking-testing-testing.png" alt="apache-kafka-mocking-testing-testing"></p>
