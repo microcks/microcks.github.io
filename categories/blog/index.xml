@@ -6,7 +6,18 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks’ hub and marketplace!</title>
+      <link>https://microcks.io/blog/microcks-hub-announcement/</link>
+      <pubDate>Thu, 12 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-hub-announcement/</guid>
+      <description>We are very proud to announce the launch of Microcks’ community hub and free marketplace 👉 hub.microcks.io! This has been discussed and requested many times within our community and here we are 🙌
+The goal of this new community website is to collect, curate and share API Mocks &amp;amp; Test suites for being installed and used within any Microcks instance in a single click.
+ If like us you like craft beers, let’s do the analogy between this announcement 👉 freely sharing API Mocks and Test suites and a brew bar!</description>
+    </item>
+    
     <item>
       <title>Microcks 1.5.1 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.5.1-release/</link>
