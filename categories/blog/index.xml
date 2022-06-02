@@ -6,7 +6,17 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.5.2 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.5.2-release/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.5.2-release/</guid>
+      <description>We are delighted to announce the 1.5.2 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This is mainly an “Enhancement release” pushing further the Microcks’ Hub and Marketplace we introduced a few weeks ago.
+In our vision, the Hub will hold a central place that will allow Microcks users to easily reuse curated API Mocks &amp;amp; Test suites in a single click - but also to share and publish their own.</description>
+    </item>
+    
     <item>
       <title>Microcks’ hub and marketplace!</title>
       <link>https://microcks.io/blog/microcks-hub-announcement/</link>
