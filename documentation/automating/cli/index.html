@@ -46,26 +46,23 @@
 <meta property="og:title" content="CLI for Microcks" />
 <meta property="og:description" content="Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&rsquo;s definitely worth the read 😉
-Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:" />
+ Starting with release 0.5.2, the CLI also supports non-authenticated mode when Microcks is deployed in dev mode without Keycloak." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/automating/cli/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-06T00:00:00+00:00" />
 
 <meta itemprop="name" content="CLI for Microcks">
 <meta itemprop="description" content="Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&rsquo;s definitely worth the read 😉
-Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-11-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="292">
+ Starting with release 0.5.2, the CLI also supports non-authenticated mode when Microcks is deployed in dev mode without Keycloak."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="333">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CLI for Microcks"/>
 <meta name="twitter:description" content="Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&rsquo;s definitely worth the read 😉
-Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:"/>
+ Starting with release 0.5.2, the CLI also supports non-authenticated mode when Microcks is deployed in dev mode without Keycloak."/>
 
 
       
@@ -282,6 +279,9 @@ var trackOutboundLink = function(id, url) {
 <h2 id="microcks-cli">Microcks CLI</h2>
 <p><code>microcks-cli</code> is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its <a href="https://github.com/microcks/microcks-cli">own GitHub repository</a>.</p>
 <p>The CLI makes usage of Microcks <a href="../service-account">Service Account</a> so it&rsquo;s definitely worth the read 😉</p>
+<blockquote>
+<p>Starting with release <code>0.5.2</code>, the CLI also supports non-authenticated mode when Microcks is deployed in dev mode without Keycloak. You&rsquo;ll still have to provide client id and secret to commands but they will be ignored. See <a href="https://github.com/microcks/microcks-cli/issues/23">issue #23</a> for more details.</p>
+</blockquote>
 <h2 id="usage-instructions">Usage instructions</h2>
 <p>Usage is simply <code>microcks-cli [command]</code></p>
 <p>where <code>[command]</code> can be one of the following:</p>
@@ -391,12 +391,12 @@ var trackOutboundLink = function(id, url) {
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              GETTING DYNAMIC MOCKS
+              GETTING DIRECT API
             </a>
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              EXECUTING TESTS
+              TESTING WITH MICROCKS
             </a>
           </li>
           <li class="f6 fw4">
@@ -559,7 +559,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “CLI for Microcks”
-  </a> was last updated: November 22, 2021
+  </a> was last updated: September 6, 2022
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/automating/cli.md" class="

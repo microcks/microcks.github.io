@@ -116,22 +116,12 @@ So suppose you have defined 2 representations for the same example of a GET /pas
     </item>
     
     <item>
-      <title>Executing tests</title>
-      <link>https://microcks.io/documentation/using/tests/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/tests/</guid>
-      <description>Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.</description>
-    </item>
-    
-    <item>
-      <title>Getting dynamic mocks</title>
+      <title>Getting direct API</title>
       <link>https://microcks.io/documentation/using/dynamic/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/using/dynamic/</guid>
-      <description>Creating dynamic mocks Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.</description>
+      <description>Creating direct API mocks Eventhough Microcks promotes a contract first approach for defining mocks, in real-life it may be difficult starting that way without a great maturity on API and Service contracts. You often need to play a bit with a fake API to really figure out their needs and how you should then design API contract. In order to help with this situation, Microcks offers the ability to dynamically generate an API that you may use as a sandbox.</description>
     </item>
     
     <item>
@@ -163,6 +153,16 @@ Steps for creating a repository In order to create a tests and mocks repository 
       <description>Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&amp;rsquo;ll need to follow the steps below:
  Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.</description>
+    </item>
+    
+    <item>
+      <title>Testing with Microcks</title>
+      <link>https://microcks.io/documentation/using/tests/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/tests/</guid>
+      <description>Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
+Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!</description>
     </item>
     
     <item>

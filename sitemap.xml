@@ -72,13 +72,10 @@
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/cli/</loc>
-    <lastmod>2021-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/alternatives/</loc>
     <lastmod>2019-09-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/tests/</loc>
-    <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/dynamic/</loc>
     <lastmod>2019-09-02T00:00:00+00:00</lastmod>
@@ -98,8 +95,11 @@
     <loc>https://microcks.io/documentation/using/soapui/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://microcks.io/documentation/using/tests/</loc>
+    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://microcks.io/documentation/using/mocks/</loc>
-    <lastmod>2022-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/deployment-options/</loc>
     <lastmod>2022-03-14T00:00:00+00:00</lastmod>
@@ -113,10 +113,19 @@
     <loc>https://microcks.io/documentation/automating/api/</loc>
     <lastmod>2022-09-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/categories/blog/</loc>
-    <lastmod>2022-06-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://microcks.io/categories/</loc>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/</loc>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/news/</loc>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/categories/releases/</loc>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/categories/blog/</loc>
     <lastmod>2022-06-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.5.2-release/</loc>
@@ -125,26 +134,17 @@
     <loc>https://microcks.io/blog/</loc>
     <lastmod>2022-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/</loc>
-    <lastmod>2022-09-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://microcks.io/blog/microcks-hub-announcement/</loc>
     <lastmod>2022-05-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.5.1-release/</loc>
     <lastmod>2022-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/news/</loc>
-    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/categories/releases/</loc>
-    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2022-09-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
@@ -183,7 +183,7 @@
     <lastmod>2021-02-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2022-09-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/advanced-dispatching-constraints/</loc>
     <lastmod>2021-01-28T00:00:00+00:00</lastmod>

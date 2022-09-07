@@ -34,8 +34,7 @@ Using this plugin, it is really easy to keep Microcks in-sync withe your API spe
       <guid>https://microcks.io/documentation/automating/cli/</guid>
       <description>Microcks CLI microcks-cli is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its own GitHub repository.
 The CLI makes usage of Microcks Service Account so it&amp;rsquo;s definitely worth the read 😉
-Usage instructions Usage is simply microcks-cli [command]
-where [command] can be one of the following:</description>
+ Starting with release 0.5.2, the CLI also supports non-authenticated mode when Microcks is deployed in dev mode without Keycloak.</description>
     </item>
     
     <item>

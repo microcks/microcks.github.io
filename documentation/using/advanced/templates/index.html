@@ -57,7 +57,7 @@ Those use-case encompass:
 Those use-case encompass:
  random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s &#43; an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0."><meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-02-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1652">
+<meta itemprop="wordCount" content="1689">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Templating mock responses"/>
 <meta name="twitter:description" content="Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
@@ -483,6 +483,10 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <p>The <code>randomString()</code> function simply generates a random alphanumeric string. The default length when called by no argument is 32 charracters. One can specify a integer argument to force string length to desired lentgh. Here&rsquo;s some examples below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomString</span><span class="p">()</span> <span class="c1">// kYM8nSjEdLfgKOGG1dfacro2IUmuuan
 </span><span class="c1"></span><span class="nx">randomString</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span> <span class="c1">// VclBAQiNAybe0B5IrXjGqOChQNDFdoTguf5jWn2tqRNfptWSYFy7yxdpxoNIGOpC
+</span></code></pre></div><h4 id="random-value-generator">Random Value generator</h4>
+<p>The <code>randomValue()</code> function simply generates a random string among provided values specified as arguments. Here&rsquo;s some examples below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomValue</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">)</span> <span class="c1">// foo OR bar
+</span><span class="c1"></span><span class="nx">randomValue</span><span class="p">(</span><span class="nx">apple</span><span class="p">,</span> <span class="nx">orange</span><span class="p">,</span> <span class="nx">grape</span><span class="p">,</span> <span class="nx">pear</span><span class="p">)</span> <span class="c1">// apple, orange, grape OR pear
 </span></code></pre></div><h4 id="random-boolean-generator">Random Boolean generator</h4>
 <p>The <code>randomBoolean()</code> function simply generates a random boolean. Here&rsquo;s some examples below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">randomBoolean</span><span class="p">()</span> <span class="c1">// true
@@ -626,12 +630,12 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              GETTING DYNAMIC MOCKS
+              GETTING DIRECT API
             </a>
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              EXECUTING TESTS
+              TESTING WITH MICROCKS
             </a>
           </li>
           <li class="f6 fw4">

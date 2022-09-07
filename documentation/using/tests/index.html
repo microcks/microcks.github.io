@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> Executing tests | Microcks.io</title>
+    <title> Testing with Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,23 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Executing tests" />
-<meta property="og:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process." />
+<meta property="og:title" content="Testing with Microcks" />
+<meta property="og:description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
+Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/tests/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-06T00:00:00+00:00" />
 
-<meta itemprop="name" content="Executing tests">
-<meta itemprop="description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1009">
+<meta itemprop="name" content="Testing with Microcks">
+<meta itemprop="description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
+Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1402">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Executing tests"/>
-<meta name="twitter:description" content="Running tests Microcks offers mocks but can also be used for Contract testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
-From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process."/>
+<meta name="twitter:title" content="Testing with Microcks"/>
+<meta name="twitter:description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
+Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!"/>
 
 
       
@@ -217,6 +217,12 @@ var trackOutboundLink = function(id, url) {
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
   <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#conformance-testing">Conformance testing</a>
+      <ul>
+        <li><a href="#conformance-metrics">Conformance metrics</a></li>
+      </ul>
+    </li>
     <li><a href="#running-tests">Running tests</a></li>
     <li><a href="#test-parameters">Test parameters</a>
       <ul>
@@ -234,7 +240,7 @@ var trackOutboundLink = function(id, url) {
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/using/alternatives/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Comparison to alternatives ">
+			<a href="https://microcks.io/documentation/using/soapui/" class="dib f6 pl1 hover-bg-light-gray br-100" title="SoapUI Mocking and Testing ">
 				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -244,7 +250,7 @@ var trackOutboundLink = function(id, url) {
 		
 
 		
-			<a href="https://microcks.io/documentation/using/dynamic/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Getting dynamic mocks">
+			<a href="https://microcks.io/documentation/using/mocks/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Using exposed mocks">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -259,7 +265,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Executing tests</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Testing with Microcks</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -271,8 +277,27 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
+<h2 id="introduction">Introduction</h2>
+<p>It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?</p>
+<p>Microcks offers mocks but can also be used for <strong>Contract conformance testing</strong> of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!</p>
+<h2 id="conformance-testing">Conformance testing</h2>
+<p>You find on the internet many different representations of how the different testing techniques relates to one another and should be ideally combine into a robust testing pipeline. At Microcks, we particularly like the Watirmelon representation below. Microcks clearly allows you to realize <strong>Automated API Tests</strong> and focus more precisely on <strong>Contract or Conformance testing</strong>.</p>
+<p align="center">
+  <img alt="Ideal Software Testing Pyrami" src="https://miro.medium.com/max/1400/0*f2vFclaitRRo1w2i.jpg" style="max-width: 75%; border-color: #dddddd; border-style: solid !important"/>
+</p>
+<p>The purpose of Microcks tests is precisely to check that the <strong>Interaction Contract</strong> - as represented by an OpenAPI or AsyncAPI specification, a Postman collection or whatever <a href="./importers/#supported-formats">supported artifact</a> - consumer and producer agreed upon is actually respected by the API provider. In other words: to check that an implementation of the API is conformant to its contract.</p>
+<p>In order to help you getting confidence into your implementations, we developed the <strong>Conformance index</strong> and <strong>Conformance score</strong> metrics that you can see on the top right of each API | Service details page:</p>
+<p><img src="/images/test-conformance.png" alt="test-conformance"></p>
+<blockquote>
+<p>This metrics are available from the <code>1.6.0</code> version of Microcks.</p>
+</blockquote>
+<h3 id="conformance-metrics">Conformance metrics</h3>
+<p>The <strong>Conformance index</strong> is a kind of grade that estimates how your API contract is actually covered by the samples you&rsquo;ve attached to it. We compute this index based on the number of samples you&rsquo;ve got on each operation, the complexity of dispatching rules of these operation and so on&hellip; It represents the maximum possible conformance score you may achieve if all your tests are successfull.</p>
+<p>The <strong>Conformance score</strong> is the current score that has been computed during your last test execution. We also added a trend computation if things are going better or worse comparing to your history of tests on this API.</p>
+<p>Once you have activated <a href="./advanced/organizing/#applying-labels">labels filtering</a> on your repository and have ran a few tests, Microcks is also able to give you an aggregated view of your API patrimony in termes of <strong>Conformance Risks</strong>. The tree map below is displayed on the <em>Dashboard</em> page and represents risks in terms of average score per group of APIs (depending on the concept you chose it could be per domain, per application, per team, &hellip;)</p>
+<p><img src="/images/test-conformance-risks.png" alt="test-conformance-risks"></p>
+<p>This visualization allows you to have a clear understanding of your conformance risks at first glance!</p>
 <h2 id="running-tests">Running tests</h2>
-<p>Microcks offers mocks but can also be used for <strong>Contract testing</strong> of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!</p>
 <p>From the page displaying basic information on your <a href="../mocks/#mocks-info">API or Service mocks</a>, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <strong>NEW TEST&hellip;</strong> button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:</p>
 <p><img src="/images/test-form.png" alt="test-form"></p>
 <blockquote>
@@ -284,7 +309,7 @@ var trackOutboundLink = function(id, url) {
 <h3 id="test-endpoint">Test Endpoint</h3>
 <p>The <strong>Test Endpoint</strong> is simply a URI where a deployed component is providing API specification endpoint. In the testing literature, this is usually defined as the URI of the <a href="https://en.wikipedia.org/wiki/System_under_test">System Under Test</a>.</p>
 <h4 id="http-based-apis">HTTP based APIs</h4>
-<p>For HTTP based APIs (REST or SOAP), this is a simple URL that should respect following pattern:</p>
+<p>For HTTP based APIs (REST, SOAP, GraphQL or gRPC), this is a simple URL that should respect following pattern:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">http<span class="o">[</span>s<span class="o">]</span>://<span class="o">{</span>service.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>service.path<span class="o">}</span>
 </code></pre></div><h4 id="event-based-apis">Event based APIs</h4>
 <p>For Event based API through <a href="../asyncapi">Async API</a> testing, pattern is depending on the protocole binding you&rsquo;d like to test.</p>
@@ -340,7 +365,7 @@ var trackOutboundLink = function(id, url) {
 </tr>
 <tr>
 <td><code>h.{header}</code></td>
-<td>A bunch of headers where name starts with <code>h.</code> in order to deal with headers exchange. The <code>x-match</code> property is set to <code>any</code>to ghather the most message as possible.</td>
+<td>A bunch of headers where name starts with <code>h.</code> in order to deal with headers exchange. The <code>x-match</code> property is set to <code>any</code>to gather the most message as possible.</td>
 </tr>
 </tbody>
 </table>
@@ -487,12 +512,12 @@ var trackOutboundLink = function(id, url) {
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
-              GETTING DYNAMIC MOCKS
+              GETTING DIRECT API
             </a>
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
-              EXECUTING TESTS
+              TESTING WITH MICROCKS
             </a>
           </li>
           <li class="f6 fw4">
@@ -654,8 +679,8 @@ var trackOutboundLink = function(id, url) {
   <a href="https://microcks.io/documentation/using/tests/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Executing tests”
-  </a> was last updated: January 6, 2022
+    “Testing with Microcks”
+  </a> was last updated: September 6, 2022
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/tests.md" class="

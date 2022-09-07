@@ -6,11 +6,11 @@
     <description>Recent content in releases on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/releases/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/releases/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>News about Microcks</title>
       <link>https://microcks.io/news/</link>
-      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/</guid>
       <description>Fresh Releases Microcks core 1.5.2 on 02 Jun 2022 We are delighted to announce the 1.5.2 release of Microcks ♻️ This is mainly an “Enhancement release” pushing further the Microcks’ Hub and Marketplace we introduced a few weeks ago.
