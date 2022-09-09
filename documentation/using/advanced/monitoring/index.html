@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> Organizing repository | Microcks.io</title>
+    <title> Monitoring &amp; Observability | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,23 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Organizing repository" />
-<meta property="og:description" content="Introduction You can manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services." />
+<meta property="og:title" content="Monitoring &amp; Observability" />
+<meta property="og:description" content="Introduction As a cloud-native application, we take great care of providing observability on what&rsquo;s going on within a Microcks instance. We dissociate two kinds of metrics: the Functional metrics are related to all the domain objects you may find in Microcks and the Technical metrics that are related to resource consumption and performance.
+Functional metrics Microcks provides functional metrics directly from within its own API. This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/using/advanced/organizing/" /><meta property="article:section" content="documentation" />
-<meta property="article:published_time" content="2020-03-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-31T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/documentation/using/advanced/monitoring/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2022-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-09T00:00:00+00:00" />
 
-<meta itemprop="name" content="Organizing repository">
-<meta itemprop="description" content="Introduction You can manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services."><meta itemprop="datePublished" content="2020-03-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-08-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="853">
+<meta itemprop="name" content="Monitoring &amp; Observability">
+<meta itemprop="description" content="Introduction As a cloud-native application, we take great care of providing observability on what&rsquo;s going on within a Microcks instance. We dissociate two kinds of metrics: the Functional metrics are related to all the domain objects you may find in Microcks and the Technical metrics that are related to resource consumption and performance.
+Functional metrics Microcks provides functional metrics directly from within its own API. This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics."><meta itemprop="datePublished" content="2022-09-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="251">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Organizing repository"/>
-<meta name="twitter:description" content="Introduction You can manage labels upon APIs &amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services."/>
+<meta name="twitter:title" content="Monitoring &amp; Observability"/>
+<meta name="twitter:description" content="Introduction As a cloud-native application, we take great care of providing observability on what&rsquo;s going on within a Microcks instance. We dissociate two kinds of metrics: the Functional metrics are related to all the domain objects you may find in Microcks and the Technical metrics that are related to resource consumption and performance.
+Functional metrics Microcks provides functional metrics directly from within its own API. This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics."/>
 
 
       
@@ -218,26 +218,17 @@ var trackOutboundLink = function(id, url) {
   	<nav id="TableOfContents">
   <ul>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#applying-labels">Applying labels</a></li>
-    <li><a href="#master-level-filter">Master level filter</a></li>
-    <li><a href="#rbac-security-segmentation">RBAC security segmentation</a></li>
+    <li><a href="#functional-metrics">Functional metrics</a></li>
+    <li><a href="#technical-metrics">Technical metrics</a></li>
   </ul>
 </nav>
 	
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/using/asyncapi/" class="dib f6 pl1 hover-bg-light-gray br-100" title="AsyncAPI Mocking and Testing ">
-				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 
 		
-			<a href="https://microcks.io/documentation/using/advanced/dispatching/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Custom dispatching rules">
+			<a href="https://microcks.io/documentation/using/swagger/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Swagger Mocking and Testing">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -252,7 +243,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Organizing repository</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Monitoring &amp; Observability</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -265,102 +256,24 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="introduction">Introduction</h2>
-<p>You can manage <code>labels</code> upon APIs &amp; Services present into your Microcks repository.</p>
-<p>Generally speaking, labels are key/value pairs that are attached to objects, such as <strong>APIs &amp; Services</strong> or <strong>Importer Jobs</strong>. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp; Services. Labels can be attached at creation time and subsequently added and modified at any time. Each APIs &amp; Services can have a set of key/value labels defined and each key must be unique for a given object.</p>
-<p>Labels are a very flexible way to map your own organizational structures onto APIs &amp; Services with loose coupling. Some example labels that may suit your classification needs:</p>
+<p>As a cloud-native application, we take great care of providing observability on what&rsquo;s going on within a Microcks instance. We dissociate two kinds of metrics: the <strong>Functional metrics</strong> are related to all the domain objects you may find in Microcks and the <strong>Technical metrics</strong> that are related to resource consumption and performance.</p>
+<h2 id="functional-metrics">Functional metrics</h2>
+<p>Microcks provides functional metrics directly from within <a href="../../../automating/api">its own API</a>. This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics. The endpoints of the API are returning JSON data.</p>
+<p>Three categories of endpoints are available:</p>
 <ul>
-<li><code>domain</code> may represent the business or application domain this API belongs to. Example values: <code>customer</code>, <code>finance</code>, <code>sales</code>, <code>shipping</code>&hellip;</li>
-<li><code>status</code> may represent the status of the API in the lifecycle. Example values: <code>wip</code>, <code>preview</code>, <code>GA</code>, <code>deprecated</code>, <code>retired</code>&hellip;</li>
-<li><code>type</code> or <code>pattern</code> may represent the pattern involved in the API implementation. Example values: <code>proxy</code>, <code>composition</code>, <code>assembly</code>&hellip;</li>
-<li><code>team</code> may represent the owner team for this API. Example values: <code>team-A</code>, <code>team-B</code>&hellip;</li>
+<li><code>/api/merics/conformance/*</code> for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see <a href="../../tests#conformance-metrics">Conformance metrics</a>,</li>
+<li><code>/api/metrics/invocations/*</code> for querying the metrics related to mocks invocations (daily/hourly invocations, by API | Service or aggregated),</li>
+<li><code>/api/metrics/tests/*</code> for aggregated metrics on tests executed on the platform</li>
 </ul>
-<p>Microcks does not impose any labels or way of modeling them 😉 However, for now it only applies one level filtering in its UI using one <code>master</code> label you define as the most important. Below an example of what you&rsquo;ve got on the UI side when defining <code>Domain</code> as the main label:</p>
-<p><img src="/images/organizing-services.png" alt="organizing-services"></p>
-<h2 id="applying-labels">Applying labels</h2>
-<p>When accessing API details, labels are displayed with global metadata at the top level. Users have the <code>manager</code> or <code>administrator</code> roles will also see the <strong>Manage labels&hellip;</strong>  item available right next to label list.</p>
-
-<div style="margin: auto; width: 80%">
-    <img src="/images/organizing-labels.png" width="650">
-</div>
-<p>Label management is done through the dialog shown below when one can easily add new labels or remove existing ones.</p>
-
-<div style="margin: auto; width: 80%">
-    <img src="/images/organizing-labels-edit.png" width="650">
-</div>
-<blockquote>
-<p>Labels are saved into Microcks database and not replaced by a new importation of your Service or API definition. They can be independently set and updated using the <a href="/documentation/using/automating/api">Microcks APIs</a>.</p>
-</blockquote>
-<h2 id="master-level-filter">Master level filter</h2>
-<p>Microcks instance administrator are also able to configure one label as being the main one, the <code>master</code> that will be used for first level filtering in the Services list page of the Microcks web UI.</p>
-<p>For that, we rely on the <code>features.properties</code> configuration file found on the server side. Depending on how you install Microcks - through Operator or Helm Chart or Docker-Compose - these properties are made available directly into a <code>MicrocksInstall</code> custom resource or a <code>ConfigMap</code> or a regular file.</p>
-<p>The feature to activate for that is simply called <code>repository-filter</code>. It has the following sub-properties:</p>
-<table>
-<thead>
-<tr>
-<th>Sub-Property</th>
-<th> Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> <code>enabled</code></td>
-<td> A boolean flag that turns on the feature. <code>true</code> or <code>false</code></td>
-</tr>
-<tr>
-<td><code>label-key</code></td>
-<td> The label key to use for first level filtering in Services list page.</td>
-</tr>
-<tr>
-<td><code>label-label</code></td>
-<td> The display label of the first level filtering key in Services list page.</td>
-</tr>
-<tr>
-<td><code>label-list</code></td>
-<td> A comma separated list of label keys you want to display in Services list page.</td>
-</tr>
-</tbody>
-</table>
-<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-filter</code> and having the results shown in the capture on the top of this page. You&rsquo;ll see that we use <code>domain</code> as the main label and that we only display <code>domain</code> and <code>status</code> labels on the Services list page:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">features.feature.repository-filter.enabled=true
-features.feature.repository-filter.label-key=domain
-features.feature.repository-filter.label-label=Domain
-features.feature.repository-filter.label-list=domain,status
-</code></pre><blockquote>
-<p>Note: when configured through <code>MicrocksInstall</code> Kubernetes CRD or Helm Chart values, we use a Camel Case notation for this properties. They are named: <code>repositoryFilter</code> with sub-keys <code>labelKey</code>, <code>labelLabel</code> and <code>labelList</code>.</p>
-</blockquote>
-<h2 id="rbac-security-segmentation">RBAC security segmentation</h2>
-<p>From <code>1.4.0</code> release, we introduce the ability to segment the repository management depending on the <code>master</code> label that has been configured.</p>
-<p>As an example, if you defined the <code>domain</code> label as the master with <code>customer</code>, <code>finance</code> and <code>sales</code> values, you&rsquo;ll be able to define users with the <code>manager</code> role <strong>only</strong> for the APIs &amp; Services that have been labeled accordingly. Sarah may be defined as a <code>manager</code> for <code>domain=customer</code> and <code>domain=finance</code> services, while John may be defined as the <code>manager</code> for <code>domain=sales</code> APIs &amp; services.</p>
-<p>See the documentation on <a href="../../../administrating/users/#authorization">Authorization</a> and <a href="../../../administrating/users/#users-management">Users management</a> for more informations on how to manage this role attributions.</p>
-<p>We rely on the <code>features.properties</code> configuration file found on the server side. Depending on how you install Microcks - through Operator or Helm Chart or Docker-Compose - these properties are made available directly into a <code>MicrocksInstall</code> custom resource or a <code>ConfigMap</code> or a regular file.</p>
-<p>The feature to activate for that is simply called <code>repository-filter</code>. It has the following sub-properties:</p>
-<table>
-<thead>
-<tr>
-<th>Sub-Property</th>
-<th> Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> <code>enabled</code></td>
-<td> A boolean flag that turns on the feature. <code>true</code> or <code>false</code></td>
-</tr>
-<tr>
-<td><code>artifact-import-allowed-roles</code></td>
-<td> A comma separated list of roles that you may restrict import of artifacts to.</td>
-</tr>
-</tbody>
-</table>
-<p>Here&rsquo;s below the portion of <code>features.properties</code> configuration used for enabling <code>repository-tenancy</code>:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">features.feature.repository-tenancy.enabled=true
-features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,manager-any
-</code></pre><blockquote>
-<p>Note: when configured through <code>MicrocksInstall</code> Kubernetes CRD or Helm Chart values, we use a Camel Case notation for this properties. They are named: <code>repositoryTenancy</code> with sub-key <code>artifactImportAllowedRoles</code>.</p>
-</blockquote>
-<blockquote>
-<p>Note 2: the <code>manager-any</code> is not actually a role, it&rsquo;s a notation meaning &lsquo;a people that belong to any management group even if not endorsing the global manager role&rsquo;.</p>
-</blockquote>
+<p>Have a look at <a href="../../../automating/api">Microcks API</a> to get detailed on how to use those endpoints.</p>
+<h2 id="technical-metrics">Technical metrics</h2>
+<p>For Technical metrics, Microcks components expose <a href="https://prometheus.io">Prometheus</a> endpoints that can be scraped to collect technical metrics. That way you ca neasily integrate Microcks monitoring into any modern monitoring stack with <a href="https://prometheus.io/docs/alerting/latest/alertmanager/">Alert Manager</a> or <a href="https://grafana.com/grafana/">Grafana</a>.</p>
+<p>Two different endpoints are available:</p>
+<ul>
+<li><code>/actuator/prometheus</code> path for the main webapp component,</li>
+<li><code>/q/metrics</code> path for async-minion component</li>
+</ul>
+<p>From those endpoints, you will be able to collect resource consumption or perfromance metrics such as: JVM memory used, JVM thread pools, HTTP endpoints performance, Database queries performance and so on.</p>
 
 </div>
 
@@ -452,7 +365,7 @@ features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               ORGANIZING REPOSITORY
             </a>
           </li>
@@ -472,7 +385,7 @@ features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/advanced/monitoring/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/advanced/monitoring/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               MONITORING &amp; OBSERVABILITY
             </a>
           </li>
@@ -607,14 +520,14 @@ features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/using/advanced/organizing/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/using/advanced/monitoring/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Organizing repository”
-  </a> was last updated: August 31, 2021
+    “Monitoring &amp; Observability”
+  </a> was last updated: September 9, 2022
 </h6>
 
-      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/advanced/organizing.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/advanced/monitoring.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 
