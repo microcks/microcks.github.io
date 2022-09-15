@@ -6,7 +6,18 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.6.2 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.6.0-release/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.6.0-release/</guid>
+      <description>We are excited to announce the 1.6.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. It has been an intense summer time for us as the previous 1.5.2 is just 3 months old!
+We’re now “back to work” and happy to release many features that were requested by our community! In a few words, here are the highlights of this new release:
+ Governance is certainly a huge topic and you’ll see how Microcks can bring significant insights regarding the Tests Conformance of your API, Observability can be tightly linked to Governance as well and Microcks has new APIs to bring you functional and technical observability, And of course a lot more: Direct API concepts enhancements and a coming Docker Desktop extension among many others!</description>
+    </item>
+    
     <item>
       <title>Microcks 1.5.2 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.5.2-release/</link>

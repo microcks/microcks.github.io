@@ -13,8 +13,8 @@
       <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/history/</guid>
-      <description>Older Releases Microcks core 1.3.0 on 30 Jun 2021 We are so proud and happy to share this new 1.3.0 and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. Here are the main changes and enhancements of this release:
- The support of AsyncAPI v2.</description>
+      <description>Older Releases Microcks core 1.4.1 on 15 Oct 2021 We are thrilled to announce the 1.4.1 release that is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience. Here are the highlighted changes of this release:
+ The ability to have Repository multi-tenancy for better management of large-scaled repositories, The introduction of APIMetadata artifact for scaling labeling in Microcks, The support of all Async features on developer&amp;rsquo;s laptop through Docker-Compose, The introduction of Microcks extensions for OpenAPI and AsyncAPI specifications,  Check out our release notes!</description>
     </item>
     
   </channel>
