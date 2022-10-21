@@ -57,7 +57,7 @@ High-level Architecture In its simplest form, Microcks architecture is made of 4
 High-level Architecture In its simplest form, Microcks architecture is made of 4 components which are:
  The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration."><meta itemprop="datePublished" content="2020-12-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-03-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1393">
+<meta itemprop="wordCount" content="1537">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architecture and deployment options"/>
 <meta name="twitter:description" content="Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
@@ -230,6 +230,7 @@ var trackOutboundLink = function(id, url) {
       <ul>
         <li><a href="#everything-managed-by-microcks">Everything managed by Microcks</a></li>
         <li><a href="#partially-managed-by-microcks">Partially managed by Microcks</a></li>
+        <li><a href="#advanced-deployment-options">Advanced deployment options</a></li>
       </ul>
     </li>
   </ul>
@@ -385,6 +386,18 @@ var trackOutboundLink = function(id, url) {
 </ul>
 <p>The schema below illustrates non exhaustive options:</p>
 <img src="/images/deployment-brokers.png" class="img-responsive"/>
+<h3 id="advanced-deployment-options">Advanced deployment options</h3>
+<h4 id="handling-proxies-for-keycloak-access">Handling proxies for Keycloak access</h4>
+<p>Depending on your network configuration, authentication of request with Keycloak can be a bit tricky as Keycloak requires some <a href="https://www.keycloak.org/docs/latest/server_installation/index.html#_setting-up-a-load-balancer-or-proxy">specific load-balancer or proxy settings</a>. Typically, you way need to configure specific address ranges for proxies if you&rsquo;re not using the usual private IPv4 blocks.</p>
+<p>This can be done specifying additional <code>extraProperties</code> into the <code>microcks</code> part of your configuration - either within <code>spec.microcks</code> path if you&rsquo;re using the Operator <code>MicrocksInstall</code> custom resource or from direct <code>microcks</code> path in <code>values.yml</code> when using the Helm chart. The configuration below typically declare a new IP range to treat as proxy in order to propertly forward proxy headers to the application code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">extraProperties</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">tomcat</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">remoteip</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">internal-proxies</span><span class="p">:</span><span class="w"> </span><span class="m">172.16.0.0</span><span class="l">/12</span><span class="w">
+</span></code></pre></div><blockquote>
+<p>This feature is not yet released and available only for <code>nightly</code> tagged Operator and Helm Chart that is located on the <code>1.6.x</code> git branch of the source repository.</p>
+</blockquote>
 
 </div>
 
