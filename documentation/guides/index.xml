@@ -6,7 +6,7 @@
     <description>Recent content in Guides on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
       <link>https://microcks.io/documentation/guides/openapi-101/</link>
@@ -23,8 +23,8 @@ In this guide, we will go through a practical example based on the famous PetSto
       <pubDate>Sun, 14 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/guides/mqtt-support/</guid>
-      <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
-Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
+      <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
     </item>
     
     <item>
@@ -35,6 +35,16 @@ Starting with the 1.2.0 release of Microcks, we support MQTT as a protocole bind
       <guid>https://microcks.io/documentation/guides/avro-messaging/</guid>
       <description>Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&amp;rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
 Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ Mocking and Testing</title>
+      <link>https://microcks.io/documentation/guides/rabbitmq-support/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/guides/rabbitmq-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
+Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
     </item>
     
   </channel>

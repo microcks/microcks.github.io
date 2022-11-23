@@ -6,7 +6,7 @@
     <description>Recent content in Installing on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing on Kube using Helm</title>
       <link>https://microcks.io/documentation/installing/kubernetes/</link>
@@ -49,6 +49,18 @@ In your terminal issue the following commands:
   Clone this repository.
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers</description>
+    </item>
+    
+    <item>
+      <title>Installing as Docker Desktop Extension</title>
+      <link>https://microcks.io/documentation/installing/docker-desktop-extension/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/installing/docker-desktop-extension/</guid>
+      <description>Docker Desktop is a simple-to-install application for Mac, Windows, or Linux that allows you to create and share containerized applications and microservices. Docker Desktop includes the Docker Engine, the Docker CLI client, Docker Compose, Docker Content Trust, Kubernetes, and the Credential Helper.
+Usage To get started, make sure you have Docker Desktop installed on your system.
+  Select Extensions
+  Choose Microcks, install and launch it and you are ready to go 🤩</description>
     </item>
     
     <item>

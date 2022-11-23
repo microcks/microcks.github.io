@@ -53,7 +53,7 @@ docker-compose up -d   This will start the necessary containers and setup a simp
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/getting-started/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-22T00:00:00+00:00" />
 
 <meta itemprop="name" content="Getting started">
 <meta itemprop="description" content="Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements. Make sure you have Docker installed on your system.
@@ -62,8 +62,8 @@ In your terminal issue the following commands:
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers
 docker-compose up -d   This will start the necessary containers and setup a simple environment for you to use."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="812">
+<meta itemprop="dateModified" content="2022-11-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="848">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started"/>
 <meta name="twitter:description" content="Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements. Make sure you have Docker installed on your system.
@@ -300,9 +300,12 @@ var trackOutboundLink = function(id, url) {
 <p>This will start the necessary containers and setup a simple environment for you to use.</p>
 <p>Open a new browser tab and point to the <code>http://localhost:8080</code> endpoint. This will redirect you to the <a href="https://www.keycloak.org/">Keycloak</a> Single Sign On page for login. Use the following default credentials to login into the application:</p>
 <ul>
-<li><strong>Username:</strong> admin</li>
-<li><strong>Password:</strong> microcks123</li>
+<li><strong>Username:</strong> <code>admin</code></li>
+<li><strong>Password:</strong> <code>microcks123</code></li>
 </ul>
+<blockquote>
+<p><strong>Mac M1 users</strong>: running Microcks on M1 requires a special setting and we provide a dedicated <code>docker-compose-osx-m1.yml</code> file for that. So you&rsquo;ll have to use the <code>docker compose -f docker-compose-osx-m1.yml up -d</code> command to launch Microcks.</p>
+</blockquote>
 <h2 id="using-microcks">Using Microcks</h2>
 <p>Now you are ready to use Microcks for deploying your own services and API mocks! Before that let&rsquo;s have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with two main entry points : <b>APIs | Services</b> and <b>Importers</b>.</p>
 <img src="/images/home-screen.png" class="img-responsive"/>
@@ -487,6 +490,11 @@ var trackOutboundLink = function(id, url) {
             </a>
           </li>
           <li class="f6 fw4">
+            <a href="/documentation/installing/docker-desktop-extension/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING AS DOCKER DESKTOP EXTENSION
+            </a>
+          </li>
+          <li class="f6 fw4">
             <a href="/documentation/installing/podman-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING WITH PODMAN-COMPOSE
             </a>
@@ -574,6 +582,11 @@ var trackOutboundLink = function(id, url) {
               MQTT MOCKING AND TESTING
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/rabbitmq-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              RABBITMQ MOCKING AND TESTING
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -600,7 +613,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Getting started”
-  </a> was last updated: September 1, 2019
+  </a> was last updated: November 22, 2022
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/getting-started.md" class="

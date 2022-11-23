@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> MQTT Mocking and Testing | Microcks.io</title>
+    <title> RabbitMQ Mocking and Testing | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,23 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="MQTT Mocking and Testing" />
-<meta property="og:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
-Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification." />
+<meta property="og:title" content="RabbitMQ Mocking and Testing" />
+<meta property="og:description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
+Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/guides/mqtt-support/" /><meta property="article:section" content="documentation" />
-<meta property="article:published_time" content="2021-02-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-02-15T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/rabbitmq-support/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2022-11-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-22T00:00:00+00:00" />
 
-<meta itemprop="name" content="MQTT Mocking and Testing">
-<meta itemprop="description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
-Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-02-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1354">
+<meta itemprop="name" content="RabbitMQ Mocking and Testing">
+<meta itemprop="description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
+Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2022-11-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-11-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1267">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MQTT Mocking and Testing"/>
-<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
-Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification."/>
+<meta name="twitter:title" content="RabbitMQ Mocking and Testing"/>
+<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
+Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification."/>
 
 
       
@@ -218,8 +218,8 @@ var trackOutboundLink = function(id, url) {
   	<nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</a></li>
-    <li><a href="#2-use-mqtt-in-asyncapi">2. Use MQTT in AsyncAPI</a></li>
+    <li><a href="#1-setup-rabbitmq-broker-connection">1. Setup RabbitMQ broker connection</a></li>
+    <li><a href="#2-use-rabbitmq-in-asyncapi">2. Use RabbitMQ in AsyncAPI</a></li>
     <li><a href="#3-validate-your-mocks">3. Validate your mocks</a></li>
     <li><a href="#4-run-asyncapi-tests">4. Run AsyncAPI tests</a></li>
     <li><a href="#wrap-up">Wrap-Up</a></li>
@@ -229,7 +229,7 @@ var trackOutboundLink = function(id, url) {
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/guides/openapi-101/" class="dib f6 pl1 hover-bg-light-gray br-100" title="OpenAPI Mocking 101 ">
+			<a href="https://microcks.io/documentation/guides/avro-messaging/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Kafka, Avro and Schema Registry ">
 				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -239,14 +239,6 @@ var trackOutboundLink = function(id, url) {
 		
 
 		
-			<a href="https://microcks.io/documentation/guides/avro-messaging/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Kafka, Avro and Schema Registry">
-			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 	</div>
 
 </aside>
@@ -254,7 +246,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">MQTT Mocking and Testing</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">RabbitMQ Mocking and Testing</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -267,12 +259,11 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="overview">Overview</h2>
-<p>This guide is a walkthrough on how to use the <a href="https://mqtt.org/">Message Queuing Telemetry Transport (MQTT)</a> protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.</p>
-<p>Starting with the <code>1.2.0</code> release of Microcks, we support MQTT as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
+<p>This guide is a walkthrough on how to use the <a href="https://www.rabbitmq.com/">RabbitMQ</a> protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically <a href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">AMQP 0.9.1</a>, RabbitMQ was originally developed for.</p>
+<p>Starting with the <code>1.5.1</code> release of Microcks, we support RabbitMQ/AMQP as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
 <p>Let&rsquo;s start!</p>
-<h2 id="1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</h2>
-<p>First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquitto</a> with MQTT protocol version <code>3.1.1</code>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
-<p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
+<h2 id="1-setup-rabbitmq-broker-connection">1. Setup RabbitMQ broker connection</h2>
+<p>First mandatory step here is to setup Microcks so that it will be able to connect to a RabbitMQ broker for sending mock messages. Microcks has been tested successfully with RabbitMQ version <code>3.9.13</code>. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
 </span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
 </span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -283,176 +274,148 @@ var trackOutboundLink = function(id, url) {
 </span><span class="w">    </span><span class="nt">async</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-broker.app.example.com:1883</span><span class="w">
+</span><span class="w">      </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq-broker.app.example.com:5672</span><span class="w">
 </span><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
 </span><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
-</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>mqtt</code> block:</p>
+</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>amqp</code> block:</p>
 <ul>
 <li><code>url</code> is the hostname + port where broker can be reached by Microcks,</li>
 <li><code>username</code> is simply the user to use for authenticating the connection,</li>
 <li><code>password</code> represents this user credentials.</li>
 </ul>
-<blockquote>
-<p>For now, Microcks does not support connecting to a broker secured using TLS. This is tracked in a <a href="https://github.com/microcks/microcks/issues/316">RFE here</a> and will be implemented in a near future.</p>
-</blockquote>
 <p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w"></span><span class="nt">features</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">async</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">    </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-broker.app.example.com:1883</span><span class="w">
+</span><span class="w">    </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq-broker.app.example.com:5672</span><span class="w">
 </span><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
 </span><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
-</span></code></pre></div><p>Actual connection to the MQTT broker will only be made once Microcks will send mock messages to it. Let see below how to use MQTT binding with AsyncAPI.</p>
-<h2 id="2-use-mqtt-in-asyncapi">2. Use MQTT in AsyncAPI</h2>
-<p>As MQTT is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/streetlights-asyncapi.yaml">GitHub repository</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
-</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><p>Actual connection to the RabbitMQ broker will only be made once Microcks will send mock messages to it. Let see below how to use AMQP binding with AsyncAPI.</p>
+<h2 id="2-use-rabbitmq-in-asyncapi">2. Use RabbitMQ in AsyncAPI</h2>
+<p>As AMQP is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/api-lifecycle/blob/master/account-service-demo-amqp/account-service-asyncapi-1.1.0.yml">GitHub repository</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">is</span><span class="p">:</span><span class="w"> </span><span class="l">routingKey</span><span class="w">
+</span><span class="w">        </span><span class="nt">exchange</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">signedup-exchange</span><span class="w">
+</span><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">topic</span><span class="w">
+</span><span class="w">          </span><span class="nt">durable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">          </span><span class="nt">autoDelete</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">          </span><span class="nt">vhost</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span><span class="w">        </span><span class="nt">bindingVersion</span><span class="p">:</span><span class="w"> </span><span class="m">0.2.0</span><span class="w">
 </span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">          </span><span class="nt">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>mqtt</code> non empty block within the operation <code>bindings</code>. Just define one or property (like <code>qos</code> for example) and Microcks will detect this binding has been specified.</p>
-<p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
-<p>In our example we have used references to a shared message structure that is also holding examples. We have defined 3 virtual devices that are sending their lumens measure and the corresponding date, still coming from our <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/streetlights-asyncapi.yaml">GitHub repository</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.streetlights&#39;</span><span class="w">
-</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w"></span><span class="nt">defaultContentType</span><span class="p">:</span><span class="w"> </span><span class="l">application/json</span><span class="w">
-</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">smartylighting/streetlights/event/lighting/measured</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">mqtt</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">qos</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">          </span><span class="nt">retain</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/lightMeasured&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/UserSignedUp&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]    </span><span class="w">
+</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>amqp</code> non empty block within the channel <code>bindings</code>. An <code>amqp</code> is either a a <code>queue</code> or <code>routingKey</code>. When choosing a <code>routingKey</code> you&rsquo;re in fact describing an exchange that should be further typed as <code>topic</code>, <code>direct</code>, <code>fanout</code> or <code>headers</code>. See the full <a href="https://github.com/asyncapi/bindings/tree/master/amqp">binding spec</a> for details.</p>
+<p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">is</span><span class="p">:</span><span class="w"> </span><span class="l">routingKey</span><span class="w">
+</span><span class="w">        </span><span class="nt">exchange</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">signedup-exchange</span><span class="w">
+</span><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">topic</span><span class="w">
+</span><span class="w">          </span><span class="nt">durable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">          </span><span class="nt">autoDelete</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">          </span><span class="nt">vhost</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span><span class="w">        </span><span class="nt">bindingVersion</span><span class="p">:</span><span class="w"> </span><span class="m">0.2.0</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/UserSignedUp&#39;</span><span class="w">
 </span><span class="w"></span><span class="nt">components</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">messages</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">lightMeasured</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">traits</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- <span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messageTraits/commonHeaders&#39;</span><span class="w">
+</span><span class="w">    </span><span class="nt">UserSignedUp</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/schemas/lightMeasuredPayload&#39;</span><span class="w">
+</span><span class="w">        </span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w">      </span><span class="nt">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- <span class="nt">dev0</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Device 0</span><span class="w">
-</span><span class="w">            </span><span class="nt">headers</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
-</span><span class="sd">              </span><span class="w">              </span>{<span class="nt">&#34;my-app-header&#34;: </span><span class="m">14</span>}<span class="w">
-</span><span class="w">            </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
-</span><span class="sd">              </span><span class="w">              </span>{<span class="s2">&#34;streetlightId&#34;</span><span class="p">:</span><span class="s2">&#34;dev0&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;lumens&#34;</span><span class="p">:</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sentAt&#34;</span><span class="p">:</span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span>}<span class="w">
-</span><span class="w">        </span>- <span class="nt">dev1</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Device 1</span><span class="w">
-</span><span class="w">            </span><span class="nt">headers</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
-</span><span class="w">            </span><span class="nt">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="nt">streetlightId</span><span class="p">:</span><span class="w"> </span><span class="l">dev1</span><span class="w">
-</span><span class="w">              </span><span class="nt">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1100</span><span class="w">
-</span><span class="w">              </span><span class="nt">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
-</span><span class="w">        </span>- <span class="nt">dev2</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Device 2</span><span class="w">
-</span><span class="w">            </span><span class="nt">headers</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">14</span><span class="w">
-</span><span class="w">            </span><span class="nt">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">              </span><span class="nt">streetlightId</span><span class="p">:</span><span class="w"> </span><span class="l">dev2</span><span class="w">
-</span><span class="w">              </span><span class="nt">lumens</span><span class="p">:</span><span class="w"> </span><span class="m">1200</span><span class="w">
-</span><span class="w">              </span><span class="nt">sentAt</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{now(yyyy-MM-dd&#39;T&#39;HH:mm:SS&#39;Z&#39;)}}&#34;</span><span class="w">
-</span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Laurent</span><span class="w">
+</span><span class="w">          </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">Laurent Broudoux</span><span class="w">
+</span><span class="w">            </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">laurent@microcks.io</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Random</span><span class="w">
+</span><span class="w">          </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomFullName()}}&#39;</span><span class="w">
+</span><span class="w">            </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomEmail()}}&#39;</span><span class="w">
+</span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{randomFullName()}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
 <p>Now simply import your AsyncAPI file into Microcks either using a <strong>Direct upload</strong> import or by defining a <strong>Importer Job</strong>. Both methods are described in <a href="../../using/importers">this page</a>.</p>
 <h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
 <p>Now it’s time to validate that mock publication of messages on the connected broker is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
-<p>For our <code>Streetlights API</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/mqttjs-client/consumer.js">in one GitHub repository</a>.</p>
+<p>For our <code>Account Service</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/amqpjs-client/consumer.js">in one GitHub repository</a>.</p>
 <p>Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
-$ <span class="nb">cd</span> api-tooling/async-clients/mqttjs-client
+$ <span class="nb">cd</span> api-tooling/async-clients/amqpjs-client
 $ npm install
 
-$ node consumer.js mqtt://mqtt-broker.app.example.com:1883 StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured microcks microcks
-Connecting to mqtt://mqtt-broker.app.example.com:1883 on topic StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured
+$ node consumer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-broker.app.example.com:5672 AccountService-1.1.0-user/signedup
+Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-broker.app.example.com:5672 on topic AccountService-1.1.0-user/signedup
 <span class="o">{</span>
-  <span class="s2">&#34;streetlightId&#34;</span>: <span class="s2">&#34;dev0&#34;</span>,
-  <span class="s2">&#34;lumens&#34;</span>: 1000,
-  <span class="s2">&#34;sentAt&#34;</span>: <span class="s2">&#34;2021-02-14T10:01:783Z&#34;</span>
+  <span class="s2">&#34;displayName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>
 <span class="o">}</span>
 <span class="o">{</span>
-  <span class="s2">&#34;streetlightId&#34;</span>: <span class="s2">&#34;dev1&#34;</span>,
-  <span class="s2">&#34;lumens&#34;</span>: 1100,
-  <span class="s2">&#34;sentAt&#34;</span>: <span class="s2">&#34;2021-02-14T10:01:784Z&#34;</span>
+  <span class="s2">&#34;displayName&#34;</span>: <span class="s2">&#34;Marcela Langworth&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;abel.kulas@example.com&#34;</span>
 <span class="o">}</span>
-<span class="o">{</span>
-  <span class="s2">&#34;streetlightId&#34;</span>: <span class="s2">&#34;dev2&#34;</span>,
-  <span class="s2">&#34;lumens&#34;</span>: 1200,
-  <span class="s2">&#34;sentAt&#34;</span>: <span class="s2">&#34;2021-02-14T10:01:785Z&#34;</span>
-<span class="o">}</span>
-</code></pre></div><p>🎉 Fantastic! We are receiving the three different messages corresponding to the three defined devices each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>sentAt</code> property has a different value thanks to the templating notation.</p>
-<blockquote>
-<p>Note: this simple <code>consumer.js</code> script is also able to handled TLS connections to your MQTT broker. It was omitted here for sake of simplicity but you can also use commands like: <code>node consumer.js mqtts://artemis-my-acceptor-0-svc-rte-microcks.apps.example.com:443 StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured admin mypassword broker.crt</code></p>
-</blockquote>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined devices each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>displayName</code> and <code>email</code> properties have a different value thanks to the templating notation.</p>
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
-<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Streetlights API</code> sample we used so far but feel free to adapt them for your own use.</p>
-<p>Imaging that you want to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>mqttjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>streetlights-event-lighting-measured</code> topic:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
-Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
-<span class="o">{</span>
-  streetlightId: <span class="s1">&#39;devX&#39;</span>,
-  lumens: 900,
-  sentAt: <span class="s1">&#39;2021-02-15T09:06:42.744Z&#39;</span>
-<span class="o">}</span>
-<span class="o">{</span>
-  streetlightId: <span class="s1">&#39;devX&#39;</span>,
-  lumens: 900,
-  sentAt: <span class="s1">&#39;2021-02-15T09:06:45.750Z&#39;</span>
-<span class="o">}</span>
+<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Account Service</code> sample we used so far but feel free to adapt them for your own use.</p>
+<p>Imaging that you want to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>amqpjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>signedup-exchange</code> topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
+Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
+Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
+Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
+Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div><p>Do not interrupt the execution of the script for now.</p>
 <p>If the <strong>QA</strong> broker access is secured - let&rsquo;s say with credentials and custom certificates - we will first have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
 <blockquote>
 <p><strong>Administration</strong> and <strong>Secrets</strong> will only be available to people having the <code>administrator</code> role assigned. Please check <a href="../../administrating/secrets/users">this documentation</a> for details.</p>
 </blockquote>
-<p>The screenshot below illustrates the creation of such a secret for your <code>QA MQTT Broker</code> with username, credentials and custom certificates using the <a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM format</a>.</p>
-<p><img src="/images/mqtt-broker-secret.png" alt="MQTT Broker secret"></p>
+<p>The screenshot below illustrates the creation of such a secret for your <code>QA RabbitMQ Broker</code> with username and password.</p>
+<p><img src="/images/guides/amqp-broker-secret.png" alt="AMQP Broker secret"></p>
 <p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
 <ul>
-<li><strong>Test Endpoint</strong>: <code>mqtt://mqtt-broker-qa.app.example.com:443/streetlights-event-lighting-measured</code> that is referencing the MQTT broker endpoint,</li>
+<li><strong>Test Endpoint</strong>: <code>amqp://rabbitmq-qa-broker.app.example.com:5672/t/signedup-exchange</code> that is referencing the AMQP broker endpoint,</li>
+<li><strong>Operation</strong>: <code>SUBSCRIBE user/signedup</code></li>
 <li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API,</li>
 <li><strong>Timeout</strong>: Keep the default of 10 seconds,</li>
-<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA MQTT Broker</strong> you previously created.</li>
+<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA RabbitMQ Broker</strong> you previously created.</li>
 </ul>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
-<p><img src="/images/mqtt-test-success.png" alt="MQTT Test success"></p>
+<p><img src="/images//guides/amqp-test-success.png" alt="AMQP Test success"></p>
+<blockquote>
+<p>You may have noticed the <code>/t/</code> path element in Test endpoint used above. You may be aware that RabbitMQ is supporting different kinds of Exchnages and <code>/t/</code> is here to tell Microcks it should consider a topic. As an exercice, you can reuse our <code>producer.js</code> script above and replace with <code>fanout</code>, <code>direct</code> or <code>headers</code>. Respectively, you&rsquo;ll have to replace <code>/t/</code> with <code>/f/</code>, <code>/d/</code> and <code>/h/</code> to tell Microcks the expected type of Exchange.</p>
+</blockquote>
 <p>This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be defined.</p>
-<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on line 35 and to remove comments from line 36. It&rsquo;s removing the <code>lumens</code> measure and adding an unexpected <code>location</code> property as shown below after having restarted the producer:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt
-Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
-<span class="o">{</span>
-  streetlightId: <span class="s1">&#39;devX&#39;</span>,
-  location: <span class="s1">&#39;47.8509682604982, 0.11136576784773598&#39;</span>,
-  sentAt: <span class="s1">&#39;2021-02-15T10:04:49.669Z&#39;</span>
-<span class="o">}</span>
-<span class="o">{</span>
-  streetlightId: <span class="s1">&#39;devX&#39;</span>,
-  location: <span class="s1">&#39;47.8509682604982, 0.11136576784773598&#39;</span>,
-  sentAt: <span class="s1">&#39;2021-02-15T10:04:52.676Z&#39;</span>
-<span class="o">}</span>
+<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on line 21 and to remove comments from line 22. It&rsquo;s removing the <code>displayName</code> property and adding an unexpected <code>name</code> property as shown below after having restarted the producer:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
+Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
+Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
+Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
+Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
-<p><img src="/images/mqtt-test-failure.png" alt="MQTT Test failure"></p>
-<p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
+<p><img src="/images/guides/amqp-test-failure.png" alt="AMQP Test failure"></p>
+<p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application is sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
 <h2 id="wrap-up">Wrap-Up</h2>
-<p>In this guide we have seen how Microcks can also be used to send mock messages on a MQTT Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
+<p>In this guide we have seen how Microcks can also be used to send mock messages on a RabbitMQ Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
 <p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a> 🐙</p>
 
 </div>
@@ -679,12 +642,12 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/guides/mqtt-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/guides/mqtt-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               MQTT MOCKING AND TESTING
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/guides/rabbitmq-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/guides/rabbitmq-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               RABBITMQ MOCKING AND TESTING
             </a>
           </li>
@@ -710,14 +673,14 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/guides/mqtt-support/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/guides/rabbitmq-support/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “MQTT Mocking and Testing”
-  </a> was last updated: February 15, 2021
+    “RabbitMQ Mocking and Testing”
+  </a> was last updated: November 22, 2022
 </h6>
 
-      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/mqtt-support.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/rabbitmq-support.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 
