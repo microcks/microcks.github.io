@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> Custom dispatching rules | Microcks.io</title>
+    <title> Dispatcher &amp; dispatching rules | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,21 +43,21 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Custom dispatching rules" />
+<meta property="og:title" content="Dispatcher &amp; dispatching rules" />
 <meta property="og:description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/advanced/dispatching/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-26T00:00:00+00:00" />
 
-<meta itemprop="name" content="Custom dispatching rules">
+<meta itemprop="name" content="Dispatcher &amp; dispatching rules">
 <meta itemprop="description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values."><meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1142">
+<meta itemprop="dateModified" content="2022-12-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1703">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Custom dispatching rules"/>
+<meta name="twitter:title" content="Dispatcher &amp; dispatching rules"/>
 <meta name="twitter:description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values."/>
 
@@ -218,12 +218,13 @@ var trackOutboundLink = function(id, url) {
   	<nav id="TableOfContents">
   <ul>
     <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#inferred-dispatchers">Inferred dispatchers</a></li>
     <li><a href="#the-need-for-custom-dispatching-rules">The need for custom dispatching rules</a></li>
     <li><a href="#dispatching-rules-override">Dispatching rules override</a>
       <ul>
-        <li><a href="#inferred-dispatchers">Inferred dispatchers</a></li>
         <li><a href="#json-body-dispatcher">JSON BODY dispatcher</a></li>
         <li><a href="#fallback-dispatcher">FALLBACK dispatcher</a></li>
+        <li><a href="#script-dispatcher">SCRIPT dispatcher</a></li>
       </ul>
     </li>
   </ul>
@@ -257,7 +258,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Custom dispatching rules</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Dispatcher &amp; dispatching rules</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -271,7 +272,51 @@ var trackOutboundLink = function(id, url) {
 
 <h2 id="introduction">Introduction</h2>
 <p>As explained into <a href="../../mocks">Using exposed mocks</a>, Microcks is using <code>Dispatcher</code> and <code>Dispatching Rules</code> for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.</p>
-<p>However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules ;-) But you can realize that by overriding the <code>Dispatching Rules</code> after the first import of the API into the repository.</p>
+<p>However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules 😉 But you can realize that by overriding the <code>Dispatcher </code> and its <code>Dispatching Rules</code> after the first import of the API into the repository.</p>
+<h2 id="inferred-dispatchers">Inferred dispatchers</h2>
+<p>As a reminder on default, inferred dispatchers: you may find <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_ARGS</code>, <code>QUERY_MATCH</code> or <code>SCRIPT</code>. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contract artifact.</p>
+<p>Here are below some explanations on these dispatchers and associated dispatching rules syntax:</p>
+<table>
+<thead>
+<tr>
+<th>Dispatcher</th>
+<th> Explanations</th>
+<th>Rules syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>URI_PARTS</code></td>
+<td>Inferred when a Service or API operation has only <code>path</code> parameters</td>
+<td>Path variables name separated by a <code>&amp;&amp;</code>. Example: for a <code>/blog/post/{year}/{month}</code> operation path, rule is <code>year &amp;&amp; month</code></td>
+</tr>
+<tr>
+<td><code>URI_PARAMS</code></td>
+<td>Inferred when a Service or API operation has only <code>query</code> parameters</td>
+<td>Query variables name separated by a <code>&amp;&amp;</code>. Example: for a <code>/search?status={s}&amp;query={q}</code> operation, rule is <code>status &amp;&amp; query</code></td>
+</tr>
+<tr>
+<td><code>URI_ELEMENTS</code></td>
+<td>Inferred when a Service or API operation has both <code>path</code> and <code>query</code> parameters</td>
+<td>Path variables name separated by a <code>&amp;&amp;</code> then <code>??</code> followed by query variables name separated by a <code>&amp;&amp;</code>. Example: for a <code>/v2/pet/{petId}?user_key={k}</code>, rule is <code>petId ?? user_key</code></td>
+</tr>
+<tr>
+<td><code>QUERY_ARGS</code></td>
+<td>Infered when a GraphQL API operation as only primitive types arguments</td>
+<td>Variables name separated by a <code>&amp;&amp;</code>. Example: for a GraphQL mutation <code>mutation AddStars($filmId: String, $number: Int) {...}</code>, rule is <code>filmId &amp;&amp; number</code></td>
+</tr>
+<tr>
+<td><code>QUERY_MATCH</code></td>
+<td>Extracted from SoapUI project. Defines a XPath matching evaluation: extracted result from input query should match a response name</td>
+<td>Example: for a <code>Hello</code> SOAP Service that extracts the <code>sayHello</code> element value for find a greeting: <code>declare namespace ser='http://www.example.com/hello'; //ser:sayHelloResponse/sayHello</code>. XPath functions can also be used here for evaluation - eg. something like: <code>concat(//ser:sayHello/title/text(),' ',//ser:sayHello/name/text())</code></td>
+</tr>
+<tr>
+<td><code>SCRIPT</code></td>
+<td>Extracted from SoapUI project. Defines a Groovy script evaluation: result of type Sring should match a response name</td>
+<td>See <a href="./#script-dispatcher">below section on script dispatcher</a>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="the-need-for-custom-dispatching-rules">The need for custom dispatching rules</h2>
 <p>Let&rsquo;s illustrate this with an example! Say we&rsquo;ve got this API allowing to record a new beer in our own catalog. We have this <code>POST</code> method that allows to create new beer resources and we want to make the difference between 2 cases: the <code>Accepted</code> and the <code>Not accepted</code> responses. So we have to start describing the 2 samples into our API contract. You&rsquo;ll notice in the capture below that:</p>
 <ul>
@@ -285,8 +330,6 @@ var trackOutboundLink = function(id, url) {
 <blockquote>
 <p>The above rule can be simply read like this <em>&ldquo;From the incoming request, look for the value of the country field. If this field has the value &lsquo;Belgium&rsquo; then return the response called &lsquo;Accepted&rsquo; otherwise return the response called &lsquo;Not accepted&rsquo;.&quot;</em></p>
 </blockquote>
-<h3 id="inferred-dispatchers">Inferred dispatchers</h3>
-<p>A reminder on default, inferred dispatchers: you may find <code>URI_PARTS</code>, <code>URI_PARAMS</code>, <code>URI_ELEMENTS</code>, <code>QUERY_MATCH</code>, <code>QUERY_ARGS</code> or <code>SCRIPT</code>. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contract artifact.</p>
 <h3 id="json-body-dispatcher">JSON BODY dispatcher</h3>
 <p>The <code>JSON_BODY</code> dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right section of the page that will provide examples and copy/paste shortcuts.</p>
 <p>The dispatching rules of <code>JSON_BODY</code> dispatcher are always expressed using a JSON payload with 3 properties:</p>
@@ -377,6 +420,78 @@ var trackOutboundLink = function(id, url) {
 <p>Just issue a Http request with an unmanaged region like below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ curl <span class="s1">&#39;https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&amp;apiKey=qwertyuiop&#39;</span> -k
 Region is unknown. Choose in north, west, east or south.%
+</code></pre></div><h3 id="script-dispatcher">SCRIPT dispatcher</h3>
+<p><code>SCRIPT</code> dispatchers are the most versatile and powerful to integrate custom dispatching logic in Microcks. When using such a <code>Dispatcher</code>, <code>Dispatching Rule</code> is simply a Groovy script that is evaluated and has to return the name of mock response.</p>
+<p>Before actualy evaluating the script, Microcks builds a runtime context where elements from incoming requests are made available. Therefore, you may have access to different objects from the script.</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mockRequest</code></td>
+<td>Wrapper around incoming request that fullfill the contract of <a href="https://www.soapui.org/docs/soap-mocking/creating-dynamic-mockservices/#2-Mock-Handler-Objects">Soap UI mockRequest</a>. Allows you to access body payload with <code>requestContent</code>, request headers with <code>getRequestHeaders()</code> or all others request elements with <code>getRequest()</code> that accesses underlying Java HttpServletRequest object</td>
+</tr>
+<tr>
+<td><code>requestContext</code></td>
+<td><strong>New in 1.7:</strong> Allow you to access mock-request wide context for storing any kind of objects. Such context elements can ba later reused whne producing response content from <a href="../templates">templates</a></td>
+</tr>
+<tr>
+<td> <code>log</code></td>
+<td>Access to a logger with commons methods like <code>debug()</code>, <code>info()</code>, <code>warn()</code> or <code>error()</code>. Useful for troubleshooting. </td>
+</tr>
+</tbody>
+</table>
+<h4 id="common-use-cases">Common use-cases</h4>
+<p>Dispatch according a header value:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="kt">def</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">mockRequest</span><span class="o">.</span><span class="na">getRequestHeaders</span><span class="o">()</span>
+<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s2">&#34;headers: &#34;</span> <span class="o">+</span> <span class="n">headers</span><span class="o">)</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">headers</span><span class="o">.</span><span class="na">hasValues</span><span class="o">(</span><span class="s2">&#34;testcase&#34;</span><span class="o">))</span> <span class="o">{</span>
+   <span class="kt">def</span> <span class="n">testCase</span> <span class="o">=</span> <span class="n">headers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s2">&#34;testcase&#34;</span><span class="o">,</span> <span class="s2">&#34;null&#34;</span><span class="o">)</span>
+   <span class="k">switch</span><span class="o">(</span><span class="n">testCase</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="s2">&#34;1&#34;</span><span class="o">:</span>
+         <span class="k">return</span> <span class="s2">&#34;amount negativo&#34;</span><span class="o">;</span>
+      <span class="k">case</span> <span class="s2">&#34;2&#34;</span><span class="o">:</span>
+         <span class="k">return</span> <span class="s2">&#34;amount nullo&#34;</span><span class="o">;</span>
+      <span class="k">case</span> <span class="s2">&#34;3&#34;</span><span class="o">:</span>
+         <span class="k">return</span> <span class="s2">&#34;amount positivo&#34;</span><span class="o">;</span>
+      <span class="k">case</span> <span class="s2">&#34;4&#34;</span><span class="o">:</span>
+         <span class="k">return</span> <span class="s2">&#34;amount standard&#34;</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="k">return</span> <span class="s2">&#34;amount standard&#34;</span>
+</code></pre></div><p>Analyse XML body payload content:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">com.eviware.soapui.support.XmlHolder</span>
+<span class="kt">def</span> <span class="n">holder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlHolder</span><span class="o">(</span> <span class="n">mockRequest</span><span class="o">.</span><span class="na">requestContent</span> <span class="o">)</span>
+<span class="kt">def</span> <span class="n">name</span> <span class="o">=</span> <span class="n">holder</span><span class="o">[</span><span class="s2">&#34;//name&#34;</span><span class="o">]</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&#34;Andrew&#34;</span><span class="o">){</span>
+    <span class="k">return</span> <span class="s2">&#34;Andrew Response&#34;</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&#34;Karla&#34;</span><span class="o">){</span>
+    <span class="k">return</span> <span class="s2">&#34;Karla Response&#34;</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="s2">&#34;World Response&#34;</span>
+<span class="o">}</span>
+</code></pre></div><p>Analyse JSON body payload content and setting context:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s2">&#34;request content: &#34;</span> <span class="o">+</span> <span class="n">mockRequest</span><span class="o">.</span><span class="na">requestContent</span><span class="o">);</span>
+<span class="kt">def</span> <span class="n">json</span> <span class="o">=</span> <span class="k">new</span> <span class="n">groovy</span><span class="o">.</span><span class="na">json</span><span class="o">.</span><span class="na">JsonSlurper</span><span class="o">().</span><span class="na">parseText</span><span class="o">(</span><span class="n">mockRequest</span><span class="o">.</span><span class="na">requestContent</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">json</span><span class="o">.</span><span class="na">cars</span><span class="o">.</span><span class="na">Peugeot</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">requestContext</span><span class="o">.</span><span class="na">brand</span> <span class="o">=</span> <span class="s2">&#34;Peugeot&#34;</span><span class="o">;</span>
+   <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s2">&#34;Got Peugeot&#34;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">json</span><span class="o">.</span><span class="na">cars</span><span class="o">.</span><span class="na">Volvo</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">requestContext</span><span class="o">.</span><span class="na">brand</span> <span class="o">=</span> <span class="s2">&#34;Volvo&#34;</span><span class="o">;</span>
+   <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s2">&#34;Got Volvo&#34;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">return</span> <span class="s2">&#34;Default&#34;</span>
+</code></pre></div><p>Calling an external API (here the invocations metrics from Microcks in fact 😉) to use external information in dispatching logic:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="kt">def</span> <span class="n">invJson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s2">&#34;http://127.0.0.1:8080/api/metrics/invocations/OneApp%20Home/1.0.0&#34;</span><span class="o">).</span><span class="na">getText</span><span class="o">();</span>
+<span class="kt">def</span> <span class="n">inv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">groovy</span><span class="o">.</span><span class="na">json</span><span class="o">.</span><span class="na">JsonSlurper</span><span class="o">().</span><span class="na">parseText</span><span class="o">(</span><span class="n">invJson</span><span class="o">).</span><span class="na">dailyCount</span>
+<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s2">&#34;daily invocation: &#34;</span> <span class="o">+</span> <span class="n">inv</span><span class="o">)</span>
+<span class="o">[...]</span>
 </code></pre></div>
 </div>
 
@@ -479,7 +594,7 @@ Region is unknown. Choose in north, west, east or south.%
           </li>
           <li class="f6 fw4">
             <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
-              CUSTOM DISPATCHING RULES
+              DISPATCHER &amp; DISPATCHING RULES
             </a>
           </li>
           <li class="f6 fw4">
@@ -636,8 +751,8 @@ Region is unknown. Choose in north, west, east or south.%
   <a href="https://microcks.io/documentation/using/advanced/dispatching/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Custom dispatching rules”
-  </a> was last updated: February 23, 2022
+    “Dispatcher &amp; dispatching rules”
+  </a> was last updated: December 26, 2022
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/advanced/dispatching.md" class="

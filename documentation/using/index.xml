@@ -75,7 +75,7 @@ Generally speaking, labels are key/value pairs that are attached to objects, suc
     </item>
     
     <item>
-      <title>Custom dispatching rules</title>
+      <title>Dispatcher &amp; dispatching rules</title>
       <link>https://microcks.io/documentation/using/advanced/dispatching/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
