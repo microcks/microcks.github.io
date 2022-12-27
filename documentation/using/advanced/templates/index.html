@@ -50,14 +50,14 @@ Those use-case encompass:
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/advanced/templates/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-02-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-27T00:00:00+00:00" />
 
 <meta itemprop="name" content="Templating mock responses">
 <meta itemprop="description" content="Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
 Those use-case encompass:
  random numbers that may be defined in a range, today&rsquo;s date or today&rsquo;s &#43; an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0."><meta itemprop="datePublished" content="2020-02-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-02-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1689">
+<meta itemprop="dateModified" content="2022-12-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1895">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Templating mock responses"/>
 <meta name="twitter:description" content="Introduction Whilst we deeply think that &ldquo;real-world&rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
@@ -231,6 +231,7 @@ var trackOutboundLink = function(id, url) {
         <li><a href="#simple-array-and-map">Simple, array and map</a></li>
         <li><a href="#json-body-pointer-expression">JSON body Pointer expression</a></li>
         <li><a href="#xml-body-xpath-expression">XML body XPath expression</a></li>
+        <li><a href="#context-expression">Context expression</a></li>
       </ul>
     </li>
     <li><a href="#function-expressions">Function Expressions</a>
@@ -318,8 +319,9 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 <p>Let explain the few concepts behind Microcks templating features. These are really simple and straightforward:</p>
 <ul>
 <li>An expression should be delimited by mustaches like this: <code>{{ expression }}</code>. This pattern can be included in any textual representation of your response body content: plain text, JSON, XML, whatever&hellip; Microcks will just replace this pattern by its evaluated content or <code>null</code> if evaluation fail for any reason,</li>
-<li>An expression can be a reference to a context variable. In this case, we use a <code>.</code> notation to tell which property of this variable we refer to. At time of writing, all contextual informations are attache to variable named <code>request</code> so we may use expression like <code>request.body</code> for example,</li>
-<li>An expression can also be a function evaluation. In this case, we use a <code>()</code> notation to indicate the function name and its arguments. For example we use <code>randomString(64)</code> to evaluate the random string generation function with one arg being <code>64</code> (the length of the desired string).</li>
+<li>An expression can be a reference to a context variable. In this case, we use a <code>.</code> notation to tell which property of this variable we refer to. Built-in contextual informations are attached to variable named <code>request</code> so we may use expression like <code>request.body</code> for example,</li>
+<li>An expression can also be a function evaluation. In this case, we use a <code>()</code> notation to indicate the function name and its arguments. For example we use <code>randomString(64)</code> to evaluate the random string generation function with one arg being <code>64</code> (the length of the desired string),</li>
+<li>Starting with Microcks <code>1.7.0</code>, an expression may also include <code>&gt;</code> redirect character so that result from a first evaluation is injected as an extra argument on the next function. For example, you may use <code>uuid() &gt; put(myId)</code>. So that result from <code>uuid()</code> function is printed out and also injected as second argument of the <code>put()</code> function so that this is will be stored within the <code>myId</code> context variable,</li>
 </ul>
 <p>Pretty easy. No? The rest of this page presents the reference of available variable and function expressions.</p>
 <h2 id="variable-reference-expressions">Variable Reference Expressions</h2>
@@ -454,14 +456,21 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
 </tr>
 </tbody>
 </table>
+<h3 id="context-expression">Context expression</h3>
+<p>Aside the <code>request</code> object that is automatically injected, you have access to mock-request wide context. You can inject custom variables into this context using the <code>SCRIPT</code> dispatcher through the <code>requestContext</code> object (see <a href="../dispatching/#script-dispatcher">the documentation</a>) or by using the <code>put(myVarible)</code> function with redirect expression as detailed below.</p>
+<p>Variables from context can be simply used in templates using their name within the template mustaches markers like this <code>{{ myVarible }}</code></p>
 <h2 id="function-expressions">Function Expressions</h2>
 <p>From the Microcks <code>1.2.0</code> version, we introduced notation compatibility with <a href="https://learning.postman.com/docs/writing-scripts/script-references/variables-list/">Postman Dynamic variables</a>. So that you can reuse your existing response expressed within Postman Collection. The only limitation being that Postman dynamic variables cannot handle arguments passing so functions will always be invoked without arguments.</p>
 <p>So basically, a function expression can be materialized with the Microcks notation <code>function(arg1, arg2)</code> <strong>OR</strong> the Postman notation <code>$function</code>.</p>
 <h3 id="common-functions">Common functions</h3>
-<h4 id="date-generator">Date generator</h4>
+<h4 id="put-in-context">Put in context</h4>
+<p>The <code>put()</code> function allows to store result into the mock-request wide context using a variable name. Result is acquired from a <code>&gt;</code> redirect expression as the previous function invocation result. It has a mandatory argument that is the variable name used for storing into context.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">uuid</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">put</span><span class="p">(</span><span class="nx">myId</span><span class="p">)</span> <span class="c1">// 3a721b7f-7dc9-4c45-9777-516942b98e0d WITH this id stored in myId variable.
+</span><span class="c1">// Can be reused later in template using {{ myId }}.
+</span></code></pre></div><h4 id="date-generator">Date generator</h4>
 <p>The <code>now()</code> function allows to generate current date. It can also be invoked using the <code>timestamp()</code> alias.</p>
 <p>Invoked with no argument, it&rsquo;s a simple mong timestamp since EPOCH beginning. This function can also be invoked with one argument being the pattern to use for rendering current&rsquo;s date as string. The Java <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">date and time patterns</a> are use as referenced.</p>
-<p>It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates ;-) Here&rsquo;s some examples below:</p>
+<p>It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates 😉 Here are some examples below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">now</span><span class="p">()</span> <span class="c1">// 1581425292309
 </span><span class="c1"></span><span class="nx">now</span><span class="p">(</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span> <span class="nx">HH</span><span class="o">:</span><span class="nx">mm</span><span class="o">:</span><span class="nx">ss</span><span class="p">)</span> <span class="c1">// 11/02/2020 13:48:12
 </span><span class="c1"></span><span class="nx">now</span><span class="p">(</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span><span class="p">,</span> <span class="mi">1</span><span class="nx">M</span><span class="p">)</span> <span class="c1">// 11/03/2020
@@ -813,7 +822,7 @@ $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H <
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Templating mock responses”
-  </a> was last updated: February 11, 2020
+  </a> was last updated: December 27, 2022
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/advanced/templates.md" class="
