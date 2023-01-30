@@ -249,7 +249,7 @@ var trackOutboundLink = function(id, url) {
 		
 
 		
-			<a href="https://microcks.io/documentation/guides/rabbitmq-support/" class="dib f6 pr1 hover-bg-light-gray br-100" title="RabbitMQ Mocking and Testing">
+			<a href="https://microcks.io/documentation/guides/nats-support/" class="dib f6 pr1 hover-bg-light-gray br-100" title="NATS Mocking and Testing">
 			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -287,7 +287,7 @@ var trackOutboundLink = function(id, url) {
 <h2 id="1-setup-schema-registry">1. Setup Schema Registry</h2>
 <p>Microcks has been successfully tested with both <a href="https://github.com/confluentinc/schema-registry">Confluent Schema Registry</a> and <a href="https://www.apicur.io/registry/">Apicurio Registry</a>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
 <p>When connected to a Schema Registry, Microcks is pushing the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to be able to deserialize messages.</p>
-<p><img src="/images/avro-kafka-mocking.png" alt="Avro Kafka Mocking"></p>
+<p><img src="/images/guides/avro-kafka-mocking.png" alt="Avro Kafka Mocking"></p>
 <p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
 </span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
@@ -362,7 +362,7 @@ var trackOutboundLink = function(id, url) {
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div><p>As we use references, our full specification is now spanning multiple files so you&rsquo;ll not be able to simply upload one file for API import into Microcks. You will have to define a full <strong>Importer Job</strong> as described <a href="../../documentation/using/importers/#scheduled-import">here</a>. During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the <strong>Contracts</strong> section that there are now two files: an AsyncAPI and an Avro schema one.</p>
-<p><img src="/images/avro-kafka-properties.png" alt="Avro Kafka Properties"></p>
+<p><img src="/images/guides/avro-kafka-properties.png" alt="Avro Kafka Properties"></p>
 <p>Finally, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification. But: how to specify examples for a binary encoding such as Avro? No problem! Simply use JSON or YAML as illustrated in the fragment below, still coming from <a href="https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/user-signedup-avro-ref-asyncapi.yaml">our GitHub repository</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
 </span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
@@ -441,7 +441,7 @@ $ <span class="nb">cd</span> api-tooling/async-clients/kafkajs-client
 $ npm install
 </code></pre></div><h3 id="with-schema-registry-1">With Schema Registry</h3>
 <p>When using a Schema Registry with the <code>REGISTRY</code> encoding configured into Microcks, the following schema illustrates Microcks interactions with broker and registry. Here, we are not necessarily using the broker and registry Microcks is using for mocking but we are able to reuse <em>any Kafka broker</em> and <em>any Schema Registry</em> available within your organization - typically this will depend on the environment you want to launch tests upon.</p>
-<p><img src="/images/avro-kafka-testing.png" alt="Avro Kafka Testing"></p>
+<p><img src="/images/guides/avro-kafka-testing.png" alt="Avro Kafka Testing"></p>
 <p>That said, imagine that you want to validate messages from a <strong>QA</strong> environment with dedicated broker and registry. Start by using our utility script to produce some messages on an <code>user-registration</code> arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Registry:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
 Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, using registry https://schema-registry-qa.apps.example.com
@@ -466,14 +466,14 @@ Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, 
 <p>Whilst Test Endpoint and Schema Registry may be secured with custom TLS certificates or username/password, we skipped this from this guide for seek of simplicity but Microcks is handling this through <a href="../../administrating/secrets">Secrets</a> or additional <code>registryUsername</code> and <code>registryCredentialsSource</code> <a href="../../using/tests/#event-based-apis">parameters</a>.</p>
 </blockquote>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
-<p><img src="/images/avro-kafka-test-success.png" alt="Avro Kafka Test Success"></p>
+<p><img src="/images/guides/avro-kafka-test-success.png" alt="Avro Kafka Test Success"></p>
 <p>This is fine and we can see that the type is <code>avro/binary</code> and the message content is nicely displayed using JSON but what in case of a failure? What are we able to demonstrate using Microcks validation? Next to the script lies actually two Avro schemas:</p>
 <ul>
 <li><code>user-signedup.avsc</code> is correct and matches the one that is referenced into the AsyncAPI specification,</li>
 <li><code>user-signedup-bad.avsc</code> represented an evolution and does not match the one from the AsyncAPI specification.</li>
 </ul>
 <p>Well let see now if we tweak a little bit the <code>avro-with-registry-producer.js</code> script&hellip; Open it in your favorite editor to put comments on lines 48 and 56 and to remove comments on lines 45 and 55. Relaunch it and relaunch a new test&hellip;</p>
-<p><img src="/images/avro-kafka-test-failure.png" alt="Avro Kafka Test Failure"></p>
+<p><img src="/images/guides/avro-kafka-test-failure.png" alt="Avro Kafka Test Failure"></p>
 <p>🎉 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application is using a different and incompatible schema from the one in the AsyncAPI contract, Microcks raises an error and spot the breaking change! The <code>fullName</code> required property was expected as stated in the AsyncAPI file but cannot be found in incoming message&hellip; thus your tested application producing message is sending garbage indeed 😉</p>
 <h3 id="without-schema-registry-1">Without Schema Registry</h3>
 <p>Now looking at the <code>RAW</code> encoding option and what we can deduce from tests. To simulate an existing application, we will now use the <code>avro-producer.js</code> script that is also using the local <code>user-signedup.avsc</code> Avro schema to do the binary encoding:</p>
@@ -497,7 +497,7 @@ Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration
 <li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API.</li>
 </ul>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
-<p><img src="/images/avro-kafla-test-sucsess-raw.png" alt="Avro Kafka Test Success Raw"></p>
+<p><img src="/images/guides/avro-kafla-test-sucsess-raw.png" alt="Avro Kafka Test Success Raw"></p>
 <p>You can see here that we just have the string representation of the binary message that was sent. Using <code>RAW</code> encoding we cannot be sure that what we read has any sense regarding the semantic meaning of the API contract.</p>
 <p>If you want to play with this idea, start making change to the Avro schema used by the producer and add more properties of different types. As the schema referenced with the AsyncAPI contract is very basic we&rsquo;ll always be able to read.</p>
 <p>But start removing properties and just send single bytes, you&rsquo;ll see validation failure happened. In <code>RAW</code> mode, validation is very shallow: we cannot detect schema incompatibilities as we do not have the schema used for writing. So Microcks can just check, the binary Avro we can read with given schema and as long as you send more bytes than expected: it works 😞</p>
@@ -738,6 +738,11 @@ Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration
               RABBITMQ MOCKING AND TESTING
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/nats-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              NATS MOCKING AND TESTING
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -813,7 +818,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100">
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2023. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

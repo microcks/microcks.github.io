@@ -55,7 +55,7 @@ Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a proto
 <meta itemprop="description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
 Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2022-11-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-11-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1267">
+<meta itemprop="wordCount" content="1268">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RabbitMQ Mocking and Testing"/>
 <meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
@@ -229,7 +229,7 @@ var trackOutboundLink = function(id, url) {
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/guides/avro-messaging/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Kafka, Avro and Schema Registry ">
+			<a href="https://microcks.io/documentation/guides/nats-support/" class="dib f6 pl1 hover-bg-light-gray br-100" title="NATS Mocking and Testing ">
 				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -261,7 +261,7 @@ var trackOutboundLink = function(id, url) {
 <h2 id="overview">Overview</h2>
 <p>This guide is a walkthrough on how to use the <a href="https://www.rabbitmq.com/">RabbitMQ</a> protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically <a href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">AMQP 0.9.1</a>, RabbitMQ was originally developed for.</p>
 <p>Starting with the <code>1.5.1</code> release of Microcks, we support RabbitMQ/AMQP as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
-<p>Let&rsquo;s start!</p>
+<p>Let&rsquo;s start! 🚀</p>
 <h2 id="1-setup-rabbitmq-broker-connection">1. Setup RabbitMQ broker connection</h2>
 <p>First mandatory step here is to setup Microcks so that it will be able to connect to a RabbitMQ broker for sending mock messages. Microcks has been tested successfully with RabbitMQ version <code>3.9.13</code>. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
@@ -296,7 +296,7 @@ var trackOutboundLink = function(id, url) {
 </span><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
 </span></code></pre></div><p>Actual connection to the RabbitMQ broker will only be made once Microcks will send mock messages to it. Let see below how to use AMQP binding with AsyncAPI.</p>
 <h2 id="2-use-rabbitmq-in-asyncapi">2. Use RabbitMQ in AsyncAPI</h2>
-<p>As AMQP is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/api-lifecycle/blob/master/account-service-demo-amqp/account-service-asyncapi-1.1.0.yml">GitHub repository</a>.</p>
+<p>As AMQP is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use AMQP and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/api-lifecycle/blob/master/account-service-demo-amqp/account-service-asyncapi-1.1.0.yml">GitHub repository</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
 </span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
@@ -376,7 +376,7 @@ Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-broker.app.example.c
 </code></pre></div><p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined devices each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>displayName</code> and <code>email</code> properties have a different value thanks to the templating notation.</p>
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
 <p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Account Service</code> sample we used so far but feel free to adapt them for your own use.</p>
-<p>Imaging that you want to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>amqpjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>signedup-exchange</code> topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:</p>
+<p>Imagine that you want to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>amqpjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>signedup-exchange</code> topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
 Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
 Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
@@ -651,6 +651,11 @@ Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span 
               RABBITMQ MOCKING AND TESTING
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/nats-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              NATS MOCKING AND TESTING
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -726,7 +731,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100">
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2023. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

@@ -55,7 +55,7 @@ Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol bindi
 <meta itemprop="description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
 Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1354">
+<meta itemprop="wordCount" content="1355">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MQTT Mocking and Testing"/>
 <meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
@@ -269,7 +269,7 @@ var trackOutboundLink = function(id, url) {
 <h2 id="overview">Overview</h2>
 <p>This guide is a walkthrough on how to use the <a href="https://mqtt.org/">Message Queuing Telemetry Transport (MQTT)</a> protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.</p>
 <p>Starting with the <code>1.2.0</code> release of Microcks, we support MQTT as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
-<p>Let&rsquo;s start!</p>
+<p>Let&rsquo;s start! 🚀</p>
 <h2 id="1-setup-mqtt-broker-connection">1. Setup MQTT broker connection</h2>
 <p>First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with <a href="https://activemq.apache.org/components/artemis/">ActiveMQ Artemis</a> as well as <a href="https://mosquitto.org/">Eclipse Mosquitto</a> with MQTT protocol version <code>3.1.1</code>. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
 <p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
@@ -403,7 +403,7 @@ Connecting to mqtt://mqtt-broker.app.example.com:1883 on topic StreetlightsAPI_1
 </blockquote>
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
 <p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Streetlights API</code> sample we used so far but feel free to adapt them for your own use.</p>
-<p>Imaging that you want to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>mqttjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>streetlights-event-lighting-measured</code> topic:</p>
+<p>Imagine that you want to validate messages from a <code>QA</code> environment with dedicated MQTT broker. Still being in the <code>mqttjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>streetlights-event-lighting-measured</code> topic:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
 Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
 <span class="o">{</span>
@@ -423,7 +423,7 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 <p><strong>Administration</strong> and <strong>Secrets</strong> will only be available to people having the <code>administrator</code> role assigned. Please check <a href="../../administrating/secrets/users">this documentation</a> for details.</p>
 </blockquote>
 <p>The screenshot below illustrates the creation of such a secret for your <code>QA MQTT Broker</code> with username, credentials and custom certificates using the <a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM format</a>.</p>
-<p><img src="/images/mqtt-broker-secret.png" alt="MQTT Broker secret"></p>
+<p><img src="/images/guides/mqtt-broker-secret.png" alt="MQTT Broker secret"></p>
 <p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
 <ul>
 <li><strong>Test Endpoint</strong>: <code>mqtt://mqtt-broker-qa.app.example.com:443/streetlights-event-lighting-measured</code> that is referencing the MQTT broker endpoint,</li>
@@ -432,7 +432,7 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 <li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA MQTT Broker</strong> you previously created.</li>
 </ul>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
-<p><img src="/images/mqtt-test-success.png" alt="MQTT Test success"></p>
+<p><img src="/images/guides/mqtt-test-success.png" alt="MQTT Test success"></p>
 <p>This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be defined.</p>
 <p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on line 35 and to remove comments from line 36. It&rsquo;s removing the <code>lumens</code> measure and adding an unexpected <code>location</code> property as shown below after having restarted the producer:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt
@@ -449,7 +449,7 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 <span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
-<p><img src="/images/mqtt-test-failure.png" alt="MQTT Test failure"></p>
+<p><img src="/images/guides/mqtt-test-failure.png" alt="MQTT Test failure"></p>
 <p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
 <h2 id="wrap-up">Wrap-Up</h2>
 <p>In this guide we have seen how Microcks can also be used to send mock messages on a MQTT Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
@@ -688,6 +688,11 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
               RABBITMQ MOCKING AND TESTING
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/nats-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              NATS MOCKING AND TESTING
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -763,7 +768,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100">
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2023. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

@@ -55,7 +55,7 @@ Microcks offers mocks but can also be used for Contract conformance testing of A
 <meta itemprop="description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
 Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1402">
+<meta itemprop="wordCount" content="1415">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Testing with Microcks"/>
 <meta name="twitter:description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
@@ -373,6 +373,9 @@ var trackOutboundLink = function(id, url) {
 <h5 id="websocket">WebSocket</h5>
 <p>WebSocket Test Endpoint have the following form with no optional parameters:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ws://<span class="o">{</span>ws.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>channel.name<span class="o">}</span>
+</code></pre></div><h5 id="nats">NATS</h5>
+<p>NATS Test Endpoint have the following form with no optional parameters:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">nats://<span class="o">{</span>nats.endpoint.url:port<span class="o">}</span>/<span class="o">{</span>queue-or-subject.name<span class="o">}</span>
 </code></pre></div><h3 id="test-runner">Test Runner</h3>
 <p>As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as <strong>Test Runners</strong>. Here are the default Test Runners available within Microcks:</p>
 <table>
@@ -669,6 +672,11 @@ var trackOutboundLink = function(id, url) {
               RABBITMQ MOCKING AND TESTING
             </a>
           </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/nats-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              NATS MOCKING AND TESTING
+            </a>
+          </li>
         </ul>
       </li>
       
@@ -744,7 +752,7 @@ f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 
     <div class="f7 gray mb5 mb0-ns ph3 w-100">
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–2022. <br/>
+        The Microcks logos are copyright © Laurent Broudoux 2016–2023. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>

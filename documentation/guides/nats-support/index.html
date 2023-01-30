@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title> NATS Mocking and Testing | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.90.1" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.a42f770a563de5f4c7aa7d9babef2ebb3b19a040c7f605dbe8b506de79650df9.css" integrity="sha256-pC93ClY95fTHqn2bq&#43;8uuzsZoEDH9gXb6LUG3nllDfk=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.1caa725adf6b3c0d83460e78ce17051642a329cbe9222b7eccefa8def7cd7559.js" integrity="sha256-HKpyWt9rPA2DRg54zhcFFkKjKcvpIit&#43;zO&#43;o3vfNdVk=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="NATS Mocking and Testing" />
+<meta property="og:description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/nats-support/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2023-01-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-30T00:00:00+00:00" />
+
+<meta itemprop="name" content="NATS Mocking and Testing">
+<meta itemprop="description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients."><meta itemprop="datePublished" content="2023-01-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-01-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1242">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NATS Mocking and Testing"/>
+<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients."/>
+
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152524664-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'UA-152524664-1', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+  <article class="w-100 ph3 pb5">
+    <div class="flex-l">
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#1-setup-nats-broker-connection">1. Setup NATS broker connection</a></li>
+    <li><a href="#2-use-nats-in-asyncapi">2. Use NATS in AsyncAPI</a></li>
+    <li><a href="#3-validate-your-mocks">3. Validate your mocks</a></li>
+    <li><a href="#4-run-asyncapi-tests">4. Run AsyncAPI tests</a></li>
+    <li><a href="#wrap-up">Wrap-Up</a></li>
+  </ul>
+</nav>
+	
+
+	<div date-pref>
+		
+			<a href="https://microcks.io/documentation/guides/avro-messaging/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Kafka, Avro and Schema Registry ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+
+		
+			<a href="https://microcks.io/documentation/guides/rabbitmq-support/" class="dib f6 pr1 hover-bg-light-gray br-100" title="RabbitMQ Mocking and Testing">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+	</div>
+
+</aside>
+</div>
+      <div class="order-1 w-60-l mw8 ph0 ph4-ns">
+        <header class="flex-none w-100 bg-primary-color pv3 ph3">
+  
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">NATS Mocking and Testing</h1>
+</header>
+
+<aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+<h2 id="overview">Overview</h2>
+<p>This guide is a walkthrough on how to use a <a href="https://nats.io/">NATS</a> protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the <a href="https://nats.io/download/">full list of clients</a>.</p>
+<p>Starting with the <code>1.7.0</code> release of Microcks, we support NATS as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a NATS broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any NATS broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
+<p>Let&rsquo;s go! 🚀</p>
+<h2 id="1-setup-nats-broker-connection">1. Setup NATS broker connection</h2>
+<p>First mandatory step here is to setup Microcks so that it will be able to connect to a NATS broker for sending mock messages. Microcks has been tested successfully with NATS version <code>2.9.8</code>. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">  </span><span class="nt">features</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">async</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">nats</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">nats-broker.app.example.com:4222</span><span class="w">
+</span><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>nats</code> block:</p>
+<ul>
+<li><code>url</code> is the hostname + port where broker can be reached by Microcks,</li>
+<li><code>username</code> is simply the user to use for authenticating the connection,</li>
+<li><code>password</code> represents this user credentials.</li>
+</ul>
+<p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">features</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">async</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">nats</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">nats-broker.app.example.com:4222</span><span class="w">
+</span><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
+</span></code></pre></div><p>Actual connection to the NATS broker will only be made once Microcks will send mock messages to it. Let see below how to use NATS binding with AsyncAPI.</p>
+<h2 id="2-use-nats-in-asyncapi">2. Use NATS in AsyncAPI</h2>
+<p>As NATS is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use NATS and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-nats.yml">GitHub repository</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">nats</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">queue</span><span class="p">:</span><span class="w"> </span><span class="l">my-nats-queue</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">        </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>nats</code> non empty block within the operation <code>bindings</code>. Just define one  property (like <code>queue</code> for example) and Microcks will detect this binding has been specified. See the full <a href="https://github.com/asyncapi/bindings/tree/master/nats">binding spec</a> for details.</p>
+<p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">        </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="nt">laurent</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Laurent user</span><span class="w">
+</span><span class="w">              </span><span class="nt">headers</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">                </span><span class="w">                </span>{<span class="nt">&#34;my-app-header&#34;: </span><span class="m">23</span>}<span class="w">
+</span><span class="w">              </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">                </span><span class="w">                </span>{<span class="nt">&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: </span><span class="m">41</span>}<span class="w">
+</span><span class="w">          </span>- <span class="nt">john</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for John Doe user</span><span class="w">
+</span><span class="w">              </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">24</span><span class="w">
+</span><span class="w">              </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
+</span><span class="w">                </span><span class="nt">sendAt</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
+</span><span class="w">                </span><span class="nt">fullName</span><span class="p">:</span><span class="w"> </span><span class="l">John Doe</span><span class="w">
+</span><span class="w">                </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">john@microcks.io</span><span class="w">
+</span><span class="w">                </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
+</span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{randomFullName()}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
+<p>Now simply import your AsyncAPI file into Microcks either using a <strong>Direct upload</strong> import or by defining a <strong>Importer Job</strong>. Both methods are described in <a href="../../using/importers">this page</a>.</p>
+<h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
+<p>Now it’s time to validate that mock publication of messages on the connected broker is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
+<p>For our <code>User signed-up API</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/natsjs-client/consumer.js">in one GitHub repository</a>.</p>
+<p>Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
+$ <span class="nb">cd</span> api-tooling/async-clients/natsjs-client
+$ npm install
+
+$ node consumer nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
+Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-user/signedup
+<span class="o">{</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;eyN7TbotUwN6RTPD4mRwwStS8gBA7tI6&#34;</span>,
+  <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1675085731224&#34;</span>,
+  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>,
+  <span class="s2">&#34;age&#34;</span>: <span class="m">41</span>
+<span class="o">}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;IsjSzI7o910s30QXrJGeAfqgGEsPw9uO&#34;</span>,
+  <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1675085731227&#34;</span>,
+  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;John Doe&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;john@microcks.io&#34;</span>,
+  <span class="s2">&#34;age&#34;</span>: <span class="m">36</span>
+<span class="o">}</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>🎉 Fantastic! We are receiving the three different messages corresponding to the three defined devices each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>id</code> property has a different value thanks to the templating notation.</p>
+<h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
+<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>User signed-up API</code> sample we used so far but feel free to adapt them for your own use.</p>
+<p>Imagine that you want to validate messages from a <code>QA</code> environment with dedicated NATS broker. Still being in the <code>natsjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>user-signedups</code> queue:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
+Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;itq382xi2usbz41nwel888&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1675089667454&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:41<span class="o">}</span>
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;qfb0fn4yrff06ylrge5fh75&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1675089670454&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:41<span class="o">}</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>Do not interrupt the execution of the script for now.</p>
+<p>If the <strong>QA</strong> broker access is secured - let&rsquo;s say with credentials and custom certificates - we will first have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
+<blockquote>
+<p><strong>Administration</strong> and <strong>Secrets</strong> will only be available to people having the <code>administrator</code> role assigned. Please check <a href="../../administrating/secrets/users">this documentation</a> for details.</p>
+</blockquote>
+<p>The screenshot below illustrates the creation of such a secret for your <code>QA NATS Broker</code> with username, and credentials.</p>
+<p><img src="/images/guides/nats-broker-secret.png" alt="NATS Broker secret"></p>
+<p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
+<ul>
+<li><strong>Test Endpoint</strong>: <code>nats://nats-broker-qa.app.example.com:4222/user-signedups</code> that is referencing the NATS broker endpoint,</li>
+<li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API,</li>
+<li><strong>Timeout</strong>: Keep the default of 10 seconds,</li>
+<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA NATS Broker</strong> you previously created.</li>
+</ul>
+<p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
+<p><img src="/images/guides/nats-test-success.png" alt="NATS Test success"></p>
+<p>This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be define, <code>sendAt</code> is of string type.</p>
+<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on lines 28 and 29 and to remove comments on lines 30 and 31. It&rsquo;s removing the <code>fullName</code> measure and adding an unexpected <code>displayName</code> property and it&rsquo;s also changing the type of the <code>sendAt</code> property as shown below after having restarted the producer:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
+Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;9x12cp2u40f01avend41ryw&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675092166658,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:41<span class="o">}</span>
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;han9zjhmqhkzkl76epz4xm&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675092169659,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:41<span class="o">}</span>
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;kdmsl91ydtn7xf99jzy8&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675092172660,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:41<span class="o">}</span>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
+<p><img src="/images/guides/nats-test-failure.png" alt="NATS Test failure"></p>
+<p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
+<h2 id="wrap-up">Wrap-Up</h2>
+<p>In this guide we have seen how Microcks can also be used to send mock messages on a NATS Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
+<p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a> 🐙</p>
+
+</div>
+
+        
+
+      </div>
+      <div class="order-0 w-20 dn db-l mt4 ph3">
+        
+<nav role="navigation">
+  <ul class="list pa0 nl2">
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/getting-started-tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING STARTED WITH TESTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/importers/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              IMPORTING SERVICES &amp; APIS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/alternatives/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              COMPARISON TO ALTERNATIVES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/openapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              OPENAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/swagger/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              SWAGGER USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/asyncapi/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ASYNCAPI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/postman/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              POSTMAN USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/grpc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRPC USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/graphql/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GRAPHQL USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/soapui/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              SOAPUI USAGE FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/mocks/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING EXPOSED MOCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/dynamic/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GETTING DIRECT API
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/tests/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TESTING WITH MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ADVANCED TOPICS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/organizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ORGANIZING REPOSITORY
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              TEMPLATING MOCK RESPONSES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/dispatching/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              DISPATCHER &amp; DISPATCHING RULES
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/metadata/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS APIMETADATA
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/using/advanced/monitoring/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MONITORING &amp; OBSERVABILITY
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".installing">INSTALLING</a>
+        <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBE USING HELM
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/operator/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING ON KUBE USING OPERATOR
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/docker-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH DOCKER-COMPOSE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/docker-desktop-extension/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING AS DOCKER DESKTOP EXTENSION
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/podman-compose/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INSTALLING WITH PODMAN-COMPOSE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ARCHITECTURE AND DEPLOYMENT OPTIONS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".automating">AUTOMATING</a>
+        <ul class="automating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/automating/service-account/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS SERVICE ACCOUNTS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/jenkins/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              INTEGRATING MICROCKS FROM JENKINS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/cli/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              CLI FOR MICROCKS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/tekton/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING MICROCKS FROM TEKTON
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/github-actions/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              USING MICROCKS FROM GITHUB ACTIONS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/automating/api/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MICROCKS API
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".administrating">ADMINISTRATING</a>
+        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MANAGING USERS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/secrets/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXTERNAL SECRETS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/administrating/snapshots/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              REPOSITORY SNAPSHOTS
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".guides">GUIDES</a>
+        <ul class="guides desktopmenu animated fadeIn list pl0 bg-light-gray db">
+          <li class="f6 fw4">
+            <a href="/documentation/guides/openapi-101/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              OPENAPI MOCKING 101
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/avro-messaging/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              KAFKA, AVRO AND SCHEMA REGISTRY
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/mqtt-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              MQTT MOCKING AND TESTING
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/rabbitmq-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              RABBITMQ MOCKING AND TESTING
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/nats-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+              NATS MOCKING AND TESTING
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/resources/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".resources">RESOURCES</a>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/community/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".community">COMMUNITY</a>
+      </li>
+  </ul>
+</nav>
+
+      </div>
+    </div>
+
+  </article>
+  
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://microcks.io/documentation/guides/nats-support/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “NATS Mocking and Testing”
+  </a> was last updated: January 30, 2023
+</h6>
+
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/nats-support.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            
+          </ul>
+
+          
+
+      </div>
+
+       
+      
+      <div class="pb3 pt4 w-100 w-50-ns">
+        <div class="b f3 light-gray mb3 nested-links tc">
+          Join our <a href="https://microcksio.zulipchat.com" target="new" class="link">Zulip</a> or <a href="https://github.com/microcks/microcks/discussions" target="new" class="link">GitHub</a> community chats<br/>
+          <a href="https://microcksio.zulipchat.com" target="new"><img src="/images/zulip.png" class="center h3 br3 mt2"/></a>
+          <a href="https://github.com/microcks/microcks/discussions" target="new"><img src="/images/GitHub-Mark-Light-120px-plus.png" class="center h3 br2 mt2 pl4"/></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100">
+      <p class="dib mr4">
+        The Microcks logos are copyright © Laurent Broudoux 2016–2023. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//guides/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Guides
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>
