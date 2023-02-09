@@ -55,7 +55,7 @@ Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a prot
 <meta itemprop="description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
 Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2023-02-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-02-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1696">
+<meta itemprop="wordCount" content="1698">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Google Pub/Sub Mocking and Testing"/>
 <meta name="twitter:description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
@@ -401,14 +401,14 @@ Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class
 </blockquote>
 <p>On this tab, you&rsquo;ll have to create a <code>Token Authentication</code> secret with the value being the content of a Service Account key file encrypted in base 64. This Service Account is not necessarily the one you&rsquo;ve used previously for producing messages as this one must have the <code>roles/pubsub.publisher</code> role. You&rsquo;ll typically get the token value by executing this command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ cat googlecloud-service-account.json <span class="p">|</span> base64 
-</code></pre></div><p>The screenshot below illustrates the creation of such a secret for your <code>QA Pub/Sub Service</code> with username, and credentials.</p>
+</code></pre></div><p>The screenshot below illustrates the creation of such a secret for your <code>QA PubSub Service Account</code> with username, and credentials.</p>
 <p><img src="/images/guides/pubsub-broker-secret.png" alt="Pub/Sub Broker secret"></p>
 <p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
 <ul>
 <li><strong>Test Endpoint</strong>: <code>googlepubsub://my-qa-gcp-project-347223/user-signups</code> that is referencing the Google Pub/Sub service and topic endpoint,</li>
 <li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API,</li>
 <li><strong>Timeout</strong>: Keep the default of 10 seconds,</li>
-<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA Pub/Sub Service</strong> you previously created.</li>
+<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA PubSub Service Account</strong> you previously created.</li>
 </ul>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
 <p><img src="/images/guides/pubsub-test-success.png" alt="Pub/Sub Test success"></p>
