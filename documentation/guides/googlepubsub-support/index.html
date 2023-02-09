@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> RabbitMQ Mocking and Testing | Microcks.io</title>
+    <title> Google Pub/Sub Mocking and Testing | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,23 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="RabbitMQ Mocking and Testing" />
-<meta property="og:description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
-Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification." />
+<meta property="og:title" content="Google Pub/Sub Mocking and Testing" />
+<meta property="og:description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
+Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/guides/rabbitmq-support/" /><meta property="article:section" content="documentation" />
-<meta property="article:published_time" content="2022-11-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-11-22T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/googlepubsub-support/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2023-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-08T00:00:00+00:00" />
 
-<meta itemprop="name" content="RabbitMQ Mocking and Testing">
-<meta itemprop="description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
-Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2022-11-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-11-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1297">
+<meta itemprop="name" content="Google Pub/Sub Mocking and Testing">
+<meta itemprop="description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
+Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2023-02-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1696">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RabbitMQ Mocking and Testing"/>
-<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
-Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification."/>
+<meta name="twitter:title" content="Google Pub/Sub Mocking and Testing"/>
+<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
+Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification."/>
 
 
       
@@ -218,8 +218,8 @@ var trackOutboundLink = function(id, url) {
   	<nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#1-setup-rabbitmq-broker-connection">1. Setup RabbitMQ broker connection</a></li>
-    <li><a href="#2-use-rabbitmq-in-asyncapi">2. Use RabbitMQ in AsyncAPI</a></li>
+    <li><a href="#1-setup-pubsub-service-connection">1. Setup Pub/Sub service connection</a></li>
+    <li><a href="#2-use-pubsub-in-asyncapi">2. Use Pub/Sub in AsyncAPI</a></li>
     <li><a href="#3-validate-your-mocks">3. Validate your mocks</a></li>
     <li><a href="#4-run-asyncapi-tests">4. Run AsyncAPI tests</a></li>
     <li><a href="#wrap-up">Wrap-Up</a></li>
@@ -229,7 +229,7 @@ var trackOutboundLink = function(id, url) {
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/guides/nats-support/" class="dib f6 pl1 hover-bg-light-gray br-100" title="NATS Mocking and Testing ">
+			<a href="https://microcks.io/documentation/guides/rabbitmq-support/" class="dib f6 pl1 hover-bg-light-gray br-100" title="RabbitMQ Mocking and Testing ">
 				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -239,14 +239,6 @@ var trackOutboundLink = function(id, url) {
 		
 
 		
-			<a href="https://microcks.io/documentation/guides/googlepubsub-support/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Google Pub/Sub Mocking and Testing">
-			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 	</div>
 
 </aside>
@@ -254,7 +246,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">RabbitMQ Mocking and Testing</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Google Pub/Sub Mocking and Testing</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -267,12 +259,23 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="overview">Overview</h2>
-<p>This guide is a walkthrough on how to use the <a href="https://www.rabbitmq.com/">RabbitMQ</a> protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically <a href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">AMQP 0.9.1</a>, RabbitMQ was originally developed for.</p>
-<p>Starting with the <code>1.5.1</code> release of Microcks, we support RabbitMQ/AMQP as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
-<p>Let&rsquo;s start! 🚀</p>
-<h2 id="1-setup-rabbitmq-broker-connection">1. Setup RabbitMQ broker connection</h2>
-<p>First mandatory step here is to setup Microcks so that it will be able to connect to a RabbitMQ broker for sending mock messages. Microcks has been tested successfully with RabbitMQ version <code>3.9.13</code>. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
-<p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
+<p>This guide is a walkthrough on how to use a <a href="https://cloud.google.com/pubsub/">Google Pub/Sub</a> messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.</p>
+<p>Starting with the <code>1.7.0</code> release of Microcks, we support Google Pub/Sub as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.</p>
+<p>Let&rsquo;s rock and roll! 🎸</p>
+<h2 id="1-setup-pubsub-service-connection">1. Setup Pub/Sub service connection</h2>
+<p>First mandatory step here is to setup Microcks so that it will be able to connect to a Pub/Sub service for sending mock messages. Before doing that, you&rsquo;ll need to ensure you got proper credentials in your cluster.</p>
+<p>As accessing Google Pub/Sub is subject to authentication and authorization, the pre-requisite is to create an <a href="https://cloud.google.com/iam/docs/service-accounts">IAM Service Account</a> in Google platform so that Microcks will reuse this identity to connect to the service. After you <a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts">created</a> this service account, you&rsquo;ll need to <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-gcloud">create and get access to its key file</a>. Result is typically a JSON file you&rsquo;ll download on your machine.</p>
+<p>Let&rsquo;s say you&rsquo;ve called it <code>my-googlecloud-service-account.json</code>, you&rsquo;ll then need to transfer this file as a <code>Secret</code> within your Kubernetes cluster into the namespace where you plan to setup Microcks - here after <code>microcks</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create secret generic my-googlecloud-service-account <span class="se">\
+</span><span class="se"></span>    --from-file<span class="o">=</span>./my-googlecloud-service-account.json -n microcks
+</code></pre></div><p>You also have to ensure that this Service Account has the required permissions for connecting to Pub/Sub, listing and creating topics. This can be done by adding the <code>roles/pubsub.editor</code> and <code>roles/pubsub.publisher</code> roles to the Service Account. Check the <a href="https://cloud.google.com/pubsub/docs/access-control#permissions_and_roles">Pub/Sub permissions and roles</a> for more details. Here are below typical <code>gcloud</code> commands for that:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="se">\
+</span><span class="se"></span>    --member<span class="o">=</span>serviceaccount:microcks-pubsub-sa@<span class="nv">$PROJECT</span>.iam.gserviceaccount.com <span class="se">\
+</span><span class="se"></span>    --role<span class="o">=</span>roles/pubsub.editor
+$ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="se">\
+</span><span class="se"></span>    --member<span class="o">=</span>serviceaccount:microcks-pubsub-sa@<span class="nv">$PROJECT</span>.iam.gserviceaccount.com <span class="se">\
+</span><span class="se"></span>    --role<span class="o">=</span>roles/pubsub.publisher
+</code></pre></div><p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
 </span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
 </span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -283,15 +286,15 @@ var trackOutboundLink = function(id, url) {
 </span><span class="w">    </span><span class="nt">async</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq-broker.app.example.com:5672</span><span class="w">
-</span><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
-</span><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
-</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>amqp</code> block:</p>
+</span><span class="w">      </span><span class="nt">googlepubsub</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">my-gcp-project-347219</span><span class="w">
+</span><span class="w">        </span><span class="nt">serviceAccountSecretRef</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">my-googlecloud-service-account</span><span class="w">
+</span><span class="w">          </span><span class="nt">fileKey</span><span class="p">:</span><span class="w"> </span><span class="l">my-googlecloud-service-account.json</span><span class="w">
+</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>googlepubsub</code> block:</p>
 <ul>
-<li><code>url</code> is the hostname + port where broker can be reached by Microcks,</li>
-<li><code>username</code> is simply the user to use for authenticating the connection,</li>
-<li><code>password</code> represents this user credentials.</li>
+<li><code>project</code> is the project identifier of your Google project where Pub/Sub service is located,</li>
+<li><code>serviceAccountSecretRef</code> is the name + the file key name for the <code>Secret</code> holding our Service Account private key we just previoulsy created.</li>
 </ul>
 <p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
@@ -299,132 +302,132 @@ var trackOutboundLink = function(id, url) {
 </span><span class="w">  </span><span class="nt">async</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">    </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">rabbitmq-broker.app.example.com:5672</span><span class="w">
-</span><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
-</span><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">microcks</span><span class="w">
-</span></code></pre></div><p>Actual connection to the RabbitMQ broker will only be made once Microcks will send mock messages to it. Let see below how to use AMQP binding with AsyncAPI.</p>
-<h2 id="2-use-rabbitmq-in-asyncapi">2. Use RabbitMQ in AsyncAPI</h2>
-<p>As AMQP is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use AMQP and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/api-lifecycle/blob/master/account-service-demo-amqp/account-service-asyncapi-1.1.0.yml">GitHub repository</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
-</span><span class="w">  </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">googlepubsub</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">my-gcp-project-347219</span><span class="w">
+</span><span class="w">      </span><span class="nt">serviceAccountSecretRef</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w">  </span><span class="l">my-googlecloud-service-account</span><span class="w">
+</span><span class="w">        </span><span class="nt">fileKey</span><span class="p">:</span><span class="w"> </span><span class="l">my-googlecloud-service-account.json</span><span class="w">
+</span></code></pre></div><p>Actual connection to the Google Pub/Sub service will only be made once Microcks will send mock messages to it. Let see below how to use Pub/Sub binding with AsyncAPI.</p>
+<h2 id="2-use-pubsub-in-asyncapi">2. Use Pub/Sub in AsyncAPI</h2>
+<p>As Google Pub/Sub is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use NATS and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-googlepubsub.yml">GitHub repository</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">is</span><span class="p">:</span><span class="w"> </span><span class="l">routingKey</span><span class="w">
-</span><span class="w">        </span><span class="nt">exchange</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">signedup-exchange</span><span class="w">
-</span><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">topic</span><span class="w">
-</span><span class="w">          </span><span class="nt">durable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">          </span><span class="nt">autoDelete</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">          </span><span class="nt">vhost</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
-</span><span class="w">        </span><span class="nt">bindingVersion</span><span class="p">:</span><span class="w"> </span><span class="m">0.2.0</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">googlepubsub</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">topic</span><span class="p">:</span><span class="w"> </span><span class="l">projects/my-project/topics/my-topic</span><span class="w">
 </span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/UserSignedUp&#39;</span><span class="w">
-</span><span class="w"></span><span class="p">[</span><span class="l">...]    </span><span class="w">
-</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>amqp</code> non empty block within the channel <code>bindings</code>. An <code>amqp</code> is either a a <code>queue</code> or <code>routingKey</code>. When choosing a <code>routingKey</code> you&rsquo;re in fact describing an exchange that should be further typed as <code>topic</code>, <code>direct</code>, <code>fanout</code> or <code>headers</code>. See the full <a href="https://github.com/asyncapi/bindings/tree/master/amqp">binding spec</a> for details.</p>
-<p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Account Service</span><span class="w">
-</span><span class="w">  </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">amqp</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">is</span><span class="p">:</span><span class="w"> </span><span class="l">routingKey</span><span class="w">
-</span><span class="w">        </span><span class="nt">exchange</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">signedup-exchange</span><span class="w">
-</span><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">topic</span><span class="w">
-</span><span class="w">          </span><span class="nt">durable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">          </span><span class="nt">autoDelete</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">          </span><span class="nt">vhost</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
-</span><span class="w">        </span><span class="nt">bindingVersion</span><span class="p">:</span><span class="w"> </span><span class="m">0.2.0</span><span class="w">
-</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#/components/messages/UserSignedUp&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">components</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">messages</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">UserSignedUp</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w">
 </span><span class="w">        </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">examples</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Laurent</span><span class="w">
-</span><span class="w">          </span><span class="nt">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">Laurent Broudoux</span><span class="w">
-</span><span class="w">            </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">laurent@microcks.io</span><span class="w">
-</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Random</span><span class="w">
-</span><span class="w">          </span><span class="nt">payload</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomFullName()}}&#39;</span><span class="w">
-</span><span class="w">            </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomEmail()}}&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>googlepubsub</code> non empty block within the operation <code>bindings</code>. Just define one  property (like <code>topic</code> for example) and Microcks will detect this binding has been specified. See the full <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">binding spec</a> for details.</p>
+<p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">user/signedup</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="p">[</span><span class="l">...]</span><span class="w">
+</span><span class="w">        </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="nt">laurent</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for Laurent user</span><span class="w">
+</span><span class="w">              </span><span class="nt">headers</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">                </span><span class="w">                </span>{<span class="nt">&#34;my-app-header&#34;: </span><span class="m">23</span>}<span class="w">
+</span><span class="w">              </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">                </span><span class="w">                </span>{<span class="nt">&#34;id&#34;: &#34;{{randomString(32)}}&#34;, &#34;sendAt&#34;: &#34;{{now()}}&#34;, &#34;fullName&#34;: &#34;Laurent Broudoux&#34;, &#34;email&#34;: &#34;laurent@microcks.io&#34;, &#34;age&#34;: </span><span class="m">41</span>}<span class="w">
+</span><span class="w">          </span>- <span class="nt">john</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l">Example for John Doe user</span><span class="w">
+</span><span class="w">              </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">my-app-header</span><span class="p">:</span><span class="w"> </span><span class="m">24</span><span class="w">
+</span><span class="w">              </span><span class="nt">payload</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{randomString(32)}}&#39;</span><span class="w">
+</span><span class="w">                </span><span class="nt">sendAt</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{now()}}&#39;</span><span class="w">
+</span><span class="w">                </span><span class="nt">fullName</span><span class="p">:</span><span class="w"> </span><span class="l">John Doe</span><span class="w">
+</span><span class="w">                </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">john@microcks.io</span><span class="w">
+</span><span class="w">                </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">36</span><span class="w">
 </span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{randomFullName()}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
 <p>Now simply import your AsyncAPI file into Microcks either using a <strong>Direct upload</strong> import or by defining a <strong>Importer Job</strong>. Both methods are described in <a href="../../using/importers">this page</a>.</p>
 <h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
-<p>Now it’s time to validate that mock publication of messages on the connected broker is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
-<p>For our <code>Account Service</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/amqpjs-client/consumer.js">in one GitHub repository</a>.</p>
-<p>Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:</p>
+<p>Now it’s time to validate that mock publication of messages on the targeted Pub/Sub is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
+<p>For our <code>User signed-up API</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/googlepubsub-client/consumer.js">in one GitHub repository</a>. Like in previous Step 1, you&rsquo;ll need a Service Account and its key file so that our consumer will be able to connect to Pub/Sub. This Service Account must have the <code>roles/pubsub.subscriber</code> role. If you choose to reuse previously created Service Account, you&rsquo;ll have to issue this additional ommand:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="se">\
+</span><span class="se"></span>    --member<span class="o">=</span>serviceaccount:microcks-pubsub-sa@<span class="nv">$PROJECT</span>.iam.gserviceaccount.com <span class="se">\
+</span><span class="se"></span>    --role<span class="o">=</span>roles/pubsub.subscriber
+</code></pre></div><p>Now, with the Service Account key file at hand - let say in <code>/Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json</code> folder - you&rsquo;ll have to follow these steps to retrieve it, install dependencies and check the Microcks mocks:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
-$ <span class="nb">cd</span> api-tooling/async-clients/amqpjs-client
+$ <span class="nb">cd</span> api-tooling/async-clients/googlepubsub-client
 $ npm install
 
-$ node consumer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-broker.app.example.com:5672 AccountService-1.1.0-user/signedup
-Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-broker.app.example.com:5672 on topic AccountService-1.1.0-user/signedup
+$ node consumer.js my-gcp-project-347219 UsersignedupAPI-0.1.20-user-signedup /Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json
+Connecting to my-gcp-project-347219 on topic UsersignedupAPI-0.1.20-user-signedup with sub gpubsub-client-echo
 <span class="o">{</span>
-  <span class="s2">&#34;displayName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>,
-  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;rZxAKnfxbe7yCXAJLENTHtnBI64H2KRN&#34;</span>,
+  <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1675767350743&#34;</span>,
+  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>,
+  <span class="s2">&#34;age&#34;</span>: <span class="m">41</span>
 <span class="o">}</span>
 <span class="o">{</span>
-  <span class="s2">&#34;displayName&#34;</span>: <span class="s2">&#34;Marcela Langworth&#34;</span>,
-  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;abel.kulas@example.com&#34;</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;ApOlHGyEGEkZnDKeQ3CE3oLpqZ7vVL7v&#34;</span>,
+  <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1675767350743&#34;</span>,
+  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;John Doe&#34;</span>,
+  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;john@microcks.io&#34;</span>,
+  <span class="s2">&#34;age&#34;</span>: <span class="m">36</span>
 <span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
-</code></pre></div><p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>displayName</code> and <code>email</code> properties have a different value thanks to the templating notation.</p>
+</code></pre></div><p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>id</code> and <code>sendAt</code> properties have different values thanks to the templating notation.</p>
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
-<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>Account Service</code> sample we used so far but feel free to adapt them for your own use.</p>
-<p>Imagine that you want to validate messages from a <code>QA</code> environment with dedicated RabbitMQ broker. Still being in the <code>amqpjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>signedup-exchange</code> topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
-Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
-Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
-Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
-Publishing <span class="o">{</span><span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
+<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>User signed-up API</code> sample we used so far but feel free to adapt them for your own use.</p>
+<p>Imagine that you want to validate messages from a <code>QA</code> environment on a dedicated Google Cloud project. As the <strong>QA</strong> project access is secured, you&rsquo;ll need - like described above in Step 1 - to retrieve a Service Account key file with this Service Account having the <code>roles/pubsub.subscriber</code> role like described in Step 3.</p>
+<p>Still being in the <code>googlepubsub-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>user-signups</code> topic hosted by a <code>my-qa-gcp-project-347223</code> project with local access to your Service Account key file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
+Connecting to my-qa-gcp-project-347223 on user-signups
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;jhlch3gv1dexkodt71zet&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1675848599703&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;gm6c39oa69nw7dukbpper&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1675848602703&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div><p>Do not interrupt the execution of the script for now.</p>
-<p>If the <strong>QA</strong> broker access is secured - let&rsquo;s say with credentials and custom certificates - we will first have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
+<p>As the <strong>QA</strong> Pub/Sub access is secured, we will first have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
 <blockquote>
 <p><strong>Administration</strong> and <strong>Secrets</strong> will only be available to people having the <code>administrator</code> role assigned. Please check <a href="../../administrating/secrets/users">this documentation</a> for details.</p>
 </blockquote>
-<p>The screenshot below illustrates the creation of such a secret for your <code>QA RabbitMQ Broker</code> with username and password.</p>
-<p><img src="/images/guides/amqp-broker-secret.png" alt="AMQP Broker secret"></p>
+<p>On this tab, you&rsquo;ll have to create a <code>Token Authentication</code> secret with the value being the content of a Service Account key file encrypted in base 64. This Service Account is not necessarily the one you&rsquo;ve used previously for producing messages as this one must have the <code>roles/pubsub.publisher</code> role. You&rsquo;ll typically get the token value by executing this command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ cat googlecloud-service-account.json <span class="p">|</span> base64 
+</code></pre></div><p>The screenshot below illustrates the creation of such a secret for your <code>QA Pub/Sub Service</code> with username, and credentials.</p>
+<p><img src="/images/guides/pubsub-broker-secret.png" alt="Pub/Sub Broker secret"></p>
 <p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
 <ul>
-<li><strong>Test Endpoint</strong>: <code>amqp://rabbitmq-qa-broker.app.example.com:5672/t/signedup-exchange</code> that is referencing the AMQP broker endpoint,</li>
-<li><strong>Operation</strong>: <code>SUBSCRIBE user/signedup</code></li>
+<li><strong>Test Endpoint</strong>: <code>googlepubsub://my-qa-gcp-project-347223/user-signups</code> that is referencing the Google Pub/Sub service and topic endpoint,</li>
 <li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API,</li>
 <li><strong>Timeout</strong>: Keep the default of 10 seconds,</li>
-<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA RabbitMQ Broker</strong> you previously created.</li>
+<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA Pub/Sub Service</strong> you previously created.</li>
 </ul>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
-<p><img src="/images//guides/amqp-test-success.png" alt="AMQP Test success"></p>
-<blockquote>
-<p>You may have noticed the <code>/t/</code> path element in Test endpoint used above. You may be aware that RabbitMQ is supporting different kinds of Exchnages and <code>/t/</code> is here to tell Microcks it should consider a topic. As an exercice, you can reuse our <code>producer.js</code> script above and replace with <code>fanout</code>, <code>direct</code> or <code>headers</code>. Respectively, you&rsquo;ll have to replace <code>/t/</code> with <code>/f/</code>, <code>/d/</code> and <code>/h/</code> to tell Microcks the expected type of Exchange.</p>
-</blockquote>
-<p>This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be defined.</p>
-<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on line 21 and to remove comments from line 22. It&rsquo;s removing the <code>displayName</code> property and adding an unexpected <code>name</code> property as shown below after having restarted the producer:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
-Connecting to amqp://&lt;user&gt;:&lt;password&gt;@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
-Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
-Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
-Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;John Doe&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;john@doe.com&#34;</span><span class="o">}</span>
+<p><img src="/images/guides/pubsub-test-success.png" alt="Pub/Sub Test success"></p>
+<p>This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be define, <code>sendAt</code> is of string type.</p>
+<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on lines 24 and 25 and to remove comments on lines 26 and 27. It&rsquo;s removing the <code>fullName</code> measure and adding an unexpected <code>displayName</code> property and it&rsquo;s also changing the type of the <code>sendAt</code> property as shown below after having restarted the producer:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
+Connecting to my-qa-gcp-project-347223 on user-signups
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;2zzo4kf16mxu5e6k8hyecl&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675946954300,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;9ny4r1qu1p5xv37wxufshm&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675946957300,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
+Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;uriayo3qh5b1z0y8zd5d7x&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675946960301,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
-<p><img src="/images/guides/amqp-test-failure.png" alt="AMQP Test failure"></p>
-<p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application is sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
+<p><img src="/images/guides/pubsub-test-failure.png" alt="Pub/Sub Test failure"></p>
+<p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
+<blockquote>
+<p>Note that even if the test duration is 10 seconds you may receive more messages that the number of messages sent by the producer during those 10 seconds&hellip; 🤔 This is because Pub/Sub subscription that are mandatory for consuming messages have a minimum message retention policy of 10 minutes. Microcks is creating such subscription with the minimum of retention duration (10 minutes) and expiration delay (1 day). So depending on when you launch your test, you may reuse already created subscription that has accumulated messages before your test actually starts.</p>
+</blockquote>
 <h2 id="wrap-up">Wrap-Up</h2>
-<p>In this guide we have seen how Microcks can also be used to send mock messages on a RabbitMQ Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
+<p>In this guide we have seen how Microcks can also be used to send mock messages on a Google Pub/Sub managed service connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
 <p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a> 🐙</p>
 
 </div>
@@ -656,7 +659,7 @@ Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span 
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/guides/rabbitmq-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/guides/rabbitmq-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               RABBITMQ MOCKING AND TESTING
             </a>
           </li>
@@ -666,7 +669,7 @@ Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span 
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/guides/googlepubsub-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/guides/googlepubsub-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               GOOGLE PUB/SUB MOCKING AND TESTING
             </a>
           </li>
@@ -692,14 +695,14 @@ Publishing <span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span 
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/guides/rabbitmq-support/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/guides/googlepubsub-support/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “RabbitMQ Mocking and Testing”
-  </a> was last updated: November 22, 2022
+    “Google Pub/Sub Mocking and Testing”
+  </a> was last updated: February 8, 2023
 </h6>
 
-      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/rabbitmq-support.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/googlepubsub-support.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 

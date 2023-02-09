@@ -6,7 +6,7 @@
     <description>Recent content in Guides on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
       <link>https://microcks.io/documentation/guides/openapi-101/</link>
@@ -43,7 +43,7 @@ Starting with the 1.2.0 release of Microcks, we support Avro as an encoding form
       <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/guides/nats-support/</guid>
-      <description>Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients.</description>
+      <description>Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients.</description>
     </item>
     
     <item>
@@ -54,6 +54,16 @@ Starting with the 1.2.0 release of Microcks, we support Avro as an encoding form
       <guid>https://microcks.io/documentation/guides/rabbitmq-support/</guid>
       <description>Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
 Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
+    </item>
+    
+    <item>
+      <title>Google Pub/Sub Mocking and Testing</title>
+      <link>https://microcks.io/documentation/guides/googlepubsub-support/</link>
+      <pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/guides/googlepubsub-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
+Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.</description>
     </item>
     
   </channel>

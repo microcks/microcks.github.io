@@ -44,19 +44,19 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="NATS Mocking and Testing" />
-<meta property="og:description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients." />
+<meta property="og:description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/guides/nats-support/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2023-01-30T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-01-30T00:00:00+00:00" />
 
 <meta itemprop="name" content="NATS Mocking and Testing">
-<meta itemprop="description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients."><meta itemprop="datePublished" content="2023-01-30T00:00:00+00:00" />
+<meta itemprop="description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients."><meta itemprop="datePublished" content="2023-01-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-01-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1242">
+<meta itemprop="wordCount" content="1273">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="NATS Mocking and Testing"/>
-<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients."/>
+<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients."/>
 
 
       
@@ -264,11 +264,12 @@ var trackOutboundLink = function(id, url) {
 <div class="prose" id="prose">
 
 <h2 id="overview">Overview</h2>
-<p>This guide is a walkthrough on how to use a <a href="https://nats.io/">NATS</a> protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the <a href="https://nats.io/download/">full list of clients</a>.</p>
+<p>This guide is a walkthrough on how to use a <a href="https://nats.io/">NATS</a> protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the <a href="https://nats.io/download/">full list of clients</a>.</p>
 <p>Starting with the <code>1.7.0</code> release of Microcks, we support NATS as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a NATS broker for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any NATS broker in your organization to check that flowing messages are compliant to the schema described within your specification.</p>
 <p>Let&rsquo;s go! 🚀</p>
 <h2 id="1-setup-nats-broker-connection">1. Setup NATS broker connection</h2>
 <p>First mandatory step here is to setup Microcks so that it will be able to connect to a NATS broker for sending mock messages. Microcks has been tested successfully with NATS version <code>2.9.8</code>. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.</p>
+<p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
 </span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
 </span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -356,7 +357,7 @@ var trackOutboundLink = function(id, url) {
 $ <span class="nb">cd</span> api-tooling/async-clients/natsjs-client
 $ npm install
 
-$ node consumer nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
+$ node consumer.js nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
 Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-user/signedup
 <span class="o">{</span>
   <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;eyN7TbotUwN6RTPD4mRwwStS8gBA7tI6&#34;</span>,
@@ -373,7 +374,7 @@ Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-u
   <span class="s2">&#34;age&#34;</span>: <span class="m">36</span>
 <span class="o">}</span>
 <span class="o">[</span>...<span class="o">]</span>
-</code></pre></div><p>🎉 Fantastic! We are receiving the three different messages corresponding to the three defined devices each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>id</code> property has a different value thanks to the templating notation.</p>
+</code></pre></div><p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>id</code> and <code>sendAt</code> properties have different value sthanks to the templating notation.</p>
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
 <p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>User signed-up API</code> sample we used so far but feel free to adapt them for your own use.</p>
 <p>Imagine that you want to validate messages from a <code>QA</code> environment with dedicated NATS broker. Still being in the <code>natsjs-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>user-signedups</code> queue:</p>
@@ -398,7 +399,7 @@ Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class
 </ul>
 <p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
 <p><img src="/images/guides/nats-test-success.png" alt="NATS Test success"></p>
-<p>This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be define, <code>sendAt</code> is of string type.</p>
+<p>This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be present, <code>sendAt</code> is of string type.</p>
 <p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on lines 28 and 29 and to remove comments on lines 30 and 31. It&rsquo;s removing the <code>fullName</code> measure and adding an unexpected <code>displayName</code> property and it&rsquo;s also changing the type of the <code>sendAt</code> property as shown below after having restarted the producer:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
 Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups
@@ -410,7 +411,7 @@ Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class
 <p><img src="/images/guides/nats-test-failure.png" alt="NATS Test failure"></p>
 <p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
 <h2 id="wrap-up">Wrap-Up</h2>
-<p>In this guide we have seen how Microcks can also be used to send mock messages on a NATS Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
+<p>In this guide we have seen how Microcks can also be used to send mock messages on a Google PubSub service connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
 <p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a> 🐙</p>
 
 </div>
@@ -649,6 +650,11 @@ Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class
           <li class="f6 fw4">
             <a href="/documentation/guides/nats-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               NATS MOCKING AND TESTING
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/guides/googlepubsub-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              GOOGLE PUB/SUB MOCKING AND TESTING
             </a>
           </li>
         </ul>
