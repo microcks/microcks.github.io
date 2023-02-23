@@ -50,14 +50,14 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/soapui/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-23T00:00:00+00:00" />
 
 <meta itemprop="name" content="SoapUI Mocking and Testing">
 <meta itemprop="description" content="Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&rsquo;ll need to follow the steps below:
  Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="983">
+<meta itemprop="dateModified" content="2023-02-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1062">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SoapUI Mocking and Testing"/>
 <meta name="twitter:description" content="Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
@@ -297,7 +297,7 @@ var trackOutboundLink = function(id, url) {
 <ul>
 <li>Your SoapUI project may contain one or more Service definitions. However, because it&rsquo;s a best practice to consider each Service or API as an autonomous and isolated software asset, we&rsquo;d recommend managing only one Service definition per SoapUI project,</li>
 <li>Your SoapUI Mock Service should define a custom property named <code>version</code> that allows tracking of Service(s) version. It is a good practice to change this version identifier for each Service or API interface versioned changes,</li>
-<li>The name of Tests Requests should be something like <code>&quot;&lt;sample_id&amp;&gt; Request&quot;</code>. For example: <code>&quot;Karla Request&quot;</code>,</li>
+<li>The name of Tests Requests should be something like <code>&quot;&lt;sample_id&gt; Request&quot;</code>. For example: <code>&quot;Karla Request&quot;</code>,</li>
 <li>The name of Mock Responses should be something like <code>&quot;&lt;sample_id&gt; Response&quot;</code>. For example: <code>&quot;Karla Response&quot;</code>,</li>
 <li>The name of matching rules should be something like <code>&quot;&lt;sample_id&gt;&quot;</code>. For example: <code>&quot;Karla&quot;</code>,</li>
 </ul>
@@ -315,16 +315,23 @@ var trackOutboundLink = function(id, url) {
 <h2 id="defining-mock-responses">Defining Mock Responses</h2>
 <p>Mock Responses you will need to define later will be defined through a <em>SoapUI ServiceMock</em>. You have to select the newly imported Service, right-click and choose <em>Generate MockService</em>. You can let the default options as shown below and give your MockService a name like <code>&quot;&lt;Service&gt; Mock&quot;</code>:</p>
 <p><img src="/images/soapui-create-servicemock.png" alt="soapui-create-servicemock"></p>
-<p>You will now be able to create as many <em>Responses</em> attached to <em>Operation</em> as you&rsquo;ve got samples requests defined in previously created <em>TestSteps</em>. As introduced into the naming conventions, your responses must have the same <code>&quot;&amp;lt;sample_id&amp;gt;</code> radix that the associated requests so that Microcks will be later able to associate them.</p>
+<p>You will now be able to create as many <em>Responses</em> attached to <em>Operation</em> as you&rsquo;ve got samples requests defined in previously created <em>TestSteps</em>. As introduced into the naming conventions, your responses must have the same <code>&quot;&lt;sample_id&gt;</code> radix that the associated requests so that Microcks will be later able to associate them.</p>
 <p><img src="/images/soapui-mockresponse.png" alt="soapui-mockresponse"></p>
 <p>The screenshot above shows a Mock response corresponding to the <code>Andrew Request</code>. It is simply code <code>Andrew Response</code>. Note that you are free to setup any HTTP Header you want for responses, Microcks will reuse them later to issue real headers in responses.</p>
+<blockquote>
+<p>Note that you can use <a href="/documentation/using/advanced/templates">templating notation</a> into your SOAP responses for better/smarter/more dynamic responses. It brings specific features for XML like <a href="/documentation/using/advanced/templates/#xml-body-xpath-expression">XPath expressions</a> or <a href="/documentation/using/advanced/templates/#context-expression">context expressions</a> you may have initialized using a <a href="/documentation/using/advanced/dispatching/#script-dispatcher"><code>SCRIPT</code> dispatcher</a>.</p>
+</blockquote>
+<blockquote>
+<p>Note also that for compatibility purpose, Microcks supports the SoapUI expression notation: SoapUI <code>${ }</code> notation will be translated into Microcks double-mustaches notation <code>{{ }}</code> internally. You may also of course directly use our <code>{{ }}</code> notation though 😉</p>
+</blockquote>
 <h2 id="defining-dispatch-rules">Defining dispatch rules</h2>
-<p>Latest step is now to define a technical mean for Microcks to analyse an incoming requests and find out the corresponding response to return. This is done in Microcks via the concept of <strong>Dispatcher</strong> that represent a dispatch strategy and <strong>Dispatcher Rules</strong> that represent the dispatching parameters. Microcks supports 2 strategies for dispatching SOAP requests:</p>
+<p>Latest step is now to define a technical mean for Microcks to analyse an incoming requests and find out the corresponding response to return. This is done in Microcks via the concept of <strong>Dispatcher</strong> that represent a dispatch strategy and <strong>Dispatcher Rules</strong> that represent the dispatching parameters. Microcks supports 3 strategies for dispatching SOAP requests:</p>
 <ul>
 <li>Via the analysis of SOAP request payload through XPath,</li>
-<li>Via the evaluation of a Groovy script.</li>
+<li>Via the evaluation of a Groovy script,</li>
+<li>Via the random dispatching strategy.</li>
 </ul>
-<p>These two strategies have equivalent in SoapUI via Dispatch configuration on each Operation of your Mock Service.</p>
+<p>These three strategies have equivalent in SoapUI via Dispatch configuration on each Operation of your Mock Service.</p>
 <h3 id="using-xpath-expression">Using XPath expression</h3>
 <p>After double-clicking on the operation node of your Mock Service, a window as shown in following screenshot should appear. If you want to use XPath for matching, select the <em>QUERY_MATCH</em> Dispatch and associate a <em>Mock Response</em> (upper section) with a new <em>Match Rule</em> (lower left) defining an XPath assertion (lower right). You can use the <em>Extract</em> helper in SoapUI if you&rsquo;re not familiar to XPath expression.</p>
 <blockquote>
@@ -610,7 +617,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “SoapUI Mocking and Testing”
-  </a> was last updated: February 23, 2022
+  </a> was last updated: February 23, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/soapui.md" class="
