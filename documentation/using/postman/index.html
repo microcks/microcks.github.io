@@ -49,13 +49,13 @@ Steps for creating a repository In order to create a tests and mocks repository 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/postman/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-01-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-23T00:00:00+00:00" />
 
 <meta itemprop="name" content="Postman usage for Microcks">
 <meta itemprop="description" content="Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
 Steps for creating a repository In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-01-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="987">
+<meta itemprop="dateModified" content="2023-02-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1172">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Postman usage for Microcks"/>
 <meta name="twitter:description" content="Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
@@ -228,6 +228,7 @@ var trackOutboundLink = function(id, url) {
     <li><a href="#defining-examples">Defining Examples</a></li>
     <li><a href="#defining-test-scripts">Defining Test Scripts</a></li>
     <li><a href="#export-postman-collection">Export Postman collection</a></li>
+    <li><a href="#retrieve-collection-workspace-api-link">Retrieve Collection workspace API link</a></li>
   </ul>
 </nav>
 	
@@ -273,15 +274,18 @@ var trackOutboundLink = function(id, url) {
 
 <h2 id="overview">Overview</h2>
 <h3 id="pre-requisites">Pre-requisites</h3>
-<p>Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.</p>
+<p>Microcks has been tested with latest version of Postman and uses the <a href="https://blog.postman.com/postman-essentials-exploring-the-collection-format/">Collection v2 format</a> as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.</p>
 <h3 id="steps-for-creating-a-repository">Steps for creating a repository</h3>
 <p>In order to create a tests and mocks repository using Postman, you&rsquo;ll need to follow the steps below:</p>
 <ul>
 <li>Initialize a Postman collection that will hold the repository,</li>
 <li>Create Examples and fill request parameters, headers and body,</li>
 <li>Describe associated response in terms of status, headers and body,</li>
-<li>Export the result as a JSON file using the Collection v2 format,</li>
-<li>Save the collection file into your SCM repository.</li>
+</ul>
+<p>and then:</p>
+<ul>
+<li>Either export the result as a JSON file using the <a href="https://blog.postman.com/postman-essentials-exploring-the-collection-format/">Collection v2 format</a> before saving the file into your SCM repository.</li>
+<li>Or, if you have used the <a href="https://www.postman.com/product/workspaces/">online workspace features</a> of Postman, get the API Collection link that will allow Microcks to directly fetch your collection in worksapce.</li>
 </ul>
 <h3 id="conventions">Conventions</h3>
 <p>In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.</p>
@@ -322,8 +326,15 @@ var trackOutboundLink = function(id, url) {
 <p><img src="/images/postman-script-validation.png" alt="postman-script-validation"></p>
 <p>This script validates that all the JSON <code>order</code> objects returned in response all have the <code>status</code> that is requested using the query parameter <code>status</code> value. Otherwise, a <code>Valid response</code> assertion failure is thrown and stored into the tests array.</p>
 <h2 id="export-postman-collection">Export Postman collection</h2>
-<p>Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
+<p>Finally, when you have defined all examples and optional test scripts on your requests, you may export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.</p>
 <p><img src="/images/postman-export.png" alt="postman-export"></p>
+<h2 id="retrieve-collection-workspace-api-link">Retrieve Collection workspace API link</h2>
+<p>Another option available since version <code>1.7.0</code> of Microcks is to directly access your Collection defined into a Postman Workspace through its Collection API link. For that, you have to go through the <strong>Share</strong> button and select the <strong>Via API</strong> thumbnail as illustrated in the picture below:</p>
+<p><img src="/images/postman-share-api-link.png" alt="postman-share-api-link"></p>
+<p>You can then copy this URL (ending just before the <code>?</code>) and use it directly as an importer URL when <a href="http://localhost:1313/documentation/using/importers/#scheduled-import">creating your scheduled import</a>. Obviously you&rsquo;ll need an API Access Key so that Microcks will be able to authenticate while fetching your Collection. In order to do that, you&rsquo;ll need to generate an API Key from Postman workspace as illustrated below:</p>
+<p><img src="/images/postman-api-keys.png" alt="postman-api-keys"></p>
+<p>This API Key must then be saved as an authentication <a href="/documentation/administrating/secrets/">Secret in Microcks</a> so that your importer will be able to reference it and supply it to Postman API using the <code>X-API-Key</code> header. Here&rsquo;s below the definition of such a secret in Microcks:</p>
+<p><img src="/images/postman-api-secret.png" alt="postman-api-secret"></p>
 
 </div>
 
@@ -594,7 +605,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Postman usage for Microcks”
-  </a> was last updated: January 2, 2020
+  </a> was last updated: February 23, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/postman.md" class="
