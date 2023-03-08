@@ -3,9 +3,9 @@ entries:
   microcks:
   - apiVersion: v2
     appVersion: 1.6.1
-    created: "2022-11-24T09:24:17.022497+01:00"
+    created: "2022-11-25T17:51:31.069143+01:00"
     description: Microcks - API Mocking and Testing
-    digest: 2533046b5fc2c295d9ddc42dd3a5b1776d85209e39df7fc9ead12f25b2f6db66
+    digest: e7171269d78156940fbe7caa6c7ec78ee7172789c083ef0e9f050b253b1f0c75
     home: https://microcks.io
     icon: https://microcks.io/images/microcks-big.png
     keywords:
@@ -361,4 +361,4 @@ entries:
     urls:
     - https://microcks.io/helm/microcks-0.8.0.tgz
     version: 0.8.0-helm-3.kube-1.17
-generated: "2022-11-24T09:24:17.00657+01:00"
+generated: "2022-11-25T17:51:31.058023+01:00"
