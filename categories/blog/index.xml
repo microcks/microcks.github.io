@@ -6,7 +6,18 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.7.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.7.0-release/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.7.0-release/</guid>
+      <description>The end of the winter season ☃️ is coming. But unlike our fellow hibernators 🐻, instead of living off stores of fat, our amazing community has worked hard on yet another Microcks release - yes, version 1.7.0 is out 👏
+In a few words, here are the highlights of this new release:
+  Some new protocols &amp;amp; connectors, you asked for it so: NATS, Google PubSub, and Postman Workspace are now available,</description>
+    </item>
+    
     <item>
       <title>Microcks partners with Postman to shape next-gen multi-protocol API tooling ⭐️</title>
       <link>https://microcks.io/blog/microcks-partners-with-postman/</link>
