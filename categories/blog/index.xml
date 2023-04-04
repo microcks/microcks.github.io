@@ -6,7 +6,17 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>J.B. Hunt: Mock It till You Make It with Microcks</title>
+      <link>https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/</link>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/</guid>
+      <description>Collaboration in the enterprise has many challenges which can become pitfalls and roadblocks that threaten to slow agile software development to a complete standstill. Here, I’ll share how Microcks helped the Engineering and Technology team overcome obstacles and accelerate development and delivery at J.B. Hunt Transport Services, Inc.
+At J.B. Hunt, it’s common for multiple software engineering teams to work in parallel across domains and products to deliver new features for our award-winning J.</description>
+    </item>
+    
     <item>
       <title>Microcks 1.7.0 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.7.0-release/</link>
