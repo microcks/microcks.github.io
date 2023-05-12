@@ -6,7 +6,17 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks&#39; Backstage integration to centralize all your APIs in a software catalog 🧩</title>
+      <link>https://microcks.io/blog/backstage-integration-launch/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/backstage-integration-launch/</guid>
+      <description>Identifying and managing software assets has always been a challenge! It became more and more difficult these years with the blast of multi-cloud deployments and practices like microservices. Fortunately, Backstage comes to the rescue and tends to become a standard for developer portals. Today, we are excited to announce an integration between Microcks and Backstage to ease the management of API related assets.
+Contributed to the CNCF by Spotify, Backstage is, according to their website:</description>
+    </item>
+    
     <item>
       <title>J.B. Hunt: Mock It till You Make It with Microcks</title>
       <link>https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/</link>
