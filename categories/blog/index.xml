@@ -6,7 +6,17 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Join the Microcks Adopters list and Empower the vibrant open source Community 🙌</title>
+      <link>https://microcks.io/blog/join-adopters-list/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/join-adopters-list/</guid>
+      <description>Open source software has revolutionized the way enterprises develop and deploy their applications. It fosters collaboration, innovation, and cost-effectiveness, enabling organizations to build secure and robust solutions while leveraging the collective knowledge and expertise of a vast and diverse community.
+Microcks, the Kubernetes-Native multi-protocol open source enterprise mocking and testing API solution, is an excellent example of the power of open source projects. In this blog post, we invite enterprises and community users to join the Microcks adopters list, showcasing their support for the project and contributing to its growth.</description>
+    </item>
+    
     <item>
       <title>Microcks&#39; Backstage integration to centralize all your APIs in a software catalog 🧩</title>
       <link>https://microcks.io/blog/backstage-integration-launch/</link>
