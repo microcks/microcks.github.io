@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> Google Pub/Sub Mocking and Testing | Microcks.io</title>
+    <title> Amazon SQS/SNS Mocking and Testing | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,20 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Google Pub/Sub Mocking and Testing" />
-<meta property="og:description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
-Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification." />
+<meta property="og:title" content="Amazon SQS/SNS Mocking and Testing" />
+<meta property="og:description" content="This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As thse two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&rsquo;t have to use both to benefit from Microcks features." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/guides/googlepubsub-support/" /><meta property="article:section" content="documentation" />
-<meta property="article:published_time" content="2023-02-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-02-08T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/documentation/guides/aws-sqs-sns-support/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2023-06-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-06T00:00:00+00:00" />
 
-<meta itemprop="name" content="Google Pub/Sub Mocking and Testing">
-<meta itemprop="description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
-Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification."><meta itemprop="datePublished" content="2023-02-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-02-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1699">
+<meta itemprop="name" content="Amazon SQS/SNS Mocking and Testing">
+<meta itemprop="description" content="This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As thse two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&rsquo;t have to use both to benefit from Microcks features."><meta itemprop="datePublished" content="2023-06-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-06-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2013">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Google Pub/Sub Mocking and Testing"/>
-<meta name="twitter:description" content="Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
-Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification."/>
+<meta name="twitter:title" content="Amazon SQS/SNS Mocking and Testing"/>
+<meta name="twitter:description" content="This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As thse two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&rsquo;t have to use both to benefit from Microcks features."/>
 
 
       
@@ -217,9 +214,8 @@ var trackOutboundLink = function(id, url) {
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
   <ul>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#1-setup-pubsub-service-connection">1. Setup Pub/Sub service connection</a></li>
-    <li><a href="#2-use-pubsub-in-asyncapi">2. Use Pub/Sub in AsyncAPI</a></li>
+    <li><a href="#1-setup-aws-services-connection">1. Setup AWS services connection</a></li>
+    <li><a href="#2-use-aws-services-in-asyncapi">2. Use AWS services in AsyncAPI</a></li>
     <li><a href="#3-validate-your-mocks">3. Validate your mocks</a></li>
     <li><a href="#4-run-asyncapi-tests">4. Run AsyncAPI tests</a></li>
     <li><a href="#wrap-up">Wrap-Up</a></li>
@@ -229,7 +225,7 @@ var trackOutboundLink = function(id, url) {
 
 	<div date-pref>
 		
-			<a href="https://microcks.io/documentation/guides/rabbitmq-support/" class="dib f6 pl1 hover-bg-light-gray br-100" title="RabbitMQ Mocking and Testing ">
+			<a href="https://microcks.io/documentation/guides/googlepubsub-support/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Google Pub/Sub Mocking and Testing ">
 				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -239,14 +235,6 @@ var trackOutboundLink = function(id, url) {
 		
 
 		
-			<a href="https://microcks.io/documentation/guides/aws-sqs-sns-support/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Amazon SQS/SNS Mocking and Testing">
-			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-    <path d="M0 0h24v24H0z" fill="none"/>
-</svg>
-
-			</a>
-		
 	</div>
 
 </aside>
@@ -254,7 +242,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Google Pub/Sub Mocking and Testing</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Amazon SQS/SNS Mocking and Testing</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -266,24 +254,31 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
-<h2 id="overview">Overview</h2>
-<p>This guide is a walkthrough on how to use a <a href="https://cloud.google.com/pubsub/">Google Pub/Sub</a> messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.</p>
-<p>Starting with the <code>1.7.0</code> release of Microcks, we support Google Pub/Sub as a protocol binding for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.</p>
-<p>Let&rsquo;s rock and roll! 🎸</p>
-<h2 id="1-setup-pubsub-service-connection">1. Setup Pub/Sub service connection</h2>
-<p>First mandatory step here is to setup Microcks so that it will be able to connect to a Pub/Sub service for sending mock messages. Before doing that, you&rsquo;ll need to ensure you got proper credentials in your cluster.</p>
-<p>As accessing Google Pub/Sub is subject to authentication and authorization, the pre-requisite is to create an <a href="https://cloud.google.com/iam/docs/service-accounts">IAM Service Account</a> in Google platform so that Microcks will reuse this identity to connect to the service. After you <a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts">created</a> this service account, you&rsquo;ll need to <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-gcloud">create and get access to its key file</a>. Result is typically a JSON file you&rsquo;ll download on your machine.</p>
-<p>Let&rsquo;s say you&rsquo;ve called it <code>my-googlecloud-service-account.json</code>, you&rsquo;ll then need to transfer this file as a <code>Secret</code> within your Kubernetes cluster into the namespace where you plan to setup Microcks - here after <code>microcks</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create secret generic my-googlecloud-service-account <span class="se">\
-</span><span class="se"></span>    --from-file<span class="o">=</span>./my-googlecloud-service-account.json -n microcks
-</code></pre></div><p>You also have to ensure that this Service Account has the required permissions for connecting to Pub/Sub, listing and creating topics. This can be done by adding the <code>roles/pubsub.editor</code> and <code>roles/pubsub.publisher</code> roles to the Service Account. Check the <a href="https://cloud.google.com/pubsub/docs/access-control#permissions_and_roles">Pub/Sub permissions and roles</a> for more details. Here are below typical <code>gcloud</code> commands for that:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="se">\
-</span><span class="se"></span>    --member<span class="o">=</span>serviceaccount:microcks-pubsub-sa@<span class="nv">$PROJECT</span>.iam.gserviceaccount.com <span class="se">\
-</span><span class="se"></span>    --role<span class="o">=</span>roles/pubsub.editor
-$ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="se">\
-</span><span class="se"></span>    --member<span class="o">=</span>serviceaccount:microcks-pubsub-sa@<span class="nv">$PROJECT</span>.iam.gserviceaccount.com <span class="se">\
-</span><span class="se"></span>    --role<span class="o">=</span>roles/pubsub.publisher
-</code></pre></div><p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones:</p>
+<p>This guide is a walkthrough on how to use a <a href="https://aws.amazon.com/sqs/">Amazon SQS</a> and <a href="https://aws.amazon.com/sns/">Amazon SNS</a> messaging services with Microcks. As thse two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&rsquo;t have to use both to benefit from Microcks features.</p>
+<p>AAmazon Simple Queue Service (SQS) lets you send, store, and receive messages between software components. As stated by the name, it is a message queuing service where one message from a queue can only be consumed by one component. Amazon Simple Notification Service (SNS) sends notifications two ways and provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications.</p>
+<p>Starting with the <code>1.7.1</code> release of Microcks, we support Amazon SQS and SNS as a protocol bindings for <a href="../../using/asyncapi">AsyncAPI</a>. That means that Microcks is able to connect to either SQS or SNS service for publishing mock messages as soon as it receives a valid <a href="https://asyncapi.com">AsyncAPI</a> Specification and to connect to any SQS/SNS queue or topic to check that flowing messages are compliant to the schema described within your specification.</p>
+<p>Let&rsquo;s go! 🏄‍♂️</p>
+<h2 id="1-setup-aws-services-connection">1. Setup AWS services connection</h2>
+<p>First mandatory step here is to setup Microcks so that it will be able to connect to the target AWS service for sending mock messages. In order to do that, you&rsquo;ll need to ensure you got proper credentials in your cluster.</p>
+<p>As accessing AWS Service is subject to authentication and authorization, the pre-requisite is to create one <a href="https://aws.amazon.com/iam/">IAM Account</a> with the required policies. If you plan to use both services, we recommend creating two different accounts so that you&rsquo;ll limit scope of risk.</p>
+<p>Once you get your IAM account ready, you&rsquo;ll need their access keys so that an application running outside of AWS will be able to use those services.</p>
+<p>From there, you have two options to provide the access keys details to Microcks:</p>
+<ol>
+<li>Store this access keys details directly as keys into a Kubernetes <code>Secret</code> - keys that will be injected as environment variables within your Microcks instance,</li>
+<li>Store this access keys details into a <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html">Profile file</a> you&rsquo;ll also wrap into a Kubernetes <code>Secret</code>. This Secret will be mounted on Microcks instance filesystem in read-only mode.</li>
+</ol>
+<p>Based on the option you chose and the way you handle secrets in your cluster, you&rsquo;ll typically have to issue one of this command.</p>
+<p><strong>Create a Secret for environment variable usage:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create secret generic my-aws-credentials <span class="se">\
+</span><span class="se"></span>    --from-literal<span class="o">=</span><span class="nv">access_key_id</span><span class="o">=</span><span class="nv">$AWS_ACCESS_KEY_ID</span> <span class="se">\
+</span><span class="se"></span>    --from-literal<span class="o">=</span><span class="nv">secret_access_key</span><span class="o">=</span><span class="nv">$AWS_SECRET_ACCESS_KEY</span> <span class="se">\
+</span><span class="se"></span>    --from-literal<span class="o">=</span><span class="nv">secret_token_key</span><span class="o">=</span><span class="nv">$AWS_SESSION_TOKEN</span> <span class="se">\
+</span><span class="se"></span>     -n microcks
+</code></pre></div><p><strong>Create a Secret for profile file usage:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl create secret generic my-aws-credentials <span class="se">\
+</span><span class="se"></span>    --from-file<span class="o">=</span>./my-aws-credentials.profile -n microcks
+</code></pre></div><p>You also have to ensure that this IAM Account has the required permissions for connecting to the service. In order to use SQS service with Microcks, your IAM account will need the <code>AmazonSQSFullAccess</code> policy to create, list and get details on queues but also publish messages to them. In order to use SNS service with Microcks, your IAM account will need the <code>AmazonSNSFullAccess</code> policy to create, list and get details on topics but also publish messages to them.</p>
+<p>If you have used the <a href="../../installing/operator">Operator based installation</a> of Microcks, you&rsquo;ll need to add some extra properties to your <code>MicrocksInstall</code> custom resource. The fragment below shows the important ones with the 2 alternatives of using a <code>Secret</code> that keys will be injected as environment variables or using a <code>Secret</code> holding a profile file that will be mounted on filesystem:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">microcks.github.io/v1alpha1</span><span class="w">
 </span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MicrocksInstall</span><span class="w">
 </span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -294,15 +289,28 @@ $ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span 
 </span><span class="w">    </span><span class="nt">async</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">      </span><span class="nt">googlepubsub</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">my-gcp-project-347219</span><span class="w">
-</span><span class="w">        </span><span class="nt">serviceAccountSecretRef</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">my-googlecloud-service-account</span><span class="w">
-</span><span class="w">          </span><span class="nt">fileKey</span><span class="p">:</span><span class="w"> </span><span class="l">my-googlecloud-service-account.json</span><span class="w">
-</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>googlepubsub</code> block:</p>
+</span><span class="w">      </span><span class="nt">sqs</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">eu-west-3</span><span class="w">
+</span><span class="w">        </span><span class="nt">credentialsType</span><span class="p">:</span><span class="w"> </span><span class="l">env-variable</span><span class="w">
+</span><span class="w">        </span><span class="nt">credentialsSecretRef</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">my-aws-credentials</span><span class="w">
+</span><span class="w">          </span><span class="c">#accessKeyIdKey: access_key_id          # Allow customization of key</span><span class="w">
+</span><span class="w">          </span><span class="c">#secretAccessKeyKey: secret_access_key  # Allow customization of key</span><span class="w">
+</span><span class="w">          </span><span class="c">#sessionTokenKey: secret_token_key      # This one is optional</span><span class="w">
+</span><span class="w">        </span><span class="c">#OR</span><span class="w">
+</span><span class="w">        </span><span class="nt">credentialsType</span><span class="p">:</span><span class="w"> </span><span class="l">profile</span><span class="w">
+</span><span class="w">        </span><span class="nt">credentialsProfile</span><span class="p">:</span><span class="w"> </span><span class="l">my-sqs-profile</span><span class="w">
+</span><span class="w">        </span><span class="nt">credentialsSecretRef</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">my-aws-credentials</span><span class="w">
+</span><span class="w">          </span><span class="nt">fileKey</span><span class="p">:</span><span class="w"> </span><span class="l">my-aws-credentials.profile</span><span class="w">
+</span><span class="w">      </span><span class="nt">sns</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="c"># Same parameters as above for SNS access</span><span class="w">
+</span></code></pre></div><p>The <code>async</code> feature should of course be enabled and then the important things to notice are located in to the <code>sqs</code> and <code>sns</code> blocks:</p>
 <ul>
-<li><code>project</code> is the project identifier of your Google project where Pub/Sub service is located,</li>
-<li><code>serviceAccountSecretRef</code> is the name + the file key name for the <code>Secret</code> holding our Service Account private key we just previoulsy created.</li>
+<li><code>region</code> is the region identifier where the Amazon SQS/SNS service you&rsquo;re using are located,</li>
+<li><code>creadentialsType</code> allow to specify if you want to use <code>env-variables</code> or a <code>profile</code> file,</li>
+<li>in the case of <code>profile</code> file being used, you can specify the <code>credentialsProfile</code> you want to use (default to <code>microcks-sqs-admin</code>),</li>
+<li><code>credentialsSecretRef</code> is the name of the <code>Secret</code> holding either your IAM account environment variables or profile file. You can configure either secret keys or file key.</li>
 </ul>
 <p>If you have used the <a href="../../installing/kubernetes">Helm Chart based installation</a> of Microcks, this is the corresponding fragment put in a <code>Values.yml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">...]</span><span class="w">
@@ -310,15 +318,19 @@ $ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span 
 </span><span class="w">  </span><span class="nt">async</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span><span class="w">    </span><span class="nt">googlepubsub</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">my-gcp-project-347219</span><span class="w">
-</span><span class="w">      </span><span class="nt">serviceAccountSecretRef</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w">  </span><span class="l">my-googlecloud-service-account</span><span class="w">
-</span><span class="w">        </span><span class="nt">fileKey</span><span class="p">:</span><span class="w"> </span><span class="l">my-googlecloud-service-account.json</span><span class="w">
+</span><span class="w">    </span><span class="nt">sqs</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">eu-west-3</span><span class="w">
+</span><span class="w">      </span><span class="nt">credentialsType</span><span class="p">:</span><span class="w"> </span><span class="l">env-variable</span><span class="w">
+</span><span class="w">      </span><span class="nt">credentialsSecretRef</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">my-aws-credentials</span><span class="w">
 </span></code></pre></div><p>Actual connection to the Google Pub/Sub service will only be made once Microcks will send mock messages to it. Let see below how to use Pub/Sub binding with AsyncAPI.</p>
-<h2 id="2-use-pubsub-in-asyncapi">2. Use Pub/Sub in AsyncAPI</h2>
-<p>As Google Pub/Sub is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Google Pub/Sub and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-googlepubsub.yml">GitHub repository</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+<blockquote>
+<p>Running AWS on <a href="https://localstack.cloud">LocalStack</a>? Microcks supports that too! Each configuration section (for SQS and SNS) allows to provide an optional <code>endpointOverride</code> property that will allow you to target your LocalStack instance.</p>
+<p>You&rsquo;ll end up with something like <code>features.async.sqs.endpointOverride=http://localhost:4566</code> for example.</p>
+</blockquote>
+<h2 id="2-use-aws-services-in-asyncapi">2. Use AWS services in AsyncAPI</h2>
+<p>As SQS and SNS are not the default bindings into Microcks, you should explicitly add then as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use SQS and Microcks with AsyncAPI. It comes for one sample you can find on our <a href="https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-sqs.yml">GitHub repository</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
 </span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
 </span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
@@ -327,15 +339,17 @@ $ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span 
 </span><span class="w">    </span><span class="nt">subscribe</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w">      </span><span class="nt">bindings</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">googlepubsub</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">topic</span><span class="p">:</span><span class="w"> </span><span class="l">projects/my-project/topics/my-topic</span><span class="w">
+</span><span class="w">        </span><span class="nt">sqs</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">queue</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-sqs-queue</span><span class="w">
 </span><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w">
 </span><span class="w">        </span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w">        </span><span class="nt">payload</span><span class="p">:</span><span class="w">
 </span><span class="w">          </span><span class="p">[</span><span class="l">...]</span><span class="w">
-</span></code></pre></div><p>You&rsquo;ll notice that we just have to add a <code>googlepubsub</code> non empty block within the operation <code>bindings</code>. Just define one property (like <code>topic</code> for example) and Microcks will detect this binding has been specified. See the full <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">binding spec</a> for details.</p>
+</span></code></pre></div><p>We have the exact same sample for SNS <a href="https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-sns.yml">here</a>.</p>
+<p>You&rsquo;ll notice that we just have to add a <code>sqs</code> non empty block within the operation <code>bindings</code>. Just define one property (like <code>queue.name</code> for example) and Microcks will detect this binding has been specified. As of today, the full binding specs for SQS and SNS are not yet defined in AsyncAPI but there&rsquo;s an <a href="https://github.com/asyncapi/bindings/issues/43">ongoing effort</a> to push them. As Microcks does not depend on the internal structure of the binding, future changes will not impact your mocks and tests.</p>
 <p>As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.0.0&#39;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
 </span><span class="w"></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;urn:io.microcks.example.user-signedup&#39;</span><span class="w">
 </span><span class="w"></span><span class="p">[</span><span class="l">...]</span><span class="w">
 </span><span class="w"></span><span class="nt">channels</span><span class="p">:</span><span class="w">
@@ -365,77 +379,53 @@ $ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span 
 </span></code></pre></div><p>If you&rsquo;re now yet accustomed to it, you may wonder what it this <code>{{randomFullName()}}</code> notation? These are just <a href="../../using/advanced/templates">Templating functions</a> that allow generation of dynamic content! 😉</p>
 <p>Now simply import your AsyncAPI file into Microcks either using a <strong>Direct upload</strong> import or by defining a <strong>Importer Job</strong>. Both methods are described in <a href="../../using/importers">this page</a>.</p>
 <h2 id="3-validate-your-mocks">3. Validate your mocks</h2>
-<p>Now it’s time to validate that mock publication of messages on the targeted Pub/Sub is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
-<p>For our <code>User signed-up API</code>, we have such a consumer <a href="https://github.com/microcks/api-tooling/blob/main/async-clients/googlepubsub-client/consumer.js">in one GitHub repository</a>. Like in previous Step 1, you&rsquo;ll need a Service Account and its key file so that our consumer will be able to connect to Pub/Sub. This Service Account must have the <code>roles/pubsub.subscriber</code> role. If you choose to reuse previously created Service Account, you&rsquo;ll have to issue this additional ommand:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="se">\
-</span><span class="se"></span>    --member<span class="o">=</span>serviceaccount:microcks-pubsub-sa@<span class="nv">$PROJECT</span>.iam.gserviceaccount.com <span class="se">\
-</span><span class="se"></span>    --role<span class="o">=</span>roles/pubsub.subscriber
-</code></pre></div><p>Now, with the Service Account key file at hand - let say in <code>/Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json</code> folder - you&rsquo;ll have to follow these steps to retrieve it, install dependencies and check the Microcks mocks:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/microcks/api-tooling.git
-$ <span class="nb">cd</span> api-tooling/async-clients/googlepubsub-client
-$ npm install
-
-$ node consumer.js my-gcp-project-347219 UsersignedupAPI-0.1.20-user-signedup /Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json
-Connecting to my-gcp-project-347219 on topic UsersignedupAPI-0.1.20-user-signedup with sub gpubsub-client-echo
-<span class="o">{</span>
-  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;rZxAKnfxbe7yCXAJLENTHtnBI64H2KRN&#34;</span>,
-  <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1675767350743&#34;</span>,
-  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;Laurent Broudoux&#34;</span>,
-  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;laurent@microcks.io&#34;</span>,
-  <span class="s2">&#34;age&#34;</span>: <span class="m">41</span>
-<span class="o">}</span>
-<span class="o">{</span>
-  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;ApOlHGyEGEkZnDKeQ3CE3oLpqZ7vVL7v&#34;</span>,
-  <span class="s2">&#34;sendAt&#34;</span>: <span class="s2">&#34;1675767350743&#34;</span>,
-  <span class="s2">&#34;fullName&#34;</span>: <span class="s2">&#34;John Doe&#34;</span>,
-  <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;john@microcks.io&#34;</span>,
-  <span class="s2">&#34;age&#34;</span>: <span class="m">36</span>
-<span class="o">}</span>
-<span class="o">[</span>...<span class="o">]</span>
-</code></pre></div><p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>id</code> and <code>sendAt</code> properties have different values thanks to the templating notation.</p>
+<p>Now it’s time to validate that mock publication of messages on the targeted SQS Queue or SNS Topic is correct. In a real world scenario this mean developing a consuming script or application that connects to the topic where Microcks is publishing messages.</p>
+<p>The easiest way of doing things here would be to use the AWS console to get a quick check on what is actually published by Microcks. As soon as you have imported the AsyncAPI spec, Microcks has created a new queue named <code>UsersignedupAPI-0140-user-signedup</code> (depends on API name, version and operation channel) and starts publishing messages on it. If you get on the screen that allows sending and receiving messages, you&rsquo;ll get something like:</p>
+<p><img src="/images/guides/aws-sqs-sns-mocks.png" alt="Amazon SQS mock queue"></p>
+<p>Accessing the details of one of the polled messages will give you a content similar to this one:</p>
+<p><img src="/images/guides/aws-sqs-sns-mock.png" alt="Amazon SQS mock message"></p>
+<p>🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You&rsquo;ll notice that each <code>id</code> and <code>sendAt</code> properties have different values thanks to the templating notation.</p>
+<blockquote>
+<p>And for SNS? Checking SNS with the sample we provide will basically provide the same results but on a SNS Topic named <code>UsersignedupAPI-0150-user-signedup</code>. In order to see messages sent to this topic, you&rsquo;ll have to create a subscription to route messages to an endpoint like a SQS Queue. That way, you&rsquo;ll browse messages the same way we did just before.</p>
+</blockquote>
 <h2 id="4-run-asyncapi-tests">4. Run AsyncAPI tests</h2>
-<p>Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our <code>api-tooling</code> GitHub repository. This scripts are made for working with the <code>User signed-up API</code> sample we used so far but feel free to adapt them for your own use.</p>
-<p>Imagine that you want to validate messages from a <code>QA</code> environment on a dedicated Google Cloud project. As the <strong>QA</strong> project access is secured, you&rsquo;ll need - like described above in Step 1 - to retrieve a Service Account key file with this Service Account having the <code>roles/pubsub.subscriber</code> role like described in Step 3.</p>
-<p>Still being in the <code>googlepubsub-client</code> folder, now use the <code>producer.js</code> utility script to publish messages on a <code>user-signups</code> topic hosted by a <code>my-qa-gcp-project-347223</code> project with local access to your Service Account key file:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
-Connecting to my-qa-gcp-project-347223 on user-signups
-Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;jhlch3gv1dexkodt71zet&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1675848599703&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
-Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;gm6c39oa69nw7dukbpper&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:<span class="s2">&#34;1675848602703&#34;</span>,<span class="s2">&#34;fullName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
-<span class="o">[</span>...<span class="o">]</span>
-</code></pre></div><p>Do not interrupt the execution of the script for now.</p>
-<p>As the <strong>QA</strong> Pub/Sub access is secured, we will first have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
+<p>Now the final step is to perform some tests of the validation features in Microcks. Here again, for sake of simplicity, we&rsquo;ll use the AWS console to send test messages to either a SQS Queue or a SNS Topic.</p>
+<p>Imagine that you want to validate messages from a <code>QA</code> environment on a specific Amazon region (not necessarily the same as the Microcks instance is connected to for mocking purposes). As the <strong>QA</strong> resources access is secured, you&rsquo;ll need - like described above in Step 1 - to retrieve an IAM account access key credentials. In order to run tests on SQS service, such an IAM account will require the <code>AmazonSQSReadOnlyAccess</code> to list queues, get queue attributes and read messages. In order to run tests on SNS service, the IAM account will require slightly more permissions being the <code>AmazonSNSFullAccess</code> and the <code>AmazonSQSFullAccess</code>. This is actualy necessary as Microcks will dynamically create temporary SQS queue and SNS subscription in order to performa a test.</p>
+<p>Once you get the IAM account access key, you will then have to manage a <a href="../../administrating/secrets">Secret</a> in Microcks to hold these informations. Within Microcks console, first go to the <strong>Administration</strong> section and the <strong>Secrets</strong> tab.</p>
 <blockquote>
 <p><strong>Administration</strong> and <strong>Secrets</strong> will only be available to people having the <code>administrator</code> role assigned. Please check <a href="../../administrating/secrets/users">this documentation</a> for details.</p>
 </blockquote>
-<p>On this tab, you&rsquo;ll have to create a <code>Token Authentication</code> secret with the value being the content of a Service Account key file encrypted in base 64. This Service Account is not necessarily the one you&rsquo;ve used previously for producing messages as this one must have the <code>roles/pubsub.publisher</code> role. You&rsquo;ll typically get the token value by executing this command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ cat googlecloud-service-account.json <span class="p">|</span> base64 
-</code></pre></div><p>The screenshot below illustrates the creation of such a secret for your <code>QA PubSub Service Account</code> with username, and credentials.</p>
-<p><img src="/images/guides/pubsub-broker-secret.png" alt="Pub/Sub Broker secret"></p>
-<p>Once saved we can go create a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
+<p>On this tab, you&rsquo;ll have to create a <code>Basic Authentication</code> secret with the username being the Access Key Id of your IAM account and the password being its Secret Access Key.</p>
+<p>The screenshot below illustrates the creation of such a secret for your <code>aws-qa-sqsreaduser</code> with username, and credentials.</p>
+<p><img src="/images/guides/aws-sqs-sns-secret.png" alt="AWS SQS/SNS secret"></p>
+<p>We can now prepare for a first test! Open the AWS SQS on your region of choice (we&rsquo;ve chosen <code>eu-west-3</code> in our example below) and create a <code>user-signups</code> standard queue. Go to the <strong>Send and receive messages</strong> page and prepare to send the following message:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="s2">&#34;gm6c39oa69nw7dukbpper&#34;</span><span class="p">,</span><span class="nt">&#34;sendAt&#34;</span><span class="p">:</span><span class="s2">&#34;1675848602703&#34;</span><span class="p">,</span><span class="nt">&#34;fullName&#34;</span><span class="p">:</span><span class="s2">&#34;Laurent Broudoux&#34;</span><span class="p">,</span><span class="nt">&#34;email&#34;</span><span class="p">:</span><span class="s2">&#34;laurent@microcks.io&#34;</span><span class="p">,</span><span class="nt">&#34;age&#34;</span><span class="p">:</span><span class="mi">44</span><span class="p">}</span>
+</code></pre></div><p>Don&rsquo;t click the <strong>Send message</strong> now but be prepared!</p>
+<p><img src="/images/guides/aws-sqs-sns-test-send.png" alt="AWS SQS/SNS Test send"></p>
+<p>We&rsquo;re now going to launch a <strong>New Test</strong> within Microcks web console. Use the following elements in the Test form:</p>
 <ul>
-<li><strong>Test Endpoint</strong>: <code>googlepubsub://my-qa-gcp-project-347223/user-signups</code> that is referencing the Google Pub/Sub service and topic endpoint,</li>
+<li><strong>Test Endpoint</strong>: <code>sqs://eu-west-3/user-signups</code> that is referencing the Google Pub/Sub service and topic endpoint,</li>
 <li><strong>Runner</strong>: <code>ASYNC API SCHEMA</code> for validating against the AsyncAPI specification of the API,</li>
 <li><strong>Timeout</strong>: Keep the default of 10 seconds,</li>
-<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>QA PubSub Service Account</strong> you previously created.</li>
+<li><strong>Secret</strong>: This is where you&rsquo;ll select the <strong>aws-qa-sqsreader</strong> you previously created.</li>
 </ul>
-<p>Launch the test and wait for some seconds and you should get access to the test results as illustrated below:</p>
-<p><img src="/images/guides/pubsub-test-success.png" alt="Pub/Sub Test success"></p>
+<blockquote>
+<p>And for SNS? Well it&rsquo;s basically exactly the same thing with a slight variation in test endpoint syntax. You will have to put there something like <code>sns://eu-west-3/user-signups</code> where <code>user-signups</code> is the name of the SNS Topic your application is using.</p>
+</blockquote>
+<p>Launch the test and quickly switch to the AWS console to send a bunch of messages. Wait for some seconds and you should get access to the test results as illustrated below:</p>
+<p><img src="/images/guides/aws-sqs-sns-test-success.png" alt="AWS SQS/SNS Test success"></p>
 <p>This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is <code>required</code> and message does not allow <code>additionalProperties</code> to be define, <code>sendAt</code> is of string type.</p>
-<p>So now let see what happened if we tweak that a bit&hellip; Open the <code>producer.js</code> script in your favorite editor to put comments on lines 24 and 25 and to remove comments on lines 26 and 27. It&rsquo;s removing the <code>fullName</code> measure and adding an unexpected <code>displayName</code> property and it&rsquo;s also changing the type of the <code>sendAt</code> property as shown below after having restarted the producer:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
-Connecting to my-qa-gcp-project-347223 on user-signups
-Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;2zzo4kf16mxu5e6k8hyecl&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675946954300,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
-Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;9ny4r1qu1p5xv37wxufshm&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675946957300,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
-Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;uriayo3qh5b1z0y8zd5d7x&#34;</span>,<span class="s2">&#34;sendAt&#34;</span>:1675946960301,<span class="s2">&#34;displayName&#34;</span>:<span class="s2">&#34;Laurent Broudoux&#34;</span>,<span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;laurent@microcks.io&#34;</span>,<span class="s2">&#34;age&#34;</span>:43<span class="o">}</span>
-<span class="o">[</span>...<span class="o">]</span>
+<p>So now let see what happened if we tweak that a bit&hellip; We&rsquo;re going to re-launch the same test but using JSON below to simulate invalid messages:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="s2">&#34;2zzo4kf16mxu5e6k8hyecl&#34;</span><span class="p">,</span><span class="nt">&#34;sendAt&#34;</span><span class="p">:</span><span class="mi">1675848602937</span><span class="p">,</span><span class="nt">&#34;displayName&#34;</span><span class="p">:</span><span class="s2">&#34;Laurent Broudoux&#34;</span><span class="p">,</span><span class="nt">&#34;email&#34;</span><span class="p">:</span><span class="s2">&#34;laurent@microcks.io&#34;</span><span class="p">,</span><span class="nt">&#34;age&#34;</span><span class="p">:</span><span class="mi">44</span><span class="p">}</span>
 </code></pre></div><p>Relaunch a new test and you should get results similar to those below:</p>
-<p><img src="/images/guides/pubsub-test-failure.png" alt="Pub/Sub Test failure"></p>
+<p><img src="/images/guides/aws-sqs-sns-test-failure.png" alt="AWS SQS/SNS Test failure"></p>
 <p>🥳 We can see that there&rsquo;s now a failure and that&rsquo;s perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.</p>
 <blockquote>
-<p>Note that even if the test duration is 10 seconds you may receive more messages that the number of messages sent by the producer during those 10 seconds&hellip; 🤔 This is because Pub/Sub subscription that are mandatory for consuming messages have a minimum message retention policy of 10 minutes. Microcks is creating such subscription with the minimum of retention duration (10 minutes) and expiration delay (1 day). So depending on when you launch your test, you may reuse already created subscription that has accumulated messages before your test actually starts.</p>
+<p>Running AWS on <a href="https://localstack.cloud">LocalStack</a>? Microcks supports that too! You&rsquo;ll just have to add an extra <code>overrideUrl</code> option to your test endpoint URL so that Microcks will target your LocalStack instance.</p>
+<p>You&rsquo;ll end up with something like <code>sqs://eu-west-3/user-signups?overrideUrl=http://localhost:4566</code> for example.</p>
 </blockquote>
 <h2 id="wrap-up">Wrap-Up</h2>
-<p>In this guide we have seen how Microcks can also be used to send mock messages on a Google Pub/Sub managed service connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
+<p>In this guide we have seen how Microcks can also be used to send mock messages on SQS Queue or SNS Topic managed service connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.</p>
 <p>Thanks for reading and let you know what you think on our <a href="https://microcksio.zulipchat.com">Zulip Chat</a> 🐙</p>
 
 </div>
@@ -677,12 +667,12 @@ Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/guides/googlepubsub-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/guides/googlepubsub-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GOOGLE PUB/SUB MOCKING AND TESTING
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/guides/aws-sqs-sns-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/guides/aws-sqs-sns-support/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               AMAZON SQS/SNS MOCKING AND TESTING
             </a>
           </li>
@@ -708,14 +698,14 @@ Sending <span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/guides/googlepubsub-support/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/guides/aws-sqs-sns-support/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Google Pub/Sub Mocking and Testing”
-  </a> was last updated: February 8, 2023
+    “Amazon SQS/SNS Mocking and Testing”
+  </a> was last updated: June 6, 2023
 </h6>
 
-      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/googlepubsub-support.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/aws-sqs-sns-support.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 

@@ -6,7 +6,7 @@
     <description>Recent content in Guides on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
       <link>https://microcks.io/documentation/guides/openapi-101/</link>
@@ -64,6 +64,15 @@ Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a proto
       <guid>https://microcks.io/documentation/guides/googlepubsub-support/</guid>
       <description>Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
 Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.</description>
+    </item>
+    
+    <item>
+      <title>Amazon SQS/SNS Mocking and Testing</title>
+      <link>https://microcks.io/documentation/guides/aws-sqs-sns-support/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/guides/aws-sqs-sns-support/</guid>
+      <description>This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As thse two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&amp;rsquo;t have to use both to benefit from Microcks features.</description>
     </item>
     
   </channel>
