@@ -48,12 +48,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/asyncapi/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-07T00:00:00+00:00" />
 
 <meta itemprop="name" content="AsyncAPI Mocking and Testing">
 <meta itemprop="description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!"><meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="956">
+<meta itemprop="dateModified" content="2023-06-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="977">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AsyncAPI Mocking and Testing"/>
 <meta name="twitter:description" content="Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!"/>
@@ -278,7 +278,7 @@ var trackOutboundLink = function(id, url) {
 <h3 id="bindings">Bindings</h3>
 <p>AsyncAPI specification dissociates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.</p>
 <blockquote>
-<p>At the time of <code>1.3.0</code> release, Microcks supports the <code>KAFKA</code>, the <code>MQTT</code> and the <code>WS</code> (for WebSocket) bindings. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.</p>
+<p>At the time of <code>1.7.1</code> release, Microcks supports the <code>KAFKA</code>, the <code>MQTT</code>, the <code>WS</code> (for WebSocket), the <code>AMQP</code>, the <code>NATS</code>, the <code>GOOGLEPUBSUB</code>, the <code>SQS</code> and the <code>SNS</code> bindings. When setting up Microcks, you have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker. Any other broker type must be provisioned independantly.</p>
 </blockquote>
 <p>For each version of an API managed by Microcks, it will create appropriate destination for <strong>operations</strong> in mixing specification elements, protocol binding specifics and versioning issues. Destination managed by Microcks are then referenced within the API details page.</p>
 <h3 id="conventions">Conventions</h3>
@@ -309,7 +309,7 @@ var trackOutboundLink = function(id, url) {
 </span><span class="w">        </span><span class="nt">examples</span><span class="p">:</span><span class="w"> </span><span class="c"># &lt;= Where we&#39;ll define sample messages for this operation</span><span class="w">
 </span></code></pre></div><p>Examples will be an array of example objects, starting with a <strong>key</strong> that Microcks will simply use as the example name. They may include a <code>summary</code> attribute to provide a short description.</p>
 <h4 id="payload">Payload</h4>
-<h5 id="using-asyncapi-210">Using AsyncAPI 2.1.0</h5>
+<h5 id="using-asyncapi-210-and-more-recent-versions">Using AsyncAPI 2.1.0 and more recent versions</h5>
 <p>Payload is expressed into the mandatory <code>payload</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">examples</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">laurent</span><span class="w">
@@ -343,7 +343,7 @@ var trackOutboundLink = function(id, url) {
 <p>You can see here that we&rsquo;re using specific <code>{{ }}</code> notation that involves the generation of dynamic content. You can find description of the <code>now()</code> and <code>randomString()</code> functions into <a href="../advanced/templates/#function-expressions">Function Expressions</a> documentation.</p>
 </blockquote>
 <h4 id="headers">Headers</h4>
-<h5 id="using-asyncapi-210-1">Using AsyncAPI 2.1.0</h5>
+<h5 id="using-asyncapi-210-and-more-recent-versions-1">Using AsyncAPI 2.1.0 and more recent versions</h5>
 <p>Headers are expressed into the optional <code>headers</code> attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">examples</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">laurent</span><span class="w">
@@ -370,7 +370,7 @@ var trackOutboundLink = function(id, url) {
 <p>Using the above <code>User signed-up API</code> example, you should get the following results:</p>
 <p><img src="/images/asyncapi-mocks.png" alt="asyncapi-mocks"></p>
 <h2 id="using-asyncapi-extensions">Using AsyncAPI extensions</h2>
-<p>Starting with version <code>1.4.0</code>, Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.</p>
+<p>Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.</p>
 <p>At the <code>info</code> level of your AsyncAPI document, you can add labels specifications that will be used in <a href="../advanced/organizing">organizing the Microcks repository</a>. See below illustration and the use of <code>x-microcks</code> extension:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">asyncapi</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="w">
 </span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
@@ -669,7 +669,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “AsyncAPI Mocking and Testing”
-  </a> was last updated: February 23, 2022
+  </a> was last updated: June 7, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/asyncapi.md" class="
