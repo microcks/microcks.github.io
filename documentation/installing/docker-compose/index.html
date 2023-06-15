@@ -63,7 +63,7 @@ In your terminal issue the following commands:
 git clone https://github.com/microcks/microcks.git   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-11-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="456">
+<meta itemprop="wordCount" content="346">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing with docker-compose"/>
 <meta name="twitter:description" content="Docker Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer.
@@ -303,9 +303,6 @@ var trackOutboundLink = function(id, url) {
 <li><strong>Password:</strong> <code>microcks123</code></li>
 </ul>
 <p>You will be redirected to the main dashboard page. You can now start <a href="https://microcks.io/documentation/getting-started/#using-microcks">using Microcks</a>!</p>
-<blockquote>
-<p><strong>Mac M1 users</strong>: running Microcks on M1 requires a special setting and we provide a dedicated <code>docker-compose-osx-m1.yml</code> file for that. So you&rsquo;ll have to use the <code>docker compose -f docker-compose-osx-m1.yml up -d</code> command to launch Microcks.</p>
-</blockquote>
 <h3 id="enabling-asynchronous-api-features">Enabling Asynchronous API features</h3>
 <p>Support for Asynchronous API features of Microcks are not enabled by default into the <code>docker-compose.yml</code> file. If you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.</p>
 <p>In your terminal use the following command instead:</p>
@@ -322,16 +319,10 @@ Creating microcks-async-minion    ... <span class="k">done</span>
 </code></pre></div><p>You may want to check our <a href="../../../blog/async-features-with-docker-compose">blog post</a> for a detailed walkthrough on starting Async features on docker-compose.</p>
 <p>If you&rsquo;re feeling lucky regarding your machine, you can even add the <a href="https://github.com/obsidiandynamics/kafdrop">Kafdrop</a> utility to visualize and troubleshoot Kafka messages with this command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
-</code></pre></div><blockquote>
-<p><strong>Mac M1 users</strong>: running Microcks on M1 requires a special setting and we provide a dedicated <code>docker-compose-async-addon-osx-m1.yml</code> file for that. So you&rsquo;ll have to use the <code>docker compose -f docker-compose-osx-m1.yml -f docker-compose-async-addon-osx-m1.yml up -d</code> command to launch Microcks.</p>
-</blockquote>
-<h3 id="un-authenticated-mode">Un-authenticated mode</h3>
+</code></pre></div><h3 id="un-authenticated-mode">Un-authenticated mode</h3>
 <p>A &ldquo;keycloakless&rdquo; version of docker compose is available thanks to:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker compose -f docker-compose-devmode.yml up -d
 </code></pre></div><p>This configuration enabled Asynchronous API features in a very lightweight mode using <a href="https://redpanda.com/">Red Panda broker</a> instead of full-blown Apache Kafka distribution.</p>
-<blockquote>
-<p><strong>Mac M1 users</strong>: running Microcks on M1 requires a special setting and we provide a dedicated <code>docker-compose-devmode-osx-m1.yml</code> file for that. So you&rsquo;ll have to use the <code>docker compose -f docker-compose-devmode-osx-m1.yml up -d</code> command to launch Microcks.</p>
-</blockquote>
 
 </div>
 
