@@ -6,7 +6,16 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Microcks Docker Desktop Extension 0.2: Enhanced Features and Increased Cadence 🚀</title>
+      <link>https://microcks.io/blog/docker-desktop-extension-0.2/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/docker-desktop-extension-0.2/</guid>
+      <description>We are very excited to announce the availability of Microcks Docker Desktop Extension 0.2.0! This new version of our popular extension includes exciting enhancements designed to simplify and streamline API mocking and testing processes. This release focused on improving the user experience and expanding the extension&amp;rsquo;s capabilities. We are also excited to announce that we are increasing the frequency of our releases to provide our users with more frequent updates and features.</description>
+    </item>
+    
     <item>
       <title>Join the Microcks Adopters list and Empower the vibrant open source Community 🙌</title>
       <link>https://microcks.io/blog/join-adopters-list/</link>
