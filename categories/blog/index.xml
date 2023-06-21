@@ -6,7 +6,17 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.7.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.7.1-release/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-1.7.1-release/</guid>
+      <description>The seasons follow one another and here’s a Microcks release just ready for summer ☀️. We’re proud to announce today the 1.7.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.
+With 37 resolved issues - our record for a minor release - this release is an illustration of how community-driven the roadmap is: Amazon SQS &amp;amp; SNS support and Specifications goodies as well as many enhancements came directly from user requests and contributions.</description>
+    </item>
+    
     <item>
       <title>Introducing Microcks Docker Desktop Extension 0.2: Enhanced Features and Increased Cadence 🚀</title>
       <link>https://microcks.io/blog/docker-desktop-extension-0.2/</link>

@@ -13,8 +13,8 @@
       <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/</guid>
-      <description>Fresh Releases Microcks core 1.7.0 on 30 Mar 2023 The end of the winter season ☃️ is coming. But unlike our fellow hibernators 🐻, instead of living off stores of fat, our amazing community has worked hard on yet another Microcks release - yes, version 1.7.0 is out 👏 In a few words, here are the highlights of this new release:
- Some new protocols &amp;amp; connectors, you asked for it so: NATS, Google PubSub, and Postman Workspace are now available, Feature enhancements see below for further details on issues (Script dispatcher and request context, Enhanced templating,&amp;hellip;) integrated into this release, Technical upgrades to keep main components secure and up-to-date, yes we care about security 🔐 but also green 🍃 And of course, some bug fixes based on community feedback 🙌  Check out our release notes!</description>
+      <description>Fresh Releases Microcks core 1.7.1 on 21 Jun 2023 The seasons follow one another and here’s a Microcks release just ready for summer ☀️. We’re proud to announce today the 1.7.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.
+With 37 resolved issues - our record for a minor release - this release is an illustration of how community-driven the roadmap is: Amazon SQS &amp;amp; SNS support and Specifications goodies as well as many enhancements came directly from user requests and contributions.</description>
     </item>
     
     <item>

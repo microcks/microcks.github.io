@@ -72,7 +72,7 @@ Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a prot
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/documentation/guides/aws-sqs-sns-support/</guid>
-      <description>This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As thse two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&amp;rsquo;t have to use both to benefit from Microcks features.</description>
+      <description>This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&amp;rsquo;t have to use both to benefit from Microcks features.</description>
     </item>
     
   </channel>

@@ -20,7 +20,7 @@
 
     
     
-      <link rel="stylesheet" href="/output/css/app.min.a42f770a563de5f4c7aa7d9babef2ebb3b19a040c7f605dbe8b506de79650df9.css" integrity="sha256-pC93ClY95fTHqn2bq&#43;8uuzsZoEDH9gXb6LUG3nllDfk=" crossorigin="anonymous"> 
+      <link rel="stylesheet" href="/output/css/app.min.1458e95ab948da3cd07bca1fa2614cf04ce5addde65134332fa8fe5fb6fd3e1c.css" integrity="sha256-FFjpWrlI2jzQe8ofomFM8Ezlrd3mUTQzL6j&#43;X7b9Phw=" crossorigin="anonymous"> 
           
     
 
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/installing/kubernetes/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-02-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-22T00:00:00+00:00" />
 
 <meta itemprop="name" content="Installing on Kube using Helm">
 <meta itemprop="description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
  Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-02-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-06-22T00:00:00+00:00" />
 <meta itemprop="wordCount" content="401">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing on Kube using Helm"/>
@@ -268,7 +268,7 @@ var trackOutboundLink = function(id, url) {
 
 $ kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks --version 1.1.0 --namespace microcks --set microcks.url<span class="o">=</span>microcks.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io --set keycloak.url<span class="o">=</span>keycloak.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io
+$ helm install microcks microcks/microcks --version 1.7.1 --namespace microcks --set microcks.url<span class="o">=</span>microcks.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io --set keycloak.url<span class="o">=</span>keycloak.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io
 </code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.</p>
 <img src="/images/running-pods-k8s.png" class="img-responsive"/>
 <p>Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>.</p>
@@ -567,7 +567,7 @@ minikube start
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Installing on Kube using Helm”
-  </a> was last updated: February 9, 2021
+  </a> was last updated: June 22, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/installing/kubernetes.md" class="

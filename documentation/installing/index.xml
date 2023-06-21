@@ -47,8 +47,7 @@ Usage To get started, make sure you first have the Podman and the Podman Compose
 Usage To get started, make sure you have Docker installed on your system.
 In your terminal issue the following commands:
   Clone this repository.
-git clone https://github.com/microcks/microcks.git   Change to the install folder
-cd microcks/install/docker-compose   Spin up the containers</description>
+git clone https://github.com/microcks/microcks.git --depth 10   Change to the install folder</description>
     </item>
     
     <item>

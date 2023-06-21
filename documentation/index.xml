@@ -26,7 +26,7 @@ If you have not done it in the previous step, you will need to load one of Micro
       <description>Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements. Make sure you have Docker installed on your system.
 In your terminal issue the following commands:
   Clone this repository.
-git clone https://github.com/microcks/microcks.git   Change to the install folder
+git clone https://github.com/microcks/microcks.git --depth 10   Change to the install folder
 cd microcks/install/docker-compose   Spin up the containers
 docker-compose up -d   This will start the necessary containers and setup a simple environment for you to use.</description>
     </item>
