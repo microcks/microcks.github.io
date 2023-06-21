@@ -58,7 +58,7 @@ With 37 resolved issues - our record for a minor release - this release is an il
 <meta itemprop="description" content="The seasons follow one another and here’s a Microcks release just ready for summer ☀️. We’re proud to announce today the 1.7.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.
 With 37 resolved issues - our record for a minor release - this release is an illustration of how community-driven the roadmap is: Amazon SQS &amp; SNS support and Specifications goodies as well as many enhancements came directly from user requests and contributions."><meta itemprop="datePublished" content="2023-06-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-06-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1217">
+<meta itemprop="wordCount" content="1223">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Microcks 1.7.1 release 🚀"/>
 <meta name="twitter:description" content="The seasons follow one another and here’s a Microcks release just ready for summer ☀️. We’re proud to announce today the 1.7.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.
@@ -291,19 +291,19 @@ var trackOutboundLink = function(id, url) {
 </span></code></pre></div><p>And of course, you’re not limited to a single protocol binding! Microcks now supports eight different protocols for <a href="https://www.asyncapi.com/">AsyncAPI</a> - enabling you to reuse the same API definition on different protocols depending if you’re using messaging in the organization or at the edge for example.</p>
 <p><img src="/images/blog/microcks-1.7.1-protocols.png" alt="microcks-protocols"></p>
 <blockquote>
-<p>Check out our updated <a href="https://microcks.io/documentation/using/tests/#event-based-apis">Event-based API test endpoints</a> documentation and the complete guide for both protocols have also been published. See the <a href="https://microcks.io/documentation/guides/aws-sqs-sns-support/">Amazon SQS/SNS Guide</a>. For easier testing purposes, we also enabled the support of <a href="https://localstack.cloud/">LocalStack</a>. Thanks to <a href="http://github.com/xescuder">Xavier Escudero Sabadell</a> 🙏 for the help in designing and testing this.</p>
+<p>Check out our updated <a href="https://microcks.io/documentation/using/tests/#event-based-apis">Event-based API test endpoints</a> documentation and the complete guide for both protocols has also been published. See the <a href="https://microcks.io/documentation/guides/aws-sqs-sns-support/">Amazon SQS/SNS Guide</a>. For easier testing purposes, we also enabled the support of <a href="https://localstack.cloud/">LocalStack</a>. Thanks to <a href="http://github.com/xescuder">Xavier Escudero Sabadell</a> 🙏 for the help in designing and testing this.</p>
 </blockquote>
 <h2 id="api-specs-goodies">API Specs goodies</h2>
-<p>Multi-protocol and multi-styles of API is a reality and we see it everyday in the community. This new revision is also the opportunity to embed enhancements related to three different specifications we support in Microcks.</p>
+<p>Multi-protocol and multi-styles of API is a reality and we see it every day in the community. This new revision is also the opportunity to embed enhancements related to three different specifications we support in Microcks.</p>
 <p>Microcks now supports the resolution of external references on <a href="https://www.asyncapi.com/">AsyncAPI specification</a> documents. May you embed a reference like <code>$ref: &quot;./user-signedup.json&quot;</code> into your AsyncAPI file, Microcks will follow the reference, retrieve it to add this JSON Schema to the list of your API contracts and re-reference it to be later able to use it at validation time.</p>
 <blockquote>
-<p>The actual behavior has been detailed into the issue <a href="https://github.com/microcks/microcks/issues/782">#782</a></p>
+<p>The actual behavior has been detailed in issue <a href="https://github.com/microcks/microcks/issues/782">#782</a></p>
 </blockquote>
 <p><a href="https://graphql.org/">GraphQL</a> support has also been enhanced with now the support of multi-queries on different API operations. Supporting such construction allows - for example - a mobile application to perform multiple different queries in a single server roundtrip.</p>
 <blockquote>
-<p>Thanks to <a href="https://github.com/sbonaiva">Stéffano Bonaiva Batista</a> 🙏 who shared with us its use-case but also the <a href="https://github.com/microcks/microcks/pull/805">Pull Request</a> for implementing this in Microcks. You rock!</p>
+<p>Thanks to <a href="https://github.com/sbonaiva">Stéffano Bonaiva Batista</a> 🙏 who shared with us his use case but also the <a href="https://github.com/microcks/microcks/pull/805">Pull Request</a> for implementing this in Microcks. You rock!</p>
 </blockquote>
-<p>Finally <a href="https://grpc.io/">gRPC</a> protocol is not left out as we added automatic import of internal <code>google/protobuf/*.proto</code> libraries when not provided in your code repository. This eases the pain of repository maintainers by lowering the number of dependencies in their repo. As these libs are provided within <code>protoc</code> compiler, it’s safe to assume they’ll be there during the compilation of their protobuffer resources by Microcks.</p>
+<p>Finally, <a href="https://grpc.io/">gRPC</a> protocol is not left out as we added automatic import of internal <code>google/protobuf/*.proto</code> libraries when not provided in your code repository. This eases the pain of repository maintainers by lowering the number of dependencies in their repo. As these libs are provided within <code>protoc</code> compiler, it’s safe to assume they’ll be there during the compilation of their protobuffer resources by Microcks.</p>
 <blockquote>
 <p>Thanks to <a href="https://github.com/lennakai">lennakai</a> 🙏 for raising the issue and for the discussion <a href="https://github.com/orgs/microcks/discussions/830">#830</a> that leads to a solution</p>
 </blockquote>
@@ -320,23 +320,23 @@ var trackOutboundLink = function(id, url) {
 <p>The extension improves the <a href="https://microcks.io/">Microcks</a> experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. <a href="https://hub.docker.com/layers/microcks/microcks-docker-desktop-extension/0.2.0/images/sha256-270d1100ae936b54620d97b081669d93ea3685d399f7bbf42c5bc23fede744f1?context=explore">Grab it</a> while it’s hot! 🔥 It will be updated really soon to <code>1.7.1</code>.</p>
 </blockquote>
 <h3 id="helm-chart-enhancements">Helm Chart enhancements</h3>
-<p>The Kubernetes installation via Helm Chart has also benefited from two enhancements: the number of desired replicas is now configurable via the <code>values.yaml</code> file and re-deployments are automatically triggered when configuration change occurs.</p>
+<p>The Kubernetes installation via Helm Chart has also benefited from two enhancements: the number of desired replicas is now configurable via the <code>values.yaml</code> file and re-deployments are automatically triggered when a configuration change occurs.</p>
 <blockquote>
 <p>As scalability and automatic redeployment was only available through the Operator, these two enhancements suggested by <a href="https://github.com/sarasensible">Sara Jarjoura</a> 🙏 and <a href="https://github.com/sbr82">sbr82</a> 🙏 now allow to have a very scalable and dynamic setup of Microcks via Helm for better GitOps implementation.</p>
 </blockquote>
 <h2 id="more-enhancements">More enhancements</h2>
-<p>Some other minor enhancements that worth be noticed:</p>
+<p>Some other minor enhancements that are worth be noticed:</p>
 <h3 id="json_body-dispatcher-presence">JSON_BODY dispatcher presence</h3>
-<p>A fix has been made to allow a dispatch decision based on the presence or absence of a JSON node in request payload (not only the presence of a value as it was before).</p>
+<p>A fix has been made to allow a dispatch decision based on the presence or absence of a JSON node in the request payload (not only the presence of a value as it was before).</p>
 <blockquote>
-<p>Thanks to <a href="https://github.com/Feasoron">Chris Belanger</a> 🙏 for raising this issue and the detailed analysis.</p>
+<p>Thanks to <a href="https://github.com/Feasoron">Chris Belanger</a> 🙏 for raising this issue and for the detailed analysis.</p>
 </blockquote>
 <h3 id="openapi-specification-detection">OpenAPI specification detection</h3>
 <p>We reviewed how OpenAPI is detected when importing a new artifact, leading to a more robust detection pattern that should cover more cases (especially JSON containing spaces, simple quotes, double quotes, etc..)</p>
 <blockquote>
 <p>Thanks to <a href="https://github.com/MathisGoichon">Mathis Goichon</a> 🙏 for raising this one and helping validate the fix.</p>
 </blockquote>
-<h3 id="response-templating-with-a-parameter-containing-dot">Response templating with a parameter containing dot</h3>
+<h3 id="response-templating-with-a-parameter-containing-a-dot">Response templating with a parameter containing a dot</h3>
 <p>This is again an issue that leads to more robust behavior of <a href="https://microcks.io/documentation/using/advanced/templates/">Microcks templating engine</a> when sending parameters that may contain dots or other non-alphanumeric characters.</p>
 <blockquote>
 <p>Thanks again to <a href="https://github.com/MathisGoichon">Mathis Goichon</a> 🙏 for raising this one and helping validate the fix.</p>
@@ -352,7 +352,7 @@ var trackOutboundLink = function(id, url) {
 <p>Great blog post from <a href="https://www.linkedin.com/in/piotrminkowski/">Piotr Mińkowski</a> 🙏 on API contract testing with Microcks &amp; Quarkusio. See: <a href="https://piotrminkowski.com/2023/05/20/contract-testing-on-kubernetes-with-microcks/">Contract Testing on Kubernetes with Microcks</a>,</p>
 </li>
 <li>
-<p><a href="https://www.linkedin.com/in/holly-k-cummins/">Holly Cummins</a> 🙏 for her great talk on <a href="https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus">Contract testing with Pact and Quarkus</a>, mentioning Microcks in the <a href="https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus?slide=86">contract testing landscape</a>,</p>
+<p><a href="https://www.linkedin.com/in/holly-k-cummins/">Holly Cummins</a> 🙏 for her excellent talk on <a href="https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus">Contract testing with Pact and Quarkus</a>, mentioning Microcks in the <a href="https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus?slide=86">contract testing landscape</a>,</p>
 </li>
 <li>
 <p><a href="https://github.com/hguerrero">Hugo Guerrero</a> 🙏 from <a href="https://redhat.com">Red Hat</a> for having contributed the <a href="https://microcks.io/blog/docker-desktop-extension-0.2/">Docker Desktop Extension v0.2</a> code and blog post. Well done mate! 💪</p>
