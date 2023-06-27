@@ -6,7 +6,18 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks Joining CNCF as a Sandbox Project 🎉</title>
+      <link>https://microcks.io/blog/microcks-joining-cncf-sandbox/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-joining-cncf-sandbox/</guid>
+      <description>We are excited to announce that Microcks, the open-source API mocking and testing project, has been accepted as a Sandbox project by the Cloud Native Computing Foundation (CNCF).
+We thank the CNCF Technical Oversight Committee (TOC) members for their validation and the TAG App Delivery team for their invaluable support during this process 🙏 Josh Gavant, Abigail (Abby) Bangser, Scott Rigby, Colin Griffin&amp;hellip;
+ 👉 See our submission form and information for the full details.</description>
+    </item>
+    
     <item>
       <title>Microcks 1.7.1 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.7.1-release/</link>
