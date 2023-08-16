@@ -55,7 +55,7 @@ Microcks offers mocks but can also be used for Contract conformance testing of A
 <meta itemprop="description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
 Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-06-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1520">
+<meta itemprop="wordCount" content="1544">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Testing with Microcks"/>
 <meta name="twitter:description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
@@ -336,9 +336,17 @@ var trackOutboundLink = function(id, url) {
 <td><code>registryAuthCredSource</code></td>
 <td>The source for authentication credentials if any. Valid values are just <code>USER_INFO</code>.</td>
 </tr>
+<tr>
+<td><code>startOffset</code></td>
+<td>The topic offset we start consuming mesages at (since version <code>1.8.0</code>)</td>
+</tr>
+<tr>
+<td><code>endOffset</code></td>
+<td>The topic offset we end consuming messages at (since version <code>1.8.0</code>)</td>
+</tr>
 </tbody>
 </table>
-<p>As an example, you may have this kind of Test Endpoint value: <code>kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&amp;registryUsername=fred:letmein&amp;registryAuthCredSource=USER_INFO</code></p>
+<p>As an example, you may have this kind of Test Endpoint value: <code>kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&amp;registryUsername=fred:letmein&amp;registryAuthCredSource=USER_INFO&amp;startOffset=28&amp;endOffset=30</code></p>
 <h5 id="mqtt">MQTT</h5>
 <p>MQTT Test Endpoint have the following form with no optional parameters:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mqtt://<span class="o">{</span>mqtt.broker.url:port<span class="o">}</span>/<span class="o">{</span>mqtt.topic.name<span class="o">}</span>
