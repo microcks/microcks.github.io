@@ -49,13 +49,13 @@ Microcks offers mocks but can also be used for Contract conformance testing of A
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/tests/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-06-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-10T00:00:00+00:00" />
 
 <meta itemprop="name" content="Testing with Microcks">
 <meta itemprop="description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
 Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!"><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-06-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1544">
+<meta itemprop="dateModified" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1804">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Testing with Microcks"/>
 <meta name="twitter:description" content="Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
@@ -231,6 +231,7 @@ var trackOutboundLink = function(id, url) {
         <li><a href="#test-runner">Test Runner</a></li>
         <li><a href="#timeout">Timeout</a></li>
         <li><a href="#secret">Secret</a></li>
+        <li><a href="#oauth2-authorization">OAuth2 authorization</a></li>
       </ul>
     </li>
     <li><a href="#getting-tests-history-and-details">Getting tests history and details</a></li>
@@ -477,7 +478,24 @@ var trackOutboundLink = function(id, url) {
 <h3 id="timeout">Timeout</h3>
 <p>Depending on the type of Service or Tests you are running, the specification of a <strong>Timeout</strong> maybe mandatory. This is a numerical value expressed in milliseconds.</p>
 <h3 id="secret">Secret</h3>
-<p>Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse <a href="../administrating/secrets">External Secrets</a> that has been made available in the Microcks installation by the administrator.</p>
+<p>Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse <a href="../administrating/secrets">External Secrets</a> that has been made available in the Microcks installation by the administrator. Such secret are useful for presenting a long-lived token to a secured Test Endpoint.</p>
+<h3 id="oauth2-authorization">OAuth2 authorization</h3>
+<blockquote>
+<p>Starting with version <code>1.8.0</code>, Microcks is now able to retrieve an OAuth2 access token before actually running a Test.</p>
+</blockquote>
+<p>Depending on the Test Endpoint you are connecting to, you may need to present an OAuth2 short-lived authorization token to a secured Test Endpoint. Microcks supports 3 different OAuth2 flows:</p>
+<ul>
+<li>The <a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow">Client Credentials Flow</a> in case you want to simulate a machine to machine context,</li>
+<li>The <a href="https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation">Refresh Token Rotation</a> in case you are using long lived token and have already acquired a refresh token previously,</li>
+<li>THe <a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow">Resource Owner Password Flow</a> in case you want to simulate real users authentication. Be careful to use only in a secured/private context as this involves the application handling the user&rsquo;s password (even if Microcks will not store anything). The latest <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-19#section-2.4">OAuth 2.0 Security Best Current Practice</a> disallows the use of the Resource Owner Password Credentials grant but it may still be judged acceptable for internal validation purposes.</li>
+</ul>
+<p>Depending on the flow you select, Microcks UI will allow you to provide additional details for connecting to your Identity Provider token endpoint with your client id and credentials.</p>
+<p><img src="/images/test-oauth2-params.png" alt="test-oauth2-params"></p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The <code>accessToken</code> resulting from this authorization is retrieved before launching the tests. That means that custom headers (globally or per operation) may override its value,</li>
+<li>If additional custom CA Cert is required to access the test endpoints, you can still supply a Secret. The <code>accessToken</code> information retrieved here will be merged into that secret so that the endpoint reach is still possible.</li>
+</ul>
 <h2 id="getting-tests-history-and-details">Getting tests history and details</h2>
 <p>Tests history for an API/Service is easily accessible from the API | Service <a href="../mocks/#mocks-info">summary page</a>. Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.</p>
 <p><img src="/images/test-history.png" alt="test-history"></p>
@@ -758,7 +776,7 @@ var trackOutboundLink = function(id, url) {
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Testing with Microcks”
-  </a> was last updated: June 7, 2023
+  </a> was last updated: October 10, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/tests.md" class="
