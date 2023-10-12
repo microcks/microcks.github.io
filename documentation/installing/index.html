@@ -328,11 +328,29 @@ Usage To get started, make sure you have Docker Desktop installed on your system
                                         <div class="lh-copy links">
                                             
                                                 Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
-High-level Architecture In its simplest form, Microcks architecture is made of 4 components which are:
+High-level Architecture In its canonical form, Microcks architecture is made of 4 components which are:
  The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.
                                             
                                     
                                             <a href="/documentation/installing/deployment-options/" class="f6 mt2 db link primary-color dim">
+                                            Read More &raquo;
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="relative  weight-90">
+                                    <div class="bg-white mb2 pa3 pa4-l gray">
+                                        <h1 class="near-black f3">
+                                            <a href="/documentation/installing/running-uber/" class="link primary-color dim">Running with Testcontainers</a>
+                                        </h1>
+                                        <div class="lh-copy links">
+                                            
+                                                In order to support Inner Loop integration or Shift-Left scenarios, we&rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called microcks-uber and provides the essential services in a single container as represented below:
+ As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don&rsquo;t recommend running it in production!
+                                            
+                                    
+                                            <a href="/documentation/installing/running-uber/" class="f6 mt2 db link primary-color dim">
                                             Read More &raquo;
                                             </a>
                                         </div>
@@ -489,6 +507,11 @@ High-level Architecture In its simplest form, Microcks architecture is made of 4
           <li class="f6 fw4">
             <a href="/documentation/installing/deployment-options/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               ARCHITECTURE AND DEPLOYMENT OPTIONS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/documentation/installing/running-uber/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              RUNNING WITH TESTCONTAINERS
             </a>
           </li>
         </ul>

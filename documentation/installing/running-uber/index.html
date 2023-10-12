@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> Installing on Kube using Helm | Microcks.io</title>
+    <title> Running with Testcontainers | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,23 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Installing on Kube using Helm" />
-<meta property="og:description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider." />
+<meta property="og:title" content="Running with Testcontainers" />
+<meta property="og:description" content="In order to support Inner Loop integration or Shift-Left scenarios, we&rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called microcks-uber and provides the essential services in a single container as represented below:
+ As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don&rsquo;t recommend running it in production!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/installing/kubernetes/" /><meta property="article:section" content="documentation" />
-<meta property="article:published_time" content="2019-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-06-22T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/documentation/installing/running-uber/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2023-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-12T00:00:00+00:00" />
 
-<meta itemprop="name" content="Installing on Kube using Helm">
-<meta itemprop="description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-06-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="401">
+<meta itemprop="name" content="Running with Testcontainers">
+<meta itemprop="description" content="In order to support Inner Loop integration or Shift-Left scenarios, we&rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called microcks-uber and provides the essential services in a single container as represented below:
+ As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don&rsquo;t recommend running it in production!"><meta itemprop="datePublished" content="2023-10-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="266">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Installing on Kube using Helm"/>
-<meta name="twitter:description" content="Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider."/>
+<meta name="twitter:title" content="Running with Testcontainers"/>
+<meta name="twitter:description" content="In order to support Inner Loop integration or Shift-Left scenarios, we&rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called microcks-uber and provides the essential services in a single container as represented below:
+ As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don&rsquo;t recommend running it in production!"/>
 
 
       
@@ -217,24 +217,22 @@ var trackOutboundLink = function(id, url) {
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
   <ul>
-    <li><a href="#instructions">Instructions</a></li>
-    <li><a href="#helm-3">Helm 3</a></li>
-    <li><a href="#minikube-setup">Minikube setup</a></li>
+    <li><a href="#testcontainers-integration">Testcontainers integration</a></li>
   </ul>
 </nav>
 	
 
 	<div date-pref>
 		
-
-		
-			<a href="https://microcks.io/documentation/installing/operator/" class="dib f6 pr1 hover-bg-light-gray br-100" title="Installing on Kube using Operator">
-			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+			<a href="https://microcks.io/documentation/installing/deployment-options/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Architecture and deployment options ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
 </svg>
 
 			</a>
+		
+
 		
 	</div>
 
@@ -243,7 +241,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Installing on Kube using Helm</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Running with Testcontainers</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -255,44 +253,27 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
-<h2 id="instructions">Instructions</h2>
-<p>One easy way of installing Microcks is via a <a href="https://helm.sh/">Helm Chart</a>. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:</p>
-<ul>
-<li>Lightweight Minikube on your laptop, see <a href="https://github.com/kubernetes/minikube">Minikube project page</a>,</li>
-<li>A Google Cloud Engine account in the cloud, see how to start a <a href="https://console.cloud.google.com/freetrial">Free trial</a>,</li>
-<li>Any other Kubernetes distribution provider.</li>
-</ul>
-<h2 id="helm-3">Helm 3</h2>
-<p>Helm 3 chart has been tested from Kubernetes 1.17 and is now available on our own repository. This allows you to install Microcks with just 3 commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ helm repo add microcks https://microcks.io/helm
-
-$ kubectl create namespace microcks
-
-$ helm install microcks microcks/microcks --version 1.7.1 --namespace microcks --set microcks.url<span class="o">=</span>microcks.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io --set keycloak.url<span class="o">=</span>keycloak.<span class="k">$(</span>minikube ip<span class="k">)</span>.nip.io
-</code></pre></div><p>After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.</p>
-<img src="/images/running-pods-k8s.png" class="img-responsive"/>
-<p>Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>.</p>
-<p>Before starting to play with Microcks, you&rsquo;ll have to connect to the Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see <a href="http://www.keycloak.org/docs/latest/server_admin/index.html#user-management">Keycloak documentation</a>). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.</p>
+<p>In order to support <a href="https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache">Inner Loop integration or Shift-Left scenarios</a>, we&rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called <code>microcks-uber</code> and provides the essential services in a single container as represented below:</p>
+<img src="/images/deployment-uber.png" class="img-responsive"/>
 <blockquote>
-<p>Starting with Microcks <code>1.2.0</code> release, the installation process now creates default users with the different roles available. So you can directly login using <code>user</code>, <code>manager</code> or <code>admin</code> username with <code>microcks123</code> password.</p>
+<p>As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don&rsquo;t recommend running it in production! It doesn&rsquo;t embed the authroization/authentication features provided by Keycloak and the performance guarantees offered by a real external MongoDB instance.</p>
 </blockquote>
-<p>For full instructions and deployment options, we recommend reading the <a href="https://github.com/microcks/microcks/blob/master/install/kubernetes/README.md">README</a> on GitHub repository.</p>
-<h2 id="minikube-setup">Minikube setup</h2>
-<p>The video below shows an install using the Helm chart on Minikube and also shows the post-installation steps required for creating users and connecting to the app (required before the <code>1.2.0</code> release):</p>
+<p>The original purpose of this Uber distribution is to be used through testing libraries like <a href="https://testcontainers.com">Testcontainers</a>. Though it&rsquo;s very easy to launch it using a simple <code>docker</code> command like below, binding the only necessary port to your local <code>8585</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker run -p 8585:8080 -it quay.io/microcks/microcks-uber:nightly
+</code></pre></div><h2 id="testcontainers-integration">Testcontainers integration</h2>
+<p>Microcks now provides official modules for <a href="https://testcontainers.com">Testcontainers</a> via a partenership with <a href="https://atomicjar.com/">AtomicJar</a>, the company behind this fantastic library! You can find information on the official module on <a href="https://testcontainers.com/modules/microcks/">Testcontainers Microcks page</a>.</p>
+<p>As of today, we provide support for following languages:</p>
+<ul>
+<li>Java ☕️ - See our <a href="https://github.com/microcks/microcks-testcontainers-java">GitHub repository</a> - See our demo application for <a href="https://github.com/microcks/api-lifecycle/blob/master/shift-left-demo/spring-boot-order-service/README.md">Spring Boot</a> 🍃 and for <a href="https://github.com/microcks/api-lifecycle/blob/master/shift-left-demo/quarkus-order-service/README.md">Quarkus</a>.</li>
+<li>NodeJS - See our <a href="https://github.com/microcks/microcks-testcontainers-node">GitHub repository</a></li>
+</ul>
+<p>Also below a set of blog posts explaining the benefist and underlying mechanisms this integrations:</p>
+<ul>
+<li><a href="https://medium.com/@lbroudoux/mocking-and-contract-testing-in-your-inner-loop-with-microcks-part-1-easy-environment-setup-dcd0f4355231">Mocking and contract-testing in your Inner Loop with Microcks - Part 1: Easy environment setup</a></li>
+<li><a href="https://medium.com/@lbroudoux/mocking-and-contract-testing-in-your-inner-loop-with-microcks-part-2-unit-testing-with-860a86cb4b4c">Mocking and contract-testing in your Inner Loop with Microcks - Part 2: Unit testing with Testcontainers</a></li>
+<li><a href="https://medium.com/@lbroudoux/mocking-and-contract-testing-in-your-inner-loop-with-microcks-part-3-quarkus-devservice-ftw-a14b807737be">Mocking and contract-testing in your Inner Loop with Microcks - Part 3: Quarkus Devservice FTW</a></li>
+</ul>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/u7SP1bQ8_FE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-<p>When using Minikube, depending on what you&rsquo;ve already deployed, the default configuration may be little bit slow and induce timeout on readiness probes. We usually setup the following configuration for successful deployments:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">minikube config <span class="nb">set</span> cpus <span class="m">4</span>
-minikube config <span class="nb">set</span> memory <span class="m">6144</span>
-minikube delete
-minikube start
-</code></pre></div><p>Also, if you typically need to access the Kafka broker from the outside of Kube, you&rsquo;ll need to enable the <code>SSL Passthrough</code> on Nginx ingress controller. Here below is the command that is used in above video:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl patch -n kube-system deployment/ingress-nginx-controller --type<span class="o">=</span><span class="s1">&#39;json&#39;</span> <span class="se">\
-</span><span class="se"></span>    -p <span class="s1">&#39;[{&#34;op&#34;:&#34;add&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/args/-&#34;,&#34;value&#34;:&#34;--enable-ssl-passthrough&#34;}]&#39;</span>
-</code></pre></div>
 </div>
 
         
@@ -414,7 +395,7 @@ minikube start
         <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".installing">INSTALLING</a>
         <ul class="installing desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
-            <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/installing/kubernetes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               INSTALLING ON KUBE USING HELM
             </a>
           </li>
@@ -444,7 +425,7 @@ minikube start
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/installing/running-uber/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/installing/running-uber/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               RUNNING WITH TESTCONTAINERS
             </a>
           </li>
@@ -568,14 +549,14 @@ minikube start
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/installing/kubernetes/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/installing/running-uber/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Installing on Kube using Helm”
-  </a> was last updated: June 22, 2023
+    “Running with Testcontainers”
+  </a> was last updated: October 12, 2023
 </h6>
 
-      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/installing/kubernetes.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/installing/running-uber.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 
