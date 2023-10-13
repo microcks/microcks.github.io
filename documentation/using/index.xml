@@ -6,7 +6,7 @@
     <description>Recent content in Using on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Monitoring &amp; Observability</title>
       <link>https://microcks.io/documentation/using/advanced/monitoring/</link>
@@ -183,6 +183,15 @@ Microcks offers mocks but can also be used for Contract conformance testing of A
       <guid>https://microcks.io/documentation/using/mocks/</guid>
       <description>Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, gRPC, GraphQL, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
 First, let&amp;rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :</description>
+    </item>
+    
+    <item>
+      <title>Http Archive usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/har/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/using/har/</guid>
+      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions. During this process, they curate the recording list and have to develop/automate the transformation of their captured data to other formats. We&amp;rsquo;d like to ease their pain and propose a more straightforward way using HTTP Archive Format (HAR).</description>
     </item>
     
   </channel>

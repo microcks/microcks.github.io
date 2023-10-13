@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      
-    <title> Managing Users | Microcks.io</title>
+    <title> Http Archive usage for Microcks | Microcks.io</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      <meta name="generator" content="Hugo 0.90.1" />
@@ -43,23 +43,20 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="Managing Users" />
-<meta property="og:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm." />
+<meta property="og:title" content="Http Archive usage for Microcks" />
+<meta property="og:description" content="Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions. During this process, they curate the recording list and have to develop/automate the transformation of their captured data to other formats. We&rsquo;d like to ease their pain and propose a more straightforward way using HTTP Archive Format (HAR)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microcks.io/documentation/administrating/users/" /><meta property="article:section" content="documentation" />
-<meta property="article:published_time" content="2019-11-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-31T00:00:00+00:00" />
+<meta property="og:url" content="https://microcks.io/documentation/using/har/" /><meta property="article:section" content="documentation" />
+<meta property="article:published_time" content="2023-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-23T00:00:00+00:00" />
 
-<meta itemprop="name" content="Managing Users">
-<meta itemprop="description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm."><meta itemprop="datePublished" content="2019-11-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-08-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="791">
+<meta itemprop="name" content="Http Archive usage for Microcks">
+<meta itemprop="description" content="Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions. During this process, they curate the recording list and have to develop/automate the transformation of their captured data to other formats. We&rsquo;d like to ease their pain and propose a more straightforward way using HTTP Archive Format (HAR)."><meta itemprop="datePublished" content="2023-02-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="548">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Managing Users"/>
-<meta name="twitter:description" content="Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm."/>
+<meta name="twitter:title" content="Http Archive usage for Microcks"/>
+<meta name="twitter:description" content="Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions. During this process, they curate the recording list and have to develop/automate the transformation of their captured data to other formats. We&rsquo;d like to ease their pain and propose a more straightforward way using HTTP Archive Format (HAR)."/>
 
 
       
@@ -217,20 +214,11 @@ var trackOutboundLink = function(id, url) {
 		<p class="b">What's on this Page</p>
   	<nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#authentication">Authentication</a>
+    <li><a href="#overview">Overview</a>
       <ul>
-        <li><a href="#technical-notes">Technical notes</a></li>
-      </ul>
-    </li>
-    <li><a href="#authorization">Authorization</a>
-      <ul>
-        <li><a href="#technical-notes-1">Technical notes</a></li>
-      </ul>
-    </li>
-    <li><a href="#users-management">Users management</a>
-      <ul>
-        <li><a href="#group-membership">Group membership</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#conventions">Conventions</a></li>
+        <li><a href="#importing-artifacts">Importing artifacts</a></li>
       </ul>
     </li>
   </ul>
@@ -239,15 +227,15 @@ var trackOutboundLink = function(id, url) {
 
 	<div date-pref>
 		
-
-		
-			<a href="https://microcks.io/documentation/administrating/secrets/" class="dib f6 pr1 hover-bg-light-gray br-100" title="External Secrets">
-			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+			<a href="https://microcks.io/documentation/using/mocks/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Using exposed mocks ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
 </svg>
 
 			</a>
+		
+
 		
 	</div>
 
@@ -256,7 +244,7 @@ var trackOutboundLink = function(id, url) {
       <div class="order-1 w-60-l mw8 ph0 ph4-ns">
         <header class="flex-none w-100 bg-primary-color pv3 ph3">
   
-  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Managing Users</h1>
+  <h1 class="lh-title mb3 mv0 pt3 accent-color-light fem">Http Archive usage for Microcks</h1>
 </header>
 
 <aside class="bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
@@ -268,63 +256,54 @@ var trackOutboundLink = function(id, url) {
 
 <div class="prose" id="prose">
 
-<h2 id="introduction">Introduction</h2>
-<p>Since its inception, Microcks relies on a third party component named <a href="https://www.keycloak.org">Keycloak</a> for managing security related topics like users identification, users  authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a <a href="../../automating/service-account">dedicated page</a>.</p>
-<p>Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a <strong>realm</strong>. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm">realm</a>. We provide a sample of such a realm configuration that can be imported into your instance <a href="https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json">here</a>.</p>
-<p>Basically, Microcks own components only need the reference of the Keycloak instance endpoint - the URL with <code>/auth</code> suffix - into an environment variable called <code>KEYCLOAK_URL</code>.</p>
-<h2 id="authentication">Authentication</h2>
-<p>Authentication in Microcks is indeed delegated to the configured Keycloak instance using the <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#authorization-code-flow">OpenID Connect Authorization Code Flow</a>. The Keycloak instance can be used as the direct source of user&rsquo;s Identity or can be used as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker">a broker for one or more</a> configured Identity Providers.</p>
-<blockquote>
-<p>The default installation comes with <strong>no default identity provider</strong> so it&rsquo;s mandatory to configure at least: either some directly managed users (see <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_create-new-user">User Management</a>) <strong>OR</strong> one <a href="(https://www.keycloak.org/docs/latest/server_admin/index.html#_general-idp-config)">Identity Provider</a> attached to the realm Microcks is configured to use.</p>
-</blockquote>
-<h3 id="technical-notes">Technical notes</h3>
-<p>On the client side (ie. in the browser), Microcks is using a client application called <code>microcks-app-js</code> that is configured to perform redirect to the public endpoint URL of the microcks app.</p>
-<p>On the server side, Microcks is using a client application called <code>microcks-app</code> for checking and trusting JWT bearers provided by the frontend application API calls.</p>
-<p>All this parameters are set within the <code>application.properties</code> configuration file. This file is usually supplied as a <code>ConfigMap</code> into containerized environments.</p>
-<p>See an excerpt below:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties"># Keycloak configuration properties
-keycloak.auth-server-url=${KEYCLOAK_URL:http://localhost:8180/auth}
-keycloak.realm=microcks
-keycloak.resource=microcks-app
-keycloak.bearer-only=true
-keycloak.ssl-required=external
-</code></pre><h2 id="authorization">Authorization</h2>
-<p>Microcks realm typically defines 3 application roles that are defined as <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#client-roles">client roles</a> on the Keycloak side. Theses roles are attached to the <code>microcks-app</code> client application.</p>
-<p>These roles are:</p>
+<h2 id="overview">Overview</h2>
+<h3 id="introduction">Introduction</h3>
+<p>As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their <a href="../openapi">OpenAPI</a> or <a href="../postman">Postman Collection</a> files and reuse them as mock definitions. During this process, they curate the recording list and have to develop/automate the transformation of their captured data to other formats. We&rsquo;d like to ease their pain and propose a more straightforward way using <a href="https://w3c.github.io/web-performance/specs/HAR/Overview.html">HTTP Archive Format (HAR)</a>.</p>
+<p>Lots of proxy tooling already use this format as an export format (mitmproxy, Chromium-based browsers, Postman, Insomnia, Proxyman, Fiddler, Gatling, Selenium, GitLab HAR recorder, &hellip;) so it is easy to integrate with most existing recording solutions.</p>
+<p>That way, we think we&rsquo;ve got Linux philosophy as it&rsquo;s best, supporting the following flow:</p>
+<ol>
+<li>Let specialized tooling do the capture/recording and exporting of traffic using HAR format.</li>
+<li>Optionally curate the recorded content to remove noise and inappropriate data</li>
+<li>Integrate the resulting HAR into Microcks so that captures may be reused as mock sources.</li>
+</ol>
+<h3 id="conventions">Conventions</h3>
+<p>In order to be correctly imported and understood by Microcks, your HAR file should follow a little set of reasonable conventions and best practices.</p>
 <ul>
-<li><code>user</code>: a regular authenticated user of the Microcks application. This is the default role that is automatically attached the first time a user succeed authenticating into the Microcks app,</li>
-<li><code>manager</code>: a user identified as having management roles on the Microcks repository content. Managers should be allowed of adding and removing Services mocks into the repository as well as configuring mocks operation properties. In a near future, this role should be scoped by a classifier allowing to organize services into coherent groups,</li>
-<li><code>admin</code>: a user identified as having administration role on the Microcks instance. Admin should be able to manage users, configure external repositories secrets or realize backup/restore operations.</li>
+<li>HAR file doesn&rsquo;t have the notion of API name or version. In Microcks, this notion is critical and we thus we will need to have a specific comment notation to get this information. You&rsquo;ll need to add a comment line starting with <code>microcksId:</code> in your file and then referring the <code>&lt;API name&gt;:&lt;API version&gt;</code>. HAR provides a header <code>log</code> structure that may host such a comment. See an example below:</li>
 </ul>
-<p>Whether a connected user has these roles is checked both on the client and the server sides using <a href="https://www.keycloak.org/docs/latest/securing_apps/index.html">Keycloak adapters</a>.</p>
-<h3 id="technical-notes-1">Technical notes</h3>
-<p>Whilst checks on the client side is disseminated into the pages code, endpoints authorization on the server side is centralized into the <code>application.properties</code> configuration file. This file is usually supplied as a <code>ConfigMap</code> into containerized environments.</p>
-<p>See an excerpt below:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keycloak.resource=microcks-app
-keycloak.use-resource-role-mappings=true
-
-# Keycloak access configuration properties
-keycloak.security-constraints[0].authRoles[0]=admin
-keycloak.security-constraints[0].authRoles[1]=manager
-keycloak.security-constraints[0].authRoles[2]=user
-keycloak.security-constraints[0].securityCollections[0].name=Insecure stuffs
-keycloak.security-constraints[0].securityCollections[0].patterns[0]=/api/services
-keycloak.security-constraints[0].securityCollections[0].patterns[1]=/api/services/*
-keycloak.security-constraints[0].securityCollections[0].patterns[2]=/api/jobs
-keycloak.security-constraints[0].securityCollections[0].patterns[3]=/api/jobs/*
-keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
-</code></pre><h2 id="users-management">Users management</h2>
-<p>Your can partially manage users directly from the Microcks GUI. &ldquo;Partially&rdquo; means that you are able to manage a user&rsquo;s roles within Microcks application but not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider.</p>
-<p>Users can only be managed by Microcks <code>admin</code> - we mean people having the <code>admin</code> role assigned. Users management is simply a thumbnail with the <code>Administration</code> page that is available from the vertical menu on the left once logged in as administrator. In order to be able to retrieve the list of users and operate changes, the user should also have <strong>manage-users</strong> and <strong>manage-clients</strong> role from <strong>realm-management</strong> Keycloak internal client. See <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_per_realm_admin_permissions">Keycloak documentation</a> for more on this point.</p>
-<p><img src="/images/users.png" alt="users"></p>
-<h3 id="group-membership">Group membership</h3>
-<p>From Microcks 1.4.0, you have the ability to segment the role attribution depending on the <code>master</code> label you have chosen for organizing your repository. See <a href="https://microcks.io/documentation/using/advanced/organizing/#rbac-security-segmentation">Organizing repository</a> for details on this feature.</p>
-<p>When this feature is enabled, Microcks will create as many groups in Keycloak as we have different values for this <code>master</code> label. These groups are organized in a hierarchy so that you&rsquo;ll have groups with such names <code>/microcks/manager/&lt;label&gt;</code> those members represents the <code>manager</code> of the resources labeled with <code>&lt;label&gt;</code> value.</p>
-<p>Also, a new <strong>Manage Groups</strong> options appears in the option menu for each user. From this new modal window, you can easily manage group membership for a specified user as shown below:</p>
-
-<div style="margin: auto; width: 80%">
-    <img src="/images/users-group-management.png" width="650">
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;log&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.2&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;microcksId: API Pastries:0.0.2&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;creator&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;WebInspector&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;537.36&#34;</span>
+    <span class="p">},</span>
+  <span class="err">[...]</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>Optionnaly - if the captured traffic was behind gateways or other stuffs rewriting URLs - you may want to remove API invocations URL prefix to better fit your API definition. You can then add an additional comment line starting with <code>apiPrefix:</code> to specify a part of the path Microcks will remove from found paths. See an example below:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;log&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.2&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;microcksId: API Pastries:0.0.2 \n apiPrefix: /my/prefix/toRemove&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;creator&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;WebInspector&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;537.36&#34;</span>
+    <span class="p">},</span>
+  <span class="err">[...]</span>
+<span class="p">}</span>
+</code></pre></div><p>With this configuration, the <code>apiPrefix</code> is used for 2 purposes by Microcks:</p>
+<ul>
+<li>to filter out the log entries that are not starting by <code>/my/prefix/toRemove</code>,</li>
+<li>to clean-up the path and find a short operation name.</li>
+</ul>
+<p>As an example, imagine you&rsquo;ll have a <code>GET https://pastries.acme.org/my/prefix/toRemove/pastries?size=S</code> log entry in the HAR file, this one will be considered as a valid entry because it containtes the <code>apiPrefix</code> after having removed host information and it will be considered as an example for the <code>GET /pastries</code> operation.</p>
+<h3 id="importing-artifacts">Importing artifacts</h3>
+<p>An HAR file should be imported into Microcks either through <a href="../importers/#direct-upload">direct upload</a> or <a href="/..importers/#scheduled-import">scheduled import</a>. It can be imported aither as a <code>main</code> or <code>primary</code> artifact or as a <code>secondary</code> artifact.</p>
+<p>When imported as a <code>primary</code> artifact, Microcks tries to guess the type of API (<code>REST</code>, <code>GraphQL</code> or <code>SOAP</code>) looking at the payload of requests. It also tries to find similarities between entries path to deduce operations for your API.</p>
+<p>When imported as a <code>secondary</code> artifact - a <code>primary</code> one being an OpenAPI specification, a GraphQL Schema or a SoapUI project - Microcks uses the definition of the API provided by this primary artifact to associate entries with operations accordingly.</p>
 
 </div>
 
@@ -338,8 +317,8 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
     
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".using">USING</a>
-        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".using">USING</a>
+        <ul class="using desktopmenu animated fadeIn list pl0 bg-light-gray db">
           <li class="f6 fw4">
             <a href="/documentation/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               GETTING STARTED
@@ -396,7 +375,7 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
             </a>
           </li>
           <li class="f6 fw4">
-            <a href="/documentation/using/har/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+            <a href="/documentation/using/har/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
               HAR USAGE FOR MICROCKS
             </a>
           </li>
@@ -526,10 +505,10 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
       </li>
       
       <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
-        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  accent-color-light" data-target=".administrating">ADMINISTRATING</a>
-        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray db">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".administrating">ADMINISTRATING</a>
+        <ul class="administrating desktopmenu animated fadeIn list pl0 bg-light-gray dn">
           <li class="f6 fw4">
-            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 accent-color-light ">
+            <a href="/documentation/administrating/users/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               MANAGING USERS
             </a>
           </li>
@@ -606,14 +585,14 @@ keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
   <div class="w-100 bg-light-gray">
     <div class="mw7 pa4 center nested-lh-copy lh-copy">
       <h6 class="f4 dark-gray mb2">
-  <a href="https://microcks.io/documentation/administrating/users/" class="hide-child link primary-color">
+  <a href="https://microcks.io/documentation/using/har/" class="hide-child link primary-color">
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
-    “Managing Users”
-  </a> was last updated: August 31, 2021
+    “Http Archive usage for Microcks”
+  </a> was last updated: February 23, 2023
 </h6>
 
-      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/administrating/users.md" class="
+      <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/har.md" class="
 f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
 ">Improve this page</a>
 

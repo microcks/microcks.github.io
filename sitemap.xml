@@ -119,6 +119,9 @@
     <loc>https://microcks.io/documentation/automating/tekton/</loc>
     <lastmod>2021-06-30T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://microcks.io/documentation/using/har/</loc>
+    <lastmod>2023-02-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://microcks.io/documentation/automating/github-actions/</loc>
     <lastmod>2021-11-22T00:00:00+00:00</lastmod>
   </url><url>
@@ -179,14 +182,14 @@
     <loc>https://microcks.io/blog/microcks-partners-with-postman/</loc>
     <lastmod>2023-03-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://microcks.io/documentation/using/</loc>
+    <lastmod>2023-10-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://microcks.io/blog/docker-desktop-extension-launch/</loc>
     <lastmod>2022-09-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.6.0-release/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2023-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://microcks.io/news/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
