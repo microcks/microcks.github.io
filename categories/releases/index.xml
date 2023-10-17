@@ -6,15 +6,15 @@
     <description>Recent content in releases on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/releases/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/releases/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>News about Microcks</title>
       <link>https://microcks.io/news/</link>
-      <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://microcks.io/news/</guid>
-      <description>Fresh Releases Microcks core 1.7.1 on 21 Jun 2023 The seasons follow one another and here’s a Microcks release just ready for summer ☀️. We’re proud to announce today the 1.7.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.
-With 37 resolved issues - our record for a minor release - this release is an illustration of how community-driven the roadmap is: Amazon SQS &amp;amp; SNS support and Specifications goodies as well as many enhancements came directly from user requests and contributions.</description>
+      <description>Fresh Releases Microcks core 1.8.0 on 17 Oct 2023 As the seasons transition, we are excited to unveil the 1.8.0 release of Microcks, the CNCF&amp;rsquo;s open-source cloud-native tool for API Mocking and Testing, right on the cusp of winter! ❄️ 🚀
+With 47 resolved issues and 5 external PR (from new contributors) - This new release brings you a wave of new features, including AI Copilot, support for HAR artifacts, OAuth2 secured endpoint testing, Microcks super light Uber image, Testcontainers official module, two developer-friendly buttons for easy interactions (Copy as curl command and Add to your CI/CD), and an enhanced contextual help.</description>
     </item>
     
     <item>
