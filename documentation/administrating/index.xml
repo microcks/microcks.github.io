@@ -6,7 +6,7 @@
     <description>Recent content in Administrating on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/administrating/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/administrating/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing Users</title>
       <link>https://microcks.io/documentation/administrating/users/</link>
@@ -15,6 +15,17 @@
       <guid>https://microcks.io/documentation/administrating/users/</guid>
       <description>Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a dedicated page.
 Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a realm.</description>
+    </item>
+    
+    <item>
+      <title>External Dependencies</title>
+      <link>https://microcks.io/documentation/administrating/externals/</link>
+      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/documentation/administrating/externals/</guid>
+      <description>Introduction Microcks is able to run Groovy scripts contained in your API mocks. Your scripts may need external dependencies that are not present in Microcks. In the next section, you will find two approaches depending on whether you are using docker-compose or pure Kubernetes installation to provide such dependencies for your scripts.
+Docker-compose method  The solution is similar for Podman-compose
+  Put your Jar files into a dedicated folder (i.</description>
     </item>
     
     <item>

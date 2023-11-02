@@ -49,13 +49,13 @@ However in some cases, this could not be enough and it will be useful to overrid
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/using/advanced/dispatching/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-12-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-26T00:00:00+00:00" />
 
 <meta itemprop="name" content="Dispatcher &amp; dispatching rules">
 <meta itemprop="description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 However in some cases, this could not be enough and it will be useful to override these deduced values."><meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-12-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1703">
+<meta itemprop="dateModified" content="2023-10-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1724">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dispatcher &amp; dispatching rules"/>
 <meta name="twitter:description" content="Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
@@ -492,7 +492,9 @@ Region is unknown. Choose in north, west, east or south.%
 <span class="kt">def</span> <span class="n">inv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">groovy</span><span class="o">.</span><span class="na">json</span><span class="o">.</span><span class="na">JsonSlurper</span><span class="o">().</span><span class="na">parseText</span><span class="o">(</span><span class="n">invJson</span><span class="o">).</span><span class="na">dailyCount</span>
 <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s2">&#34;daily invocation: &#34;</span> <span class="o">+</span> <span class="n">inv</span><span class="o">)</span>
 <span class="o">[...]</span>
-</code></pre></div>
+</code></pre></div><h4 id="extended-use-cases">Extended use-cases</h4>
+<p>If you want to extend what your scripts can do, check out how to setup Microcks with <a href="../../../administrating/externals">external dependencies</a></p>
+
 </div>
 
         
@@ -701,6 +703,11 @@ Region is unknown. Choose in north, west, east or south.%
             </a>
           </li>
           <li class="f6 fw4">
+            <a href="/documentation/administrating/externals/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              EXTERNAL DEPENDENCIES
+            </a>
+          </li>
+          <li class="f6 fw4">
             <a href="/documentation/administrating/secrets/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
               EXTERNAL SECRETS
             </a>
@@ -777,7 +784,7 @@ Region is unknown. Choose in north, west, east or south.%
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Dispatcher &amp; dispatching rules”
-  </a> was last updated: December 26, 2022
+  </a> was last updated: October 26, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/advanced/dispatching.md" class="
