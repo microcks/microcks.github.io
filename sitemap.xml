@@ -282,6 +282,8 @@
   </url><url>
     <loc>https://microcks.io/community/</loc>
   </url><url>
+    <loc>https://microcks.io/go-client/</loc>
+  </url><url>
     <loc>https://microcks.io/tags/</loc>
   </url>
 </urlset>
