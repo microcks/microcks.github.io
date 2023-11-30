@@ -49,13 +49,13 @@ If you have not done it in the previous step, you will need to load one of Micro
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microcks.io/documentation/getting-started-tests/" /><meta property="article:section" content="documentation" />
 <meta property="article:published_time" content="2020-10-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-30T00:00:00+00:00" />
 
 <meta itemprop="name" content="Getting started with Tests">
 <meta itemprop="description" content="Getting started (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve Contract Testing for your API, either manually from the UI or in an automated way using the CLI tooling.
 If you have not done it in the previous step, you will need to load one of Microcks samples: the Pastry API."><meta itemprop="datePublished" content="2020-10-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-11-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1042">
+<meta itemprop="dateModified" content="2023-11-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1047">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started with Tests"/>
 <meta name="twitter:description" content="Getting started (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve Contract Testing for your API, either manually from the UI or in an automated way using the CLI tooling.
@@ -268,9 +268,9 @@ var trackOutboundLink = function(id, url) {
 
 <h2 id="getting-started-continue-with-tests">Getting started (continue) with Tests</h2>
 <p>Now that you have finished the <a href="/documentation/getting-started">Getting started</a> guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve <strong>Contract Testing</strong> for your API, either manually from the UI or in an automated way using the CLI tooling.</p>
-<p>If you have not done it in the previous step, you will need to load one of Microcks samples: the <strong>Pastry API</strong>. For that, just create a new <b>Importer</b> with the <strong>Pastry API</strong> name and this URL : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml</code></p>
+<p>If you have not done it in the previous step, you will need to load one of Microcks samples: the <strong>Pastry API</strong>. For that, just create a new <b>Importer</b> with the <strong>Pastry API</strong> name and this URL : <code>https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml</code> or you can install the sample from the <b> Microcks Hub </b></p>
 <p>Once loaded, Microcks will discover the <strong>API Pastry - 2.0</strong> in version <strong>2.0.0</strong>. You will be able to browse the operations/resources and associated request/response samples of this service.</p>
-<p><img src="/images/sample-pastry-details.png" alt="sample-pastry-details"></p>
+<p><img src="/images/sample-pastry-details-new.png" alt="sample-pastry-details"></p>
 <p>You&rsquo;ll see that this sample contains a number of different features. It will illustrate:</p>
 <ul>
 <li>Simple <code>GET</code> operation mocking and testing,</li>
@@ -316,11 +316,11 @@ __  ____  __  _____   ___  __ ____  ______
 <p>Now that our component implementing the API is running, it&rsquo;s time to launch some tests to check if it is actually compliant with the API Contract. This is what we call <strong>Contract Testing</strong>. You can launch and run tests from the UI or from the <a href="../automating/cli/"><code>microcks-cli</code></a> tool.</p>
 <h3 id="from-the-ui">From the UI</h3>
 <p>You may already have seen it but there&rsquo;s a <strong>NEW TEST&hellip;</strong> button on the right hand side of the page detailing the <strong>API Pastry</strong> service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:</p>
-<p><img src="/images/sample-test-form.png" alt="sample-test-form"></p>
-<p>Just copy/paste the endpoint URL where your <code>quarkus-api-pastry</code> deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one. Then select the <code>OPEN_API_SCHEMA</code> test strategy (read here for more on <a href="../using/tests/#test-runner">tests runners</a>). And finally, hit the <strong>Launch test !</strong> button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).</p>
-<p><img src="/images/sample-test-launch.png" alt="sample-test-launch"></p>
+<p><img src="/images/sample-test-form-new.png" alt="sample-test-form"></p>
+<p>Just copy/paste the endpoint URL where your <code>quarkus-api-pastry</code> deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one (<code>http://host.docker.internal:8282</code>). Then select the <code>OPEN_API_SCHEMA</code> test strategy (read here for more on <a href="../using/tests/#test-runner">tests runners</a>). And finally, hit the <strong>Launch test !</strong> button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).</p>
+<p><img src="/images/sample-test-launch-new.png" alt="sample-test-launch"></p>
 <p>Following the <strong>Full results</strong> link in the above screen will lead you to a screen where you&rsquo;ll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!</p>
-<p><img src="/images/sample-test-result.png" alt="sample-test-result"></p>
+<p><img src="/images/sample-test-result-new.png" alt="sample-test-result"></p>
 <h3 id="from-the-cli">From the CLI</h3>
 <p>Microcks also provides the <a href="../automating/cli/"><code>microcks-cli</code></a> tool that can be used to automate the testing. Binary releases for Linux, MacOS or Windows platform are available on the GitHub <a href="https://github.com/microcks/microcks-cli/releases">releases page</a>. Just download the binary corresponding to your system and put the binary into the <code>PATH</code> somewhere.</p>
 <p>You can also use the corresponding container image for a quick ride! Just specify the <code>test</code> command followed by the API/Service name and version, the test endpoint URL, the runner as well as some connection credentials and it will launch the test for you:</p>
@@ -334,7 +334,7 @@ MicrocksClient got status <span class="k">for</span> <span class="nb">test</span
 MicrocksTester waiting <span class="k">for</span> <span class="m">2</span> seconds before checking again or exiting.
 MicrocksClient got status <span class="k">for</span> <span class="nb">test</span> <span class="s2">&#34;5f8eb1a5c696bd71fcdcb6ad&#34;</span> - success: true, inProgress: <span class="nb">false</span> 
 </code></pre></div><blockquote>
-<p>Of course, you will have to replace the test endpoint URL as well as the Microcks URL with the ones from your platform (e.g. <code>http://docker.for.mac.localhost:8282</code>, <code>http://docker.for.win.localhost:8282</code> for the API Pastry, <code>https://docker.for.mac.localhost:8080</code> or <code>https://docker.for.win.localhost:8080</code> for Microcks when using docker-compose)</p>
+<p>Of course, you will have to replace the test endpoint URL as well as the Microcks URL with the ones from your platform (e.g. <code>http://host.docker.internal:8282</code> for the API Pastry when using docker-compose)</p>
 </blockquote>
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>Now that you have basic information on how to use Microcks for mocking and testing, you can go further with:</p>
@@ -343,7 +343,7 @@ MicrocksClient got status <span class="k">for</span> <span class="nb">test</span
 <li>Creating your definition files using <a href="/documentation/using/openapi">OpenAPI</a>, <a href="/documentation/using/asyncapi">AsyncAPI</a>, <a href="/documentation/using/soapui">SoapUI</a> or <a href="/documentation/using/postman">Postman</a>,</li>
 <li>Using <a href="/documentation/using/mocks">exposed mocks</a> and using variables,</li>
 <li>Executing your <a href="/documentation/using/tests">tests on endpoints</a> where your services and API are deployed,</li>
-<li>Using <a href="(/documentation/using/advanced)">advanced features</a> of Microcks and admin stuffs.</li>
+<li>Using <a href="/documentation/using/advanced">advanced features</a> of Microcks and admin stuffs.</li>
 </ul>
 
 </div>
@@ -635,7 +635,7 @@ MicrocksClient got status <span class="k">for</span> <span class="nb">test</span
   <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
 </span>
     “Getting started with Tests”
-  </a> was last updated: November 25, 2021
+  </a> was last updated: November 30, 2023
 </h6>
 
       <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/getting-started-tests.md" class="
