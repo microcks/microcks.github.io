@@ -56,7 +56,7 @@
       <meta itemprop="name" content="Microcks on Minikube 🧊">
 <meta itemprop="description" content="As we close the year, it&rsquo;s a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on installing Microcks on Minikube and decided to refresh them. It also needed to be completed with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration."><meta itemprop="datePublished" content="2023-12-27T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-12-27T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1894">
+<meta itemprop="wordCount" content="1909">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Microcks on Minikube 🧊"/>
 <meta name="twitter:description" content="As we close the year, it&rsquo;s a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on installing Microcks on Minikube and decided to refresh them. It also needed to be completed with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration."/>
@@ -270,7 +270,7 @@ var trackOutboundLink = function(id, url) {
   </div>
   <div class="flex-ns flex-wrap">
     <div class="w-60-l w-70-m w-90-xs center">
-      <div class="prose pv3 f4" id="prose"><p>As we close the year, it&rsquo;s a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on <strong>installing Microcks on Minikube</strong> and decided to refresh them. It also needed to be completed  with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.</p>
+      <div class="prose pv3 f4" id="prose"><p>As we close the year, it&rsquo;s a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on <strong>installing Microcks on Minikube</strong> and decided to refresh them. It also needed to be completed with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.</p>
 <p><img src="/images/blog/microcks-on-minikube-feature.png" alt="microcks-minikube-feature"></p>
 <p>This installation notes were ran on my Apple Mac book M2 but those steps would sensibly be the same on any Linux machine. Let&rsquo;s go 🚀</p>
 <h2 id="preparation">Preparation</h2>
@@ -415,7 +415,7 @@ microcks-keycloak   nginx   keycloak.m.minikube.local         192.168.49.2   80,
 <p>The default user/password is <code>admin/microcks123</code></p>
 <h2 id="install-microcks-with-asynchronous-options">Install Microcks with asynchronous options</h2>
 <p>In this section, we&rsquo;re doing a complete install of Microcks, enabling the asynchronous protcols features. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the <a href="https://strimizi.io">Strimzi</a> project.</p>
-<p>To be able to expose the Kafka cluster to the outside of Kind, you’ll need to enable SSL passthrough on nginx. This require updating the default ingress controller deployment:</p>
+<p>To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on nginx. This require updating the default ingress controller deployment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type<span class="o">=</span><span class="s1">&#39;json&#39;</span> <span class="se">\
 </span><span class="se"></span>    -p <span class="s1">&#39;[{&#34;op&#34;:&#34;add&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/args/-&#34;,&#34;value&#34;:&#34;--enable-ssl-passthrough&#34;}]&#39;</span>
 </code></pre></div><p>Then, you&rsquo;ll also have to update your  <code>/etc/hosts</code> file so that we’ll can access Microcks Kafka broker using an Ingress. Add the line containing <code>microcks-kafka.kafka.m.minikube.local</code> and <code>microcks-kafka-0.kafka.m.minikube.local</code> hosts:</p>
@@ -430,7 +430,7 @@ microcks-keycloak   nginx   keycloak.m.minikube.local         192.168.49.2   80,
 127.0.0.1 microcks.m.minikube.local keycloak.m.minikube.local microcks-kafka.kafka.m.minikube.local microcks-kafka-0.kafka.m.minikube.local
 255.255.255.255 broadcasthost
 ::1 localhost
-</code></pre></div><p>Next, you have to install the latest version of Strimzi operator:</p>
+</code></pre></div><p>You&rsquo;ll still need to have the <code>minikube tunnel</code> services up-and-running like in the previous section. Next, you have to install the latest version of Strimzi operator:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f <span class="s1">&#39;https://strimzi.io/install/latest?namespace=microcks&#39;</span> -n microcks
 </code></pre></div><p>Now, you can install Microcks using the Helm chart and enable the asynchronous features:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ helm install microcks microcks/microcks --namespace microcks --set microcks.url<span class="o">=</span>microcks.m.minikube.local --set keycloak.url<span class="o">=</span>keycloak.m.minikube.local --set keycloak.privateUrl<span class="o">=</span>http://microcks-keycloak.microcks.svc.cluster.local:8080 --set features.async.enabled<span class="o">=</span><span class="nb">true</span> --set features.async.kafka.url<span class="o">=</span>kafka.m.minikube.local
