@@ -6,7 +6,18 @@
     <description>Recent content in Microcks Blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks on Kind 🚢</title>
+      <link>https://microcks.io/blog/microcks-on-kind/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/microcks-on-kind/</guid>
+      <description>I&amp;rsquo;m still on housekeeping duty! I went through my notes on installing Microcks on Kind and decided to refresh them. Network and Ingress configuration here is actually easier than in the Minikube setup.
+This installation notes were ran on my Apple Mac book M2 but those steps would sensibly be the same on any Linux machine. Let&amp;rsquo;s go 🚀
+Preparation As a Mac user, I used brew to install kind. However, it is also available from several different package managers out there.</description>
+    </item>
+    
     <item>
       <title>Microcks on Minikube 🧊</title>
       <link>https://microcks.io/blog/microcks-on-minikube/</link>
