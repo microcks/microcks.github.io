@@ -53,7 +53,7 @@
 <meta itemprop="name" content="Microcks Service Accounts">
 <meta itemprop="description" content="Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak."><meta itemprop="datePublished" content="2019-09-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-07-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="583">
+<meta itemprop="wordCount" content="629">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Microcks Service Accounts"/>
 <meta name="twitter:description" content="Microcks Service Accounts Introduction Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple OAuth 2.0 Client Credentials Grant in addition of other grants. This authentication is implemented using Service Accounts clients defined into the Realm configuration in Keycloak."/>
@@ -281,6 +281,10 @@ var trackOutboundLink = function(id, url) {
 <p><img src="/images/service-account-credentials.png" alt="service-account-credentials"></p>
 <p>Finally, in order to operate correctly, Service Account should have role assigned. The default account comes with the <code>user</code> role defined into the main <code>microcks-app</code> OpenId client that matches to the main Microcks component:</p>
 <p><img src="/images/service-account-roles.png" alt="service-account-roles"></p>
+<blockquote>
+<p>If you want to use the <code>Service Account</code> for DevOps pipelines, with the <a href="./cli.md">Microcks Cli</a> for example, you have to give it more priviledges.<br>
+On the role page in Keycloack, click on the <strong>Assign role</strong> button, filter roles by clients and pick the <strong><em>microcks-app</em> manager</strong> role.</p>
+</blockquote>
 <h3 id="using-service-account">Using Service Account</h3>
 <p>In Microcks, the default <code>microcks-serviceaccount</code> is used by internal components when communicating with the main Microcks webapp that is holding API. So be careful before changing its credentials and do not delete it!</p>
 <p>However, you can create as many other <code>Service Accounts</code> as you may have CI/CD pipelines, CLI users or integration with your own solutions.</p>
