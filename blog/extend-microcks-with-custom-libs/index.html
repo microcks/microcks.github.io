@@ -272,7 +272,11 @@ var trackOutboundLink = function(id, url) {
     <div class="w-60-l w-70-m w-90-xs center">
       <div class="prose pv3 f4" id="prose"><p>With the recent Microcks <code>1.8.1</code> version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via <a href="https://testcontainers.com/modules/microcks/">Testcontainers</a>. But, in my humble opinion, a standout feature demands your attention. Introduced in <code>1.8.0</code> (see <a href="https://github.com/microcks/microcks/issues/897">#897</a>) and now completed with <code>1.8.1</code> (see <a href="https://github.com/microcks/microcks/issues/966">#966</a>), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!</p>
 <p><img src="/images/blog/cnam-extend-microcks-with-custom-libs-feature.png" alt="microcks-feature"></p>
-<p>Defining and helping to ship this feature was the first contribution <a href="https://assurance-maladie.ameli.fr/qui-sommes-nous">the CNAM</a> - the French National Healthcare System - initiated with the Microcks community. <strong>As adopters with a huge patrimony of mocks, we needed a way to customize some behaviors in a very scalable way.</strong> Collaborating with the Microcks maintainers was an enriching experience that led to this post and a second one that will unveil more details on how we use the solution.</p>
+<p>Defining and helping to ship this feature was the first contribution <a href="https://assurance-maladie.ameli.fr/qui-sommes-nous">the CNAM</a> - the French National Healthcare System - initiated with the Microcks community.</p>
+<blockquote>
+<p>As adopters with <strong>a huge patrimony of mocks</strong>, we needed a way to <strong>customize some behaviors in a very scalable way.</strong></p>
+</blockquote>
+<p>Collaborating with the Microcks maintainers was an enriching experience that led to this post and a second one that will unveil more details on how we use the solution.</p>
 <p>This post is written as a walkthrough, to expose Microcks extension capabilities and demonstrate them using some samples. By the end of this tour, you should be able to apply your customizations and figure out the possibilities it offers. We will also share some thoughts on whether engaging with structural customizations may be appropriate (or not).</p>
 <p>Without waiting, let’s go ahead!</p>
 <h2 id="extension-capabilities">Extension capabilities</h2>
