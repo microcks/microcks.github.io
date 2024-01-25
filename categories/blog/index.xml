@@ -6,7 +6,16 @@
     <description>Recent content in blog on Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extend Microcks with custom libs and code</title>
+      <link>https://microcks.io/blog/extend-microcks-with-custom-libs/</link>
+      <pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://microcks.io/blog/extend-microcks-with-custom-libs/</guid>
+      <description>With the recent Microcks 1.8.1 version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via Testcontainers. But, in my humble opinion, a standout feature demands your attention. Introduced in 1.8.0 (see #897) and now completed with 1.8.1 (see #966), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!</description>
+    </item>
+    
     <item>
       <title>Microcks 1.8.1 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.8.1-release/</link>

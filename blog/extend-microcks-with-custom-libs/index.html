@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Source+Sans+Pro:300,700&display=swap" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title> Extend Microcks with custom libs and code | Microcks.io</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.90.1" />
+
+      
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/output/css/app.min.1458e95ab948da3cd07bca1fa2614cf04ce5addde65134332fa8fe5fb6fd3e1c.css" integrity="sha256-FFjpWrlI2jzQe8ofomFM8Ezlrd3mUTQzL6j&#43;X7b9Phw=" crossorigin="anonymous"> 
+          
+    
+
+
+    
+
+    
+  <script type="text/javascript" src="/output/js/app.1caa725adf6b3c0d83460e78ce17051642a329cbe9222b7eccefa8def7cd7559.js" integrity="sha256-HKpyWt9rPA2DRg54zhcFFkKjKcvpIit&#43;zO&#43;o3vfNdVk=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Extend Microcks with custom libs and code" />
+<meta property="og:description" content="With the recent Microcks 1.8.1 version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via Testcontainers. But, in my humble opinion, a standout feature demands your attention. Introduced in 1.8.0 (see #897) and now completed with 1.8.1 (see #966), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microcks.io/blog/extend-microcks-with-custom-libs/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-24T00:00:00+00:00" />
+
+
+      <meta name="og:image" content="https://microcks.io/images/blog/cnam-extend-microcks-with-custom-libs-feature.png"/>
+      <meta property="og:image" content="https://microcks.io/images/blog/cnam-extend-microcks-with-custom-libs-feature.png"/>
+      <meta itemprop="name" content="Extend Microcks with custom libs and code">
+<meta itemprop="description" content="With the recent Microcks 1.8.1 version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via Testcontainers. But, in my humble opinion, a standout feature demands your attention. Introduced in 1.8.0 (see #897) and now completed with 1.8.1 (see #966), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!"><meta itemprop="datePublished" content="2024-01-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-01-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2210">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Extend Microcks with custom libs and code"/>
+<meta name="twitter:description" content="With the recent Microcks 1.8.1 version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via Testcontainers. But, in my humble opinion, a standout feature demands your attention. Introduced in 1.8.0 (see #897) and now completed with 1.8.1 (see #966), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!"/>
+
+      <meta name="twitter:image" content="https://microcks.io/images/blog/cnam-extend-microcks-with-custom-libs-feature.png"/>
+      <meta property="twitter:image" content="https://microcks.io/images/blog/cnam-extend-microcks-with-custom-libs-feature.png"/>
+      
+
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9TK2NJ5V4J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  
+  gtag('config', 'G-9TK2NJ5V4J', {'dimension1': 'microcks.io', 'dimension2': ''});
+
+
+
+var trackOutboundLink = function(id, url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': id,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+</script>
+
+      
+      
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light production">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <img src="/images/microcks-round.png" class="logo-img dn-ns dn-xs dib-l">
+
+    <h1 class="dim f2 lh-solid mr0 ml6-l ml2-ns pl3-ns ml3-xs mv0 fem">
+      <a href="https://microcks.io" class="link white">
+        MICROCKS
+      </a>
+    </h1>
+    
+    <ul class="list ma0 pa0 dn dib-l ml-auto-l">
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/news/" class="dim link light-silver">
+            NEWS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/documentation/" class="dim link light-silver">
+            DOCS
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/blog/" class="dim link light-silver">
+            BLOG
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/resources/" class="dim link light-silver">
+            RESOURCES
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="/community/" class="dim link light-silver">
+            COMMUNITY
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4 fem" role="menuitem">
+            
+          <a href="https://github.com/microcks/microcks" class="dim link light-silver">
+            GITHUB
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3 pl4-ns pl2-xs"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white fem" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+
+</div>
+
+    <span class="absolute mt0 pr3 right-0 top-0">
+<a href="https://github.com/microcks" class="github-corner hidden-md-down" aria-label="View source on Github" rel="nofollow" target="_blank">
+  <svg width="74" height="74" viewBox="0 0 250 250" style="fill:#fff;z-index:2000;color:#1a3932;mix-blend-mode:screen;position:absolute;top:0;border:0;right:0" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7
+      120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+      125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6
+      C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0
+      C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+      C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4
+      C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9
+      C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+      C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9
+      L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+    </path>
+  </svg>
+</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+
+<section class="cf ph4 pv3 pv3-ns bg-white">
+  <div class="w-60 w-70-m w-90-xs center tc tc-ns pv3">
+    <h1 class="primary-color-dark">Extend Microcks with custom libs and code</h1>
+  </div>
+  <div class="w-60-l w-70-m w-90-xs center">
+    <div class="flex-ns flex-wrap">
+      <div class="w-10 w-40-xs">
+        <img src="/images/blog/bio/sfraigneau.png" alt="Extend Microcks with custom libs and code" class="br4" style="width: 48px">  
+      </div>
+      <div class="w-40 w-70-xs">
+        <div class="f6 pv2" style="vertical-align: super;">
+          <b>Sébastien Fraigneau</b> 
+          (
+              <a href="https://linkedin.com/in/s%c3%a9bastien-fraigneau-82826a2" class="home-link">LinkedIn</a> )
+          <br/> Senior Software Engineer at CNAM - on Jan 24, 2024
+        </div>
+      </div>
+      <div class="w-50 w-90-xs tr">
+        
+
+
+
+<a class="resp-sharing-button__link" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmicrocks.io%2fblog%2fextend-microcks-with-custom-libs%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fmicrocks.io%2fblog%2fextend-microcks-with-custom-libs%2f&amp;text=Extend%20Microcks%20with%20custom%20libs%20and%20code&amp;via=MicrocksIO" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fmicrocks.io%2fblog%2fextend-microcks-with-custom-libs%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fmicrocks.io%2fblog%2fextend-microcks-with-custom-libs%2f&amp;resubmit=true&amp;title=Extend%20Microcks%20with%20custom%20libs%20and%20code" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex-ns flex-wrap">
+    <div class="w-60-l w-70-m w-90-xs center">
+      <div class="prose pv3 f4" id="prose"><p>With the recent Microcks <code>1.8.1</code> version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via <a href="https://testcontainers.com/modules/microcks/">Testcontainers</a>. But, in my humble opinion, a standout feature demands your attention. Introduced in <code>1.8.0</code> (see <a href="https://github.com/microcks/microcks/issues/897">#897</a>) and now completed with <code>1.8.1</code> (see <a href="https://github.com/microcks/microcks/issues/966">#966</a>), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!</p>
+<p><img src="/images/blog/cnam-extend-microcks-with-custom-libs-feature.png" alt="microcks-feature"></p>
+<p>Defining and helping to ship this feature was the first contribution <a href="https://assurance-maladie.ameli.fr/qui-sommes-nous">the CNAM</a> - the French National Healthcare System - initiated with the Microcks community. <strong>As adopters with a huge patrimony of mocks, we needed a way to customize some behaviors in a very scalable way.</strong> Collaborating with the Microcks maintainers was an enriching experience that led to this post and a second one that will unveil more details on how we use the solution.</p>
+<p>This post is written as a walkthrough, to expose Microcks extension capabilities and demonstrate them using some samples. By the end of this tour, you should be able to apply your customizations and figure out the possibilities it offers. We will also share some thoughts on whether engaging with structural customizations may be appropriate (or not).</p>
+<p>Without waiting, let’s go ahead!</p>
+<h2 id="extension-capabilities">Extension capabilities</h2>
+<p>At the core of Microcks’ mocking engine are <a href="https://microcks.io/documentation/using/advanced/dispatching/">Dispatchers</a>. They are the pieces of logic that allow to match incoming requests and find the appropriate response. Dispatchers are generally deduced from your API artifacts, but they can be configured explicitly.</p>
+<p>The <code>SCRIPT</code> dispatcher is the most versatile and powerful to integrate custom dispatching logic in Microcks. The scripts can be written in <a href="https://www.groovy-lang.org/">Groovy</a> propose a very familiar syntax to Javascript users and come with an impressive number of built-in util features (JSON &amp; XML, URL fetching, etc). However, implementing advanced processing logic and duplicating it on several APIs and versions can be cumbersome when done in pure Groovy with simple scripts!</p>
+<p>That’s where our first extension capability comes into play, allowing you to easily reuse your own or third-party libraries across all your mocks. The use cases below have never been so easy thanks to this new capability:</p>
+<ul>
+<li>Parse and <strong>analyze some custom headers</strong> or message envelopes,</li>
+<li><strong>Gather external data to enrich</strong> your response with dynamic content,</li>
+<li><strong>Reuse rich datasets or decision engines</strong> for smarter responses,</li>
+<li><strong>Apply custom security validation</strong>.</li>
+</ul>
+<p>As a complement in <code>1.8.1</code>, an extension endpoint has also been added to the Asynchronous part of Microcks on what is called the <a href="https://microcks.io/documentation/installing/deployment-options/#architecture-for-async-api">async-minion</a>. You now can integrate Java libs as well to customize behavior. The first covered use-case is security mechanism customization when accessing external brokers like Kafka. Others will soon come (like supporting <a href="https://github.com/microcks/microcks/issues/879">different JMS implementations</a> for example).</p>
+<h3 id="exploring-the-demo-repository">Exploring the demo repository</h3>
+<p>We have set up a specific GitHub repository to illustrate those extension endpoints and capabilities. The <a href="https://github.com/microcks/api-lifecycle/tree/master/acme-lib">https://github.com/microcks/api-lifecycle/</a> repository now contains an <code>acme-lib</code> folder holding all the resources you need to understand and play with Microcks extensions. Let’s have a look at this repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nv">tree</span>
+<span class="o">===</span> <span class="nv">OUTPUT</span> <span class="o">===</span>
+.
+<span class="p">|</span>____Dockerfile.acme
+<span class="p">|</span>____Dockerfile.acme.minion
+<span class="p">|</span>____README.md
+<span class="p">|</span>____config
+<span class="p">|</span> <span class="p">|</span>____features.properties
+<span class="p">|</span> <span class="p">|</span>____application.properties
+<span class="p">|</span>____docker-compose-acme.yml
+<span class="p">|</span>____docker-compose-acme-async.yml
+<span class="p">|</span>____docker-compose-mount.yml
+<span class="p">|</span>____docker-compose-mount-async.yml
+<span class="p">|</span>____podman-compose-mount.yml
+<span class="p">|</span>____lib
+<span class="p">|</span> <span class="p">|</span>____acme-lib-0.0.1-SNAPSHOT.jar
+<span class="p">|</span>____src
+<span class="p">|</span> <span class="p">|</span>____main
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____java
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____org
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____acme
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____lib
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____CustomAuthenticateCallbackHandler.java
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____Greeting.java
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____groovy
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____org
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____acme
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____lib
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>____GroovyGreeting.groovy
+</code></pre></div><p>As a starting point, you may check the <code>src/main/java</code> or <code>src/main/groovy</code> folders where is living our sample utilities:</p>
+<ul>
+<li><a href="https://github.com/microcks/api-lifecycle/blob/master/acme-lib/src/main/java/org/acme/lib/Greeting.java"><code>org.acme.lib.Greeting.java</code></a> is just a Java class that holds a greeting logic in a <code>greet()</code> method,</li>
+<li><a href="https://github.com/microcks/api-lifecycle/blob/master/acme-lib/src/main/groovy/org/acme/lib/GroovyGreeting.groovy"><code>org.acme.lib.GroovyGreeting.groovy</code></a> is a Groovy class that holds a greeting logic in a <code>greet()</code> method,</li>
+<li><a href="https://github.com/microcks/api-lifecycle/blob/master/acme-lib/src/main/java/org/acme/lib/CustomAuthenticateCallbackHandler.java"><code>org.acme.lib.CustomAuthenticateCallbackHandler.java</code></a> is a Java Authentication callback handler that may be used in an OAuth authentication flow.</li>
+</ul>
+<p>To simplify things, those resources have been compiled and packaged into a JAR file in the <code>lib</code> folder.</p>
+<p>This repository also contains several <code>Dockerfile</code> or <code>docker-compose</code> files that will be used to illustrate the extension of Microcks using this library. Some <code>docker-compose</code> files will also use the properties files from the <code>config</code> folder.</p>
+<h2 id="main-component-extension">Main component extension</h2>
+<p>Let’s start with Microcks’ main component extension for reusing our library from the <code>SCRIPT</code> dispatcher.</p>
+<h3 id="simple-docker-compose-mount">Simple docker-compose mount</h3>
+<p>The first way of doing things is very convenient when you’re having a local evaluation of Microcks using the <a href="https://microcks.io/documentation/installing/docker-compose/">Docker-compose installation</a>. The local <code>lib</code> folder is simply mounted within the image <code>/deployments/lib</code> directory and additional <code>JAVA_*</code> environment variables are set to load all the JARs found at this location.</p>
+<p>See it in action by starting this configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-mount.yml up -d
+</code></pre></div><p>You should have two containers running (<code>microcks</code> and <code>microcks-db</code>) at that point. You can use the application by opening your browser to <a href="http://localhost:8080">http://localhost:8080</a> - or change the port in the compose file if already used.</p>
+<p>For a simple illustration, you may use one of <a href="https://microcks.io/documentation/getting-started/#loading-samples-using-importers">Microcks samples</a> such as the <code>Pastry API</code>. Once loaded, you’ll need to edit the properties of the <code>GET /pastries</code> operation to access the <a href="https://microcks.io/documentation/using/advanced/dispatching/#dispatching-rules-override">section allowing you to configure the dispatching rules</a>. Choose the <code>SCRIPT</code> dispatcher from the list and paste this simple script as new DIspatcher rules:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="kt">def</span> <span class="n">java</span> <span class="o">=</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">acme</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">Greeting</span><span class="o">();</span>
+<span class="kt">def</span> <span class="n">groovy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">acme</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">GroovyGreeting</span><span class="o">();</span>
+
+<span class="n">log</span><span class="o">.</span><span class="na">info</span> <span class="n">java</span><span class="o">.</span><span class="na">greet</span><span class="o">(</span><span class="s2">&#34;World&#34;</span><span class="o">)</span>
+<span class="n">log</span><span class="o">.</span><span class="na">info</span> <span class="n">groovy</span><span class="o">.</span><span class="na">greet</span><span class="o">(</span><span class="s2">&#34;My Dear&#34;</span><span class="o">)</span>
+
+<span class="k">return</span> <span class="s2">&#34;pastries_json&#34;</span>
+</code></pre></div><p>This Groovy script will just illustrate the reuse of both the Java and Groovy classes - printing greeting information to the Microcks logs.</p>
+<p>Once you have saved your changes, you can invoke the Microcks mock using a command like this one.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">curl -X GET <span class="s1">&#39;http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry&#39;</span> -H <span class="s1">&#39;Accept: application/json&#39;</span>
+</code></pre></div><p>You may then inspect the logs of the running <code>microcks</code> container and see this kind of log traces:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">08:47:26.491 DEBUG <span class="m">1</span> --- <span class="o">[</span>80-exec-10<span class="o">]</span> i.github.microcks.web.RestController     : Found a valid operation GET /pastry with rules: def <span class="nv">java</span> <span class="o">=</span> new org.acme.lib.Greeting<span class="o">()</span><span class="p">;</span>
+def <span class="nv">groovy</span> <span class="o">=</span> new org.acme.lib.GroovyGreeting<span class="o">()</span><span class="p">;</span>
+
+log.info java.greet<span class="o">(</span><span class="s2">&#34;World&#34;</span><span class="o">)</span>
+log.info groovy.greet<span class="o">(</span><span class="s2">&#34;My Dear&#34;</span><span class="o">)</span>
+
+<span class="k">return</span> <span class="s2">&#34;pastries_json&#34;</span>
+08:47:27.272  INFO <span class="m">1</span> --- <span class="o">[</span>80-exec-10<span class="o">]</span> i.g.m.util.script.ScriptEngineBinder     : Hello World!
+08:47:27.279  INFO <span class="m">1</span> --- <span class="o">[</span>80-exec-10<span class="o">]</span> i.g.m.util.script.ScriptEngineBinder     : Groovy My Dear!
+08:47:27.279 DEBUG <span class="m">1</span> --- <span class="o">[</span>80-exec-10<span class="o">]</span> i.github.microcks.web.RestController     : Dispatch criteria <span class="k">for</span> finding response is pastries_json
+</code></pre></div><p>Hooray! It works!  🎉 It demonstrates that Microcks can load arbitrary Java libraries and run them within your dispatching script. This sample is very basic but thanks to the huge Java ecosystem and Microcks features like request <a href="https://microcks.io/documentation/using/advanced/templates/#context-expression">context injection and response templating</a>, you have many possibilities!</p>
+<p>You can now safely stop the containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-mount.yml down
+</code></pre></div><blockquote>
+<p>In the same way, you may want to use <a href="https://microcks.io/documentation/installing/podman-compose/">Podman</a> to run the microcks container with external libs. See it in action by starting this configuration:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">podman pod create --name<span class="o">=</span>pod_microcks --infra<span class="o">=</span><span class="nb">true</span> --share<span class="o">=</span>net
+podman-compose --in-pod microcks -f <span class="s2">&#34;podman-compose-mount.yml&#34;</span> up -d
+</code></pre></div><h3 id="building-a-custom-image">Building a custom image</h3>
+<p>Once happy with your library integration test, the next natural step would be to package everything as a custom immutable container image. That way, you can safely deploy it to your Kubernetes environments or even provide it to your developers using Microcks via the Testcontainers module.</p>
+<p>For this, start writing this simple Dockerfile, extending the Microcks official image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> quay.io/microcks/microcks:1.8.1</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Copy libraries jar files</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> lib /deployments/lib<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">JAVA_OPTIONS</span><span class="o">=</span>-Dloader.path<span class="o">=</span>/deployments/lib<span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">JAVA_MAIN_CLASS</span><span class="o">=</span>org.springframework.boot.loader.PropertiesLauncher<span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">JAVA_APP_JAR</span><span class="o">=</span>app.jar<span class="err">
+</span></code></pre></div><p>We have simply reproduced what was done through the docker-compose previously: copying all the JAR files from <code>lib</code> and then setting JAVA environment variables. You may build your image with the <code>acme/microcks-ext:nightly</code> tag.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker build -f Dockerfile.acme -t acme/microcks-ext:nightly .
+</code></pre></div><p>For a local test of your image, you can now run the <code>docker-compose-acme.yml</code> configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-acme.yml up -d
+</code></pre></div><p>If you have run the previous “Simple docker-compose mount” step, you don’t have anything to change as you’re reusing the same database. Otherwise, load the <code>Pastry API</code> sample and apply the configuration of the previous section.</p>
+<p>Invoke your mock operations with the previous command as well and check the results in the logs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">08:39:01.062 DEBUG <span class="m">1</span> --- <span class="o">[</span>080-exec-6<span class="o">]</span> i.github.microcks.web.RestController     : Found a valid operation GET /pastry with rules: def <span class="nv">java</span> <span class="o">=</span> new org.acme.lib.Greeting<span class="o">()</span><span class="p">;</span>
+def <span class="nv">groovy</span> <span class="o">=</span> new org.acme.lib.GroovyGreeting<span class="o">()</span><span class="p">;</span>
+
+log.info java.greet<span class="o">(</span><span class="s2">&#34;World&#34;</span><span class="o">)</span>
+log.info groovy.greet<span class="o">(</span><span class="s2">&#34;My Dear&#34;</span><span class="o">)</span>
+
+<span class="k">return</span> <span class="s2">&#34;pastries_json&#34;</span>
+08:39:01.433  INFO <span class="m">1</span> --- <span class="o">[</span>080-exec-6<span class="o">]</span> i.g.m.util.script.ScriptEngineBinder     : Hello World!
+08:39:01.437  INFO <span class="m">1</span> --- <span class="o">[</span>080-exec-6<span class="o">]</span> i.g.m.util.script.ScriptEngineBinder     : Groovy My Dear!
+08:39:01.438 DEBUG <span class="m">1</span> --- <span class="o">[</span>080-exec-6<span class="o">]</span> i.github.microcks.web.RestController     : Dispatch criteria <span class="k">for</span> finding response is pastries_json
+</code></pre></div><p>Fantastic! 🚀 You now have a Microcks distribution customized with your extension available for all the mock services you will deploy!</p>
+<p>You can now safely stop the containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-acme.yml down
+</code></pre></div><blockquote>
+<p>In a real Enterprise environment, it would be better to directly fetch the versioned library from an Enterprise Artifact repository like a Maven-compatible one. This would allow you to have reproducible builds of your custom image. It’s usually just a matter of adding a <code>curl</code> command to your Dockerfile:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="o">[</span>...<span class="o">]</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> curl -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">REPOSITORY_URL</span><span class="si">}</span><span class="s2">&#34;</span>/<span class="si">${</span><span class="nv">libname</span><span class="si">}</span>/<span class="si">${</span><span class="nv">version</span><span class="si">}</span>/<span class="si">${</span><span class="nv">libname</span><span class="si">}</span>-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.jar -o <span class="si">${</span><span class="nv">LIBDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">libname</span><span class="si">}</span>-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.jar<span class="err">
+</span><span class="err"></span><span class="o">[</span>...<span class="o">]</span><span class="err">
+</span></code></pre></div><h2 id="async-minion-extension">Async Minion extension</h2>
+<p>In this second part, we are exploring the extension capabilities of the async-minion component. It is an optional component that deals with all the Async API-related features in Microcks. We will extend it with a custom authentication callback handler for connecting to a Kafka broker.</p>
+<h3 id="simple-docker-compose-mount-1">Simple docker-compose mount</h3>
+<p>Here again, a very convenient way to start up is to use the <a href="https://microcks.io/documentation/installing/docker-compose/">Docker-compose installation</a>. Contrary to the main component, the image <code>/deployments/lib</code> directory is already used for its purpose. So here, we will mount the local <code>lib</code> folder into <code>/deployments/lib-ext</code>. We must also to set an additional <code>JAVA_CLASSPATH</code> environment variable referencing this location.</p>
+<p>See it in action by starting this configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-mount-async.yml up -d
+</code></pre></div><p>In this configuration, we will have four containers running - with additional <code>microcks-async-minion</code> and <code>microcks-kafka</code> corresponding to a Kafka broker:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker <span class="nv">ps</span>
+<span class="o">===</span> <span class="nv">OUTPUT</span> <span class="o">===</span>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
+5d314d3bf8b0   quay.io/microcks/microcks-async-minion:nightly   <span class="s2">&#34;/deployments/run-ja…&#34;</span>   <span class="m">5</span> seconds ago   Up <span class="m">1</span> second    8080/tcp, 0.0.0.0:8081-&gt;8081/tcp                                            microcks-async-minion
+052dd9777229   quay.io/microcks/microcks:nightly                <span class="s2">&#34;/deployments/run-ja…&#34;</span>   <span class="m">6</span> seconds ago   Up <span class="m">5</span> seconds   0.0.0.0:8080-&gt;8080/tcp, 8778/tcp, 0.0.0.0:9090-&gt;9090/tcp, 9779/tcp          microcks
+5ec66cc0910d   mongo:3.6.23                                     <span class="s2">&#34;docker-entrypoint.s…&#34;</span>   <span class="m">6</span> seconds ago   Up <span class="m">5</span> seconds   27017/tcp                                                                   microcks-db
+ca98a4b0ed9e   vectorized/redpanda:v22.2.2                      <span class="s2">&#34;/entrypoint.sh redp…&#34;</span>   <span class="m">6</span> seconds ago   Up <span class="m">5</span> seconds   8081-8082/tcp, 0.0.0.0:9092-&gt;9092/tcp, 9644/tcp, 0.0.0.0:19092-&gt;19092/tcp   microcks-kafka
+</code></pre></div><p>In this extension use case, our custom callback handler class (<a href="https://github.com/microcks/api-lifecycle/blob/master/acme-lib/src/main/java/org/acme/lib/CustomAuthenticateCallbackHandler.java"><code>org.acme.lib.CustomAuthenticateCallbackHandler.java</code></a>) is directly included in the async-minion configuration file. You may check <a href="https://github.com/microcks/api-lifecycle/blob/master/acme-lib/config/application.properties#L26">this line</a> of the <code>application.properties</code> local file.</p>
+<p>Our callback handler implementation just adds a <code>Handling the callback...</code> log message when being invoked. You may then inspect the logs of the running <code>microcks-async-minion</code> container and see this kind of log trace:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">2024-01-09 12:46:08,568 INFO  <span class="o">[</span>io.sma.rea.mes.kafka<span class="o">]</span> <span class="o">(</span>main<span class="o">)</span> SRMSG18229: Configured topics <span class="k">for</span> channel <span class="s1">&#39;microcks-services-updates&#39;</span>: <span class="o">[</span>microcks-services-updates<span class="o">]</span>
+Handling the callback...
+2024-01-09 12:46:08,641 INFO  <span class="o">[</span>org.apa.kaf.com.sec.oau.int.exp.ExpiringCredentialRefreshingLogin<span class="o">]</span> <span class="o">(</span>smallrye-kafka-consumer-thread-0<span class="o">)</span> Successfully logged in.
+</code></pre></div><p>Cool! 😎 We got it working here again! It demonstrates that Microcks async-minion can load arbitrary Java libraries and include them in the runtime. This sample is still basic but it happens to many more complex use cases, including specific broker implementations or future customization on mock messages sending or contract-testing process.</p>
+<p>You can now safely stop the containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-mount-async.yml down
+</code></pre></div><h3 id="building-a-custom-image-1">Building a custom image</h3>
+<p>Finally, you may want to package a custom immutable container image for easily distributing this extended async-minion component.</p>
+<p>For this, start writing this simple Dockerfile, extending the Microcks official image. Notice that here, we can reuse the <code>/deployments/lib</code> location as we’re not going to replace existing libs but augment them with our <code>acme-lib-0.0.1-SNAPSHOT.jar</code> file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> quay.io/microcks/microcks-async-minion:1.8.1</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Copy libraries jar files</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> lib /deployments/lib<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">JAVA_CLASSPATH</span><span class="o">=</span>/deployments/*:/deployments/lib/*<span class="err">
+</span></code></pre></div><p>We have also set the <code>JAVA_CLASSPATH</code> to force the discovery of this new JAR file. You may then build your image with the <code>acme/microcks-async-minion-ext:nightly</code> tag.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker build -f Dockerfile.acme.minion -t acme/microcks-async-minion-ext:nightly .
+</code></pre></div><p>For a local test of your image, you can now run the <code>docker-compose-acme-async.yml</code> configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-acme-async.yml up -d
+</code></pre></div><p>If you have run the previous “Simple docker-compose mount” step, you know how our custom callback handler is misconfigured and what is supposed to do 😉</p>
+<p>Check the results in the async-minion component logs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">2024-01-09 09:09:22,399 INFO  <span class="o">[</span>io.sma.rea.mes.kafka<span class="o">]</span> <span class="o">(</span>main<span class="o">)</span> SRMSG18229: Configured topics <span class="k">for</span> channel <span class="s1">&#39;microcks-services-updates&#39;</span>: <span class="o">[</span>microcks-services-updates<span class="o">]</span>
+Handling the callback...
+2024-01-09 09:09:22,566 INFO  <span class="o">[</span>org.apa.kaf.com.sec.oau.int.exp.ExpiringCredentialRefreshingLogin<span class="o">]</span> <span class="o">(</span>smallrye-kafka-consumer-thread-0<span class="o">)</span> Successfully logged in.
+</code></pre></div><p>It’s packed! 📦 You know how to extend and package a customized Microcks distribution fully! The new container images you produced can easily be reused via our Kubernetes Helm charts or Operator.</p>
+<p>You can now safely stop the containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker-compose -f docker-compose-acme-async.yml down
+</code></pre></div><h2 id="wrap-up">Wrap-up</h2>
+<p>In this post, we walked through a new feature of Microcks <code>1.8.1</code> that brings extension capabilities. You’ve learned how to integrate private or third-party Java libraries to customize the behavior of Microcks during mock invocation or when integrating with external brokers.</p>
+<p><strong>These capabilities pave the way for advanced use cases like the processing of common message structures or the dynamic enrichments of datasets to produce the smartest mocks.</strong> We’ll certainly have the opportunity to delve into more details of what we’ve done at <a href="https://assurance-maladie.ameli.fr/qui-sommes-nous">the CNAM</a> in a future blog post 😉</p>
+<p>As a final note, I’d like to add some caution when proceeding with extensions. Remember that mocks must have two important characteristics: they must be <strong>quick to set up</strong> and <strong>easy to understand</strong>. They play an important role in easing the communication between providers and consumers and building a shared knowledge of a Service interface and behavior. Going into very complex customization - you know: this dream of a universal, dynamic, automated approach for everything - can make you lose sight of these goals!</p>
+<p>So stay lightweight, with easy-to-explain, clearly scoped extensions, and do not hesitate to ask for help from the Microcks community!</p>
+</div>
+      
+      
+      <div class="pv4">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "microcks-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/microcks/microcks/graphs/contributors" class="link">Microcks Authors</a><br />
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/yadayac" class="dim link light-gray pv2">@YadaYac</a></li>
+          </ul>
+
+          
+
+      </div>
+
+       
+      
+      <div class="pb3 pt4 w-100 w-50-ns">
+        <div class="b f3 light-gray mb3 nested-links tc">
+          Join our <a href="https://microcksio.zulipchat.com" target="new" class="link">Zulip</a> or <a href="https://github.com/microcks/microcks/discussions" target="new" class="link">GitHub</a> community chats<br/>
+          <a href="https://microcksio.zulipchat.com" target="new"><img src="/images/zulip.png" class="center h3 br3 mt2"/></a>
+          <a href="https://github.com/microcks/microcks/discussions" target="new"><img src="/images/GitHub-Mark-Light-120px-plus.png" class="center h3 br2 mt2 pl4"/></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100">
+      <p class="dib mr4">
+        The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see <a class="gray" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a>. <br/>
+        Icons by Made x Made from the Noun Project.<br/>
+      </p>
+    </div>
+
+    
+    
+    
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/blog/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Blog
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/resources/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/community/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/microcks/microcks" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//using/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Using
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//installing/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Installing
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//automating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Automating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//administrating/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Administrating
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/documentation//guides/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Guides
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//resources/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Resources
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation//community/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Community
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between pt3-xs">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>
