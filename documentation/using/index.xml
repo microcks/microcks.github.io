@@ -1,198 +1,145 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Using on Microcks.io</title>
+    <title>Using on API Mocking and Testing | Microcks.io</title>
     <link>https://microcks.io/documentation/using/</link>
-    <description>Recent content in Using on Microcks.io</description>
+    <description>Recent content in Using on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Monitoring &amp; Observability</title>
-      <link>https://microcks.io/documentation/using/advanced/monitoring/</link>
-      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/advanced/monitoring/</guid>
-      <description>Introduction As a cloud-native application, we take great care of providing observability on what&amp;rsquo;s going on within a Microcks instance. We dissociate two kinds of metrics: the Functional metrics are related to all the domain objects you may find in Microcks and the Technical metrics that are related to resource consumption and performance.
-Functional metrics Microcks provides functional metrics directly from within its own API. This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics.</description>
-    </item>
-    
-    <item>
-      <title>Swagger Mocking and Testing</title>
-      <link>https://microcks.io/documentation/using/swagger/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/swagger/</guid>
-      <description>Overview Introduction Despite its 7+ years old, Swagger (aka as OpenAPI v2) is still a very popular specification format for REST APIs. Eventhough its OpenAPI v3 descendant is now well established and provides more comprehensive way of describing things, Swagger v2 is still very present.
-Starting with version 1.5.1, Microcks is supporting Sxwagger mocking and testing thanks to the new multi-artifacts support feature. In order to use Swagger in Microcks, you will need 2 artifacts for each API definition:</description>
-    </item>
-    
-    <item>
-      <title>GraphQL Mocking and Testing</title>
-      <link>https://microcks.io/documentation/using/graphql/</link>
-      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/graphql/</guid>
-      <description>Overview Introduction GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. So that&amp;rsquo;s a perfect fit for Microcks Service | API model and features 😉</description>
-    </item>
-    
-    <item>
-      <title>Microcks APIMetadata</title>
-      <link>https://microcks.io/documentation/using/advanced/metadata/</link>
-      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/advanced/metadata/</guid>
-      <description>Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by manager within Microcks either using the UI or through the Microcks API. That&amp;rsquo;s the reason why we introduced OpenAPI extensions and AsyncAPI extensions starting with Microcks 1.4.0 release.
-But sometimes you don&amp;rsquo;t want to add some x-microcks extensions attributes into AsyncAPI / OpenAPI document OR you&amp;rsquo;d need to specify these metadata and properties for some other artifact types like Protobuf + Postman collection for GRPC mocking for instance 😉.</description>
-    </item>
-    
-    <item>
-      <title>gRPC Mocking and Testing</title>
-      <link>https://microcks.io/documentation/using/grpc/</link>
-      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/grpc/</guid>
-      <description>Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. So that&amp;rsquo;s a perfect fit for Microcks Service | API model and features 😉</description>
-    </item>
-    
-    <item>
-      <title>AsyncAPI Mocking and Testing</title>
-      <link>https://microcks.io/documentation/using/asyncapi/</link>
-      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/asyncapi/</guid>
-      <description>Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!</description>
-    </item>
-    
-    <item>
-      <title>Organizing repository</title>
-      <link>https://microcks.io/documentation/using/advanced/organizing/</link>
-      <pubDate>Sun, 22 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/advanced/organizing/</guid>
-      <description>Introduction You can manage labels upon APIs &amp;amp; Services present into your Microcks repository.
-Generally speaking, labels are key/value pairs that are attached to objects, such as APIs &amp;amp; Services or Importer Jobs. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of APIs &amp;amp; Services.</description>
-    </item>
-    
-    <item>
-      <title>Dispatcher &amp; dispatching rules</title>
-      <link>https://microcks.io/documentation/using/advanced/dispatching/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/advanced/dispatching/</guid>
-      <description>Introduction As explained into Using exposed mocks, Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
-However in some cases, this could not be enough and it will be useful to override these deduced values.</description>
-    </item>
-    
+    <language>en-US</language>
+    <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/using/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Importing Services &amp; APIs</title>
       <link>https://microcks.io/documentation/using/importers/</link>
-      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/using/importers/</guid>
-      <description>Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository. We&amp;rsquo;ve seen in this Getting Started section how to quickly load samples into the repository. This page will take you through a complete explanation of supported formats and the import mechanisms present in Microcks.
-Supported formats As previously introduced, Microcks &amp;ldquo;turns your API contract into live mocks in seconds&amp;rdquo; - the noticeable part of this sentence being API contract.</description>
+      <description>Introduction Once you get your Microcks instance up and running, the next step is to start adding some Services or APIs into its internal repository.</description>
     </item>
-    
-    <item>
-      <title>Templating mock responses</title>
-      <link>https://microcks.io/documentation/using/advanced/templates/</link>
-      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/advanced/templates/</guid>
-      <description>Introduction Whilst we deeply think that &amp;ldquo;real-world&amp;rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.
-Those use-case encompass:
- random numbers that may be defined in a range, today&amp;rsquo;s date or today&amp;rsquo;s + an amount of time (for validity date for example), response part expressed from request part (body part, header, query param)  Thus, we introduced in Microcks 0.</description>
-    </item>
-    
-    <item>
-      <title>Advanced topics</title>
-      <link>https://microcks.io/documentation/using/advanced/</link>
-      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/advanced/</guid>
-      <description>Content negocation in REST mocks Microcks mocks engine supports Content Negotiation for REST APIs based on Accept HTTP header.
-So suppose you have defined 2 representations for the same example of a GET /pastry/{name} operation into your API contract:
- One describing a JSON response like below   Another describing a XML response like below  Both samples match the same dispatch criterion that is the name part of the URI.</description>
-    </item>
-    
     <item>
       <title>Comparison to alternatives</title>
       <link>https://microcks.io/documentation/using/alternatives/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/using/alternatives/</guid>
-      <description>Microcks vs. SoapUI Scope &amp;amp; Audience SoapUI is one of the oldest tool in the area but also one of the most popular. We like SoapUI for being simple to use and of great value because it lets functional experts to easily edit requests and responses samples. Specially when it relates to SOAP WebServices, SoapUI offers wizards, templates and validation that make correct editing of such samples a breeze. That&amp;rsquo;s why we currently rely on SoapUI for providing the contract artifacts as an input to Microcks.</description>
+      <description>Microcks vs. SoapUI Scope &amp;amp; Audience SoapUI is one of the oldest tool in the area but also one of the most popular.</description>
     </item>
-    
-    <item>
-      <title>Getting direct API</title>
-      <link>https://microcks.io/documentation/using/dynamic/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/dynamic/</guid>
-      <description>Creating direct API mocks Eventhough Microcks promotes a contract first approach for defining mocks, in real-life it may be difficult starting that way without a great maturity on API and Service contracts. You often need to play a bit with a fake API to really figure out their needs and how you should then design API contract. In order to help with this situation, Microcks offers the ability to dynamically generate an API that you may use as a sandbox.</description>
-    </item>
-    
     <item>
       <title>OpenAPI Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/openapi/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/using/openapi/</guid>
-      <description>Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects, Microcks provides direct support for OpenAPI 3.0 and 3.1.
-With this feature, you are able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during tests when using the OPEN_API_SCHEMA strategy.</description>
+      <description>Overview Introduction As OpenAPI emerges as an Open standard and provides way of defining Example Objects , Microcks provides direct support for OpenAPI 3.</description>
     </item>
-    
+    <item>
+      <title>Swagger Mocking and Testing</title>
+      <link>https://microcks.io/documentation/using/swagger/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/swagger/</guid>
+      <description>Overview Introduction Despite its 7+ years old, Swagger (aka as OpenAPI v2) is still a very popular specification format for REST APIs.</description>
+    </item>
+    <item>
+      <title>AsyncAPI Mocking and Testing</title>
+      <link>https://microcks.io/documentation/using/asyncapi/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/asyncapi/</guid>
+      <description>Overview Introduction AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA).</description>
+    </item>
     <item>
       <title>Postman usage for Microcks</title>
       <link>https://microcks.io/documentation/using/postman/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/using/postman/</guid>
-      <description>Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
-Steps for creating a repository In order to create a tests and mocks repository using Postman, you&amp;rsquo;ll need to follow the steps below:</description>
+      <description>Overview Pre-requisites Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions.</description>
     </item>
-    
+    <item>
+      <title>gRPC Mocking and Testing</title>
+      <link>https://microcks.io/documentation/using/grpc/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/grpc/</guid>
+      <description>Overview Introduction In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services.</description>
+    </item>
+    <item>
+      <title>GraphQL Mocking and Testing</title>
+      <link>https://microcks.io/documentation/using/graphql/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/graphql/</guid>
+      <description>Overview Introduction GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.</description>
+    </item>
     <item>
       <title>SoapUI Mocking and Testing</title>
       <link>https://microcks.io/documentation/using/soapui/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/using/soapui/</guid>
-      <description>Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
-Steps for creating a repository In order to create a tests and mocks repository using SoapUI, you&amp;rsquo;ll need to follow the steps below:
- Initialize a SoapUI project that will hold the repository, Create sample Tests Requests (and optionally the associated tests assertions), Create sample Mocks Responses, Define dispatching rules that describe how requests and responses are associated together, Save the project into your SCM repository.</description>
+      <description>Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.</description>
     </item>
-    
-    <item>
-      <title>Testing with Microcks</title>
-      <link>https://microcks.io/documentation/using/tests/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/using/tests/</guid>
-      <description>Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract. How can we effectively ensure this does not happen?
-Microcks offers mocks but can also be used for Contract conformance testing of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!</description>
-    </item>
-    
     <item>
       <title>Using exposed mocks</title>
       <link>https://microcks.io/documentation/using/mocks/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/using/mocks/</guid>
-      <description>Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI, AsyncAPI, gRPC, GraphQL, SoapUI or Postman and discovered how to import and browse content, you are ready to learn more about how to use mocks managed by Microcks.
-First, let&amp;rsquo;s have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :</description>
+      <description>Using exposed mocks Getting info on microservices mocks Well, now that you have installed Microcks, created your own API/Service repository using OpenAPI , AsyncAPI , gRPC , GraphQL , SoapUI or Postman and discovered how to import and browse content , you are ready to learn more about how to use mocks managed by Microcks.</description>
     </item>
-    
+    <item>
+      <title>Getting direct API</title>
+      <link>https://microcks.io/documentation/using/dynamic/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/dynamic/</guid>
+      <description>Creating direct API mocks Eventhough Microcks promotes a contract first approach for defining mocks, in real-life it may be difficult starting that way without a great maturity on API and Service contracts.</description>
+    </item>
+    <item>
+      <title>Testing with Microcks</title>
+      <link>https://microcks.io/documentation/using/tests/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/tests/</guid>
+      <description>Introduction It is likely you experienced the painful situation of deploying to production only to find out that an API service you integrate with has broken the contract.</description>
+    </item>
+    <item>
+      <title>Advanced topics</title>
+      <link>https://microcks.io/documentation/using/advanced/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/advanced/</guid>
+      <description>Content negocation in REST mocks Microcks mocks engine supports Content Negotiation for REST APIs based on Accept HTTP header.</description>
+    </item>
+    <item>
+      <title>Organizing repository</title>
+      <link>https://microcks.io/documentation/using/organizing/</link>
+      <pubDate>Sun, 22 Mar 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/organizing/</guid>
+      <description>Introduction You can manage labels upon APIs &amp;amp; Services present into your Microcks repository.</description>
+    </item>
+    <item>
+      <title>Templating mock responses</title>
+      <link>https://microcks.io/documentation/using/templates/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/templates/</guid>
+      <description>Introduction Whilst we deeply think that &amp;ldquo;real-world&amp;rdquo; static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response.</description>
+    </item>
+    <item>
+      <title>Dispatcher &amp; dispatching rules</title>
+      <link>https://microcks.io/documentation/using/dispatching/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/dispatching/</guid>
+      <description>Introduction As explained into Using exposed mocks , Microcks is using Dispatcher and Dispatching Rules for finding an appropriate response to return when receiving a mock request.</description>
+    </item>
+    <item>
+      <title>Microcks APIMetadata</title>
+      <link>https://microcks.io/documentation/using/metadata/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/metadata/</guid>
+      <description>Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI.</description>
+    </item>
+    <item>
+      <title>Monitoring &amp; Observability</title>
+      <link>https://microcks.io/documentation/using/monitoring/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/using/monitoring/</guid>
+      <description>Introduction As a cloud-native application, we take great care of providing observability on what&amp;rsquo;s going on within a Microcks instance.</description>
+    </item>
     <item>
       <title>Http Archive usage for Microcks</title>
       <link>https://microcks.io/documentation/using/har/</link>
-      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
-      
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/using/har/</guid>
-      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions. During this process, they curate the recording list and have to develop/automate the transformation of their captured data to other formats. We&amp;rsquo;d like to ease their pain and propose a more straightforward way using HTTP Archive Format (HAR).</description>
+      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions.</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,79 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Guides on Microcks.io</title>
+    <title>Guides on API Mocking and Testing | Microcks.io</title>
     <link>https://microcks.io/documentation/guides/</link>
-    <description>Recent content in Guides on Microcks.io</description>
+    <description>Recent content in Guides on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 06 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Tue, 06 Jun 2023 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
       <link>https://microcks.io/documentation/guides/openapi-101/</link>
-      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/guides/openapi-101/</guid>
-      <description>Overview This guide is a step-by-step walkthrough on how to use OpenAPI specification to specify your mocks for your API. This guide is a practical complement to OpenAPI usage for Microcks that brings more details on theory and conventions being used.
-In this guide, we will go through a practical example based on the famous PetStore API. We&amp;rsquo;ll build the reference petstore-1.0.0-openapi.yaml file by increment, highlighting the details to get you starting with mocking OpenAPI on Microcks.</description>
+      <description>Overview This guide is a step-by-step walkthrough on how to use OpenAPI specification to specify your mocks for your API.</description>
     </item>
-    
     <item>
-      <title>MQTT Mocking and Testing</title>
-      <link>https://microcks.io/documentation/guides/mqtt-support/</link>
-      <pubDate>Sun, 14 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/guides/mqtt-support/</guid>
-      <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
-Starting with the 1.2.0 release of Microcks, we support MQTT as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
-    </item>
-    
-    <item>
-      <title>Kafka, Avro and Schema Registry</title>
+      <title>Kafka, Avro &amp; Schema Registry</title>
       <link>https://microcks.io/documentation/guides/avro-messaging/</link>
-      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/guides/avro-messaging/</guid>
-      <description>Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka. You&amp;rsquo;ll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
-Starting with the 1.2.0 release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through AsyncAPI.</description>
+      <description>Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka .</description>
     </item>
-    
     <item>
-      <title>NATS Mocking and Testing</title>
-      <link>https://microcks.io/documentation/guides/nats-support/</link>
-      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/guides/nats-support/</guid>
-      <description>Overview This guide is a walkthrough on how to use a NATS protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the full list of clients.</description>
+      <title>MQTT Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/mqtt-support/</link>
+      <pubDate>Sun, 14 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/mqtt-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks.</description>
     </item>
-    
     <item>
-      <title>RabbitMQ Mocking and Testing</title>
+      <title>RabbitMQ Mocking &amp; Testing</title>
       <link>https://microcks.io/documentation/guides/rabbitmq-support/</link>
-      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-      
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/guides/rabbitmq-support/</guid>
-      <description>Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically AMQP 0.9.1, RabbitMQ was originally developed for.
-Starting with the 1.5.1 release of Microcks, we support RabbitMQ/AMQP as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.</description>
+      <description>Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks.</description>
     </item>
-    
     <item>
-      <title>Google Pub/Sub Mocking and Testing</title>
+      <title>NATS Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/nats-support/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/nats-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use a NATS protocol with Microcks.</description>
+    </item>
+    <item>
+      <title>Google Pub/Sub Mocking &amp; Testing</title>
       <link>https://microcks.io/documentation/guides/googlepubsub-support/</link>
-      <pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 08 Feb 2023 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/guides/googlepubsub-support/</guid>
-      <description>Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
-Starting with the 1.7.0 release of Microcks, we support Google Pub/Sub as a protocol binding for AsyncAPI. That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid AsyncAPI Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.</description>
+      <description>Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks.</description>
     </item>
-    
     <item>
-      <title>Amazon SQS/SNS Mocking and Testing</title>
+      <title>Amazon SQS/SNS Mocking &amp; Testing</title>
       <link>https://microcks.io/documentation/guides/aws-sqs-sns-support/</link>
-      <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
-      
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/guides/aws-sqs-sns-support/</guid>
-      <description>This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&amp;rsquo;t have to use both to benefit from Microcks features.</description>
+      <description>This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks.</description>
     </item>
-    
   </channel>
 </rss>

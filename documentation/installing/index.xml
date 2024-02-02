@@ -1,87 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Installing on Microcks.io</title>
+    <title>Installing on API Mocking and Testing | Microcks.io</title>
     <link>https://microcks.io/documentation/installing/</link>
-    <description>Recent content in Installing on Microcks.io</description>
+    <description>Recent content in Installing on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Installing on Kube using Helm</title>
+      <title>On Kube using Helm</title>
       <link>https://microcks.io/documentation/installing/kubernetes/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/kubernetes/</guid>
-      <description>Instructions One easy way of installing Microcks is via a Helm Chart. Kubernetes version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
- Lightweight Minikube on your laptop, see Minikube project page, A Google Cloud Engine account in the cloud, see how to start a Free trial, Any other Kubernetes distribution provider.</description>
+      <description>Instructions One easy way of installing Microcks is via a Helm Chart .</description>
     </item>
-    
     <item>
-      <title>Installing on Kube using Operator</title>
+      <title>On Kube using Operator</title>
       <link>https://microcks.io/documentation/installing/operator/</link>
-      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/installing/operator/</guid>
-      <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific Custom Resources defining their domain of expertise. Microcks provide an Operator that was developed using the Operator Framework SDK and that is distributed through OperatorHub.io.
-At the time of writing, Microcks only defines one customer resource that is called the MicrocksInstall: a description of the instance configuration you want to deploy.</description>
+      <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications.</description>
     </item>
-    
     <item>
-      <title>Installing with podman-compose</title>
-      <link>https://microcks.io/documentation/installing/podman-compose/</link>
-      <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/installing/podman-compose/</guid>
-      <description>Podman Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman 2.1.1 onto Fedora 33+ and should be OK on CentOS Stream 8+ and RHEL 8+ distributions too.
-Usage To get started, make sure you first have the Podman and the Podman Compose packages installed on your system.</description>
-    </item>
-    
-    <item>
-      <title>Installing with docker-compose</title>
+      <title>Using docker-compose</title>
       <link>https://microcks.io/documentation/installing/docker-compose/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/docker-compose/</guid>
-      <description>Docker Compose is a tool for easily testing and running multi-container applications. Microcks offers a simple way to set up the minimal required containers to have a functional environment on your local computer.
-Usage To get started, make sure you have Docker installed on your system.
-In your terminal issue the following commands:
-  Clone this repository.
-git clone https://github.com/microcks/microcks.git --depth 10   Change to the install folder</description>
+      <description>Docker Compose is a tool for easily testing and running multi-container applications.</description>
     </item>
-    
     <item>
-      <title>Installing as Docker Desktop Extension</title>
+      <title>As Docker Desktop Extension</title>
       <link>https://microcks.io/documentation/installing/docker-desktop-extension/</link>
-      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-      
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/installing/docker-desktop-extension/</guid>
-      <description>Docker Desktop is a simple-to-install application for Mac, Windows, or Linux that allows you to create and share containerized applications and microservices. Docker Desktop includes the Docker Engine, the Docker CLI client, Docker Compose, Docker Content Trust, Kubernetes, and the Credential Helper.
-Usage To get started, make sure you have Docker Desktop installed on your system.
-  Select Extensions
-  Choose Microcks, install and launch it and you are ready to go 🤩</description>
+      <description>Docker Desktop is a simple-to-install application for Mac , Windows , or Linux that allows you to create and share containerized applications and microservices.</description>
     </item>
-    
     <item>
-      <title>Architecture and deployment options</title>
-      <link>https://microcks.io/documentation/installing/deployment-options/</link>
-      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://microcks.io/documentation/installing/deployment-options/</guid>
-      <description>Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
-High-level Architecture In its canonical form, Microcks architecture is made of 4 components which are:
- The Microcks main web application (also called webapp) that holds the UI resources as well as API endpoints, Its associated MongoDB database for holding your data such as the repository of APIs | Services and Tests, A Microcks Postman runtime (microcks-postman-runtime) that allows the execution of Postman Collection tests and calls back Microcks for storing results, A Keycloak instance that holds the authentication mechanisms and identity provider integration.</description>
+      <title>Using podman-compose</title>
+      <link>https://microcks.io/documentation/installing/podman-compose/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/installing/podman-compose/</guid>
+      <description>Podman Compose is a tool for easily testing and running multi-container applications.</description>
     </item>
-    
+    <item>
+      <title>Architecture &amp; deployment options</title>
+      <link>https://microcks.io/documentation/installing/deployment-options/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/installing/deployment-options/</guid>
+      <description>Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options.</description>
+    </item>
     <item>
       <title>Running with Testcontainers</title>
       <link>https://microcks.io/documentation/installing/running-uber/</link>
-      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
-      
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/running-uber/</guid>
-      <description>In order to support Inner Loop integration or Shift-Left scenarios, we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called microcks-uber and provides the essential services in a single container as represented below:
- As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don&amp;rsquo;t recommend running it in production!</description>
+      <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
     </item>
-    
   </channel>
 </rss>
