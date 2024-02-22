@@ -153,7 +153,13 @@
     <lastmod>2023-11-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2024-02-01T00:00:00+01:00</lastmod>
+    <lastmod>2024-02-20T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/events/</loc>
+    <lastmod>2024-02-20T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/events/mwcfeb2024/</loc>
+    <lastmod>2024-02-20T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/resources/</loc>
     <lastmod>2024-01-29T00:00:00+01:00</lastmod>
@@ -166,9 +172,6 @@
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.8.1-release/</loc>
     <lastmod>2024-01-18T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/events/</loc>
-    <lastmod>2024-01-02T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/events/kubeconeu2024/</loc>
     <lastmod>2024-01-02T00:00:00+01:00</lastmod>

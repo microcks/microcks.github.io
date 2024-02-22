@@ -6,7 +6,7 @@
     <description>Recent content on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 20 Feb 2024 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
@@ -322,6 +322,13 @@
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/running-uber/</guid>
       <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
+    </item>
+    <item>
+      <title>🤝 Mobile World Congress (MWC) Barcelona</title>
+      <link>https://microcks.io/events/mwcfeb2024/</link>
+      <pubDate>Tue, 20 Feb 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/events/mwcfeb2024/</guid>
+      <description>Join us at Mobile World Congress (MWC) Barcelona 🇪🇸</description>
     </item>
     <item>
       <title>Extend Microcks with custom libs and code</title>
