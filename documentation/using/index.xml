@@ -72,6 +72,13 @@
       <description>Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.</description>
     </item>
     <item>
+      <title>Http Archive usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/har/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/har/</guid>
+      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions.</description>
+    </item>
+    <item>
       <title>Using exposed mocks</title>
       <link>https://microcks.io/documentation/using/mocks/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
@@ -133,13 +140,6 @@
       <pubDate>Fri, 09 Sep 2022 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/using/monitoring/</guid>
       <description>Introduction As a cloud-native application, we take great care of providing observability on what&amp;rsquo;s going on within a Microcks instance.</description>
-    </item>
-    <item>
-      <title>Http Archive usage for Microcks</title>
-      <link>https://microcks.io/documentation/using/har/</link>
-      <pubDate>Thu, 23 Feb 2023 00:00:00 +0100</pubDate>
-      <guid>https://microcks.io/documentation/using/har/</guid>
-      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions.</description>
     </item>
   </channel>
 </rss>

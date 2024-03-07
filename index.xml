@@ -240,6 +240,13 @@
       <description>Overview Pre-requisites Microcks has been developed and tested with SoapUI version 5.</description>
     </item>
     <item>
+      <title>Http Archive usage for Microcks</title>
+      <link>https://microcks.io/documentation/using/har/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/using/har/</guid>
+      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions.</description>
+    </item>
+    <item>
       <title>Using exposed mocks</title>
       <link>https://microcks.io/documentation/using/mocks/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
@@ -310,13 +317,6 @@
       <description>Introduction As a cloud-native application, we take great care of providing observability on what&amp;rsquo;s going on within a Microcks instance.</description>
     </item>
     <item>
-      <title>Http Archive usage for Microcks</title>
-      <link>https://microcks.io/documentation/using/har/</link>
-      <pubDate>Thu, 23 Feb 2023 00:00:00 +0100</pubDate>
-      <guid>https://microcks.io/documentation/using/har/</guid>
-      <description>Overview Introduction As the Microcks community is growing, we heard a lot of people capturing live traffic in order to re-inject this data into their OpenAPI or Postman Collection files and reuse them as mock definitions.</description>
-    </item>
-    <item>
       <title>Running with Testcontainers</title>
       <link>https://microcks.io/documentation/installing/running-uber/</link>
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
@@ -328,7 +328,14 @@
       <link>https://microcks.io/events/mwcfeb2024/</link>
       <pubDate>Tue, 20 Feb 2024 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/events/mwcfeb2024/</guid>
-      <description>Join us at Mobile World Congress (MWC) Barcelona 🇪🇸</description>
+      <description>📢 Microcks: Our Experience at MWC Barcelona 2024! I am sharing some exciting news from Microcks regarding our recent participation in the Mobile World Congress (MWC Barcelona) 2024 👇 https://www.</description>
+    </item>
+    <item>
+      <title>🌟 Exciting News for Spring Fans!</title>
+      <link>https://microcks.io/events/recordingwithjoshlong/</link>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/events/recordingwithjoshlong/</guid>
+      <description>Must-(re)watch for tech enthusiasts, developers, and anyone interested in streamlining API delivery processes.</description>
     </item>
     <item>
       <title>Extend Microcks with custom libs and code</title>

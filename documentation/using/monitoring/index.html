@@ -22760,6 +22760,22 @@ footer {
 
 
 
+<li data-nav-id="https://microcks.io/documentation/using/har/" title="Http Archive usage for Microcks" class="sidelist  ">
+  <a href="https://microcks.io/documentation/using/har/">Http Archive usage for Microcks</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
 <li data-nav-id="https://microcks.io/documentation/using/mocks/" title="Using exposed mocks" class="sidelist  ">
   <a href="https://microcks.io/documentation/using/mocks/">Using exposed mocks</a>
   
@@ -22890,22 +22906,6 @@ footer {
 
 <li data-nav-id="https://microcks.io/documentation/using/monitoring/" title="Monitoring &amp; Observability" class="sidelist  active parent">
   <a href="https://microcks.io/documentation/using/monitoring/">Monitoring &amp; Observability</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/har/" title="Http Archive usage for Microcks" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/har/">Http Archive usage for Microcks</a>
   
   
 
@@ -23441,8 +23441,8 @@ footer {
           <h2 class="mb-4 fw-bold">Monitoring &amp; Observability</h2>
           
           
-          <span class="text-muted fw-300">🗓️ Last updated on September 9, 2022 
-            <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 2 
+          <span class="text-muted fw-300">🗓️ Last updated on March 7, 2024 
+            <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 3 
             <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/monitoring.md" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
           </span>
 
@@ -23460,7 +23460,7 @@ footer {
 . This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics. The endpoints of the API are returning JSON data.</p>
 <p>Three categories of endpoints are available:</p>
 <ul>
-<li><code>/api/merics/conformance/*</code> for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see <a href="../../tests#conformance-metrics"
+<li><code>/api/metrics/conformance/*</code> for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see <a href="../../tests#conformance-metrics"
 
 
 
@@ -23519,6 +23519,71 @@ footer {
 <li><code>/q/metrics</code> path for async-minion component</li>
 </ul>
 <p>From those endpoints, you will be able to collect resource consumption or perfromance metrics such as: JVM memory used, JVM thread pools, HTTP endpoints performance, Database queries performance and so on.</p>
+<h2 id="opentelemetry-support">OpenTelemetry support</h2>
+<p>Starting with Microcks <code>1.9.0</code>, the main webapp component now supports <a href="https://opentelemetry.io/"
+
+
+
+
+ target="_blank"
+ 
+
+
+>OpenTelemetry</a>
+ instrumention for logs, distributed tracing and metrics.</p>
+<p>OpenTelemetry is disabled by default and must be enabled using two different environment variables:</p>
+<ul>
+<li><code>OTEL_JAVAAGENT_ENABLED</code> is set to false by default, so you&rsquo;ll have to explicitly set it to <code>true</code></li>
+<li><code>OTEL_EXPORTER_OTLP_ENDPOINT</code> is set to a local dummy endpoint, so you&rsquo;ll have to set it to an OpenTelemetry collector endpoint of your environment. Something like <code>http://otel-collector.acme.com:4317</code> for example.</li>
+</ul>
+<p>Check the dedicated <a href="https://github.com/microcks/microcks/tree/1.9.x/observability"
+
+
+
+
+ target="_blank"
+ 
+
+
+>README</a>
+ on GitHub to get more details.</p>
+<h2 id="grafana-dashboard">Grafana dashboard</h2>
+<p>Starting with Microcks <code>1.9.0</code>, we also provide a <a href="https://grafana.com/"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Grafana</a>
+ dashbaord that allows you to easily track the performance and health status of your Microcks instance.</p>
+<p>This dashboard is using data coming from a Prometheus source so you don&rsquo;t have to enabled the full OpenTelemetry support to use it. Standard Prometheus endpoints scraped by your Prom instance will do the job.</p>
+<p>Check the dedicated <a href="https://github.com/microcks/microcks/tree/1.9.x/observability/dashboards"
+
+
+
+
+ target="_blank"
+ 
+
+
+>/dashbaords</a>
+ on GitHub to get more details.</p>
+<h2 id="benchmark-suite">Benchmark suite</h2>
+<p>Starting with Microcks <code>1.9.0</code>, we also provide a benchmark suite as an easy way of validating/sizing/evaluating changes on your Microcks instance. It allows you to simulate Virtual Users on different usage scenarios and gather performance metrics of your instance.</p>
+<p>Check the dedicated <a href="https://github.com/microcks/microcks/tree/1.9.x/benchmark"
+
+
+
+
+ target="_blank"
+ 
+
+
+>README</a>
+ on GitHub to get more details.</p>
 
           </div>
           
@@ -23527,8 +23592,8 @@ footer {
             <a class="nav nav-prev nav-group" href="/documentation/using/metadata/"><i class="fas fa-chevron-left me-2"></i>
               <span class="d-none d-sm-block">Microcks APIMetadata</span> <span class="d-block d-sm-none">Prev</span>
             </a>
-            <a class="nav nav-next nav-group" href="/documentation/using/har/">
-              <span class="d-none d-sm-block">Http Archive usage for Microcks</span> <span class="d-block d-sm-none">Next</span><i class="fas fa-chevron-right ms-2"></i>
+            <a class="nav nav-next nav-group" href="/documentation/getting-started-tests/">
+              <span class="d-none d-sm-block">Getting started with Tests</span> <span class="d-block d-sm-none">Next</span><i class="fas fa-chevron-right ms-2"></i>
             </a>
           </nav>
         </div>
@@ -23541,6 +23606,9 @@ footer {
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#functional-metrics">Functional metrics</a></li>
     <li><a href="#technical-metrics">Technical metrics</a></li>
+    <li><a href="#opentelemetry-support">OpenTelemetry support</a></li>
+    <li><a href="#grafana-dashboard">Grafana dashboard</a></li>
+    <li><a href="#benchmark-suite">Benchmark suite</a></li>
   </ol>
 </nav>
       </div>

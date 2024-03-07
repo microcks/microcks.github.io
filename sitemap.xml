@@ -116,6 +116,9 @@
     <loc>https://microcks.io/documentation/using/soapui/</loc>
     <lastmod>2023-02-23T00:00:00+01:00</lastmod>
   </url><url>
+    <loc>https://microcks.io/documentation/using/har/</loc>
+    <lastmod>2023-02-23T00:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://microcks.io/documentation/using/mocks/</loc>
     <lastmod>2022-09-07T00:00:00+02:00</lastmod>
   </url><url>
@@ -144,10 +147,7 @@
     <lastmod>2023-10-26T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/monitoring/</loc>
-    <lastmod>2022-09-09T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/har/</loc>
-    <lastmod>2023-02-23T00:00:00+01:00</lastmod>
+    <lastmod>2024-03-07T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/running-uber/</loc>
     <lastmod>2023-11-14T00:00:00+01:00</lastmod>
@@ -160,6 +160,9 @@
   </url><url>
     <loc>https://microcks.io/events/mwcfeb2024/</loc>
     <lastmod>2024-02-20T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/events/recordingwithjoshlong/</loc>
+    <lastmod>2024-02-19T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/resources/</loc>
     <lastmod>2024-01-29T00:00:00+01:00</lastmod>
