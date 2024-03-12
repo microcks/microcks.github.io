@@ -6,8 +6,15 @@
     <description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Observability for Microcks at scale</title>
+      <link>https://microcks.io/blog/observability-for-microcks-at-scale/</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/observability-for-microcks-at-scale/</guid>
+      <description>As part of the upcoming 1.9.0 release of Microcks, I’m super proud to have contributed new features related to its observability and performance monitoring!</description>
+    </item>
     <item>
       <title>Extend Microcks with custom libs and code</title>
       <link>https://microcks.io/blog/extend-microcks-with-custom-libs/</link>

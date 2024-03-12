@@ -6,7 +6,7 @@
     <description>Recent content on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
@@ -324,6 +324,13 @@
       <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
     </item>
     <item>
+      <title>Observability for Microcks at scale</title>
+      <link>https://microcks.io/blog/observability-for-microcks-at-scale/</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/observability-for-microcks-at-scale/</guid>
+      <description>As part of the upcoming 1.9.0 release of Microcks, I’m super proud to have contributed new features related to its observability and performance monitoring!</description>
+    </item>
+    <item>
       <title>🤝 Mobile World Congress (MWC) Barcelona</title>
       <link>https://microcks.io/events/mwcfeb2024/</link>
       <pubDate>Tue, 20 Feb 2024 00:00:00 +0100</pubDate>
@@ -630,6 +637,13 @@
       <pubDate>Tue, 23 Mar 1971 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/events/pastarchive/</guid>
       <description>Explore Microcks&amp;rsquo; archive of past event recordings, podcasts, articles, and informative resources!</description>
+    </item>
+    <item>
+      <title>Alain Pham</title>
+      <link>https://microcks.io/author/alain-pham/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/alain-pham/</guid>
+      <description>Principal Solutions Engineer at Grafana Labs</description>
     </item>
     <item>
       <title>Carol Gschwend</title>

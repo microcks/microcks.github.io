@@ -153,7 +153,13 @@
     <lastmod>2023-11-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2024-03-11T00:00:00+01:00</lastmod>
+    <lastmod>2024-03-12T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/</loc>
+    <lastmod>2024-03-12T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/observability-for-microcks-at-scale/</loc>
+    <lastmod>2024-03-12T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/events/</loc>
     <lastmod>2024-02-20T00:00:00+01:00</lastmod>
@@ -168,9 +174,6 @@
     <lastmod>2024-01-29T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/extend-microcks-with-custom-libs/</loc>
-    <lastmod>2024-01-24T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/blog/</loc>
     <lastmod>2024-01-24T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.8.1-release/</loc>
@@ -298,6 +301,8 @@
   </url><url>
     <loc>https://microcks.io/events/pastarchive/</loc>
     <lastmod>1971-03-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/author/alain-pham/</loc>
   </url><url>
     <loc>https://microcks.io/author/</loc>
   </url><url>
