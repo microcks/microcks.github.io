@@ -22519,7 +22519,7 @@ footer {
         
         
         
-        <span class="text-muted fw-500"> 🗓️ March 12, 2024 <span class="mx-1 text-dark-50 fw-500">|</span> <i class="far fa-clock text-dark me-1"></i> 6 </span>
+        <span class="text-muted fw-500"> 🗓️ March 12, 2024 <span class="mx-1 text-dark-50 fw-500">|</span> <i class="far fa-clock text-dark me-1"></i> 8 </span>
 
         <h2 class="h3 my-3">Observability for Microcks at scale</h2>
 
@@ -23206,7 +23206,72 @@ footer {
 
 >K6</a>
  which launches four different scenarios simultaneously during one minute. Here’s the raw output we got below with details on executed scenarios and raw performance metrics:</p>
-<p>And yes, we got this impressive <strong>756.5 hits/second</strong> with a p(90) response time of 28.2ms during the bench on a Macbook M2 with a 400MB heap! 🚀</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker run --rm -i -e BASE_URL<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>MICROCKS_BASE_URL<span style="color:#e6db74">}</span> -e WAIT_TIME<span style="color:#f92672">=</span>0.1 grafana/k6:<span style="color:#e6db74">${</span>K6_VERSION<span style="color:#e6db74">}</span> run - &lt; bench-microcks.js
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          /<span style="color:#ae81ff">\ </span>    |‾‾| /‾‾/   /‾‾/   
+</span></span><span style="display:flex;"><span>     /<span style="color:#ae81ff">\ </span> /  <span style="color:#ae81ff">\ </span>   |  |/  /   /  /    
+</span></span><span style="display:flex;"><span>    /  <span style="color:#ae81ff">\/</span>    <span style="color:#ae81ff">\ </span>  |     <span style="color:#f92672">(</span>   /   ‾‾<span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span>   /          <span style="color:#ae81ff">\ </span> |  |<span style="color:#ae81ff">\ \ </span>|  <span style="color:#f92672">(</span>‾<span style="color:#f92672">)</span>  | 
+</span></span><span style="display:flex;"><span>  / __________ <span style="color:#ae81ff">\ </span>|__| <span style="color:#ae81ff">\_</span>_<span style="color:#ae81ff">\ \_</span>____/ .io
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  execution: local
+</span></span><span style="display:flex;"><span>     script: -
+</span></span><span style="display:flex;"><span>     output: -
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  scenarios: <span style="color:#f92672">(</span>100.00%<span style="color:#f92672">)</span> <span style="color:#ae81ff">4</span> scenarios, <span style="color:#ae81ff">85</span> max VUs, 2m45s max duration <span style="color:#f92672">(</span>incl. graceful stop<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>           * browse: <span style="color:#ae81ff">20</span> looping VUs <span style="color:#66d9ef">for</span> 1m0s <span style="color:#f92672">(</span>exec: browse, gracefulStop: 30s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>           * invokeRESTMocks: <span style="color:#ae81ff">200</span> iterations <span style="color:#66d9ef">for</span> each of <span style="color:#ae81ff">40</span> VUs <span style="color:#f92672">(</span>maxDuration: 2m0s, exec: invokeRESTMocks, startTime: 5s, gracefulStop: 30s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>           * invokeGraphQLMocks: <span style="color:#ae81ff">100</span> iterations <span style="color:#66d9ef">for</span> each of <span style="color:#ae81ff">20</span> VUs <span style="color:#f92672">(</span>maxDuration: 2m0s, exec: invokeGraphQLMocks, startTime: 10s, gracefulStop: 30s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>           * invokeSOAPMocks: <span style="color:#ae81ff">5</span> iterations <span style="color:#66d9ef">for</span> each of <span style="color:#ae81ff">5</span> VUs <span style="color:#f92672">(</span>maxDuration: 2m0s, exec: invokeSOAPMocks, startTime: 15s, gracefulStop: 30s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>           
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>running <span style="color:#f92672">(</span>1m04.0s<span style="color:#f92672">)</span>, 14/85 VUs, <span style="color:#ae81ff">10271</span> complete and <span style="color:#ae81ff">0</span> interrupted iterations
+</span></span><span style="display:flex;"><span>browse             ↓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">20</span> VUs  1m0s         
+</span></span><span style="display:flex;"><span>invokeRESTMocks    ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">40</span> VUs  0m12.7s/2m0s  8000/8000 iters, <span style="color:#ae81ff">200</span> per VU
+</span></span><span style="display:flex;"><span>invokeGraphQLMocks ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">20</span> VUs  0m06.9s/2m0s  2000/2000 iters, <span style="color:#ae81ff">100</span> per VU
+</span></span><span style="display:flex;"><span>invokeSOAPMocks    ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">5</span> VUs   0m16.0s/2m0s  25/25 iters, <span style="color:#ae81ff">5</span> per VU
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     ✓ status code should be <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ pastryCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ eclairCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ eclairXmlCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ eclairXmlCall response is Xml
+</span></span><span style="display:flex;"><span>     ✓ millefeuilleCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ allFilmsCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ aFilmCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ aFilmFragmentCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ andrewCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ karlaCall status is <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>     ✓ karlaCall body is correct
+</span></span><span style="display:flex;"><span>     ✓ laurentCall status is <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>     ✓ laurentCall body is fault
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     checks.........................: 100.00% ✓ <span style="color:#ae81ff">46385</span>      ✗ <span style="color:#ae81ff">0</span>    
+</span></span><span style="display:flex;"><span>     data_received..................: <span style="color:#ae81ff">132</span> MB  2.0 MB/s
+</span></span><span style="display:flex;"><span>     data_sent......................: 7.8 MB  <span style="color:#ae81ff">122</span> kB/s
+</span></span><span style="display:flex;"><span>     http_req_blocked...............: avg<span style="color:#f92672">=</span>40.83µs  min<span style="color:#f92672">=</span>291ns   med<span style="color:#f92672">=</span>1.04µs  max<span style="color:#f92672">=</span>18.4ms   p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>5.04µs   p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>8.37µs  
+</span></span><span style="display:flex;"><span>     http_req_connecting............: avg<span style="color:#f92672">=</span>33.21µs  min<span style="color:#f92672">=</span>0s      med<span style="color:#f92672">=</span>0s      max<span style="color:#f92672">=</span>18.35ms  p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>0s       p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>0s      
+</span></span><span style="display:flex;"><span>     http_req_duration..............: avg<span style="color:#f92672">=</span>17.22ms  min<span style="color:#f92672">=</span>1ms     med<span style="color:#f92672">=</span>12.57ms max<span style="color:#f92672">=</span>782.36ms p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>28.2ms   p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>36.67ms 
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">{</span> expected_response:true <span style="color:#f92672">}</span>...: avg<span style="color:#f92672">=</span>17.21ms  min<span style="color:#f92672">=</span>1ms     med<span style="color:#f92672">=</span>12.57ms max<span style="color:#f92672">=</span>782.36ms p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>28.2ms   p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>36.66ms 
+</span></span><span style="display:flex;"><span>     http_req_failed................: 0.05%   ✓ <span style="color:#ae81ff">26</span>         ✗ <span style="color:#ae81ff">48709</span>
+</span></span><span style="display:flex;"><span>     http_req_receiving.............: avg<span style="color:#f92672">=</span>80.43µs  min<span style="color:#f92672">=</span>6.5µs   med<span style="color:#f92672">=</span>22.66µs max<span style="color:#f92672">=</span>29.12ms  p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>129.29µs p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>235.55µs
+</span></span><span style="display:flex;"><span>     http_req_sending...............: avg<span style="color:#f92672">=</span>15.04µs  min<span style="color:#f92672">=</span>1.58µs  med<span style="color:#f92672">=</span>4.95µs  max<span style="color:#f92672">=</span>9.27ms   p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>22.33µs  p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>36.83µs 
+</span></span><span style="display:flex;"><span>     http_req_tls_handshaking.......: avg<span style="color:#f92672">=</span>0s       min<span style="color:#f92672">=</span>0s      med<span style="color:#f92672">=</span>0s      max<span style="color:#f92672">=</span>0s       p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>0s       p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>0s      
+</span></span><span style="display:flex;"><span>     http_req_waiting...............: avg<span style="color:#f92672">=</span>17.12ms  min<span style="color:#f92672">=</span>902.5µs med<span style="color:#f92672">=</span>12.49ms max<span style="color:#f92672">=</span>782.34ms p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>28.08ms  p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>36.49ms 
+</span></span><span style="display:flex;"><span>     http_reqs......................: <span style="color:#ae81ff">48735</span>   756.508316/s
+</span></span><span style="display:flex;"><span>     iteration_duration.............: avg<span style="color:#f92672">=</span>194.32ms min<span style="color:#f92672">=</span>10.5ms  med<span style="color:#f92672">=</span>52.16ms max<span style="color:#f92672">=</span>5.57s    p<span style="color:#f92672">(</span>90<span style="color:#f92672">)=</span>101.2ms  p<span style="color:#f92672">(</span>95<span style="color:#f92672">)=</span>177.01ms
+</span></span><span style="display:flex;"><span>     iterations.....................: <span style="color:#ae81ff">10285</span>   159.652981/s
+</span></span><span style="display:flex;"><span>     vus............................: <span style="color:#ae81ff">14</span>      min<span style="color:#f92672">=</span><span style="color:#ae81ff">14</span>       max<span style="color:#f92672">=</span><span style="color:#ae81ff">85</span> 
+</span></span><span style="display:flex;"><span>     vus_max........................: <span style="color:#ae81ff">85</span>      min<span style="color:#f92672">=</span><span style="color:#ae81ff">85</span>       max<span style="color:#f92672">=</span><span style="color:#ae81ff">85</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>running <span style="color:#f92672">(</span>1m04.4s<span style="color:#f92672">)</span>, 00/85 VUs, <span style="color:#ae81ff">10285</span> complete and <span style="color:#ae81ff">0</span> interrupted iterations
+</span></span><span style="display:flex;"><span>browse             ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">20</span> VUs  1m0s         
+</span></span><span style="display:flex;"><span>invokeRESTMocks    ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">40</span> VUs  0m12.7s/2m0s  8000/8000 iters, <span style="color:#ae81ff">200</span> per VU
+</span></span><span style="display:flex;"><span>invokeGraphQLMocks ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">20</span> VUs  0m06.9s/2m0s  2000/2000 iters, <span style="color:#ae81ff">100</span> per VU
+</span></span><span style="display:flex;"><span>invokeSOAPMocks    ✓ <span style="color:#f92672">[</span> 100% <span style="color:#f92672">]</span> <span style="color:#ae81ff">5</span> VUs   0m16.0s/2m0s  25/25 iters, <span style="color:#ae81ff">5</span> per VU
+</span></span></code></pre></div><p>And yes, we got this impressive <strong>756.5 hits/second</strong> with a p(90) response time of 28.2ms during the bench on a Macbook M2 with a 400MB heap! 🚀</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The Microcks user community expressed their wish to know what a single instance of Microcks is able to deliver in terms of throughput and response time. Through contribution we made <strong>Microcks ready to be fully observable</strong>, and we enabled optimization opportunities for very large-scale deployments. The project and the community users are now <strong>able to run benchmarks in autonomy to get figures and have a precise idea of what level of performance</strong> Microcks is capable of delivering.</p>
 <p>On a personal note, OpenTelemetry is the second-largest CNCF project and it&rsquo;s a big challenge to navigate in its ecosystem. This has been a good experience to find the nominal path to get the instrumentation, the storage of telemetry data, and visualization up and running for a real project. But, yes! I did it! 💪</p>
