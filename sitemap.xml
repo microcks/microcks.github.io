@@ -153,10 +153,13 @@
     <lastmod>2023-11-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2024-03-12T00:00:00+01:00</lastmod>
+    <lastmod>2024-03-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/</loc>
-    <lastmod>2024-03-12T00:00:00+01:00</lastmod>
+    <lastmod>2024-03-14T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/microcks-1.9.0-release/</loc>
+    <lastmod>2024-03-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/observability-for-microcks-at-scale/</loc>
     <lastmod>2024-03-12T00:00:00+01:00</lastmod>
