@@ -22018,7 +22018,6 @@ footer {
 
 .herobanner {
   width: 100vw;
-  height: 800px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22050,6 +22049,10 @@ footer {
       width: 100%;
       height: 100%;
       margin-top: 5vh; }
+
+@media screen and (min-width: 1120px) {
+  .herobanner {
+    height: 800px; } }
 
 @media screen and (max-width: 768px) {
   .herobanner {
@@ -23441,8 +23444,8 @@ footer {
           <h2 class="mb-4 fw-bold">Templating mock responses</h2>
           
           
-          <span class="text-muted fw-300">🗓️ Last updated on December 27, 2022 
-            <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 9 
+          <span class="text-muted fw-300">🗓️ Last updated on April 19, 2024 
+            <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 10 
             <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/templates.md" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
           </span>
 
@@ -23652,7 +23655,9 @@ footer {
 
 
 >JSON Pointer</a>
- expression to <code>request.body</code> element in order to ask for a deeper parsing and evaluation. The JSON Pointer part should be expressed just after a starting <code>/</code> indicating we&rsquo;re navigating into a sub-query. Here&rsquo;s a bunch of examples on previous library case and how they&rsquo;ll be rendered:</p>
+ expression to <code>request.body</code> element in order to ask for a deeper parsing and evaluation. The JSON Pointer part should be expressed just after a starting <code>/</code> indicating we&rsquo;re navigating into a sub-query.</p>
+<p>Starting with version <code>1.9.1</code> next to pointers referencing text value nodes also pointers to arrays and objects can be used. The node&rsquo;s contents will be rendered as JSON string if complex objects or arrays are referenced. Please be aware that the whitespacing might differ from the request in this case.</p>
+<p>Here&rsquo;s a bunch of examples on previous library case and how they&rsquo;ll be rendered:</p>
 <table>
 <thead>
 <tr>
@@ -23668,9 +23673,19 @@ footer {
 <td></td>
 </tr>
 <tr>
-<td><code>request.body/library/books/1/author</code></td>
+<td><code>request.body/books/1/author</code></td>
 <td><code>John Doe</code></td>
 <td> JSON Pointer array index starting at 0</td>
+</tr>
+<tr>
+<td><code>request.body/books/1</code></td>
+<td><code>{&quot;title&quot;:&quot;Title 1&quot;,&quot;author&quot;:&quot;Jane Doe&quot;}</code></td>
+<td>JSON Pointer to object returning JSON seralized string of contents</td>
+</tr>
+<tr>
+<td><code>request.body/books</code></td>
+<td><code>[{&quot;title&quot;:&quot;Title 1&quot;,&quot;author&quot;:&quot;Jane Doe&quot;},{ &quot;title&quot;:&quot;Title 2&quot;,&quot;author&quot;:&quot;John Doe&quot;}]</code></td>
+<td>JSON Pointer to array returning JSON seralized string of contents</td>
 </tr>
 </tbody>
 </table>
