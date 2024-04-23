@@ -4,7 +4,7 @@
   "lang": "en-US",
   "display": "fullscreen",
   "orientation" : "portrait",
-  "start_url": "https://microcks.io?utm_source=web_app_manifest",
+  "start_url": "https://microcks.io/?utm_source=web_app_manifest",
   "background_color": "#fff",
   "theme_color": "#46AAF3",
 
