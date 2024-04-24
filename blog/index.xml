@@ -6,8 +6,15 @@
     <description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo 0.125.2</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mocking OpenID Connect redirect</title>
+      <link>https://microcks.io/blog/mocking-oidc-redirect/</link>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/mocking-oidc-redirect/</guid>
+      <description>A few days ago, I worked on a new prototype to see what it means to use Microcks to mock OpenID Connect authentication flows.</description>
+    </item>
     <item>
       <title>Microcks 1.9.0 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.9.0-release/</link>

@@ -6,7 +6,7 @@
     <description>Recent content on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo 0.125.2</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 19 Apr 2024 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
@@ -322,6 +322,13 @@
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/running-uber/</guid>
       <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
+    </item>
+    <item>
+      <title>Mocking OpenID Connect redirect</title>
+      <link>https://microcks.io/blog/mocking-oidc-redirect/</link>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/mocking-oidc-redirect/</guid>
+      <description>A few days ago, I worked on a new prototype to see what it means to use Microcks to mock OpenID Connect authentication flows.</description>
     </item>
     <item>
       <title>Microcks 1.9.0 release 🚀</title>
