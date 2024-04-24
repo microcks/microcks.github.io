@@ -4,7 +4,7 @@
     <title>Guides on API Mocking and Testing | Microcks.io</title>
     <link>https://microcks.io/documentation/guides/</link>
     <description>Recent content in Guides on API Mocking and Testing | Microcks.io</description>
-    <generator>Hugo 0.125.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 06 Jun 2023 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
@@ -18,14 +18,14 @@
     <item>
       <title>Kafka, Avro &amp; Schema Registry</title>
       <link>https://microcks.io/documentation/guides/avro-messaging/</link>
-      <pubDate>Fri, 12 Feb 2021 00:00:00 +0100</pubDate>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/guides/avro-messaging/</guid>
       <description>Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka .</description>
     </item>
     <item>
       <title>MQTT Mocking &amp; Testing</title>
       <link>https://microcks.io/documentation/guides/mqtt-support/</link>
-      <pubDate>Mon, 15 Feb 2021 00:00:00 +0100</pubDate>
+      <pubDate>Sun, 14 Feb 2021 00:00:00 +0100</pubDate>
       <guid>https://microcks.io/documentation/guides/mqtt-support/</guid>
       <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks.</description>
     </item>

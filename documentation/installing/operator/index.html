@@ -74,7 +74,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.125.2">
+<meta name="generator" content="Hugo 0.122.0">
 
 
 
@@ -190,25 +190,16 @@
 
 
 
-  
-    
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TK2NJ5V4J"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-9TK2NJ5V4J');
-        }
-      </script>
-    
-  
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9TK2NJ5V4J"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-9TK2NJ5V4J', { 'anonymize_ip': false });
+}
+</script>
 
 
 
@@ -23560,12 +23551,9 @@ footer {
 </span></span><span style="display:flex;"><span>microcks-postman-runtime-75f74d6779-9gjrn         1/1     Running   <span style="color:#ae81ff">0</span>          1h
 </span></span></code></pre></div><p>This installation process is demonstrated in following video that also demonstrates AsyncAPI mocking features:</p>
 
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ise7ljoGdEY?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Getting Started with AsyncAPI Mocking on Minikube"
-      ></iframe>
-    </div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/ise7ljoGdEY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
 
 <h3 id="post-installation-operations">Post-installation operations</h3>
 <p>Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>.</p>
@@ -23654,12 +23642,9 @@ footer {
 <h2 id="on-openshift-4-with-olm">On OpenShift 4 with OLM</h2>
 <p>As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also exposes the post-installation steps required for creating user and connecting to the app.</p>
 
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/P2RFDxL0xsA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Microcks installation on OpenShift 4"
-      ></iframe>
-    </div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/P2RFDxL0xsA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
 
 <h2 id="on-kubernetes-with-olm">On Kubernetes with OLM</h2>
 <p>Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster.</p>
@@ -23846,7 +23831,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
       <footer class="bg-light">
   <div class="footer-container">
     <div>
-      <a class="d-block h5" href="https://microcks.io/">
+      <a class="d-block h5" href="https://microcks.io">
         
 
 
@@ -24063,7 +24048,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
 
   
 
-<script crossorigin="anonymous" defer integrity="sha512-KrttEvXVRr/K9l4WFGpLN9G3931C3sDeL29ZgKEMXIcQcy4gkxZkIN4RWyztHXsc888yrmIUXiuCoSmaoFQ2Uw==" type="application/javascript">(() => {
+<script crossorigin="anonymous" defer integrity="sha512-RsPM6/1ciOYaZFuqked5a6lWVdlxVPiifsqPfUeREcj2NsL/SgBF9l/2c1bGVsnX5Iw5opCr7GVk6/IRphsd&#43;Q==" type="application/javascript">(() => {
   var __create = Object.create;
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -24090,9 +24075,9 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
     mod
   ));
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2@v2.21100.20000/package/dist/cjs/popper.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2@v2.21100.20000/package/dist/cjs/popper.js
   var require_popper = __commonJS({
-    "ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2@v2.21100.20000/package/dist/cjs/popper.js"(exports) {
+    "ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2@v2.21100.20000/package/dist/cjs/popper.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       function getWindow(node) {
@@ -25566,7 +25551,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
     }
   });
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/data.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/data.js
   var elementMap = /* @__PURE__ */ new Map();
   var data_default = {
     set(element, key, instance) {
@@ -25598,7 +25583,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
     }
   };
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/index.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/index.js
   var MILLISECONDS_MULTIPLIER = 1e3;
   var TRANSITION_END = "transitionend";
   var parseSelector = (selector) => {
@@ -25761,7 +25746,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
     return list[Math.max(0, Math.min(index, listLength - 1))];
   };
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/event-handler.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/event-handler.js
   var namespaceRegex = /[^.]*(?=\..*)\.|.*/;
   var stripNameRegex = /\..*/;
   var stripUidRegex = /::\d+$/;
@@ -26000,7 +25985,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   }
   var event_handler_default = EventHandler;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/manipulator.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/manipulator.js
   function normalizeData(value) {
     if (value === "true") {
       return true;
@@ -26052,7 +26037,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var manipulator_default = Manipulator;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/config.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/config.js
   var Config = class {
     // Getters
     static get Default() {
@@ -26096,7 +26081,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var config_default = Config;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/base-component.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/base-component.js
   var VERSION = "5.3.0";
   var BaseComponent = class extends config_default {
     constructor(element, config) {
@@ -26148,7 +26133,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var base_component_default = BaseComponent;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/selector-engine.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dom/selector-engine.js
   var getSelector = (element) => {
     let selector = element.getAttribute("data-bs-target");
     if (!selector || selector === "#") {
@@ -26234,7 +26219,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var selector_engine_default = SelectorEngine;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/collapse.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/collapse.js
   var NAME = "collapse";
   var DATA_KEY = "bs.collapse";
   var EVENT_KEY = `.${DATA_KEY}`;
@@ -26430,7 +26415,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   });
   defineJQueryPlugin(Collapse);
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dropdown.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/dropdown.js
   var Popper = __toESM(require_popper());
   var NAME2 = "dropdown";
   var DATA_KEY2 = "bs.dropdown";
@@ -26739,7 +26724,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   });
   defineJQueryPlugin(Dropdown);
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/backdrop.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/backdrop.js
   var NAME3 = "backdrop";
   var CLASS_NAME_FADE = "fade";
   var CLASS_NAME_SHOW3 = "show";
@@ -26845,7 +26830,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var backdrop_default = Backdrop;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/component-functions.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/component-functions.js
   var enableDismissTrigger = (component, method = "hide") => {
     const clickEvent = `click.dismiss${component.EVENT_KEY}`;
     const name = component.NAME;
@@ -26862,7 +26847,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
     });
   };
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/focustrap.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/focustrap.js
   var NAME4 = "focustrap";
   var DATA_KEY3 = "bs.focustrap";
   var EVENT_KEY3 = `.${DATA_KEY3}`;
@@ -26941,7 +26926,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var focustrap_default = FocusTrap;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/scrollbar.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/util/scrollbar.js
   var SELECTOR_FIXED_CONTENT = ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top";
   var SELECTOR_STICKY_CONTENT = ".sticky-top";
   var PROPERTY_PADDING = "padding-right";
@@ -27018,7 +27003,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   };
   var scrollbar_default = ScrollBarHelper;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/modal.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/modal.js
   var NAME5 = "modal";
   var DATA_KEY4 = "bs.modal";
   var EVENT_KEY4 = `.${DATA_KEY4}`;
@@ -27286,7 +27271,7 @@ This Operator will be installed in the <code>my-microcks</code> namespace and wi
   defineJQueryPlugin(Modal);
   var modal_default = Modal;
 
-  // ns-hugo:/Users/yacine/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/tab.js
+  // ns-hugo:/Users/laurent/Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.0+incompatible/js/src/tab.js
   var NAME6 = "tab";
   var DATA_KEY5 = "bs.tab";
   var EVENT_KEY5 = `.${DATA_KEY5}`;
