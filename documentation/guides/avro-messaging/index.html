@@ -19703,6 +19703,12 @@ body.dark {
     font-size: 23px; }
   .navigation .nav-item {
     font-size: 1rem; }
+    .navigation .nav-item.gh-btn {
+      margin-left: 12px; }
+      @media (max-width: 991.9px) {
+        .navigation .nav-item.gh-btn {
+          margin-top: 12px;
+          margin-left: 28px; } }
     .navigation .nav-item .nav-link {
       display: inline-block;
       line-height: 1;
@@ -19777,6 +19783,7 @@ body.dark {
   @media (min-width: 992px) {
     .navigation .navbar .dropdown-menu {
       display: block;
+      top: 45px;
       height: 0;
       visibility: hidden;
       overflow: hidden;
@@ -19955,6 +19962,9 @@ body.dark {
   align-items: center; }
 
 .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0; }
   .nav-item .nav-link {
     text-transform: capitalize; }
@@ -22327,15 +22337,9 @@ footer {
           </li>
           
           
-          
-          
-          
-          
-          <li class="nav-item ">
-            <a class="nav-link" href="https://github.com/microcks/microcks">GitHub ⭐️</a>
+          <li class="nav-item gh-btn">
+            <iframe src="https://ghbtns.com/github-btn.html?user=microcks&repo=microcks&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
           </li>
-          
-          
         </ul>
 
         <ul class="navbar-nav me-auto align-items-center doc-mobile-nav">
@@ -23444,7 +23448,7 @@ footer {
           <h2 class="mb-4 fw-bold">Kafka, Avro &amp; Schema Registry</h2>
           
           
-          <span class="text-muted fw-300">🗓️ Last updated on February 12, 2021 
+          <span class="text-muted fw-300">🗓️ Last updated on April 27, 2024 
             <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 11 
             <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/avro-messaging.md" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
           </span>
@@ -23737,7 +23741,7 @@ footer {
 </span></span><span style="display:flex;"><span>    {<span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;age&#34;</span>, <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;int&#34;</span>}
 </span></span><span style="display:flex;"><span>  ]
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>As we use references, our full specification is now spanning multiple files so you&rsquo;ll not be able to simply upload one file for API import into Microcks. You will have to define a full <strong>Importer Job</strong> as described <a href="../../documentation/using/importers/#scheduled-import"
+</span></span></code></pre></div><p>As we use references, our full specification is now spanning multiple files so you&rsquo;ll not be able to simply upload one file for API import into Microcks. You will have to define a full <strong>Importer Job</strong> as described <a href="../../using/importers/#scheduled-import"
 
 
 

@@ -19703,6 +19703,12 @@ body.dark {
     font-size: 23px; }
   .navigation .nav-item {
     font-size: 1rem; }
+    .navigation .nav-item.gh-btn {
+      margin-left: 12px; }
+      @media (max-width: 991.9px) {
+        .navigation .nav-item.gh-btn {
+          margin-top: 12px;
+          margin-left: 28px; } }
     .navigation .nav-item .nav-link {
       display: inline-block;
       line-height: 1;
@@ -19777,6 +19783,7 @@ body.dark {
   @media (min-width: 992px) {
     .navigation .navbar .dropdown-menu {
       display: block;
+      top: 45px;
       height: 0;
       visibility: hidden;
       overflow: hidden;
@@ -19955,6 +19962,9 @@ body.dark {
   align-items: center; }
 
 .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0; }
   .nav-item .nav-link {
     text-transform: capitalize; }
@@ -22327,15 +22337,9 @@ footer {
           </li>
           
           
-          
-          
-          
-          
-          <li class="nav-item ">
-            <a class="nav-link" href="https://github.com/microcks/microcks">GitHub ⭐️</a>
+          <li class="nav-item gh-btn">
+            <iframe src="https://ghbtns.com/github-btn.html?user=microcks&repo=microcks&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
           </li>
-          
-          
         </ul>
 
         <ul class="navbar-nav me-auto align-items-center doc-mobile-nav">
@@ -23444,7 +23448,7 @@ footer {
           <h2 class="mb-4 fw-bold">Using Microcks from GitHub Actions</h2>
           
           
-          <span class="text-muted fw-300">🗓️ Last updated on November 22, 2021 
+          <span class="text-muted fw-300">🗓️ Last updated on April 27, 2024 
             <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 3 
             <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/automating/github-actions.md" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
           </span>
@@ -23612,7 +23616,7 @@ footer {
 <h3 id="import-github-action">Import GitHub action</h3>
 <p>The <code>import</code> action, based on the CLI command, has just one argument that specifies a comma separated list of file paths:</p>
 <ul>
-<li><code>&lt;specificationFile1[:primary],specificationFile2[:primary]&gt;</code> : The file paths with an optional flag telling if it should be imported as <code>primary</code> or not. See <a href="../using/importers/#multi-artifacts-support"
+<li><code>&lt;specificationFile1[:primary],specificationFile2[:primary]&gt;</code>: The file paths with an optional flag telling if it should be imported as <code>primary</code> or not. See <a href="../../using/importers/#multi-artifacts-support"
 
 
 

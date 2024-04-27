@@ -19703,6 +19703,12 @@ body.dark {
     font-size: 23px; }
   .navigation .nav-item {
     font-size: 1rem; }
+    .navigation .nav-item.gh-btn {
+      margin-left: 12px; }
+      @media (max-width: 991.9px) {
+        .navigation .nav-item.gh-btn {
+          margin-top: 12px;
+          margin-left: 28px; } }
     .navigation .nav-item .nav-link {
       display: inline-block;
       line-height: 1;
@@ -19777,6 +19783,7 @@ body.dark {
   @media (min-width: 992px) {
     .navigation .navbar .dropdown-menu {
       display: block;
+      top: 45px;
       height: 0;
       visibility: hidden;
       overflow: hidden;
@@ -19955,6 +19962,9 @@ body.dark {
   align-items: center; }
 
 .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0; }
   .nav-item .nav-link {
     text-transform: capitalize; }
@@ -22327,15 +22337,9 @@ footer {
           </li>
           
           
-          
-          
-          
-          
-          <li class="nav-item ">
-            <a class="nav-link" href="https://github.com/microcks/microcks">GitHub ⭐️</a>
+          <li class="nav-item gh-btn">
+            <iframe src="https://ghbtns.com/github-btn.html?user=microcks&repo=microcks&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
           </li>
-          
-          
         </ul>
 
         <ul class="navbar-nav me-auto align-items-center doc-mobile-nav">
@@ -23444,13 +23448,13 @@ footer {
           <h2 class="mb-4 fw-bold">Microcks APIMetadata</h2>
           
           
-          <span class="text-muted fw-300">🗓️ Last updated on September 28, 2021 
+          <span class="text-muted fw-300">🗓️ Last updated on April 27, 2024 
             <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 3 
             <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/using/metadata.md" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
           </span>
 
           <div class="doc-content mt-4 pt-4" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="20"><h2 id="introduction">Introduction</h2>
-<p>Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by <code>manager</code> within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced <a href="../../openapi/#using-openapi-extensions"
+<p>Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by <code>manager</code> within Microcks either using the UI or through the Microcks API. That&rsquo;s the reason why we introduced <a href="../openapi/#using-openapi-extensions"
 
 
 
@@ -23458,7 +23462,7 @@ footer {
 
 
 >OpenAPI extensions</a>
- and <a href="../../asyncapi/#using-asyncapi-extensions"
+ and <a href="../asyncapi/#using-asyncapi-extensions"
 
 
 
@@ -23467,7 +23471,7 @@ footer {
 
 >AsyncAPI extensions</a>
  starting with Microcks <code>1.4.0</code> release.</p>
-<p>But sometimes you don&rsquo;t want to add some <code>x-microcks</code> extensions attributes into AsyncAPI / OpenAPI document <strong>OR</strong> you&rsquo;d need to specify these metadata and properties for some other artifact types like <a href="../../grpc"
+<p>But sometimes you don&rsquo;t want to add some <code>x-microcks</code> extensions attributes into AsyncAPI / OpenAPI document <strong>OR</strong> you&rsquo;d need to specify these metadata and properties for some other artifact types like <a href="../grpc"
 
 
 
@@ -23475,7 +23479,7 @@ footer {
 
 
 >Protobuf</a>
- + <a href="../../postman"
+ + <a href="../postman"
 
 
 
@@ -23484,7 +23488,7 @@ footer {
 
 >Postman collection</a>
  for GRPC mocking for instance 😉.</p>
-<p>Hence we propose defining these metadata and properties into a standalone document called an <code>APIMetadata</code> ; document that can imported as a <code>secondary</code> artifact thanks to the <a href="../../importers/#multi-artifacts-support"
+<p>Hence we propose defining these metadata and properties into a standalone document called an <code>APIMetadata</code> ; document that can imported as a <code>secondary</code> artifact thanks to the <a href="../importers/#multi-artifacts-support"
 
 
 
@@ -23494,7 +23498,7 @@ footer {
 >multi-artifacts support</a>
  now in Microcks.</p>
 <blockquote>
-<p>For the later gRPC use-case, it means that the <a href="../../grpc/#defining-dispatch-rules"
+<p>For the later gRPC use-case, it means that the <a href="../grpc/#defining-dispatch-rules"
 
 
 
@@ -23538,10 +23542,12 @@ footer {
 </span></span></code></pre></div><p>This example is pretty straightforward to understand and explain:</p>
 <ul>
 <li>This document is related to the <code>WeatherForecast API</code> in version <code>1.1.0</code>. That means that this API version should already exist into your repository, otherwise the document will be ignored,</li>
-<li>This document specifies additional <code>labels</code> used for <a href="../advanced/organizing"
+<li>This document specifies additional <code>labels</code> used for <a href="https://microcks.io/documentation/using/organizing/"
 
 
 
+
+ target="_blank"
  
 
 

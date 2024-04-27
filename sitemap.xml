@@ -12,7 +12,7 @@
     <lastmod>2023-06-21T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/service-account/</loc>
-    <lastmod>2023-07-17T00:00:00+02:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/kubernetes/</loc>
     <lastmod>2023-06-22T00:00:00+02:00</lastmod>
@@ -21,16 +21,16 @@
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/avro-messaging/</loc>
-    <lastmod>2021-02-12T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/getting-started-tests/</loc>
-    <lastmod>2021-11-25T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/operator/</loc>
     <lastmod>2021-04-28T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/administrating/secrets/</loc>
-    <lastmod>2019-11-19T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/jenkins/</loc>
     <lastmod>2021-11-22T00:00:00+01:00</lastmod>
@@ -39,13 +39,13 @@
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/mqtt-support/</loc>
-    <lastmod>2021-02-15T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/importers/</loc>
     <lastmod>2023-03-07T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/administrating/snapshots/</loc>
-    <lastmod>2019-11-19T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/cli/</loc>
     <lastmod>2022-09-06T00:00:00+02:00</lastmod>
@@ -60,7 +60,7 @@
     <lastmod>2022-11-22T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/rabbitmq-support/</loc>
-    <lastmod>2022-11-22T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/tekton/</loc>
     <lastmod>2021-06-30T00:00:00+02:00</lastmod>
@@ -72,13 +72,13 @@
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/nats-support/</loc>
-    <lastmod>2023-01-30T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/podman-compose/</loc>
     <lastmod>2023-06-21T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/automating/github-actions/</loc>
-    <lastmod>2021-11-22T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/openapi/</loc>
     <lastmod>2024-03-11T00:00:00+01:00</lastmod>
@@ -87,7 +87,7 @@
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/googlepubsub-support/</loc>
-    <lastmod>2023-02-08T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/swagger/</loc>
     <lastmod>2022-04-06T00:00:00+02:00</lastmod>
@@ -99,7 +99,7 @@
     <lastmod>2024-02-01T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/guides/aws-sqs-sns-support/</loc>
-    <lastmod>2023-06-06T00:00:00+02:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/asyncapi/</loc>
     <lastmod>2024-03-07T00:00:00+01:00</lastmod>
@@ -126,7 +126,7 @@
     <lastmod>2019-09-02T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/tests/</loc>
-    <lastmod>2023-06-07T00:00:00+02:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/advanced/</loc>
     <lastmod>2019-12-13T00:00:00+01:00</lastmod>
@@ -141,19 +141,19 @@
     <lastmod>2022-12-26T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/metadata/</loc>
-    <lastmod>2021-09-28T00:00:00+02:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/administrating/externals/</loc>
     <lastmod>2023-10-26T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/using/monitoring/</loc>
-    <lastmod>2024-03-07T00:00:00+01:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/documentation/installing/running-uber/</loc>
     <lastmod>2023-11-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2024-04-24T00:00:00+02:00</lastmod>
+    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/</loc>
     <lastmod>2024-04-24T00:00:00+02:00</lastmod>
