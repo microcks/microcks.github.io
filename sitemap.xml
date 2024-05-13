@@ -153,10 +153,13 @@
     <lastmod>2023-11-14T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/blog/new-proxy-features-1.9.1/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/</loc>
-    <lastmod>2024-04-24T00:00:00+02:00</lastmod>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/mocking-oidc-redirect/</loc>
     <lastmod>2024-04-24T00:00:00+02:00</lastmod>
@@ -329,6 +332,8 @@
     <loc>https://microcks.io/discord-invite/</loc>
   </url><url>
     <loc>https://microcks.io/author/nicolas-masse/</loc>
+  </url><url>
+    <loc>https://microcks.io/author/nikolay-afanasyev/</loc>
   </url><url>
     <loc>https://microcks.io/author/sebastien-fraigneau/</loc>
   </url><url>

@@ -20362,7 +20362,9 @@ ol {
 /* sidenav */
 .doc-sidenav {
   position: sticky;
-  top: 95px; }
+  top: 95px;
+  max-height: calc(100vh - 95px);
+  overflow: auto; }
   .doc-sidenav ul {
     padding-left: 10px; }
   .doc-sidenav > li a {
@@ -22576,11 +22578,11 @@ footer {
       
 
 <!-- details page -->
-<section>
+<section class="border-bottom border-default">
   <div class="doc-container-fluid padding-layout">
     <div class="row">
-      <div class="col-xl-2 col-lg-3 col-md-4 d-none d-md-block">
-        <ul class="vh-100 doc-sidenav pt-4 pe-4 ps-0 border-end border-default">
+      <div class="col-xl-2 col-lg-3 col-md-4 pe-0 d-none d-md-block border-end border-default">
+        <ul class="doc-sidenav m-0 pt-4 pe-4 ps-0">
           
           
             
@@ -23444,7 +23446,7 @@ footer {
         </ul>
       </div>
       <div class="col-xl-8 col-lg-9 col-md-8">
-        <div class="px-lg-5 px-sm-4 pt-5">
+        <div class="px-lg-5 px-sm-4 py-5">
           <h2 class="mb-4 fw-bold">Swagger Mocking and Testing</h2>
           
           

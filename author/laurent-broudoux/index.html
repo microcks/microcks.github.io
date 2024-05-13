@@ -20341,7 +20341,9 @@ ol {
 /* sidenav */
 .doc-sidenav {
   position: sticky;
-  top: 95px; }
+  top: 95px;
+  max-height: calc(100vh - 95px);
+  overflow: auto; }
   .doc-sidenav ul {
     padding-left: 10px; }
   .doc-sidenav > li a {

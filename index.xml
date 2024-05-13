@@ -6,7 +6,7 @@
     <description>Recent content on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 27 Apr 2024 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
@@ -322,6 +322,13 @@
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/running-uber/</guid>
       <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
+    </item>
+    <item>
+      <title>Introducing new Proxy features in Microcks 1.9.1</title>
+      <link>https://microcks.io/blog/new-proxy-features-1.9.1/</link>
+      <pubDate>Mon, 13 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/new-proxy-features-1.9.1/</guid>
+      <description>We all know about the many benefits of Microcks, which makes it an excellent tool for the software development process.</description>
     </item>
     <item>
       <title>Mocking OpenID Connect redirect</title>
@@ -686,6 +693,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://microcks.io/author/nicolas-masse/</guid>
       <description>Principal Solution Architect at Red Hat</description>
+    </item>
+    <item>
+      <title>Nikolay Afanasyev</title>
+      <link>https://microcks.io/author/nikolay-afanasyev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/nikolay-afanasyev/</guid>
+      <description>Lead Developer</description>
     </item>
     <item>
       <title>Sebastien Fraigneau</title>

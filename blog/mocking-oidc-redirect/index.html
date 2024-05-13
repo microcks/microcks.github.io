@@ -20346,7 +20346,9 @@ ol {
 /* sidenav */
 .doc-sidenav {
   position: sticky;
-  top: 95px; }
+  top: 95px;
+  max-height: calc(100vh - 95px);
+  overflow: auto; }
   .doc-sidenav ul {
     padding-left: 10px; }
   .doc-sidenav > li a {
@@ -22696,7 +22698,7 @@ footer {
 
 
 >GitHub Authorization flow for OAuth apps</a>
-. It describes the different query parameters and the response with the <code>302</code> HTTP response code.  You’ll see in the snippet below that each parameter contain an example named ￼<code>generic</code>￼ and that my specification also contains specific ￼<code>x-microks</code> attributes and notations like <code>{{}}</code> expressions. We’ll dive into their explanations just after!</p>
+. It describes the different query parameters and the response with the <code>302</code> HTTP response code.  You’ll see in the snippet below that each parameter contain an example named <code>generic</code>￼and that my specification also contains specific ￼<code>x-microcks</code> attributes and notations like <code>{{}}</code> expressions. We’ll dive into their explanations just after!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">paths</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">/login/oauth/authorize</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">get</span>:
