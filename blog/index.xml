@@ -6,8 +6,15 @@
     <description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcks 1.9.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.9.1-release/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.9.1-release/</guid>
+      <description>Just two months after the previous release, we are thrilled to announce this brand-new Microcks version!</description>
+    </item>
     <item>
       <title>Introducing new Proxy features in Microcks 1.9.1</title>
       <link>https://microcks.io/blog/new-proxy-features-1.9.1/</link>

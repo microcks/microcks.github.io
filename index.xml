@@ -6,7 +6,7 @@
     <description>Recent content on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAPI Mocking 101</title>
@@ -322,6 +322,13 @@
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
       <guid>https://microcks.io/documentation/installing/running-uber/</guid>
       <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
+    </item>
+    <item>
+      <title>Microcks 1.9.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.9.1-release/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.9.1-release/</guid>
+      <description>Just two months after the previous release, we are thrilled to announce this brand-new Microcks version!</description>
     </item>
     <item>
       <title>Introducing new Proxy features in Microcks 1.9.1</title>
