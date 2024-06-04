@@ -6,8 +6,15 @@
     <description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CNAM Partners with Microcks for Automated SOAP Service Mocking</title>
+      <link>https://microcks.io/blog/cnam-soap-service-mocking/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/cnam-soap-service-mocking/</guid>
+      <description>With over 2,500 employees, the Caisse Nationale de l’Assurance Maladie CNAM is the operational &amp;ldquo;headquarters&amp;rdquo; of France&amp;rsquo;s compulsory health insurance system.</description>
+    </item>
     <item>
       <title>Microcks 1.9.1 release 🚀</title>
       <link>https://microcks.io/blog/microcks-1.9.1-release/</link>
