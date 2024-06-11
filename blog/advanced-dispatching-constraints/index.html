@@ -22652,7 +22652,7 @@ footer {
 
 <br> Photo by <a href="https://unsplash.com/@jordanmadrid?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jordan Madrid</a> on <a href="https://unsplash.com/s/photos/compass?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></i></figcaption>
 </figure>
-<p>We&rsquo;ll see how to configure advanced mocking rules in Microcks so that requests will be routed to correct responses based on <code>region</code> value and <code>apiKey</code> will be checked as mandatory even if we do not care of the actual value. If user specified an unknow region, the mock should return a fallback response.</p>
+<p>We&rsquo;ll see how to configure advanced mocking rules in Microcks so that requests will be routed to correct responses based on <code>region</code> value and <code>apiKey</code> will be checked as mandatory even if we do not care of the actual value. If user specified an unknown region, the mock should return a fallback response.</p>
 <h2 id="lets-start">Let&rsquo;s start!</h2>
 <p>Let&rsquo;s start by importing the below OpenAPI contract into your running Microcks instance. As this is a <a href="https://gist.github.com/lbroudoux/75b4ea340d5ddecf9b27a06e7f18ab6d"
 
@@ -22784,7 +22784,7 @@ footer {
 
 >Using Exposed Mocks</a>
  for introduction on dispatchers),</li>
-<li>Is has inferred that this dispather will take care of two parameters being <code>region</code> and <code>apiKey</code>,</li>
+<li>Is has inferred that this dispatcher will take care of two parameters being <code>region</code> and <code>apiKey</code>,</li>
 <li>It has discovered 5 request/response sample pairs (see <a href="https://microcks.io/documentation/using/openapi/#conventions"
 
 
@@ -23033,7 +23033,7 @@ Parameter apiKey is required. Check parameter constraints.%
 <li>Define a set of possible values for <code>apiKey</code> within the OpenAPI specification examples. This will add complexity and a number of examples to manage if you&rsquo;re managing combinations of parameters,</li>
 <li>Simply tall Microcks to not worry about the <code>apiKey</code> value when dispatching to a response. This makes a lot of sense here as this parameter is purely technical!</li>
 </ul>
-<p>Obviously we choose the second option and get back to the <strong>Edit Properties</strong> page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispathing properties. We&rsquo;ll simply tell Microcks to keep the current dispatcher but we&rsquo;ll adapt the rules to only let <code>region</code> as the sole dispatching criterion:</p>
+<p>Obviously we choose the second option and get back to the <strong>Edit Properties</strong> page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispatching properties. We&rsquo;ll simply tell Microcks to keep the current dispatcher but we&rsquo;ll adapt the rules to only let <code>region</code> as the sole dispatching criterion:</p>
 
 
 
@@ -23156,7 +23156,7 @@ Parameter apiKey is required. Check parameter constraints.%
 <h2 id="changing-dispatcher">Changing dispatcher</h2>
 <p>In order to address our final requirement - having a proper 404 response if region is unknown - we will have to change the dispatcher that was inferred by Microcks. Let&rsquo;s get back to the <strong>Edit Properties</strong> page for the operation once again and now change the dispatcher to <code>FALLBACK</code> value. You&rsquo;ll see documentation appearing on the right with the ability to copy-paste the example.</p>
 <blockquote>
-<p>The <code>FALLBACK</code> dispatcher is a new feature from <code>1.2.0</code> release. Depending on the day you are reading this post it may be possible that the realease it not yet available. If you need it urgently please use the <code>latest</code> version of Microcks. This feature is already enabled there and will be available till 1.2.0 announcements.</p>
+<p>The <code>FALLBACK</code> dispatcher is a new feature from <code>1.2.0</code> release. Depending on the day you are reading this post it may be possible that the release it not yet available. If you need it urgently please use the <code>latest</code> version of Microcks. This feature is already enabled there and will be available till 1.2.0 announcements.</p>
 </blockquote>
 <p>The <code>FALLBACK</code> dispatcher behaves kinda like a <code>try-catch</code> wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to the <code>fallback</code> response. Configure this dispatcher as shown below: picking the <code>unknown</code> response as the one representing our fallback.</p>
 
@@ -23253,10 +23253,10 @@ Parameter apiKey is required. Check parameter constraints.%
 
 
 
-<p>Hit the <strong>Save</strong> button and test again the previous curl command, you&rsquo;ll see that you&rsquo;re now receving the <code>404</code> response called <code>unknown</code>:</p>
+<p>Hit the <strong>Save</strong> button and test again the previous curl command, you&rsquo;ll see that you&rsquo;re now receiving the <code>404</code> response called <code>unknown</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast<span style="color:#ae81ff">\?</span>region<span style="color:#ae81ff">\=</span>center<span style="color:#ae81ff">\&amp;</span>apiKey<span style="color:#ae81ff">\=</span>qwertyuiop -k
 </span></span><span style="display:flex;"><span>Region is unknown. Choose in north, west, east or south.%
-</span></span></code></pre></div><p>🎉 TADAM! Now when getting back the API summary page and checking the <code>GET /forecast</code> operation details, you&rsquo;ll see that dispatcher and dispatchin rules have been updated to display your new configuration:</p>
+</span></span></code></pre></div><p>🎉 TADAM! Now when getting back the API summary page and checking the <code>GET /forecast</code> operation details, you&rsquo;ll see that dispatcher and dispatching rules have been updated to display your new configuration:</p>
 
 
 
@@ -23362,7 +23362,7 @@ Parameter apiKey is required. Check parameter constraints.%
 
 
 >Parameters Constraints</a>
- and <a href="https://microcks.io/documentation/using/advanced/dispatching/"
+ and <a href="https://microcks.io/documentation/using/dispatching/"
 
 
 
