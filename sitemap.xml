@@ -2,158 +2,254 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://microcks.io/documentation/guides/openapi-101/</loc>
-    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/references/artifacts/openapi-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/administrating/users/</loc>
-    <lastmod>2021-08-31T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/overview/</loc>
+    <lastmod>2024-05-23T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/getting-started/</loc>
-    <lastmod>2023-06-21T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/explanations/deployment-topologies/</loc>
+    <lastmod>2024-05-16T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/automating/service-account/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/references/container-images/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/installing/kubernetes/</loc>
-    <lastmod>2023-06-22T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/installation/docker-desktop-extension/</loc>
+    <lastmod>2024-05-24T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/</loc>
-    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/automation/api/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/guides/avro-messaging/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/integration/ai-copilot/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/getting-started-tests/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/references/configuration/application-config/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/installing/operator/</loc>
-    <lastmod>2021-04-28T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/installation/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/administrating/secrets/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/tutorials/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/automating/jenkins/</loc>
-    <lastmod>2021-11-22T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/overview/what-is-microcks/</loc>
+    <lastmod>2024-05-23T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/installing/</loc>
-    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/administration/organizing-repository/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/guides/mqtt-support/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/usage/importing-content/</loc>
+    <lastmod>2024-06-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/importers/</loc>
-    <lastmod>2023-03-07T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/administration/users/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/administrating/snapshots/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/automating/cli/</loc>
-    <lastmod>2022-09-06T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/installing/docker-compose/</loc>
-    <lastmod>2023-06-21T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/automating/</loc>
-    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/installing/docker-desktop-extension/</loc>
-    <lastmod>2022-11-22T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/guides/rabbitmq-support/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/automating/tekton/</loc>
-    <lastmod>2021-06-30T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/alternatives/</loc>
-    <lastmod>2019-09-02T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/administrating/</loc>
-    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/guides/nats-support/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/installing/podman-compose/</loc>
-    <lastmod>2023-06-21T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/automating/github-actions/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/openapi/</loc>
-    <lastmod>2024-03-11T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/guides/</loc>
-    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/guides/googlepubsub-support/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/swagger/</loc>
-    <lastmod>2022-04-06T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/installing/deployment-options/</loc>
-    <lastmod>2023-04-19T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/automating/api/</loc>
+    <loc>https://microcks.io/documentation/references/apis/open-api/</loc>
     <lastmod>2024-02-01T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/guides/aws-sqs-sns-support/</loc>
+    <loc>https://microcks.io/documentation/tutorials/getting-started/</loc>
+    <lastmod>2024-05-15T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/artifacts/asyncapi-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/integration/microcks-hub/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/custom-dispatchers/</loc>
+    <lastmod>2024-05-16T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/automation/cli/</loc>
+    <lastmod>2024-05-16T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/installation/docker-compose/</loc>
+    <lastmod>2024-05-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/overview/main-concepts/</loc>
+    <lastmod>2024-05-23T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/apis/async-api/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/configuration/security-config/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/avro-messaging/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/deployment-options/</loc>
+    <lastmod>2025-06-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/tutorials/getting-started-tests/</loc>
+    <lastmod>2024-05-15T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/templates/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/mocks-constraints/</loc>
+    <lastmod>2024-06-18T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/artifacts/swagger-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/</loc>
+    <lastmod>2024-05-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/integration/backstage-plugin/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/installation/podman-compose/</loc>
+    <lastmod>2024-06-18T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/tutorials/first-rest-mock/</loc>
+    <lastmod>2024-06-18T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/automation/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/configuration/helm-chart-config/</loc>
+    <lastmod>2024-06-17T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/automation/github-actions/</loc>
+    <lastmod>2024-06-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/mqtt-support/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/administration/secrets/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/overview/alternatives/</loc>
+    <lastmod>2024-06-18T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/artifacts/graphql-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/installation/kind-helm/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/tutorials/first-graphql-mock/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/tutorials/first-grpc-mock/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/integration/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/configuration/operator-config/</loc>
+    <lastmod>2024-05-17T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/test-endpoints/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/administration/snapshots/</loc>
     <lastmod>2024-04-27T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/asyncapi/</loc>
-    <lastmod>2024-03-07T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/usage/direct-api/</loc>
+    <lastmod>2024-06-02T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/postman/</loc>
-    <lastmod>2023-02-23T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/references/artifacts/grpc-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/grpc/</loc>
-    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/references/metadada/</loc>
+    <lastmod>2024-06-17T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/graphql/</loc>
-    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/installation/minikube-helm/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/soapui/</loc>
-    <lastmod>2023-02-23T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/tutorials/first-soap-mock/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/har/</loc>
-    <lastmod>2023-02-23T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/administration/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/mocks/</loc>
-    <lastmod>2022-09-07T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/references/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/dynamic/</loc>
-    <lastmod>2019-09-02T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/nats-support/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/tests/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/references/artifacts/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/advanced/</loc>
-    <lastmod>2019-12-13T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/references/artifacts/postman-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/organizing/</loc>
-    <lastmod>2021-08-31T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/usage/developing-testcontainers/</loc>
+    <lastmod>2024-06-17T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/templates/</loc>
-    <lastmod>2024-04-19T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/dispatching/</loc>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/googlepubsub-support/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/automation/jenkins/</loc>
+    <lastmod>2024-06-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/artifacts/soapui-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/configuration/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</loc>
+    <lastmod>2024-05-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/automation/gitlab/</loc>
+    <lastmod>2024-06-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/artifacts/har-conventions/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/multi-artifacts/</loc>
+    <lastmod>2024-05-27T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/references/apis/</loc>
+    <lastmod>2024-04-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/integration/postman-workspace/</loc>
+    <lastmod>2024-06-18T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/dynamic-content/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/automation/tekton/</loc>
+    <lastmod>2024-06-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/installation/kubernetes-operator/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/conformance-testing/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/guides/usage/async-protocols/</loc>
+    <lastmod>2024-04-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/service-account/</loc>
+    <lastmod>2024-06-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/explanations/dispatching/</loc>
     <lastmod>2022-12-26T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/using/metadata/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
+    <loc>https://microcks.io/documentation/guides/installation/externals/</loc>
+    <lastmod>2024-06-18T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://microcks.io/documentation/administrating/externals/</loc>
-    <lastmod>2023-10-26T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/using/monitoring/</loc>
-    <lastmod>2024-04-27T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/installing/running-uber/</loc>
-    <lastmod>2023-11-14T00:00:00+01:00</lastmod>
+    <loc>https://microcks.io/documentation/explanations/monitoring/</loc>
+    <lastmod>2024-06-13T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/</loc>
-    <lastmod>2024-06-03T00:00:00+02:00</lastmod>
+    <lastmod>2025-06-03T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/cnam-soap-service-mocking/</loc>
     <lastmod>2024-06-03T00:00:00+02:00</lastmod>
@@ -163,6 +259,9 @@
   </url><url>
     <loc>https://microcks.io/blog/microcks-1.9.1-release/</loc>
     <lastmod>2024-05-23T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://microcks.io/documentation/</loc>
+    <lastmod>2024-05-22T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/new-proxy-features-1.9.1/</loc>
     <lastmod>2024-05-13T00:00:00+02:00</lastmod>
@@ -199,9 +298,6 @@
   </url><url>
     <loc>https://microcks.io/events/devoxxfr2024/</loc>
     <lastmod>2024-01-01T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://microcks.io/documentation/</loc>
-    <lastmod>2023-12-29T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://microcks.io/blog/microcks-on-kind/</loc>
     <lastmod>2023-12-28T00:00:00+01:00</lastmod>

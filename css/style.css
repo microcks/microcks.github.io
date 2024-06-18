@@ -19224,6 +19224,20 @@ form label {
 .doc-sidenav .parent ul li.active > a::before {
   display: none !important; }
 
+.doc-content h1, .doc-content .h1,
+.doc-content h2,
+.doc-content .h2,
+.doc-content h3,
+.doc-content .h3,
+.doc-content h4,
+.doc-content .h4,
+.doc-content h5,
+.doc-content .h5,
+.doc-content h6,
+.doc-content .h6 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.7rem; }
+
 .theme-switcher {
   cursor: pointer;
   margin-left: 20px; }
@@ -20086,7 +20100,7 @@ ol {
   .doc-sidenav .parent > a {
     color: #46AAF3 !important;
     position: relative;
-    margin-left: 10px; }
+    margin-left: 0px; }
     .doc-sidenav .parent > a::before {
       position: absolute;
       content: "";
@@ -20104,7 +20118,7 @@ ol {
       font-weight: 400;
       color: rgba(34, 34, 34, 0.75); }
     .doc-sidenav .parent ul li.active > a {
-      margin-left: 10px; }
+      margin-left: 0px; }
       .doc-sidenav .parent ul li.active > a::before {
         height: 5px;
         width: 5px;
@@ -20176,7 +20190,7 @@ ol {
 
 .doc-content ul {
   padding-left: 0;
-  margin-bottom: 20px; }
+  margin-bottom: 2.5rem; }
   .doc-content ul li {
     padding-left: 20px;
     position: relative; }
@@ -20193,7 +20207,7 @@ ol {
 .doc-content table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   border: 1px solid #EEEEEE;
   border-radius: 5px;
   border-spacing: 0;
@@ -20209,6 +20223,9 @@ ol {
 .doc-content tr:not(:last-child) {
   border-bottom: 1px solid #EEEEEE; }
 
+.doc-content tr:nth-child(even) {
+  background-color: #F5F5F5; }
+
 .doc-content th {
   font-weight: 500; }
 
@@ -20223,16 +20240,13 @@ ol {
   margin-bottom: 0; }
 
 .doc-content blockquote {
-  padding: 20px 30px;
+  color: #555;
+  padding: 1.2rem 30px;
+  border: 1px solid #eee;
   border-left: 2px solid #46AAF3;
-  margin: 40px 0;
-  font-weight: bold;
-  background: #F5F5F5; }
-  .doc-content blockquote p {
-    color: rgba(34, 34, 34, 0.8);
-    font-size: 18px !important;
-    margin-bottom: 0 !important;
-    line-height: 1.7; }
+  margin: 2rem 0;
+  background: #fff;
+  border-radius: 0.8rem !important; }
 
 .doc-content pre {
   display: block;

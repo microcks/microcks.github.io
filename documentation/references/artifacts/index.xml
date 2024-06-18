@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Artifacts Reference on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/documentation/references/artifacts/</link>
+    <description>Recent content in Artifacts Reference on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/references/artifacts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAPI Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/openapi-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/openapi-conventions/</guid>
+      <description>Conventions In addition of schema information, Microcks uses OpenAPI Example Objects to produce working mocks and build test suite for validating your implementation.</description>
+    </item>
+    <item>
+      <title>AsyncAPI Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/asyncapi-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/asyncapi-conventions/</guid>
+      <description>Conventions In addition of schema information, Microcks uses AsyncAPI Message Example Objects to produce example messages for mocking purpose.</description>
+    </item>
+    <item>
+      <title>Swagger Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/swagger-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/swagger-conventions/</guid>
+      <description>Microcks is supporting Swagger mocking and testing thanks to multi-artifacts support feature.</description>
+    </item>
+    <item>
+      <title>GraphQL Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/graphql-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/graphql-conventions/</guid>
+      <description>In order to use GraphQL in Microcks, you will need two artifacts for each API definition as explained in Multi-artifacts support :</description>
+    </item>
+    <item>
+      <title>gRPC Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/grpc-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/grpc-conventions/</guid>
+      <description>In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in Multi-artifacts support :</description>
+    </item>
+    <item>
+      <title>Postman Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/postman-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/postman-conventions/</guid>
+      <description>Conventions In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.</description>
+    </item>
+    <item>
+      <title>SoapUI Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/soapui-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/soapui-conventions/</guid>
+      <description>Conventions In order to be correctly imported and understood by Microcks, your SoapUI project should follow a little set of reasonable conventions and best practices.</description>
+    </item>
+    <item>
+      <title>Http Archive Conventions</title>
+      <link>https://microcks.io/documentation/references/artifacts/har-conventions/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/references/artifacts/har-conventions/</guid>
+      <description>Conventions In order to be correctly imported and understood by Microcks, your HAR file should follow a little set of reasonable conventions and best practices.</description>
+    </item>
+  </channel>
+</rss>

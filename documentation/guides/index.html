@@ -6,7 +6,7 @@
   <head>
     
     <meta charset="utf-8" />
-<title>Guides</title>
+<title>How-To Guides</title>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
@@ -171,13 +171,13 @@
 
 
 
-<meta property="og:title" content="Guides" />
+<meta property="og:title" content="How-To Guides" />
 <meta property="og:description" content="Here below all the documentation pages related to **Guides**." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://microcks.io/documentation/guides/" />
 
 
-<meta name="twitter:title" content="Guides" />
+<meta name="twitter:title" content="How-To Guides" />
 <meta name="twitter:description" content="Here below all the documentation pages related to **Guides**." />
 
 
@@ -19521,6 +19521,20 @@ form label {
 .doc-sidenav .parent ul li.active > a::before {
   display: none !important; }
 
+.doc-content h1, .doc-content .h1,
+.doc-content h2,
+.doc-content .h2,
+.doc-content h3,
+.doc-content .h3,
+.doc-content h4,
+.doc-content .h4,
+.doc-content h5,
+.doc-content .h5,
+.doc-content h6,
+.doc-content .h6 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.7rem; }
+
 .theme-switcher {
   cursor: pointer;
   margin-left: 20px; }
@@ -20383,7 +20397,7 @@ ol {
   .doc-sidenav .parent > a {
     color: #46AAF3 !important;
     position: relative;
-    margin-left: 10px; }
+    margin-left: 0px; }
     .doc-sidenav .parent > a::before {
       position: absolute;
       content: "";
@@ -20401,7 +20415,7 @@ ol {
       font-weight: 400;
       color: rgba(34, 34, 34, 0.75); }
     .doc-sidenav .parent ul li.active > a {
-      margin-left: 10px; }
+      margin-left: 0px; }
       .doc-sidenav .parent ul li.active > a::before {
         height: 5px;
         width: 5px;
@@ -20473,7 +20487,7 @@ ol {
 
 .doc-content ul {
   padding-left: 0;
-  margin-bottom: 20px; }
+  margin-bottom: 2.5rem; }
   .doc-content ul li {
     padding-left: 20px;
     position: relative; }
@@ -20490,7 +20504,7 @@ ol {
 .doc-content table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   border: 1px solid #EEEEEE;
   border-radius: 5px;
   border-spacing: 0;
@@ -20506,6 +20520,9 @@ ol {
 .doc-content tr:not(:last-child) {
   border-bottom: 1px solid #EEEEEE; }
 
+.doc-content tr:nth-child(even) {
+  background-color: #F5F5F5; }
+
 .doc-content th {
   font-weight: 500; }
 
@@ -20520,16 +20537,13 @@ ol {
   margin-bottom: 0; }
 
 .doc-content blockquote {
-  padding: 20px 30px;
+  color: #555;
+  padding: 1.2rem 30px;
+  border: 1px solid #eee;
   border-left: 2px solid #46AAF3;
-  margin: 40px 0;
-  font-weight: bold;
-  background: #F5F5F5; }
-  .doc-content blockquote p {
-    color: rgba(34, 34, 34, 0.8);
-    font-size: 18px !important;
-    margin-bottom: 0 !important;
-    line-height: 1.7; }
+  margin: 2rem 0;
+  background: #fff;
+  border-radius: 0.8rem !important; }
 
 .doc-content pre {
   display: block;
@@ -22341,7 +22355,7 @@ footer {
           
           
           <li class="nav-item gh-btn">
-            <iframe src="https://ghbtns.com/github-btn.html?user=microcks&repo=microcks&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+            <a class="github-button" href="https://github.com/microcks/microcks" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Star microcks/microcks on GitHub">Star</a>
           </li>
         </ul>
 
@@ -22352,31 +22366,31 @@ footer {
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/documentation/using">Using</a>
+            <a class="nav-link" href="/documentation/overview">Overview</a>
           </li>
           
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/documentation/installing">Installing</a>
+            <a class="nav-link" href="/documentation/tutorials">Tutorials</a>
           </li>
           
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/documentation/automating">Automating</a>
+            <a class="nav-link" href="/documentation/guides">How-to Guides</a>
           </li>
           
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/documentation/administrating">Administrating</a>
+            <a class="nav-link" href="/documentation/explanations">Explanations</a>
           </li>
           
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/documentation/guides">Guides</a>
+            <a class="nav-link" href="/documentation/references">References</a>
           </li>
           
           
@@ -22421,7 +22435,7 @@ footer {
         
         
         
-          <a href="/documentation/getting-started/" class="btn btn-sm btn-outline-primary ms-lg-4">Get Started</a>
+          <a href="/documentation/tutorials/getting-started/" class="btn btn-sm btn-outline-primary ms-lg-4">Get Started</a>
           
       </div>
 
@@ -22589,849 +22603,675 @@ footer {
             
           
             
-          
+              
+                
+                
+                
+                
+                
+
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/overview/" title="Overview" class="sidelist  ">
+  <a href="https://microcks.io/documentation/overview/"> <i class="fa-solid fa-magnifying-glass"></i> &nbsp;Overview</a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/overview/what-is-microcks/" title="What is Microcks?" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/overview/what-is-microcks/"> What is Microcks?</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/overview/main-concepts/" title="Main Concepts" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/overview/main-concepts/"> Main Concepts</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/overview/alternatives/" title="Alternatives" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/overview/alternatives/"> Alternatives</a>
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+                
+              
+                
+                
+                
+                
+                
+
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/" title="Tutorials" class="sidelist  ">
+  <a href="https://microcks.io/documentation/tutorials/"> <i class="fa-solid fa-graduation-cap"></i> &nbsp;Tutorials</a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/getting-started/" title="Getting started" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/getting-started/"> Getting started</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/getting-started-tests/" title="Getting started with Tests" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/getting-started-tests/"> Getting started with Tests</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/first-rest-mock/" title="Your 1st REST mock" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/first-rest-mock/"> Your 1st REST mock</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/first-graphql-mock/" title="Your 1st GraphQL mock" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/first-graphql-mock/"> Your 1st GraphQL mock</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/first-grpc-mock/" title="Your 1st gRPC mock" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/first-grpc-mock/"> Your 1st gRPC mock</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/first-soap-mock/" title="Your 1st Soap mock" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/first-soap-mock/"> Your 1st Soap mock</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/tutorials/first-asyncapi-mock/" title="Your 1st AsyncAPI on Kafka mock" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/tutorials/first-asyncapi-mock/"> Your 1st AsyncAPI on Kafka mock</a>
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+                
+              
+                
+                
+                
+                
+                
+
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/" title="How-To Guides" class="sidelist  active parent">
+  <a href="https://microcks.io/documentation/guides/"> <i class="fa-solid fa-book-open"></i> &nbsp;How-To Guides</a>
+  
+  
+  <ul>
+    
+    
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/installation/" title="Installation" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/guides/installation/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Installation</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/usage/" title="Usage" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/guides/usage/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Usage</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/automation/" title="Automation" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/guides/automation/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Automation</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/integration/" title="Integration" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/guides/integration/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Integration</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/administration/" title="Administration" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/guides/administration/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Administration</a>
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+                
+              
+                
+                
+                
+                
+                
+
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/" title="Explanations" class="sidelist  ">
+  <a href="https://microcks.io/documentation/explanations/"> <i class="fa-solid fa-lightbulb"></i> &nbsp;Explanations</a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/deployment-topologies/" title="Deployment topologies" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/deployment-topologies/"> Deployment topologies</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/deployment-options/" title="Architecture &amp; deployment options" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/deployment-options/"> Architecture &amp; deployment options</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/multi-artifacts/" title="Multi-artifacts support" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/multi-artifacts/"> Multi-artifacts support</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/dynamic-content/" title="Dynamic mock content" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/dynamic-content/"> Dynamic mock content</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/conformance-testing/" title="Conformance testing" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/conformance-testing/"> Conformance testing</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/service-account/" title="Service accounts" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/service-account/"> Service accounts</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/dispatching/" title="Dispatcher &amp; dispatching rules" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/dispatching/"> Dispatcher &amp; dispatching rules</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/explanations/monitoring/" title="Monitoring &amp; Observability" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/explanations/monitoring/"> Monitoring &amp; Observability</a>
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+                
+              
+                
+                
+                
+                
+                
+
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/" title="References" class="sidelist  ">
+  <a href="https://microcks.io/documentation/references/"> <i class="fa-solid fa-file-lines"></i> &nbsp;References</a>
+  
+  
+  <ul>
+    
+    
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/container-images/" title="Container Images" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/container-images/"> Container Images</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/templates/" title="Mock Templates" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/templates/"> Mock Templates</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/test-endpoints/" title="Test Parameters" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/test-endpoints/"> Test Parameters</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/metadada/" title="API Metadata Format" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/metadada/"> API Metadata Format</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/artifacts/" title="Artifacts Reference" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/artifacts/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Artifacts Reference</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/configuration/" title="Configuration Reference" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/configuration/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Configuration Reference</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/references/apis/" title="API Reference" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/references/apis/"> <i class="fa-solid fa-caret-right"></i> &nbsp; API Reference</a>
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+                
+              
             
           
             
-              
-                
-                
-                
-                
-                
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/" title="Using" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/">Using</a>
-  
-  
-  <ul>
-    
-    
-    
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/importers/" title="Importing Services &amp; APIs" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/importers/">Importing Services &amp; APIs</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/alternatives/" title="Comparison to alternatives" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/alternatives/">Comparison to alternatives</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/openapi/" title="OpenAPI Mocking and Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/openapi/">OpenAPI Mocking and Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/swagger/" title="Swagger Mocking and Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/swagger/">Swagger Mocking and Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/asyncapi/" title="AsyncAPI Mocking and Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/asyncapi/">AsyncAPI Mocking and Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/postman/" title="Postman usage for Microcks" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/postman/">Postman usage for Microcks</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/grpc/" title="gRPC Mocking and Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/grpc/">gRPC Mocking and Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/graphql/" title="GraphQL Mocking and Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/graphql/">GraphQL Mocking and Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/soapui/" title="SoapUI Mocking and Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/soapui/">SoapUI Mocking and Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/har/" title="Http Archive usage for Microcks" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/har/">Http Archive usage for Microcks</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/mocks/" title="Using exposed mocks" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/mocks/">Using exposed mocks</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/dynamic/" title="Getting direct API" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/dynamic/">Getting direct API</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/tests/" title="Testing with Microcks" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/tests/">Testing with Microcks</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/advanced/" title="Advanced topics" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/advanced/">Advanced topics</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/organizing/" title="Organizing repository" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/organizing/">Organizing repository</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/templates/" title="Templating mock responses" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/templates/">Templating mock responses</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/dispatching/" title="Dispatcher &amp; dispatching rules" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/dispatching/">Dispatcher &amp; dispatching rules</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/metadata/" title="Microcks APIMetadata" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/metadata/">Microcks APIMetadata</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/using/monitoring/" title="Monitoring &amp; Observability" class="sidelist  ">
-  <a href="https://microcks.io/documentation/using/monitoring/">Monitoring &amp; Observability</a>
-  
-  
-
-
-    
-  </ul>
-</li>
-
-
-
-                
-              
-                
-                
-                
-                
-                
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/" title="Installing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/">Installing</a>
-  
-  
-  <ul>
-    
-    
-    
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/kubernetes/" title="On Kube using Helm" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/kubernetes/">On Kube using Helm</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/operator/" title="On Kube using Operator" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/operator/">On Kube using Operator</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/docker-compose/" title="Using docker-compose" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/docker-compose/">Using docker-compose</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/docker-desktop-extension/" title="As Docker Desktop Extension" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/docker-desktop-extension/">As Docker Desktop Extension</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/podman-compose/" title="Using podman-compose" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/podman-compose/">Using podman-compose</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/deployment-options/" title="Architecture &amp; deployment options" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/deployment-options/">Architecture &amp; deployment options</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/installing/running-uber/" title="Running with Testcontainers" class="sidelist  ">
-  <a href="https://microcks.io/documentation/installing/running-uber/">Running with Testcontainers</a>
-  
-  
-
-
-    
-  </ul>
-</li>
-
-
-
-                
-              
-                
-                
-                
-                
-                
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/" title="Automating" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/">Automating</a>
-  
-  
-  <ul>
-    
-    
-    
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/service-account/" title="Microcks Service Accounts" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/service-account/">Microcks Service Accounts</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/jenkins/" title="Integrating Microcks from Jenkins" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/jenkins/">Integrating Microcks from Jenkins</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/cli/" title="CLI for Microcks" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/cli/">CLI for Microcks</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/tekton/" title="Using Microcks from Tekton" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/tekton/">Using Microcks from Tekton</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/github-actions/" title="Using Microcks from GitHub Actions" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/github-actions/">Using Microcks from GitHub Actions</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/automating/api/" title="Microcks own&#39;s API" class="sidelist  ">
-  <a href="https://microcks.io/documentation/automating/api/">Microcks own&#39;s API</a>
-  
-  
-
-
-    
-  </ul>
-</li>
-
-
-
-                
-              
-                
-                
-                
-                
-                
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/administrating/" title="Administrating" class="sidelist  ">
-  <a href="https://microcks.io/documentation/administrating/">Administrating</a>
-  
-  
-  <ul>
-    
-    
-    
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/administrating/users/" title="Managing Users" class="sidelist  ">
-  <a href="https://microcks.io/documentation/administrating/users/">Managing Users</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/administrating/secrets/" title="External Secrets" class="sidelist  ">
-  <a href="https://microcks.io/documentation/administrating/secrets/">External Secrets</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/administrating/snapshots/" title="Repository Snapshots" class="sidelist  ">
-  <a href="https://microcks.io/documentation/administrating/snapshots/">Repository Snapshots</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/administrating/externals/" title="External Dependencies" class="sidelist  ">
-  <a href="https://microcks.io/documentation/administrating/externals/">External Dependencies</a>
-  
-  
-
-
-    
-  </ul>
-</li>
-
-
-
-                
-              
-                
-                
-                
-                
-                
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/" title="Guides" class="sidelist  active parent">
-  <a href="https://microcks.io/documentation/guides/">Guides</a>
-  
-  
-  <ul>
-    
-    
-    
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/openapi-101/" title="OpenAPI Mocking 101" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/openapi-101/">OpenAPI Mocking 101</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/avro-messaging/" title="Kafka, Avro &amp; Schema Registry" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/avro-messaging/">Kafka, Avro &amp; Schema Registry</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/mqtt-support/" title="MQTT Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/mqtt-support/">MQTT Mocking &amp; Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/rabbitmq-support/" title="RabbitMQ Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/rabbitmq-support/">RabbitMQ Mocking &amp; Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/nats-support/" title="NATS Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/nats-support/">NATS Mocking &amp; Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/googlepubsub-support/" title="Google Pub/Sub Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/googlepubsub-support/">Google Pub/Sub Mocking &amp; Testing</a>
-  
-  
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/aws-sqs-sns-support/" title="Amazon SQS/SNS Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/aws-sqs-sns-support/">Amazon SQS/SNS Mocking &amp; Testing</a>
-  
-  
-
-
-    
-  </ul>
-</li>
-
-
-
-                
-              
+          
             
           
             
@@ -23448,10 +23288,19 @@ footer {
       </div>
       <div class="col-xl-8 col-lg-9 col-md-8">
         <div class="px-lg-5 px-sm-4 py-5">
-          <h2 class="mb-4 fw-bold">Guides</h2>
+          <h2 class="mb-4 fw-bold">
+             <i class="fa-solid fa-book-open"></i> &nbsp;
+            How-To Guides
+          </h2>
           
           
-          <div class="doc-page-list">
+          <span class="text-muted fw-300">🗓️ Last updated on May 2, 2024 
+            <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> 1 
+            <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/documentation/guides/_index.md" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
+          </span>
+
+          
+          <br/><br/><div class="doc-page-list">
             
 
 
@@ -23461,14 +23310,16 @@ footer {
 
 
 
-<li data-nav-id="https://microcks.io/documentation/guides/" title="Guides" class="sidelist  active parent">
-  <a href="https://microcks.io/documentation/guides/">Guides</a>
+<li data-nav-id="https://microcks.io/documentation/guides/" title="How-To Guides" class="sidelist  active parent">
+  <a href="https://microcks.io/documentation/guides/"> <i class="fa-solid fa-book-open"></i> &nbsp;How-To Guides</a>
   
   
   <ul>
     
     
     
+    
+    
 
     
     
@@ -23479,26 +23330,11 @@ footer {
 
 
 
-
-<li data-nav-id="https://microcks.io/documentation/guides/openapi-101/" title="OpenAPI Mocking 101" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/openapi-101/">OpenAPI Mocking 101</a>
+<li data-nav-id="https://microcks.io/documentation/guides/installation/" title="Installation" class="sidelist  ">
   
   
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/avro-messaging/" title="Kafka, Avro &amp; Schema Registry" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/avro-messaging/">Kafka, Avro &amp; Schema Registry</a>
   
+  <a href="https://microcks.io/documentation/guides/installation/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Installation</a>
   
 
 
@@ -23511,26 +23347,11 @@ footer {
 
 
 
-
-<li data-nav-id="https://microcks.io/documentation/guides/mqtt-support/" title="MQTT Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/mqtt-support/">MQTT Mocking &amp; Testing</a>
+<li data-nav-id="https://microcks.io/documentation/guides/usage/" title="Usage" class="sidelist  ">
   
   
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/rabbitmq-support/" title="RabbitMQ Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/rabbitmq-support/">RabbitMQ Mocking &amp; Testing</a>
   
+  <a href="https://microcks.io/documentation/guides/usage/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Usage</a>
   
 
 
@@ -23543,26 +23364,11 @@ footer {
 
 
 
-
-<li data-nav-id="https://microcks.io/documentation/guides/nats-support/" title="NATS Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/nats-support/">NATS Mocking &amp; Testing</a>
+<li data-nav-id="https://microcks.io/documentation/guides/automation/" title="Automation" class="sidelist  ">
   
   
-
-
-    
-    
-
-
-
-
-
-
-
-
-<li data-nav-id="https://microcks.io/documentation/guides/googlepubsub-support/" title="Google Pub/Sub Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/googlepubsub-support/">Google Pub/Sub Mocking &amp; Testing</a>
   
+  <a href="https://microcks.io/documentation/guides/automation/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Automation</a>
   
 
 
@@ -23575,10 +23381,28 @@ footer {
 
 
 
-
-<li data-nav-id="https://microcks.io/documentation/guides/aws-sqs-sns-support/" title="Amazon SQS/SNS Mocking &amp; Testing" class="sidelist  ">
-  <a href="https://microcks.io/documentation/guides/aws-sqs-sns-support/">Amazon SQS/SNS Mocking &amp; Testing</a>
+<li data-nav-id="https://microcks.io/documentation/guides/integration/" title="Integration" class="sidelist  ">
   
+  
+  
+  <a href="https://microcks.io/documentation/guides/integration/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Integration</a>
+  
+
+
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="https://microcks.io/documentation/guides/administration/" title="Administration" class="sidelist  ">
+  
+  
+  
+  <a href="https://microcks.io/documentation/guides/administration/"> <i class="fa-solid fa-caret-right"></i> &nbsp; Administration</a>
   
 
 
@@ -23591,12 +23415,73 @@ footer {
           </div>
           
 
+          <div class="doc-content mt-4 pt-4" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="20"><h2 id="teaches-microcks-capabilities-at-a-high-level">Teaches Microcks&rsquo; capabilities at a high level</h2>
+<p>Welcome to Microcks <strong>Guides</strong>! Our Guides section teaches Microcks capabilities and features at a high level. It should help you getting something done, correctly and safely.</p>
+<blockquote>
+<h4 id="-remember">💡 Remember</h4>
+<p><strong>Contribute to Microcks Guides</strong></p>
+<p>Code isn&rsquo;t the only way to contribute to OSS; Dev Docs are a huge help that benefit the entire OSS ecosystem. At Microcks, we value Doc contributions as much as every other type of contribution. ❤️</p>
+<p>To get started as a Docs contributor:</p>
+<ol>
+<li>Familiarize yourself with our <a href="https://github.com/microcks/.github/blob/main/CONTRIBUTING.md"
+
+
+
+
+ target="_blank"
+ 
+
+
+>project&rsquo;s Contribution Guide</a>
+ and our <a href="https://github.com/microcks/.github/blob/main/CODE_OF_CONDUCT.md"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Code of Conduct</a>
+</li>
+<li>Head over to our <a href="https://github.com/microcks/microcks.io/issues"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Microcks Docs Board</a>
+</li>
+<li>Pick an issue you would like to contribute to and leave a comment introducing yourself. This is also the perfect place to leave any questions you may have on how to get started</li>
+<li>If there is no work done in that Docs issue yet, feel free to open a PR and get started!</li>
+</ol>
+<p><strong>Docs contributor questions</strong></p>
+<p>Do you have a documentation contributor question and you&rsquo;re wondering how to tag me into a GitHub discussion or PR? Have no fear!</p>
+<p>Join us on <a href="https://microcks.io/discord-invite/"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Discord</a>
+ and use the <code>#documentation</code> channel to ping us!</p>
+</blockquote>
+
+          </div>
+          
+
           <nav class="doc-pagination">
-            <a class="nav nav-prev nav-group" href="/documentation/administrating/externals/"><i class="fas fa-chevron-left me-2"></i>
-              <span class="d-none d-sm-block">External Dependencies</span> <span class="d-block d-sm-none">Prev</span>
+            <a class="nav nav-prev nav-group" href="/documentation/tutorials/first-asyncapi-mock/"><i class="fas fa-chevron-left me-2"></i>
+              <span class="d-none d-sm-block">Your 1st AsyncAPI on Kafka mock</span> <span class="d-block d-sm-none">Prev</span>
             </a>
-            <a class="nav nav-next nav-group" href="/documentation/guides/openapi-101/">
-              <span class="d-none d-sm-block">OpenAPI Mocking 101</span> <span class="d-block d-sm-none">Next</span><i class="fas fa-chevron-right ms-2"></i>
+            <a class="nav nav-next nav-group" href="/documentation/guides/installation/">
+              <span class="d-none d-sm-block">Installation</span> <span class="d-block d-sm-none">Next</span><i class="fas fa-chevron-right ms-2"></i>
             </a>
           </nav>
         </div>
@@ -23608,6 +23493,8 @@ footer {
   </div>
 </section>
 <!-- /details page -->
+
+
 
 
 
@@ -40635,6 +40522,8 @@ if (toc) {
     active: () => {sessionStorage.fontsLoaded = true}
   });
 </script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 

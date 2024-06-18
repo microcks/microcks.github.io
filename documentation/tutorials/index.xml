@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/documentation/tutorials/</link>
+    <description>Recent content in Tutorials on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 18 Jun 2024 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started</title>
+      <link>https://microcks.io/documentation/tutorials/getting-started/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/getting-started/</guid>
+      <description>Quickstart In this tutorial, you will discover Microcks mocking features by re-using a simple REST API sample.</description>
+    </item>
+    <item>
+      <title>Getting started with Tests</title>
+      <link>https://microcks.io/documentation/tutorials/getting-started-tests/</link>
+      <pubDate>Mon, 19 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/getting-started-tests/</guid>
+      <description>Quickstart (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository.</description>
+    </item>
+    <item>
+      <title>Your 1st REST mock</title>
+      <link>https://microcks.io/documentation/tutorials/first-rest-mock/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/first-rest-mock/</guid>
+      <description>Overview This tutorial is a step-by-step walkthrough on how to use OpenAPI v3 Specification to specify your mocks for your API.</description>
+    </item>
+    <item>
+      <title>Your 1st GraphQL mock</title>
+      <link>https://microcks.io/documentation/tutorials/first-graphql-mock/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/first-graphql-mock/</guid>
+      <description>🪄 To Be Created&#xA;This is a new tutorial page that has to be written as part of our Refactoring Effort .</description>
+    </item>
+    <item>
+      <title>Your 1st gRPC mock</title>
+      <link>https://microcks.io/documentation/tutorials/first-grpc-mock/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/first-grpc-mock/</guid>
+      <description>🪄 To Be Created&#xA;This is a new tutorial page that has to be written as part of our Refactoring Effort .</description>
+    </item>
+    <item>
+      <title>Your 1st Soap mock</title>
+      <link>https://microcks.io/documentation/tutorials/first-soap-mock/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/first-soap-mock/</guid>
+      <description>🪄 To Be Created&#xA;This is a new tutorial page that has to be written as part of our Refactoring Effort .</description>
+    </item>
+    <item>
+      <title>Your 1st AsyncAPI on Kafka mock</title>
+      <link>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</guid>
+      <description>🪄 To Be Created&#xA;This is a new tutorial page that has to be written as part of our Refactoring Effort .</description>
+    </item>
+  </channel>
+</rss>
