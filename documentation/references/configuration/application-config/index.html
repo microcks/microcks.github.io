@@ -39,7 +39,7 @@ or via the <a href=/documentation/guides/installation/docker-desktop-extension>D
 , the properties files are difrectly managed as files on local filesystem</li><li>When ran on Kubernetes and installed via <a href=/documentation/guides/installation/minikube-helm>Helm CHart</a>
 or <a href=/documentation/guides/installation/kubernetes-operator>Operator</a>
 ,
-the properties files are suuplied to the components using <code>ConfigMap</code> resources.</li><li>When ran through our <a href=/content/documentation/guides/usage/developing-testcontainers>Testcontainers module</a>
+the properties files are suuplied to the components using <code>ConfigMap</code> resources.</li><li>When ran through our <a href=/documentation/guides/usage/developing-testcontainers>Testcontainers module</a>
 , you just setup environment variables that will be used as values when laoding the configuration properties.</li></ul><p>It&rsquo;s important to note that depending on the method you use for installation, the configuration properties may have different names. However, we&rsquo;re just
 following installation method idioms and conventions so that matching should be straightforward. For example, a configuration property named
 <code>features.feature.repository-filter.label-key=value</code> in a <em>raw properties file</em> will be matched with the following YAML equivalent when configuring
@@ -127,7 +127,7 @@ guide. It is disabled by default with those values:</p><div class=highlight><pre
 </span></span><span style=display:flex><span><span style=color:#75715e># Access to Keycloak URL if you override the one coming from Microcks config</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#keycloak.auth.url=http://localhost:8180</span>
 </span></span></code></pre></div><h4 id=kafka-connection>Kafka connection</h4><p>The Async Minion -in the stadnard distribution- is connecting to a Kafka broker to receive the service change events. If connecting to a Schema Regsitry (see
-<a href=/content/documentation/guides/usage/async-protocols/avro-messaging>this guide</a>
+<a href=/documentation/guides/usage/async-protocols/avro-messaging>this guide</a>
 ), the <code>Confluent</code> compatibility mode is the one selected by default:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-properties data-lang=properties><span style=display:flex><span><span style=color:#75715e># Access to Kafka broker.</span>
 </span></span><span style=display:flex><span><span style=color:#a6e22e>kafka.bootstrap.servers</span><span style=color:#f92672>=</span><span style=color:#e6db74>localhost:9092</span>
 </span></span><span style=display:flex><span>
