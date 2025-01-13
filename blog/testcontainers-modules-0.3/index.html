@@ -20034,8 +20034,8 @@ footer {
  
 
 
->Testcontainers</a> Modules 🧊!
-<a href="https://testcontainers.com/modules/microcks"
+>Testcontainers</a>
+Modules 🧊! <a href="https://testcontainers.com/modules/microcks"
 
 
 
@@ -20044,10 +20044,11 @@ footer {
  
 
 
->Microcks modules</a> are language-specific libraries that enable embedding Microcks into your unit tests with lightweight,
-throwaway instances thanks to containers.</p>
+>Microcks modules</a> are language-specific libraries that enable embedding Microcks into
+your unit tests with lightweight, throwaway instances thanks to containers.</p>
 <p>The <code>0.3</code> series is a major step forward that completes the set of features and elevates Microcks as <strong>a fully featured mocking library for development purposes</strong>.
-It can be used with different testing styles (classicist, mockist, state-based, and interaction-based) and provides features for all major languages and all kinds of API!</p>
+It can be used with different testing styles (classicist, mockist, state-based, and interaction-based) and provides features for all major
+languages and all kinds of API!</p>
 
 
 
@@ -20192,8 +20193,8 @@ It can be used with different testing styles (classicist, mockist, state-based, 
 
 
 >Golang</a>.
-With those new releases, we now have complete feature parity among the three different technology stacks! We plan to add the same features to the upcoming
-<a href="https://github.com/microcks/microcks-testcontainers-dotnet"
+With those new releases, we now have complete feature parity among the three different technology stacks! We plan to add the same features to
+the upcoming <a href="https://github.com/microcks/microcks-testcontainers-dotnet"
 
 
 
@@ -20206,7 +20207,7 @@ With those new releases, we now have complete feature parity among the three dif
 <p>Let&rsquo;s introduce the new features of those releases that complete the picture!</p>
 <h2 id="whats-inside">What&rsquo;s inside?</h2>
 <h4 id="1-interaction-checks">1️⃣ Interaction checks</h4>
-<p>If you spend some time reading about unit Test Driven Development, you may know that it exists two main school of thoughts: the <em>Classicist</em> and the <em>Mockist</em>.
+<p>If you spend some time reading about Test Driven Development, you may know that it exists two main school of thought: the <em>Classicist</em> and the <em>Mockist</em>.
 (more on this in <a href="https://medium.com/@adrianbooth/test-driven-development-wars-detroit-vs-london-classicist-vs-mockist-9956c78ae95f"
 
 
@@ -20220,9 +20221,9 @@ With those new releases, we now have complete feature parity among the three dif
 <p>Until now, Microcks Testcontainers integration was <em>Classicist</em> in the sense that it was focused on providing canned responses when the mocks
 endpoints were called. With this <code>0.3</code> release, we now also have a <em>Mockist</em> approach in the case you want to check the interactions of your
 component under test with a dependant API.</p>
-<p>You can now call <code>verify()</code> or <code>getServiceInvocationsCount()</code> on a Microcks container to check an API dependency has actually been called - or not.
-This is a super powerful way to ensure that your application logic (when to interact with an API) and access policies (caching, no caching, etc.) are correctly
-implemented and use the mock endpoints only when required!</p>
+<p>You can now call <code>verify()</code> or <code>getServiceInvocationsCount()</code> on a Microcks container to check whether an API dependency has actually been
+called - or not. This is a super powerful way to ensure that your application logic (when to interact with an API) and access policies (caching,
+no caching, etc.) are correctly implemented and use the mock endpoints only when required!</p>
 
 
 
@@ -20361,8 +20362,8 @@ implemented and use the mock endpoints only when required!</p>
  
 
 
->contract-testing runners</a> already exists in Microcks but they&rsquo;re mainly focused on
-<strong>syntactical conformance</strong> checking. However, we know that there are <a href="https://medium.com/@lbroudoux/different-levels-of-api-contract-testing-with-microcks-ccc0847f8c97"
+>contract-testing runners</a> already exists in Microcks but they&rsquo;re
+mainly focused on <strong>syntactical conformance</strong> checking. However, we know that there are <a href="https://medium.com/@lbroudoux/different-levels-of-api-contract-testing-with-microcks-ccc0847f8c97"
 
 
 
@@ -20372,9 +20373,9 @@ implemented and use the mock endpoints only when required!</p>
 
 
 >multiple levels of contract testing</a>.</p>
-<p>The new <code>getMessagesForTestCase()</code> function on Microcks container allows you to retrieve the requests and responses that were used during an operation tests case.
-You can then use them to perform extra checks more related to <strong>business conformance</strong>; validating, for example, that data retrieval or transformation logic is
-correctly implemented.</p>
+<p>The new <code>getMessagesForTestCase()</code> function on Microcks container allows you to retrieve the requests and responses that were used during an
+operation tests case. You can then use them to perform extra checks more related to <strong>business conformance</strong>; validating, for example, that
+data retrieval or transformation logic is  correctly implemented.</p>
 
 
 
@@ -20493,7 +20494,7 @@ to frameworks like <a href="https://cucumber.io/"
  
 
 
->Cucumber</a> for running acceptance tests, written in plain language by business experts!</p>
+>Cucumber</a> which are written in plain language by business experts; for running acceptance tests!</p>
 <h4 id="3-access-to-events-in-asynchronous-eda-contract-testing">3️⃣ Access to <code>events</code> in asynchronous EDA contract-testing</h4>
 <p>Finally, we also added a way to do the same thing for asynchronous events received during a contract test on an asynchronous broker.</p>
 <p>Until now, Microcks <code>ASYNC_API_SCHEMA</code> tests allowed you to check that events were fired, correctly sent, read back from - let say - an
@@ -20636,7 +20637,7 @@ events were not sent at the right time, introducing de-synchronization and colli
 </blockquote>
 <h2 id="enthusiastic">Enthusiastic?</h2>
 <p>We hope this walkthrough has made you enthusiastic about this new set of features in Microcks Testcontainers <code>0.3</code>! The best thing is that you don&rsquo;t have
-to wait another Microcks release to test them out as thy&rsquo;re are leveraging APIs and features that are present for a long time in Microcks core!</p>
+to wait another Microcks release to test them out as they&rsquo;re are leveraging APIs and features that are present for a long time in Microcks core!</p>
 <p>If you want to learn them and see them in action, we have completed our demonstration application and tutorials on Testcontainers Modules as well!
 You just have to check the following links:</p>
 <ul>
@@ -20650,7 +20651,7 @@ You just have to check the following links:</p>
  
 
 
->How to check the mock endpoints are actually used?</a>, <a href="https://github.com/microcks/microcks-testcontainers-java-spring-demo/blob/main/step-4-write-rest-tests.md#-bonus-step---verify-the-business-conformance-of-order-service-api-in-pure-java"
+>How to check the mock endpoints are actually used</a>, <a href="https://github.com/microcks/microcks-testcontainers-java-spring-demo/blob/main/step-4-write-rest-tests.md#-bonus-step---verify-the-business-conformance-of-order-service-api-in-pure-java"
 
 
 
@@ -20740,7 +20741,7 @@ You just have to check the following links:</p>
  
 
 
->Discord chat</a> 🐙</p>
+>Discord chat</a> 👻</p>
 <p>Thanks for reading and supporting us!</p>
 </div>
 
