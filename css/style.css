@@ -18949,7 +18949,8 @@ body.dark {
   .dark .navigation .navbar-light .navbar-toggler, .dark .doc-navigation .navbar-light .navbar-toggler {
     color: #dddddd; }
   .dark .navigation li.nav-item.active a, .dark .doc-navigation li.nav-item.active a {
-    background-color: black; }
+    background-color: black;
+    color: #46AAF3 !important; }
   .dark .navigation .nav-link, .dark .doc-navigation .nav-link {
     color: #fff !important; }
   .dark .navigation .nav-link:hover, .dark .navigation.active .nav-link, .dark .doc-navigation .nav-link:hover, .dark .doc-navigation.active .nav-link {
@@ -19015,7 +19016,8 @@ body.dark {
         display: block; } }
   .doc-navigation li.nav-item.active a {
     background-color: #F5F5F5;
-    border-radius: 6px; }
+    border-radius: 6px;
+    padding: 10px; }
 
 .nav-group {
   display: flex;
@@ -19588,12 +19590,10 @@ ol {
   margin-bottom: 0; }
 
 .doc-content blockquote {
-  color: #555;
   padding: 1.2rem 30px;
   border: 1px solid #eee;
   border-left: 2px solid #46AAF3;
   margin: 2rem 0;
-  background: #fff;
   border-radius: 0.8rem !important; }
 
 .doc-content pre {
