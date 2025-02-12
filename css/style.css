@@ -18596,8 +18596,7 @@ form label {
     transition: 0.35s; }
   @media (max-width: 575px) {
     .theme-switcher {
-      margin-left: 10px;
-      margin-top: -4px; } }
+      margin: 0 auto; } }
 .dark .theme-switcher svg {
   stroke: #fff; }
 
@@ -18920,6 +18919,8 @@ body.dark {
         padding: 10px;
         position: static;
         transform: none; }
+      .navigation .form-inline .search-wrapper {
+        margin-left: 10px; }
     .navigation.pull-top {
       top: -50px; }
     .navigation .navbar-toggler {
@@ -18940,6 +18941,9 @@ body.dark {
         display: none; }
       .navigation .navbar-toggler[aria-expanded="true"] .fa-xmark {
         display: block; } }
+.search-wrapper {
+  margin-left: 10px !important; }
+
 .dark .navigation, .dark .doc-navigation {
   background-color: #1b2229; }
   .dark .navigation select, .dark .doc-navigation select {
@@ -19092,6 +19096,9 @@ body.dark {
       width: 250px; }
       .search-wrapper .form-control {
         width: 100%; } }
+    @media screen and (min-width: 992px) and (max-width: 991px) {
+      .search-wrapper .form-control {
+        display: none !important; } }
 .search-wrapper > button {
   background-color: #fff; }
 
