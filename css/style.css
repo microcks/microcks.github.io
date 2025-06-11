@@ -19819,11 +19819,9 @@ body.dark {
     .dark .navigation .navbar-toggler i, .dark .doc-navigation .navbar-toggler i {
       color: #dddddd; } }
   @media (min-width: 992px) {
-    .dark .navigation .navbar .dropdown-menu, .dark .doc-navigation .navbar .dropdown-menu {
-      background-color: transparent; }
-      .dark .navigation .navbar .dropdown-menu::after, .dark .doc-navigation .navbar .dropdown-menu::after {
-        background-color: #222b32;
-        box-shadow: 0 6px 50px -1px rgba(0, 0, 0, 0.3); } }
+    .dark .navigation .navbar .dropdown-menu::after, .dark .doc-navigation .navbar .dropdown-menu::after {
+      background-color: #222b32;
+      box-shadow: 0 6px 50px -1px rgba(0, 0, 0, 0.3); } }
 .doc-navigation {
   transition: .2s ease;
   background: #fff;
