@@ -20491,6 +20491,44 @@ ol {
     height: 28px;
     font-size: 15px; }
 
+#TableOfContents {
+  top: 95px;
+  position: sticky;
+  padding-left: 10px;
+  height: 100vh;
+  border-left: 1px solid #ECECEC; }
+  #TableOfContents a {
+    font-size: 14px;
+    display: block;
+    padding: 5px 0;
+    color: #222;
+    font-weight: 400;
+    transition: .2s ease; }
+    #TableOfContents a.active {
+      position: relative;
+      color: #46AAF3; }
+      #TableOfContents a.active::before {
+        position: absolute;
+        content: "";
+        left: -10px;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background: #46AAF3; }
+  #TableOfContents ul, #TableOfContents ol {
+    padding-left: 0;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    list-style: none; }
+  #TableOfContents > ul, #TableOfContents > ol {
+    padding-top: 30px; }
+
+.dark #TableOfContents {
+  background-color: #1E262C !important; }
+
+.dark #TableOfContents > ol > li > a, .dark #TableOfContents > ol > li > ol > li > a {
+  color: #959595 !important; }
+
 .doc-content span[style="color:#585b70;font-style:italic"] {
   color: #7f818c !important; }
 
