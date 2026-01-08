@@ -1,1 +1,100 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>References on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/references/</link><description>Recent content in References on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 03 Nov 2025 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/documentation/references/index.xml" rel="self" type="application/rss+xml"/><item><title>Container Images</title><link>https://microcks.io/documentation/references/container-images/</link><pubDate>Mon, 13 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/container-images/</guid><description>Introduction Microcks components are distributed as OCI container images that can be executed using container runtimes such as Docker or Podman.</description></item><item><title>Mock Templates</title><link>https://microcks.io/documentation/references/templates/</link><pubDate>Tue, 11 Feb 2020 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/references/templates/</guid><description>Introduction This page contains the comprehensive lists of variables and functions that can be used to genete dynamic mock content in Microcks.</description></item><item><title>Test Parameters</title><link>https://microcks.io/documentation/references/test-endpoints/</link><pubDate>Mon, 29 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/test-endpoints/</guid><description>Introduction From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process.</description></item><item><title>API Metadata Format</title><link>https://microcks.io/documentation/references/metadada/</link><pubDate>Thu, 16 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/metadada/</guid><description>Introduction Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI.</description></item><item><title>API Examples Format</title><link>https://microcks.io/documentation/references/examples/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/examples/</guid><description>Introduction APIExamples format is Microcks&amp;rsquo; own specification format for defining examples intended to be used by Microcks mocks.</description></item><item><title>Testcontainers Modules</title><link>https://microcks.io/documentation/references/testcontainers-modules/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/testcontainers-modules/</guid><description>Introduction As introduced in our Developing with Testcontainers guide, you can be embed Microcks into your unit tests with the help of Testcontainers librairies.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>References on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/references/</link><description>Recent content in References on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/documentation/references/index.xml" rel="self" type="application/rss+xml"/><item><title>Container Images</title><link>https://microcks.io/documentation/references/container-images/</link><pubDate>Mon, 13 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/container-images/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Microcks components are distributed as &lt;a href="https://opencontainers.org/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;OCI&lt;/a&gt; container images that can be executed using container runtimes such as &lt;a href="https://www.docker.com/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Docker&lt;/a&gt; or &lt;a href="https://podman.io/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Podman&lt;/a&gt;. All our container images are produced for both &lt;code&gt;linux/amd64&lt;/code&gt; and &lt;code&gt;linux/arm64&lt;/code&gt; architectures.&lt;/p&gt;</description></item><item><title>Mock Templates</title><link>https://microcks.io/documentation/references/templates/</link><pubDate>Tue, 11 Feb 2020 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/references/templates/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This page contains the comprehensive lists of variables and functions that can be used to genete &lt;a href="https://microcks.io/documentation/explanations/dynamic-content"
+
+
+
+ 
+
+
+&gt;dynamic mock content&lt;/a&gt; in Microcks.&lt;/p&gt;</description></item><item><title>Test Parameters</title><link>https://microcks.io/documentation/references/test-endpoints/</link><pubDate>Mon, 29 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/test-endpoints/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;From the page displaying basic information on your &lt;a href="https://microcks.io/documentation/tutorials/getting-started"
+
+
+
+ 
+
+
+&gt;API or Service mocks&lt;/a&gt;, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the &lt;strong&gt;NEW TEST&amp;hellip;&lt;/strong&gt; button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:&lt;/p&gt;</description></item><item><title>API Metadata Format</title><link>https://microcks.io/documentation/references/metadada/</link><pubDate>Thu, 16 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/metadada/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by &lt;code&gt;manager&lt;/code&gt; within Microcks either using the UI or through the Microcks API.&lt;/p&gt;</description></item><item><title>API Examples Format</title><link>https://microcks.io/documentation/references/examples/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/examples/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;APIExamples&lt;/code&gt; format is Microcks&amp;rsquo; own specification format for defining examples intended to be used by Microcks mocks. It can be seen as a lightweight, general purpose specification to solely serve the need to provide mock datasets. The goal of this specification is to keep the Microcks adoption curve very smooth with development teams but also for non developers.&lt;/p&gt;</description></item><item><title>Testcontainers Modules</title><link>https://microcks.io/documentation/references/testcontainers-modules/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/testcontainers-modules/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;As introduced in our &lt;a href="https://microcks.io/documentation/guides/usage/developing-testcontainers"
+
+
+
+ 
+
+
+&gt;Developing with Testcontainers&lt;/a&gt; guide, you can be embed Microcks into your unit tests with the help of &lt;a href="https://testcontainers.com"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Testcontainers&lt;/a&gt; librairies. We provide support for the following languages in dedicated Testcontainers modules: &lt;a href="https://github.com/microcks/microcks-testcontainers-java"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Java&lt;/a&gt;, &lt;a href="https://github.com/microcks/microcks-testcontainers-node"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;NodeJS / Typescript&lt;/a&gt;, &lt;a href="https://github.com/microcks/microcks-testcontainers-go"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Golang&lt;/a&gt; and &lt;a href="https://github.com/microcks/microcks-testcontainers-dotnet"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;.NET&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

@@ -1,1 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/automation/</link><description>Recent content in Automation on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Connecting to Microcks API</title><link>https://microcks.io/documentation/guides/automation/api/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/automation/api/</guid><description>Overview This guide shows you how to authenticate to and use the Microcks API for better automation of tasks.</description></item><item><title>Using Microcks CLI</title><link>https://microcks.io/documentation/guides/automation/cli/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/automation/cli/</guid><description>Overview This guide illustrates the usage of microcks-cli, a command-line tool for interacting with Microcks APIs.</description></item><item><title>Using GitHub Actions</title><link>https://microcks.io/documentation/guides/automation/github-actions/</link><pubDate>Fri, 19 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/github-actions/</guid><description>Overview This guide shows you how to integrate Microcks into your Github Actions workflows.</description></item><item><title>Using Jenkins Pipeline</title><link>https://microcks.io/documentation/guides/automation/jenkins/</link><pubDate>Fri, 19 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/jenkins/</guid><description>Overview This guide illustrates how you can integrate the Microcks Jenkins plugin to keep Microcks in sync with your API specifications and integrate test stages within your Jenkins CI/CD pipelines.</description></item><item><title>Using GitLab CI</title><link>https://microcks.io/documentation/guides/automation/gitlab/</link><pubDate>Mon, 11 Nov 2019 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/gitlab/</guid><description>Overview This guide shows how to integrate Microcks within your GitLab CI pipelines.</description></item><item><title>Using Tekton Pipeline</title><link>https://microcks.io/documentation/guides/automation/tekton/</link><pubDate>Mon, 11 Nov 2019 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/tekton/</guid><description>Overview This guide shows you how to integrate Microcks into your Tekton Pipelines.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/automation/</link><description>Recent content in Automation on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Connecting to Microcks API</title><link>https://microcks.io/documentation/guides/automation/api/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/automation/api/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to authenticate to and use the Microcks API for better automation of tasks. As all the features available in Microcks can be used directly through its &lt;a href="https://microcks.io/documentation/references/apis/open-api"
+
+
+
+ 
+
+
+&gt;REST API&lt;/a&gt;, you can extend it in the way you want and use it in a pure headless mode.&lt;/p&gt;</description></item><item><title>Using Microcks CLI</title><link>https://microcks.io/documentation/guides/automation/cli/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/automation/cli/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide illustrates the usage of &lt;code&gt;microcks-cli&lt;/code&gt;, a command-line tool for interacting with Microcks APIs. It allows for launching tests or importing API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its &lt;a href="https://github.com/microcks/microcks-cli"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;own GitHub repository&lt;/a&gt;. The CLI &lt;a href="https://microcks.io/documentation/guides/automation/api"
+
+
+
+ 
+
+
+&gt;connects to API&lt;/a&gt; and uses &lt;a href="https://microcks.io/documentation/explanations/service-account"
+
+
+
+ 
+
+
+&gt;Service Account&lt;/a&gt; and so it&amp;rsquo;s definitely worth the read 😉&lt;/p&gt;</description></item><item><title>Using GitHub Actions</title><link>https://microcks.io/documentation/guides/automation/github-actions/</link><pubDate>Fri, 19 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/github-actions/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to integrate Microcks into your &lt;a href="https://github.com/features/actions"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Github Actions workflows&lt;/a&gt;. Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your workflows:&lt;/p&gt;</description></item><item><title>Using Jenkins Pipeline</title><link>https://microcks.io/documentation/guides/automation/jenkins/</link><pubDate>Fri, 19 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/jenkins/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide illustrates how you can integrate the Microcks Jenkins plugin to keep Microcks in sync with your API specifications and integrate test stages within your &lt;a href="https://www.jenkins.io/doc/book/pipeline/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Jenkins CI/CD pipelines&lt;/a&gt;. This plugin allows your Jenkins builds and jobs to import API &lt;a href="https://microcks.io/documentation/references/artifacts/"
+
+
+
+ 
+
+
+&gt;Artifacts&lt;/a&gt; into a Microcks instance and to launch new Tests. It uses &lt;a href="https://microcks.io/documentation/explanations/service-account"
+
+
+
+ 
+
+
+&gt;Service Account&lt;/a&gt; and so it&amp;rsquo;s definitely worth the read 😉&lt;/p&gt;</description></item><item><title>Using GitLab CI</title><link>https://microcks.io/documentation/guides/automation/gitlab/</link><pubDate>Mon, 11 Nov 2019 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/gitlab/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows how to integrate Microcks within your GitLab CI pipelines. You will:&lt;/p&gt;</description></item><item><title>Using Tekton Pipeline</title><link>https://microcks.io/documentation/guides/automation/tekton/</link><pubDate>Mon, 11 Nov 2019 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/automation/tekton/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to integrate Microcks into your &lt;a href="https://tekton.dev/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Tekton&lt;/a&gt; Pipelines. Microcks provides 2 Tekton &lt;code&gt;Tasks&lt;/code&gt; for interacting with a Microcks instance. They allow you to:&lt;/p&gt;</description></item></channel></rss>

@@ -1,1 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Integration on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/integration/</link><description>Recent content in Integration on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 29 Sep 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/integration/index.xml" rel="self" type="application/rss+xml"/><item><title>Enabling the AI Copilot</title><link>https://microcks.io/documentation/guides/integration/ai-copilot/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/integration/ai-copilot/</guid><description>Overview This guide shows you how to enable the AI Copilot feature introduced in Microcks `1.</description></item><item><title>Configuring the Backstage Plugin</title><link>https://microcks.io/documentation/guides/integration/backstage-plugin/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/integration/backstage-plugin/</guid><description>The Microcks Backstage provider discovers APIs from one or more Microcks instances and syncs them into the Backstage Software Catalog as API entities.</description></item><item><title>Connecting to Postman Workspaces</title><link>https://microcks.io/documentation/guides/integration/postman-workspace/</link><pubDate>Tue, 18 Jun 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/integration/postman-workspace/</guid><description>Overview Postman Workspaces are a common and effective way of organizing your team&amp;rsquo;s API work.</description></item><item><title/><link>https://microcks.io/documentation/guides/integration/microcks-hub/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://microcks.io/documentation/guides/integration/microcks-hub/</guid><description>draft: false title: &amp;ldquo;Integrating with Microcks Hub&amp;rdquo; date: 2024-04-30 publishdate: 2024-04-30 lastmod: 2025-08-24 weight: 2 Overview Microcks Hub is a community hub and free marketplace where API producers publish ready‑to‑use API mocks and test suites for Microcks.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Integration on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/integration/</link><description>Recent content in Integration on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 29 Sep 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/integration/index.xml" rel="self" type="application/rss+xml"/><item><title>Enabling the AI Copilot</title><link>https://microcks.io/documentation/guides/integration/ai-copilot/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/integration/ai-copilot/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to enable the &lt;a href="https://microcks.io/blog/microcks-1.8.0-release/#introducing-ai-copilot"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;AI Copilot feature&lt;/a&gt; introduced in Microcks `1.8.0. AI Copilot can generate meaningful samples to complete your API specification with mocks when you don&amp;rsquo;t have examples specified or need more examples to make the dataset more representative.&lt;/p&gt;</description></item><item><title>Configuring the Backstage Plugin</title><link>https://microcks.io/documentation/guides/integration/backstage-plugin/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/integration/backstage-plugin/</guid><description>&lt;p&gt;The Microcks Backstage provider discovers APIs from one or more Microcks instances and syncs them into the Backstage Software Catalog as &lt;code&gt;API&lt;/code&gt; entities. This page explains how to install, configure, and verify the provider in your Backstage app.&lt;/p&gt;</description></item><item><title>Connecting to Postman Workspaces</title><link>https://microcks.io/documentation/guides/integration/postman-workspace/</link><pubDate>Tue, 18 Jun 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/integration/postman-workspace/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.postman.com/product/workspaces/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Postman Workspaces&lt;/a&gt; are a common and effective way of organizing your team&amp;rsquo;s API work. Workspaces allow you to collaborate while designing your API and share your API artifacts like Postman Collections.&lt;/p&gt;</description></item><item><title/><link>https://microcks.io/documentation/guides/integration/microcks-hub/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://microcks.io/documentation/guides/integration/microcks-hub/</guid><description>&lt;h2 id="weight-2"&gt;draft: false
+title: &amp;ldquo;Integrating with Microcks Hub&amp;rdquo;
+date: 2024-04-30
+publishdate: 2024-04-30
+lastmod: 2025-08-24
+weight: 2&lt;/h2&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Microcks Hub is a community hub and free marketplace where API producers publish ready‑to‑use API mocks and test suites for Microcks. From any Microcks instance, you can browse the Hub, discover API Packages, and install versions in one click to quickly provision mocks and conformance tests.&lt;/p&gt;</description></item></channel></rss>

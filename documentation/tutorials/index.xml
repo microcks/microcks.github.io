@@ -1,1 +1,96 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorials on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/tutorials/</link><description>Recent content in Tutorials on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started</title><link>https://microcks.io/documentation/tutorials/getting-started/</link><pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/getting-started/</guid><description>Quickstart In this tutorial, you will discover Microcks mocking features by re-using a simple REST API sample.</description></item><item><title>Getting started with Tests</title><link>https://microcks.io/documentation/tutorials/getting-started-tests/</link><pubDate>Mon, 19 Oct 2020 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/getting-started-tests/</guid><description>Quickstart (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository.</description></item><item><title>Your 1st REST mock</title><link>https://microcks.io/documentation/tutorials/first-rest-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-rest-mock/</guid><description>Overview This tutorial is a step-by-step walkthrough on how to use OpenAPI v3 Specification to specify your mocks for your API.</description></item><item><title>Your 1st GraphQL mock</title><link>https://microcks.io/documentation/tutorials/first-graphql-mock/</link><pubDate>Wed, 03 Jul 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-graphql-mock/</guid><description>Overview This tutorial is a step-by-step walkthrough on how to use GraphQL schemas to get mocks for your GraphQL API.</description></item><item><title>Your 1st gRPC mock</title><link>https://microcks.io/documentation/tutorials/first-grpc-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-grpc-mock/</guid><description>Overview This tutorial is a step-by-step walkthrough on how to use a gRPC / Protocol Buffers specification to get mocks for your gRPC Service.</description></item><item><title>Your 1st Soap mock</title><link>https://microcks.io/documentation/tutorials/first-soap-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-soap-mock/</guid><description>Overview This tutorial is a step-by-step walkthrough on how to use SoapUI projects to get mocks for your SOAP WebService.</description></item><item><title>Your 1st AsyncAPI on Kafka mock</title><link>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</guid><description>Overview This tutorial is a step-by-step walkthrough on how to use AsyncAPI v3 Specification to specify your mocks for your Asynchronous and Event-Driven API.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorials on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/tutorials/</link><description>Recent content in Tutorials on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started</title><link>https://microcks.io/documentation/tutorials/getting-started/</link><pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/getting-started/</guid><description>&lt;h2 id="quickstart"&gt;Quickstart&lt;/h2&gt;
+&lt;p&gt;In this tutorial, you will discover Microcks mocking features by re-using a simple REST API sample. For that: you will run Microcks on your local machine, then load a sample provided by the Microcks team, explore the web user interface and then interact with an API mock.&lt;/p&gt;</description></item><item><title>Getting started with Tests</title><link>https://microcks.io/documentation/tutorials/getting-started-tests/</link><pubDate>Mon, 19 Oct 2020 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/getting-started-tests/</guid><description>&lt;h2 id="quickstart-continue-with-tests"&gt;Quickstart (continue) with Tests&lt;/h2&gt;
+&lt;p&gt;Now that you have finished the &lt;a href="https://microcks.io/documentation/tutorials/getting-started"
+
+
+
+ 
+
+
+&gt;Getting started&lt;/a&gt; guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve &lt;strong&gt;Contract Testing&lt;/strong&gt; for your API, either manually from the UI or in an automated way using the Microcks CLI tooling.&lt;/p&gt;</description></item><item><title>Your 1st REST mock</title><link>https://microcks.io/documentation/tutorials/first-rest-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-rest-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This tutorial is a step-by-step walkthrough on how to use &lt;a href="https://www.openapis.org/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;OpenAPI v3 Specification&lt;/a&gt; to specify your mocks for your API.
+This is hands-on introduction to &lt;a href="https://microcks.io/documentation/references/artifacts/openapi-conventions"
+
+
+
+ 
+
+
+&gt;OpenAPI Conventions reference&lt;/a&gt; that brings all details on conventions being used.&lt;/p&gt;</description></item><item><title>Your 1st GraphQL mock</title><link>https://microcks.io/documentation/tutorials/first-graphql-mock/</link><pubDate>Wed, 03 Jul 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-graphql-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This tutorial is a step-by-step walkthrough on how to use &lt;a href="https://graphql.org/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;GraphQL&lt;/a&gt; schemas to get mocks for your GraphQL API. This is hands-on introduction to &lt;a href="https://microcks.io/documentation/references/artifacts/graphql-conventions"
+
+
+
+ 
+
+
+&gt;GraphQL Conventions reference&lt;/a&gt; that brings all details on conventions being used.&lt;/p&gt;</description></item><item><title>Your 1st gRPC mock</title><link>https://microcks.io/documentation/tutorials/first-grpc-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-grpc-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This tutorial is a step-by-step walkthrough on how to use a &lt;a href="https://grpc.io/docs/what-is-grpc/introduction/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;gRPC / Protocol Buffers&lt;/a&gt; specification to get mocks for your gRPC Service. This is hands-on introduction to &lt;a href="https://microcks.io/documentation/references/artifacts/grpc-conventions"
+
+
+
+ 
+
+
+&gt;gRPC Conventions reference&lt;/a&gt; that brings all details on conventions being used.&lt;/p&gt;</description></item><item><title>Your 1st Soap mock</title><link>https://microcks.io/documentation/tutorials/first-soap-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-soap-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This tutorial is a step-by-step walkthrough on how to use &lt;a href="https://www.soapui.org"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;SoapUI&lt;/a&gt; projects to get mocks for your SOAP WebService. This is hands-on introduction to &lt;a href="https://microcks.io/documentation/references/artifacts/soapui-conventions"
+
+
+
+ 
+
+
+&gt;SoapUI Conventions reference&lt;/a&gt; that brings all details on conventions being used.&lt;/p&gt;</description></item><item><title>Your 1st AsyncAPI on Kafka mock</title><link>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This tutorial is a step-by-step walkthrough on how to use &lt;a href="https://www.asyncapi.com/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;AsyncAPI v3 Specification&lt;/a&gt; to specify your mocks for your Asynchronous and Event-Driven API. This is hands-on introduction to &lt;a href="https://microcks.io/documentation/references/artifacts/asyncapi-conventions"
+
+
+
+ 
+
+
+&gt;AsyncAPI Conventions reference&lt;/a&gt; that brings all details on conventions being used.&lt;/p&gt;</description></item></channel></rss>

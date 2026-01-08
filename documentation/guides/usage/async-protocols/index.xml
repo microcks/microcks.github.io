@@ -1,1 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Async Protocols on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/usage/async-protocols/</link><description>Recent content in Async Protocols on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sun, 19 Oct 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/usage/async-protocols/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka, Avro &amp; Schema Registry</title><link>https://microcks.io/documentation/guides/usage/async-protocols/avro-messaging/</link><pubDate>Fri, 12 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/avro-messaging/</guid><description>Overview This guide shows you how to use Microcks for mocking and testing Avro encoding on top of Apache Kafka.</description></item><item><title>MQTT Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/mqtt-support/</link><pubDate>Mon, 15 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/mqtt-support/</guid><description>Overview This guide shows you how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks.</description></item><item><title>RabbitMQ Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</link><pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</guid><description>Overview This guide shows you how to use the RabbitMQ protocol with Microcks.</description></item><item><title>NATS Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/nats-support/</link><pubDate>Mon, 30 Jan 2023 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/nats-support/</guid><description>Overview This guide shows you how to use a NATS protocol with Microcks.</description></item><item><title>Pub/Sub Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/googlepubsub-support/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/googlepubsub-support/</guid><description>Overview This guide shows you how to use a Google Pub/Sub messaging service with Microcks.</description></item><item><title>SQS/SNS Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</link><pubDate>Tue, 06 Jun 2023 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</guid><description>Overview This guide shows you how to use a Amazon SQS and Amazon SNS messaging service with Microcks.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Async Protocols on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/usage/async-protocols/</link><description>Recent content in Async Protocols on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sun, 19 Oct 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/usage/async-protocols/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka, Avro &amp; Schema Registry</title><link>https://microcks.io/documentation/guides/usage/async-protocols/avro-messaging/</link><pubDate>Fri, 12 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/avro-messaging/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to use Microcks for mocking and testing &lt;a href="https://avro.apache.org"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Avro&lt;/a&gt; encoding on top of &lt;a href="https://kafka.apache.org"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Apache Kafka&lt;/a&gt;. You&amp;rsquo;ll see how Microcks can speed up the sharing of Avro schema to consumers using a Schema Registry, and we will check how Microcks can detect drifts between the expected Avro format and the one really used.&lt;/p&gt;</description></item><item><title>MQTT Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/mqtt-support/</link><pubDate>Mon, 15 Feb 2021 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/mqtt-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to use the &lt;a href="https://mqtt.org/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Message Queuing Telemetry Transport (MQTT)&lt;/a&gt; protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.&lt;/p&gt;</description></item><item><title>RabbitMQ Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</link><pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to use the &lt;a href="https://www.rabbitmq.com/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;RabbitMQ&lt;/a&gt; protocol with Microcks. RabbitMQ is one of the most popular open source message brokers that supports different protocols, and more specifically &lt;a href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;AMQP 0.9.1&lt;/a&gt;, RabbitMQ was originally developed for.&lt;/p&gt;</description></item><item><title>NATS Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/nats-support/</link><pubDate>Mon, 30 Jan 2023 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/nats-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to use a &lt;a href="https://nats.io/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;NATS&lt;/a&gt; protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the &lt;a href="https://nats.io/download/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;full list of clients&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Pub/Sub Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/googlepubsub-support/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/googlepubsub-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to use a &lt;a href="https://cloud.google.com/pubsub/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Google Pub/Sub&lt;/a&gt; messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.&lt;/p&gt;</description></item><item><title>SQS/SNS Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</link><pubDate>Tue, 06 Jun 2023 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to use a &lt;a href="https://aws.amazon.com/sqs/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Amazon SQS&lt;/a&gt; and &lt;a href="https://aws.amazon.com/sns/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Amazon SNS&lt;/a&gt; messaging service with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don&amp;rsquo;t have to use both to benefit from Microcks&amp;rsquo; features.&lt;/p&gt;</description></item></channel></rss>

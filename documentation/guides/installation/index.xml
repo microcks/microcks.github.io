@@ -1,1 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Installation on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/installation/</link><description>Recent content in Installation on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/installation/index.xml" rel="self" type="application/rss+xml"/><item><title>As a Docker Desktop Extension</title><link>https://microcks.io/documentation/guides/installation/docker-desktop-extension/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/docker-desktop-extension/</guid><description>This guide shows you how to install Microcks as a Docker Desktop Extension on your local machine.</description></item><item><title>With Docker Compose</title><link>https://microcks.io/documentation/guides/installation/docker-compose/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/docker-compose/</guid><description>This guide shows you how to install and run Microcks using Docker Compose.</description></item><item><title>With Podman Compose</title><link>https://microcks.io/documentation/guides/installation/podman-compose/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/podman-compose/</guid><description>This guide shows you how to install and run Microcks using Docker Compose.</description></item><item><title>On Kind with Helm</title><link>https://microcks.io/documentation/guides/installation/kind-helm/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/kind-helm/</guid><description>Overview This guide will walk you through the different steps of running a full Microcks installation on your laptop using Kind.</description></item><item><title>On Minikube with Helm</title><link>https://microcks.io/documentation/guides/installation/minikube-helm/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/minikube-helm/</guid><description>Overview This guide will walk you through the different steps of running a full Microcks installation on your laptop using Minikube.</description></item><item><title>On Kubernetes with Operator</title><link>https://microcks.io/documentation/guides/installation/kubernetes-operator/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/kubernetes-operator/</guid><description>Overview This guide shows you how to deploy and use the Microcks Kubernetes Operator.</description></item><item><title>Adding external dependencies</title><link>https://microcks.io/documentation/guides/installation/externals/</link><pubDate>Thu, 26 Oct 2023 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/externals/</guid><description>Overview This guide is a walkthrough that exposes Microcks extension capabilities and explains how to leverage them.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Installation on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/documentation/guides/installation/</link><description>Recent content in Installation on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/documentation/guides/installation/index.xml" rel="self" type="application/rss+xml"/><item><title>As a Docker Desktop Extension</title><link>https://microcks.io/documentation/guides/installation/docker-desktop-extension/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/docker-desktop-extension/</guid><description>&lt;p&gt;This guide shows you how to install Microcks as a Docker Desktop Extension on your local machine. This way of installing Microcks is very convenient for people who want to start quickly with the most common Microcks capabilities and without hitting the terminal 👻&lt;/p&gt;</description></item><item><title>With Docker Compose</title><link>https://microcks.io/documentation/guides/installation/docker-compose/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/docker-compose/</guid><description>&lt;p&gt;This guide shows you how to install and run Microcks using Docker Compose.&lt;/p&gt;</description></item><item><title>With Podman Compose</title><link>https://microcks.io/documentation/guides/installation/podman-compose/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/podman-compose/</guid><description>&lt;p&gt;This guide shows you how to install and run Microcks using Docker Compose.&lt;/p&gt;</description></item><item><title>On Kind with Helm</title><link>https://microcks.io/documentation/guides/installation/kind-helm/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/kind-helm/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide will walk you through the different steps of running a full Microcks installation on your laptop using &lt;a href="https://kind.sigs.k8s.io"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Kind&lt;/a&gt;. Step #4 is actually optional and may only be of interest if you&amp;rsquo;d like to use the Asynchronous features of Microcks.&lt;/p&gt;</description></item><item><title>On Minikube with Helm</title><link>https://microcks.io/documentation/guides/installation/minikube-helm/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/minikube-helm/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide will walk you through the different steps of running a full Microcks installation on your laptop using &lt;a href="https://minikube.sigs.k8s.io/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Minikube&lt;/a&gt;. Step #4 is actually optional and may only be of interest if you&amp;rsquo;d like to use the Asynchronous features of Microcks.&lt;/p&gt;</description></item><item><title>On Kubernetes with Operator</title><link>https://microcks.io/documentation/guides/installation/kubernetes-operator/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/kubernetes-operator/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide shows you how to deploy and use the &lt;a href="https://github.com/microcks/microcks-operator"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Microcks Kubernetes Operator&lt;/a&gt;. If you&amp;rsquo;re not familiar with Operators, we recommend having a read of this &lt;a href="https://www.cncf.io/blog/2022/06/15/kubernetes-operators-what-are-they-some-examples/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;excellent introduction on Kubernetes Operators&lt;/a&gt; and their benefits.&lt;/p&gt;</description></item><item><title>Adding external dependencies</title><link>https://microcks.io/documentation/guides/installation/externals/</link><pubDate>Thu, 26 Oct 2023 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/installation/externals/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide is a walkthrough that exposes Microcks extension capabilities and explains how to leverage them. By the end of this tour, you should be able to apply your customizations and figure out the possibilities it offers.&lt;/p&gt;</description></item></channel></rss>
