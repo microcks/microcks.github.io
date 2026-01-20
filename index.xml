@@ -301,7 +301,7 @@ This is hands-on introduction to &lt;a href="https://microcks.io/documentation/r
  
 
 
-&gt;API or Service mocks&lt;/a&gt;, you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the &lt;strong&gt;NEW TEST&amp;hellip;&lt;/strong&gt; button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:&lt;/p&gt;</description></item><item><title>RabbitMQ Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</link><pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&gt;API or Service mocks&lt;/a&gt;, you have the ability to launch new tests against different endpoints that may represent different environments in your development process. Hitting the &lt;strong&gt;NEW TEST&amp;hellip;&lt;/strong&gt; button leads you to the following form, where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:&lt;/p&gt;</description></item><item><title>RabbitMQ Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</link><pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/rabbitmq-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;This guide shows you how to use the &lt;a href="https://www.rabbitmq.com/"
 
 
