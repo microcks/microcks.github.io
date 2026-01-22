@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Latest News on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/blog/</link><description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 12 Jan 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Testing Google Pub/Sub Locally? Microcks Now Supports the Emulator!</title><link>https://microcks.io/blog/google-pubsub-emulator-usage-dojo/</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0100</pubDate><guid>https://microcks.io/blog/google-pubsub-emulator-usage-dojo/</guid><description>&lt;p&gt;At &lt;a href="https://dojo.tech/"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Latest News on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/blog/</link><description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 21 Jan 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic Mocking with JavaScript Dispatchers in Microcks</title><link>https://microcks.io/blog/js-dispatchers/</link><pubDate>Wed, 21 Jan 2026 00:00:00 +0100</pubDate><guid>https://microcks.io/blog/js-dispatchers/</guid><description>&lt;p&gt;One of the most exciting new features introduced in &lt;a href="https://microcks.io/blog/microcks-1.13.0-release/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;&lt;strong&gt;Microcks 1.13&lt;/strong&gt;&lt;/a&gt; is the ability to write &lt;a href="https://microcks.io/documentation/explanations/dispatching/#javascript-scripting"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;&lt;strong&gt;JavaScript dispatchers&lt;/strong&gt;&lt;/a&gt;.
+This gives you fine-grained control over how mock responses are selected and tailored—based not only on static examples but also on request headers, payloads, and parameters.&lt;/p&gt;</description></item><item><title>Testing Google Pub/Sub Locally? Microcks Now Supports the Emulator!</title><link>https://microcks.io/blog/google-pubsub-emulator-usage-dojo/</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0100</pubDate><guid>https://microcks.io/blog/google-pubsub-emulator-usage-dojo/</guid><description>&lt;p&gt;At &lt;a href="https://dojo.tech/"
 
 
 
