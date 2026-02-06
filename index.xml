@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>API Mocking and Testing | Microcks.io</title><link>https://microcks.io/</link><description>Recent content on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenAPI Conventions</title><link>https://microcks.io/documentation/references/artifacts/openapi-conventions/</link><pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/artifacts/openapi-conventions/</guid><description>&lt;h2 id="conventions"&gt;Conventions&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>API Mocking and Testing | Microcks.io</title><link>https://microcks.io/</link><description>Recent content on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 06 Feb 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenAPI Conventions</title><link>https://microcks.io/documentation/references/artifacts/openapi-conventions/</link><pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/artifacts/openapi-conventions/</guid><description>&lt;h2 id="conventions"&gt;Conventions&lt;/h2&gt;
 &lt;p&gt;In addition of schema information, Microcks uses &lt;a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject"
 
 
@@ -321,7 +321,8 @@ This is hands-on introduction to &lt;a href="https://microcks.io/documentation/r
 
 
 &gt;AMQP 0.9.1&lt;/a&gt;, RabbitMQ was originally developed for.&lt;/p&gt;</description></item><item><title>Snapshotting/restoring Repository</title><link>https://microcks.io/documentation/guides/administration/snapshots/</link><pubDate>Mon, 18 Nov 2019 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/administration/snapshots/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
-&lt;p&gt;This guide will teach you about Microcks &lt;em&gt;Snapshots&lt;/em&gt; and their use-case sweet spots. As an administrator, you will learn how to select the elements you would like to snapshot and how to import a previous Snapshot to restore content.&lt;/p&gt;</description></item><item><title>gRPC Conventions</title><link>https://microcks.io/documentation/references/artifacts/grpc-conventions/</link><pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/artifacts/grpc-conventions/</guid><description>&lt;p&gt;In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in &lt;a href="https://microcks.io/documentation/explanations/multi-artifacts"
+&lt;p&gt;This guide will teach you about Microcks &lt;em&gt;Snapshots&lt;/em&gt; and their use-case sweet spots. As an administrator, you will learn how to select the elements you would like to snapshot and how to import a previous Snapshot to restore content.&lt;/p&gt;</description></item><item><title>Simulating OpenAPI Callbacks</title><link>https://microcks.io/documentation/guides/usage/openapi-callbacks/</link><pubDate>Fri, 06 Feb 2026 00:00:00 +0100</pubDate><guid>https://microcks.io/documentation/guides/usage/openapi-callbacks/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;In OpenAPI v3 specs, you can define callbacks – asynchronous, out-of-band requests that your service will send to some other service in response to certain events. These notifications will be “out-of-band”, that is, they will go through a connection other than the connection through which a visitor works, and they will be asynchronous, as they will be out of the regular request-response flow&lt;/p&gt;</description></item><item><title>gRPC Conventions</title><link>https://microcks.io/documentation/references/artifacts/grpc-conventions/</link><pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/artifacts/grpc-conventions/</guid><description>&lt;p&gt;In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in &lt;a href="https://microcks.io/documentation/explanations/multi-artifacts"
 
 
 
@@ -375,8 +376,7 @@ This is hands-on introduction to &lt;a href="https://microcks.io/documentation/r
  
 
 
-&gt;full list of clients&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Generating Direct API</title><link>https://microcks.io/documentation/guides/usage/direct-api/</link><pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/direct-api/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
-&lt;p&gt;Even though Microcks promotes a contract-first approach for defining mocks, starting that way in real life may be difficult without a great maturity in API and Service contracts. You often need to play a bit with a fake API to really figure out their needs and how you should design an API contract. To help with this situation, Microcks offers the ability to &lt;strong&gt;directly generate an API&lt;/strong&gt; that you may use as a sandbox.&lt;/p&gt;</description></item><item><title>API Examples Format</title><link>https://microcks.io/documentation/references/examples/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/examples/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&gt;full list of clients&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>API Examples Format</title><link>https://microcks.io/documentation/references/examples/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/examples/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;APIExamples&lt;/code&gt; format is Microcks&amp;rsquo; own specification format for defining examples intended to be used by Microcks mocks. It can be seen as a lightweight, general purpose specification to solely serve the need to provide mock datasets. The goal of this specification is to keep the Microcks adoption curve very smooth with development teams but also for non developers.&lt;/p&gt;</description></item><item><title>Postman Conventions</title><link>https://microcks.io/documentation/references/artifacts/postman-conventions/</link><pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/artifacts/postman-conventions/</guid><description>&lt;h2 id="conventions"&gt;Conventions&lt;/h2&gt;
 &lt;p&gt;In order to be correctly imported and understood by Microcks, your &lt;a href="https://www.postman.com/collection/"
 
@@ -387,35 +387,7 @@ This is hands-on introduction to &lt;a href="https://microcks.io/documentation/r
  
 
 
-&gt;Postman Collection&lt;/a&gt; should follow a little set of reasonable conventions and best practices.&lt;/p&gt;</description></item><item><title>Developing with Testcontainers</title><link>https://microcks.io/documentation/guides/usage/developing-testcontainers/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/developing-testcontainers/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
-&lt;p&gt;This guide will provide you with pointers on how to embed Microcks into your unit tests with the help of &lt;a href="https://testcontainers.com"
-
-
-
-
- target="_blank"
- 
-
-
-&gt;Testcontainers&lt;/a&gt;. The project now provides official modules for &lt;a href="https://testcontainers.com"
-
-
-
-
- target="_blank"
- 
-
-
-&gt;Testcontainers&lt;/a&gt; via a partnership with &lt;a href="https://atomicjar.com/"
-
-
-
-
- target="_blank"
- 
-
-
-&gt;AtomicJar&lt;/a&gt;, the company behind this fantastic library!&lt;/p&gt;</description></item><item><title>Your 1st AsyncAPI on Kafka mock</title><link>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&gt;Postman Collection&lt;/a&gt; should follow a little set of reasonable conventions and best practices.&lt;/p&gt;</description></item><item><title>Your 1st AsyncAPI on Kafka mock</title><link>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/tutorials/first-asyncapi-mock/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;This tutorial is a step-by-step walkthrough on how to use &lt;a href="https://www.asyncapi.com/"
 
 
@@ -466,7 +438,8 @@ This is hands-on introduction to &lt;a href="https://microcks.io/documentation/r
  
 
 
-&gt;Service Account&lt;/a&gt; and so it&amp;rsquo;s definitely worth the read 😉&lt;/p&gt;</description></item><item><title>Testcontainers Modules</title><link>https://microcks.io/documentation/references/testcontainers-modules/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/testcontainers-modules/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&gt;Service Account&lt;/a&gt; and so it&amp;rsquo;s definitely worth the read 😉&lt;/p&gt;</description></item><item><title>Generating Direct API</title><link>https://microcks.io/documentation/guides/usage/direct-api/</link><pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/direct-api/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Even though Microcks promotes a contract-first approach for defining mocks, starting that way in real life may be difficult without a great maturity in API and Service contracts. You often need to play a bit with a fake API to really figure out their needs and how you should design an API contract. To help with this situation, Microcks offers the ability to &lt;strong&gt;directly generate an API&lt;/strong&gt; that you may use as a sandbox.&lt;/p&gt;</description></item><item><title>Testcontainers Modules</title><link>https://microcks.io/documentation/references/testcontainers-modules/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/testcontainers-modules/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;As introduced in our &lt;a href="https://microcks.io/documentation/guides/usage/developing-testcontainers"
 
 
@@ -520,7 +493,35 @@ This is hands-on introduction to &lt;a href="https://microcks.io/documentation/r
 
 
 &gt;.NET&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>SoapUI Conventions</title><link>https://microcks.io/documentation/references/artifacts/soapui-conventions/</link><pubDate>Mon, 27 May 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/references/artifacts/soapui-conventions/</guid><description>&lt;h2 id="conventions"&gt;Conventions&lt;/h2&gt;
-&lt;p&gt;In order to be correctly imported and understood by Microcks, your SoapUI project should follow a little set of reasonable conventions and best practices.&lt;/p&gt;</description></item><item><title>SQS/SNS Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</link><pubDate>Tue, 06 Jun 2023 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;In order to be correctly imported and understood by Microcks, your SoapUI project should follow a little set of reasonable conventions and best practices.&lt;/p&gt;</description></item><item><title>Developing with Testcontainers</title><link>https://microcks.io/documentation/guides/usage/developing-testcontainers/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/developing-testcontainers/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This guide will provide you with pointers on how to embed Microcks into your unit tests with the help of &lt;a href="https://testcontainers.com"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Testcontainers&lt;/a&gt;. The project now provides official modules for &lt;a href="https://testcontainers.com"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Testcontainers&lt;/a&gt; via a partnership with &lt;a href="https://atomicjar.com/"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;AtomicJar&lt;/a&gt;, the company behind this fantastic library!&lt;/p&gt;</description></item><item><title>SQS/SNS Mocking &amp; Testing</title><link>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</link><pubDate>Tue, 06 Jun 2023 00:00:00 +0200</pubDate><guid>https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/</guid><description>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
 &lt;p&gt;This guide shows you how to use a &lt;a href="https://aws.amazon.com/sqs/"
 
 
