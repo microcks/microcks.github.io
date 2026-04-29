@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Latest News on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/blog/</link><description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 21 Jan 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic Mocking with JavaScript Dispatchers in Microcks</title><link>https://microcks.io/blog/js-dispatchers/</link><pubDate>Wed, 21 Jan 2026 00:00:00 +0100</pubDate><guid>https://microcks.io/blog/js-dispatchers/</guid><description>&lt;p&gt;One of the most exciting new features introduced in &lt;a href="https://microcks.io/blog/microcks-1.13.0-release/"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Latest News on API Mocking and Testing | Microcks.io</title><link>https://microcks.io/blog/</link><description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Microcks 1.14.0 release 🚀</title><link>https://microcks.io/blog/microcks-1.14.0-release/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate><guid>https://microcks.io/blog/microcks-1.14.0-release/</guid><description>&lt;p&gt;We are thrilled to announce the &lt;code&gt;1.14.0&lt;/code&gt; release of Microcks, the &lt;a href="https://landscape.cncf.io/?selected=microcks"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;CNCF&lt;/a&gt;&amp;rsquo;s open-source cloud-native tool for API Mocking and Testing! 🚀&lt;/p&gt;</description></item><item><title>Dynamic Mocking with JavaScript Dispatchers in Microcks</title><link>https://microcks.io/blog/js-dispatchers/</link><pubDate>Wed, 21 Jan 2026 00:00:00 +0100</pubDate><guid>https://microcks.io/blog/js-dispatchers/</guid><description>&lt;p&gt;One of the most exciting new features introduced in &lt;a href="https://microcks.io/blog/microcks-1.13.0-release/"
 
 
 
